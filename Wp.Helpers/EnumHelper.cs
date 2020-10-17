@@ -19,7 +19,7 @@ namespace Wp.Helpers
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static int GetEnumCount<T>()
+        public static int GetEnumCount<T>() where T : class
         {
             return typeof(T).GetFields(BindingFlags.Public | BindingFlags.Static).Length;
         }
@@ -30,7 +30,7 @@ namespace Wp.Helpers
         /// </summary>
         /// <typeparam name="T">枚举</typeparam>
         /// <returns></returns>}
-        public static ObservableCollection<string> GetAllDescriptions<T>()
+        public static ObservableCollection<string> GetAllDescriptions<T>() where T : class
         {
             var collection = new ObservableCollection<string>();
             FieldInfo[] fields = typeof(T).GetFields();
@@ -71,7 +71,7 @@ namespace Wp.Helpers
         /// <typeparam name="T">枚举</typeparam>
         /// <param name="description">枚举描述</param>
         /// <returns></returns>
-        public static string GetEnumNameByDescription<T>(string description)
+        public static string GetEnumNameByDescription<T>(string description) where T : class
         {
             var str = string.Empty;
             FieldInfo[] fields = typeof(T).GetFields();
@@ -92,7 +92,7 @@ namespace Wp.Helpers
         /// </summary>
         /// <typeparam name="T">枚举</typeparam>
         /// <returns></returns>
-        public static Dictionary<string, string> GetEnumDescriptionKeyIsName<T>()
+        public static Dictionary<string, string> GetEnumDescriptionKeyIsName<T>() where T : class
         {
             var dic = new Dictionary<string, string>();
             FieldInfo[] fields = typeof(T).GetFields();
@@ -113,7 +113,7 @@ namespace Wp.Helpers
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Dictionary<string, byte> GetEnumValueKeyIsDescription<T>()
+        public static Dictionary<string, byte> GetEnumValueKeyIsDescription<T>() where T : class
         {
             var dic = new Dictionary<string, byte>();
             FieldInfo[] fields = typeof(T).GetFields();
@@ -134,7 +134,7 @@ namespace Wp.Helpers
         /// </summary>
         /// <typeparam name="T">枚举</typeparam>
         /// <returns></returns>
-        public static Dictionary<byte, string> GetEnumDescriptionKeyIsValue<T>()
+        public static Dictionary<byte, string> GetEnumDescriptionKeyIsValue<T>() where T : class
         {
             Dictionary<byte, string> dic = new Dictionary<byte, string>();
             FieldInfo[] fields = typeof(T).GetFields();
