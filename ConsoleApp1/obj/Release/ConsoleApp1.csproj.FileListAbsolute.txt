@@ -1,0 +1,6 @@
+E:\0x04-MyDll\ConsoleApp1\ConsoleApp1\bin\Release\ConsoleApp1.exe.config
+E:\0x04-MyDll\ConsoleApp1\ConsoleApp1\bin\Release\ConsoleApp1.exe
+E:\0x04-MyDll\ConsoleApp1\ConsoleApp1\bin\Release\ConsoleApp1.pdb
+E:\0x04-MyDll\ConsoleApp1\ConsoleApp1\obj\Release\ConsoleApp1.csproj.CoreCompileInputs.cache
+E:\0x04-MyDll\ConsoleApp1\ConsoleApp1\obj\Release\ConsoleApp1.exe
+E:\0x04-MyDll\ConsoleApp1\ConsoleApp1\obj\Release\ConsoleApp1.pdb

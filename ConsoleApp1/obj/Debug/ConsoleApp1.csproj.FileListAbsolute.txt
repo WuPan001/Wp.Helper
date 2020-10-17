@@ -1,0 +1,14 @@
+E:\0x04-MyDll\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+E:\0x04-MyDll\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+E:\0x04-MyDll\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+E:\0x04-MyDll\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csprojAssemblyReference.cache
+E:\0x04-MyDll\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+E:\0x04-MyDll\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+E:\0x04-MyDll\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+D:\Git\Wp.Helper\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+D:\Git\Wp.Helper\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+D:\Git\Wp.Helper\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+D:\Git\Wp.Helper\ConsoleApp1\obj\Debug\ConsoleApp1.csprojAssemblyReference.cache
+D:\Git\Wp.Helper\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+D:\Git\Wp.Helper\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+D:\Git\Wp.Helper\ConsoleApp1\obj\Debug\ConsoleApp1.pdb

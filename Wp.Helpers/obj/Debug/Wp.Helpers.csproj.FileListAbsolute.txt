@@ -1,0 +1,12 @@
+E:\0x04-MyDll\ConsoleApp1\Wp.Helpers\bin\Debug\Wp.Helpers.dll
+E:\0x04-MyDll\ConsoleApp1\Wp.Helpers\bin\Debug\Wp.Helpers.pdb
+E:\0x04-MyDll\ConsoleApp1\Wp.Helpers\obj\Debug\Wp.Helpers.csprojAssemblyReference.cache
+E:\0x04-MyDll\ConsoleApp1\Wp.Helpers\obj\Debug\Wp.Helpers.csproj.CoreCompileInputs.cache
+E:\0x04-MyDll\ConsoleApp1\Wp.Helpers\obj\Debug\Wp.Helpers.dll
+E:\0x04-MyDll\ConsoleApp1\Wp.Helpers\obj\Debug\Wp.Helpers.pdb
+D:\Git\Wp.Helper\Wp.Helpers\bin\Debug\Wp.Helpers.dll
+D:\Git\Wp.Helper\Wp.Helpers\bin\Debug\Wp.Helpers.pdb
+D:\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.csprojAssemblyReference.cache
+D:\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.csproj.CoreCompileInputs.cache
+D:\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.dll
+D:\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.pdb
