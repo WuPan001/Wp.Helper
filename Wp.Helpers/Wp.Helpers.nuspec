@@ -2,16 +2,16 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>$version$</version>
+    <version>1.0.1</version>
     <title>$title$</title>
-    <authors>WuPan001/Wp</authors>
+    <authors>WuPan</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/WuPan001/Wp.Helper.git</projectUrl>
-    <iconUrl>https://github.com/WuPan001/Wp.Icon.git</iconUrl>
+    <iconUrl>https://github.com/WuPan001/Wp.Icon.git/Wp.Logo.icon.ico</iconUrl>
     <description>帮助类</description>
     <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
-    <copyright>$copyright$</copyright>
+    <copyright>copyright@2020WuPan4Free</copyright>
     <tags>Tag1 Tag2</tags>
   </metadata>
 </package>
