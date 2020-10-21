@@ -6,7 +6,6 @@ E:\0x04-MyDll\ConsoleApp1\Wp.Helpers\obj\Release\Wp.Helpers.dll
 E:\0x04-MyDll\ConsoleApp1\Wp.Helpers\obj\Release\Wp.Helpers.pdb
 D:\Git\Wp.Helper\Wp.Helpers\bin\Release\Wp.Helpers.dll
 D:\Git\Wp.Helper\Wp.Helpers\bin\Release\Wp.Helpers.pdb
-D:\Git\Wp.Helper\Wp.Helpers\obj\Release\Wp.Helpers.csprojAssemblyReference.cache
 D:\Git\Wp.Helper\Wp.Helpers\obj\Release\Wp.Helpers.csproj.CoreCompileInputs.cache
 D:\Git\Wp.Helper\Wp.Helpers\obj\Release\Wp.Helpers.dll
 D:\Git\Wp.Helper\Wp.Helpers\obj\Release\Wp.Helpers.pdb

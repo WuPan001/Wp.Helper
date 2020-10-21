@@ -63,9 +63,9 @@ namespace Wp.Helpers.Properties {
         /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Icon Wp_Logo_icon {
+        internal static System.Drawing.Icon Wp_Logo {
             get {
-                object obj = ResourceManager.GetObject("Wp_Logo_icon", resourceCulture);
+                object obj = ResourceManager.GetObject("Wp_Logo", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
