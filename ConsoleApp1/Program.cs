@@ -32,7 +32,6 @@ namespace ConsoleApp1
                 //{
                 //    Console.WriteLine(item);
                 //}
-
                 #endregion 文件帮助类测试
 
                 #region math帮助类测试

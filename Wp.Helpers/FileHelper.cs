@@ -76,7 +76,7 @@ namespace Wp.Helpers
         }
 
         /// <summary>
-        /// 获取所有文件全路径
+        /// 获取文件夹下所有子文件全路径
         /// </summary>
         /// <param name="showNewFolderButton">是否显示新建文件夹按钮</param>
         /// <param name="rootFolder">根目录</param>
@@ -129,6 +129,31 @@ namespace Wp.Helpers
                 {
                     res.Add(item.FullName);
                 }
+            }
+            else
+            {
+                //
+            }
+            return res;
+        }
+
+        /// <summary>
+        /// 获取文件夹完整路径
+        /// </summary>
+        /// <param name="rootFolder">根目录</param>
+        /// <param name="description">描述</param>
+        /// <returns></returns>
+        public static string GetDirectory(Environment.SpecialFolder rootFolder = Environment.SpecialFolder.Desktop, string description = "请选择文件夹")
+        {
+            var res = string.Empty;
+            using var open = new FolderBrowserDialog
+            {
+                Description = description,
+                RootFolder = rootFolder
+            };
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                res = open.SelectedPath;
             }
             else
             {
