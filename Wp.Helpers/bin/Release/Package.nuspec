@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package >
   <metadata>
-    <id>$id$</id>
-    <version>1.0.1</version>
-    <title>$title$</title>
+    <id>Wp.Helpers</id>
+    <version>1.0.2</version>
     <authors>WuPan</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/WuPan001/Wp.Helper.git</projectUrl>
-    <iconUrl>https://github.com/WuPan001/Wp.Icon.git/Wp.Logo.icon.ico</iconUrl>
+    <iconUrl>https://github.com/WuPan001/Wp.Icon/blob/main/NugetLogo.png</iconUrl>
     <description>帮助类</description>
     <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
-    <copyright>copyright@2020WuPan4Free</copyright>
-    <tags>Tag1 Tag2</tags>
-  </metadata>
+    <copyright>copyright@2020WuPan</copyright>
+    <tags>wp helper wp.helper</tags>
+     </metadata>
 </package>
