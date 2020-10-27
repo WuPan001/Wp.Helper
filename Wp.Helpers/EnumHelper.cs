@@ -71,10 +71,21 @@ namespace Wp.Helpers
         /// <typeparam name="T">枚举</typeparam>
         /// <param name="description">枚举描述</param>
         /// <returns></returns>
-        public static string GetEnumNameByDescription<T>(string description) where T : class
+        public static string GetEnumNameByDescription<T>(string description)
+        {
+            return GetEnumNameByDescription(description, typeof(T));
+        }
+
+        /// <summary>
+        /// 根据枚举描述获取枚举名
+        /// </summary>
+        /// <param name="description">枚举描述</param>
+        /// <param name="type">枚举类型</param>
+        /// <returns></returns>
+        public static string GetEnumNameByDescription(string description, Type type)
         {
             var str = string.Empty;
-            FieldInfo[] fields = typeof(T).GetFields();
+            FieldInfo[] fields = type.GetFields();
             foreach (FieldInfo field in fields)
             {
                 if (field.FieldType.IsEnum)
@@ -113,7 +124,7 @@ namespace Wp.Helpers
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Dictionary<string, byte> GetEnumValueKeyIsDescription<T>() where T : class
+        public static Dictionary<string, byte> GetEnumValueKeyIsDescription<T>()
         {
             var dic = new Dictionary<string, byte>();
             FieldInfo[] fields = typeof(T).GetFields();

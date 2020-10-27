@@ -1,0 +1,377 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wp.Helpers</name>
+    </assembly>
+    <members>
+        <member name="T:Wp.Helpers.ByteArrayHelper">
+            <summary>
+            字节数组帮助类
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.ByteArrayHelper.EEndType">
+            <summary>
+            大端小端枚举
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.ByteArrayHelper.EEndType.BigEnd">
+            <summary>
+            大端：是指数据的低位保存在内存的高地址中，而数据的高位，保存在内存的低地址中
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.ByteArrayHelper.EEndType.LittleEnd">
+            <summary>
+            小端：是指数据的低位保存在内存的低地址中，而数据的高位，保存在内存的高地址中
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.ByteArrayHelper.ByteArrayToUshort(System.Byte[])">
+            <summary>
+            用于字节数组转ushort
+            </summary>
+            <param name="data">字节数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ByteArrayHelper.ByteArrayToUshort(System.Byte[],System.Byte,System.Byte)">
+            <summary>
+            用于字节数组转ushort
+            数组长度默认为2
+            </summary>
+            <param name="data"></param>
+            <param name="index"></param>
+            <param name="len"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ByteArrayHelper.UshortToByteArray(System.UInt16,Wp.Helpers.ByteArrayHelper.EEndType)">
+            <summary>
+            ushort转字节数组
+            </summary>
+            <param name="data">ushort数据</param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ByteArrayHelper.LocalMacToByteArray">
+            <summary>
+            本地MAC转Byte数组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.ConverterHelper">
+            <summary>
+            转换器帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.ConverterHelper.Convert``1(System.String)">
+             <summary>
+            
+             </summary>
+             <typeparam name="T"></typeparam>
+             <param name="value"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ConverterHelper.ConvertNormal``1(System.String)">
+            <summary>
+            将枚举值转换为图片
+            注意：图片格式必须为png
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.EncryptionHelper">
+            <summary>
+            加密解密帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.EncryptionHelper.GetMD5EncryptionCode(System.String)">
+            <summary>
+            MD5加密
+            </summary>
+            <param name="code">待加密字符串</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.EnumHelper">
+            <summary>
+            枚举帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.EnumHelper.GetEnumCount``1">
+            <summary>
+            获取枚举值数量
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.EnumHelper.GetAllDescriptions``1">
+            <summary>
+            获取所有枚举项描述
+            可用做填充Combobox
+            </summary>
+            <typeparam name="T">枚举</typeparam>
+            <returns></returns>}
+        </member>
+        <member name="M:Wp.Helpers.EnumHelper.GetEnumDescription(System.Enum)">
+            <summary>
+            获取枚举描述
+            </summary>
+            <param name="enumValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.EnumHelper.GetEnumNameByDescription``1(System.String)">
+            <summary>
+            根据枚举描述获取枚举名
+            </summary>
+            <typeparam name="T">枚举</typeparam>
+            <param name="description">枚举描述</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.EnumHelper.GetEnumNameByDescription(System.String,System.Type)">
+            <summary>
+            根据枚举描述获取枚举名
+            </summary>
+            <param name="description">枚举描述</param>
+            <param name="type">枚举类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.EnumHelper.GetEnumDescriptionKeyIsName``1">
+            <summary>
+            获取枚举描述和枚举值名
+            返回值为字典类型，key为枚举名，value为枚举描述
+            </summary>
+            <typeparam name="T">枚举</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.EnumHelper.GetEnumValueKeyIsDescription``1">
+            <summary>
+            获取枚举值和枚举描述
+            返回值为字典类型，key为枚举描述，value为枚举值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.EnumHelper.GetEnumDescriptionKeyIsValue``1">
+            <summary>
+            获取枚举描述和枚举值
+            返回值为字典类型，key为枚举值，value为枚举描述
+            </summary>
+            <typeparam name="T">枚举</typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Enums.EImgType">
+            <summary>
+            图片类型
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EImgType.PNG">
+            <summary>
+            png格式的图片
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EImgType.JPEG">
+            <summary>
+            jpg格式的图片
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EImgType.SVG">
+            <summary>
+            svg格式的图片
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.ExceptionHelper">
+            <summary>
+            异常帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.ExceptionHelper.PrintException``1(``0,System.Exception)">
+            <summary>
+            在控制台打印出异常信息
+            </summary>
+            <typeparam name="T">消息头类型，为string或stringbuilder</typeparam>
+            <param name="msg"></param>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ExceptionHelper.GetExceptionDetailByWeb(System.Exception)">
+            <summary>
+            获取异常详情
+            </summary>
+            <param name="ex">异常实例</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ExceptionHelper.GetExceptionDetailByApp(System.Exception)">
+            <summary>
+            获取异常详情
+            </summary>
+            <param name="ex">异常实例</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.FileHelper">
+            <summary>
+            文件帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.FileHelper.GetFilesFullName(System.Boolean,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取文件全名
+            </summary>
+            <param name="multiselect">是否可多选</param>
+            <param name="filter">过滤器</param>
+            <param name="initialDirectory">根目录</param>
+            <param name="title">标题</param>
+            <param name="defaultExt">文件默认扩展名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.FileHelper.GetFilesName(System.Environment.SpecialFolder,System.String,System.Collections.Generic.List{Wp.Helpers.Enums.EImgType})">
+            <summary>
+             获取文件夹下所有文件的文件名和全名
+            返回的字典中的key为文件名，value为文件全名
+            </summary>
+            <param name="rootFolder">根目录</param>
+            <param name="description">描述</param>
+            <param name="extensions">文件扩展名几何，其中文件扩展名形式如.exe</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.FileHelper.GetDirectoriesFullName(System.Boolean,System.Environment.SpecialFolder,System.String)">
+            <summary>
+            获取文件夹下所有子文件全路径
+            </summary>
+            <param name="showNewFolderButton">是否显示新建文件夹按钮</param>
+            <param name="rootFolder">根目录</param>
+            <param name="description">描述</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.FileHelper.GetFileSystemInfo(System.Environment.SpecialFolder,System.String)">
+            <summary>
+            获取文件夹下文件和子文件夹全名
+            </summary>
+            <param name="rootFolder">根目录</param>
+            <param name="description">描述</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.FileHelper.GetDirectory(System.Environment.SpecialFolder,System.String)">
+            <summary>
+            获取文件夹完整路径
+            </summary>
+            <param name="rootFolder">根目录</param>
+            <param name="description">描述</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.LocalMachineHelper">
+            <summary>
+            本地设备帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.LocalMachineHelper.GetCpuID">
+            <summary>
+            获取CPU序列号代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.LocalMachineHelper.GetMacAddress">
+            <summary>
+            获取网卡硬件地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.LocalMachineHelper.GetDiskID">
+            <summary>
+            获取硬盘ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.LocalMachineHelper.GetIPAddress">
+            <summary>
+            获取IP地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.LocalMachineHelper.GetUserName">
+            <summary>
+            操作系统的登录用户名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.LocalMachineHelper.GetComputerName">
+            <summary>
+            获取计算机名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.LocalMachineHelper.GetSystemType">
+            <summary>
+            系统类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.LocalMachineHelper.GetTotalPhysicalMemory">
+            <summary>
+            物理内存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.MathHelper">
+            <summary>
+            math帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.MathHelper.ToChinese(System.Decimal)">
+            <summary>
+            将金额转成中文大写
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Properties.Resources.Culture">
+            <summary>
+              重写当前线程的 CurrentUICulture 属性
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.PropertyHepler">
+            <summary>
+            属性帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.PropertyHepler.GetPropertyDescription``1(System.String)">
+            <summary>
+            获取属性描述
+            </summary>
+            <typeparam name="T">类类型</typeparam>
+            <param name="propertyName">属性名</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.SvgHelper">
+            <summary>
+            Svg格式图片帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.SvgHelper.GetGeometryPath(System.String)">
+            <summary>
+            获取图片图案几何路径
+            </summary>
+            <param name="filePath">图片文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.SvgHelper.GetGeometryStyle(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            获取图片图案几何路径样式
+            </summary>
+            <param name="fileInfo">图片文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.SvgHelper.SaveGeometryStyle(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            保存图片几何图案路径样式到文件
+            </summary>
+            <param name="fileInfo">图片文件路径</param>
+        </member>
+    </members>
+</doc>

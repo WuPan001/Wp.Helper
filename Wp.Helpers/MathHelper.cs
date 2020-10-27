@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Wp.Helpers
 {
+    /// <summary>
+    /// math帮助类
+    /// </summary>
     public class MathHelper
     {
         /// <summary>

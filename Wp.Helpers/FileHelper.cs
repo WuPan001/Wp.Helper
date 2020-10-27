@@ -8,9 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using Wp.Helpers.Enums;
 
 namespace Wp.Helpers
 {
+    /// <summary>
+    /// 文件帮助类
+    /// </summary>
     public class FileHelper
     {
         /// <summary>
@@ -48,12 +52,16 @@ namespace Wp.Helpers
         }
 
         /// <summary>
-        /// 获取文件夹下所有文件全名
+        ///  获取文件夹下所有文件的文件名和全名
+        /// 返回的字典中的key为文件名，value为文件全名
         /// </summary>
+        /// <param name="rootFolder">根目录</param>
+        /// <param name="description">描述</param>
+        /// <param name="extensions">文件扩展名几何，其中文件扩展名形式如.exe</param>
         /// <returns></returns>
-        public static ObservableCollection<string> GetFilesFullName(Environment.SpecialFolder rootFolder = Environment.SpecialFolder.Desktop, string description = "请选择文件夹")
+        public static Dictionary<string, string> GetFilesName(Environment.SpecialFolder rootFolder = Environment.SpecialFolder.Desktop, string description = "请选择文件夹", List<EImgType> extensions = null)
         {
-            var res = new ObservableCollection<string>();
+            var res = new Dictionary<string, string>();
             using var open = new FolderBrowserDialog
             {
                 Description = description,
@@ -61,11 +69,27 @@ namespace Wp.Helpers
             };
             if (open.ShowDialog() == DialogResult.OK)
             {
-                DirectoryInfo myDirectoryInfo = new DirectoryInfo(open.SelectedPath);
-                FileInfo[] myFileInfoArray = myDirectoryInfo.GetFiles();
+                var myDirectoryInfo = new DirectoryInfo(open.SelectedPath);
+                var myFileInfoArray = myDirectoryInfo.GetFiles();
+                var extension = string.Empty;
+                var dic = EnumHelper.GetEnumValueKeyIsDescription<EImgType>();
                 foreach (var item in myFileInfoArray)
                 {
-                    res.Add(item.FullName);
+                    extension = item.Extension;
+                    if (extensions != null)
+                    {
+                        if (dic.Keys.Contains(extension))
+                        {
+                            if (extensions.Contains((EImgType)dic[extension]))
+                            {
+                                res.Add(item.Name.Replace(extension, ""), item.FullName);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        res.Add(item.Name.Replace(extension, ""), item.FullName);
+                    }
                 }
             }
             else

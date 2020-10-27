@@ -2,15 +2,20 @@
 <package >
   <metadata>
     <id>Wp.Helpers</id>
-    <version>1.0.2</version>
+    <version>1.0.0.4</version>
     <authors>WuPan</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/WuPan001/Wp.Helper.git</projectUrl>
-    <iconUrl>https://github.com/WuPan001/Wp.Icon/blob/main/NugetLogo.png</iconUrl>
-    <description>帮助类</description>
+    <iconUrl>https://raw.githubusercontent.com/WuPan001/Wp.Icon/main/NugetLogo.png</iconUrl>
+    <description>帮助类
+		0.0 文件帮助类
+		0.1 math帮助类
+		0.2 enum帮助类
+		0.3 异常帮助类
+	</description>
     <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
-    <copyright>copyright@2020WuPan</copyright>
-    <tags>wp helper wp.helper</tags>
-     </metadata>
+    <copyright>copyright© 2020 WuPan</copyright>
+    <tags>wp wp.helper wp.helpers helper helpers</tags>
+  </metadata>
 </package>
