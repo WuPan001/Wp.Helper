@@ -353,23 +353,18 @@
             Svg格式图片帮助类
             </summary>
         </member>
-        <member name="M:Wp.Helpers.SvgHelper.GetGeometryPath(System.String,System.Byte,System.String[],System.Boolean)">
+        <member name="M:Wp.Helpers.SvgHelper.GetGeometryPath(System.String)">
             <summary>
             获取图片图案几何路径
             </summary>
             <param name="filePath">图片文件路径</param>
-            <param name="startIndex">拆分后，首个路径元素索引</param>
-            <param name="splits">拆分字符串集合，默认为null后，集合为 new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" }</param>
-            <param name="isEven">标识拆分后路径元素索引是否是偶数</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.SvgHelper.GetGeometryStyle(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.String)">
+        <member name="M:Wp.Helpers.SvgHelper.GetGeometryStyle(System.Collections.Generic.Dictionary{System.String,System.String})">
             <summary>
             获取图片图案几何路径样式
             </summary>
             <param name="fileInfo">图片文件路径</param>
-            <param name="brush">图案其他状态时的颜色，{StaticResource MainSolidColorBurshStyle} or #e0620d</param>
-            <param name="normalBrush">图案默认颜色，{StaticResource TertiaryTextSolidColorBurshStyle} or #707070</param>
             <returns></returns>
         </member>
         <member name="M:Wp.Helpers.SvgHelper.SaveGeometryStyle(System.Collections.Generic.Dictionary{System.String,System.String})">

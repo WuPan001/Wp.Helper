@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Wp.Helpers</id>
-    <version>1.0.0.4</version>
+    <version>1.0.1.0</version>
     <authors>WuPan</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
@@ -13,6 +13,13 @@
 		0.1 math帮助类
 		0.2 enum帮助类
 		0.3 异常帮助类
+		0.4 字节数组帮助类
+		0.5 加密解密帮助类
+		0.6 本地设备信息帮助类
+		0.7 SVG文件帮助类
+			0.7.0 获取文件中几何图形的路径
+			0.7.1 获取图片文件图案几何路径样式
+			0.7.2 保存图片文件图案几何路径样式到.xaml文件
 	</description>
     <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
     <copyright>copyright© 2020 WuPan</copyright>
