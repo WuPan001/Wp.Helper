@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Wp.Helpers</id>
-    <version>1.0.1.0</version>
+    <version>1.0.3</version>
     <authors>WuPan</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
@@ -23,6 +23,6 @@
 	</description>
     <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
     <copyright>copyright© 2020 WuPan</copyright>
-    <tags>wp wp.helper wp.helpers helper helpers</tags>
+    <tags>wp wp.helper wp.helpers svg</tags>
   </metadata>
 </package>

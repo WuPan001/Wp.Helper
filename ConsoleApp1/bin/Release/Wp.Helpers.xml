@@ -353,11 +353,12 @@
             Svg格式图片帮助类
             </summary>
         </member>
-        <member name="M:Wp.Helpers.SvgHelper.GetGeometryPath(System.String)">
+        <member name="M:Wp.Helpers.SvgHelper.GetGeometryPath(System.String,System.String[])">
             <summary>
             获取图片图案几何路径
             </summary>
             <param name="filePath">图片文件路径</param>
+            <param name="splits">拆分字符串集合，默认为null后，集合为 new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" }</param>
             <returns></returns>
         </member>
         <member name="M:Wp.Helpers.SvgHelper.GetGeometryStyle(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.String)">
