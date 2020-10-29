@@ -45,10 +45,11 @@ namespace Wp.Helpers
         /// 获取图片图案几何路径样式
         /// </summary>
         /// <param name="fileInfo">图片文件路径</param>
+        /// <param name="splits">拆分字符串集合，默认为null后，集合为 new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" }</param>
         /// <param name="brush">图案其他状态时的颜色，{StaticResource SecondarySolidColorBurshStyle} or #FF8000</param>
         /// <param name="normalBrush">图案默认颜色，{StaticResource TertiaryTextSolidColorBurshStyle} or #707070</param>
         /// <returns></returns>
-        public static Dictionary<string, string> GetGeometryStyle(Dictionary<string, string> fileInfo,
+        public static Dictionary<string, string> GetGeometryStyle(Dictionary<string, string> fileInfo, string[] splits = null,
             string brush = "{StaticResource SecondarySolidColorBurshStyle}", string normalBrush = "{StaticResource TertiaryTextSolidColorBurshStyle}")
         {
             var res = new Dictionary<string, string>();
@@ -56,7 +57,7 @@ namespace Wp.Helpers
             foreach (var item in fileInfo.Keys)
             {
                 content.Clear();
-                content.AppendLine($"<Geometry x:Key=\"{item}Geometry\">{GetGeometryPath(fileInfo[item])}</Geometry>");
+                content.AppendLine($"<Geometry x:Key=\"{item}Geometry\">{GetGeometryPath(fileInfo[item], splits)}</Geometry>");
                 content.AppendLine($"<DrawingImage x:Key=\"{item}\">");
                 content.AppendLine("<DrawingImage.Drawing>");
                 content.AppendLine("<DrawingGroup>");
@@ -88,13 +89,18 @@ namespace Wp.Helpers
         /// 保存图片几何图案路径样式到文件
         /// </summary>
         /// <param name="fileInfo">图片文件路径</param>
-        public static void SaveGeometryStyle(Dictionary<string, string> fileInfo)
+        /// <param name="splits">拆分字符串集合，默认为null后，集合为 new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" }</param>
+        /// <param name="brush">图案其他状态时的颜色，{StaticResource SecondarySolidColorBurshStyle} or #FF8000</param>
+        /// <param name="normalBrush">图案默认颜色，{StaticResource TertiaryTextSolidColorBurshStyle} or #707070</param>
+        /// <param name="isOpenFolder">保存完成后是否打开文件夹</param>
+        public static void SaveGeometryStyle(Dictionary<string, string> fileInfo, string[] splits = null,
+            string brush = "{StaticResource SecondarySolidColorBurshStyle}", string normalBrush = "{StaticResource TertiaryTextSolidColorBurshStyle}", bool isOpenFolder = true)
         {
             var saveDirectory = $"{FileHelper.GetDirectory()}//{DateTime.Now:yyyyMMddHHmmss}";
             var savePath = $"{saveDirectory}//GeometryStyles.xaml";
             Directory.CreateDirectory(saveDirectory);
             File.Create(savePath).Close();
-            var styles = GetGeometryStyle(fileInfo);
+            var styles = GetGeometryStyle(fileInfo, splits, brush, normalBrush);
             var sb = new StringBuilder();
             sb.AppendLine("<ResourceDictionary xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\"");
             sb.AppendLine(" xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\">");
@@ -104,6 +110,10 @@ namespace Wp.Helpers
             }
             sb.Append("</ResourceDictionary>");
             File.WriteAllText(savePath, sb.ToString());
+            if (isOpenFolder)
+            {
+                System.Diagnostics.Process.Start(saveDirectory);
+            }
         }
     }
 }
