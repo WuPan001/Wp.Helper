@@ -24,7 +24,7 @@ namespace Wp.Helpers
             if (File.Exists(filePath))
             {
                 var text = File.ReadAllText(filePath);
-                var temp = text.Split(splits == null ? new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" } : splits, 1024, StringSplitOptions.RemoveEmptyEntries);
+                var temp = text.Split(splits ?? (new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" }), 1024, StringSplitOptions.RemoveEmptyEntries);
                 for (byte i = 0; i < temp.Length; i++)
                 {
                     if (temp[i][0] == 'M' && temp[i][temp[i].Length - 1] == 'z')
@@ -45,11 +45,11 @@ namespace Wp.Helpers
         /// 获取图片图案几何路径样式
         /// </summary>
         /// <param name="fileInfo">图片文件路径</param>
-        /// <param name="brush">图案其他状态时的颜色，{StaticResource MainSolidColorBurshStyle} or #e0620d</param>
+        /// <param name="brush">图案其他状态时的颜色，{StaticResource SecondarySolidColorBurshStyle} or #FF8000</param>
         /// <param name="normalBrush">图案默认颜色，{StaticResource TertiaryTextSolidColorBurshStyle} or #707070</param>
         /// <returns></returns>
         public static Dictionary<string, string> GetGeometryStyle(Dictionary<string, string> fileInfo,
-            string brush = "{StaticResource MainSolidColorBurshStyle}", string normalBrush = "{StaticResource TertiaryTextSolidColorBurshStyle}")
+            string brush = "{StaticResource SecondarySolidColorBurshStyle}", string normalBrush = "{StaticResource TertiaryTextSolidColorBurshStyle}")
         {
             var res = new Dictionary<string, string>();
             var content = new StringBuilder();

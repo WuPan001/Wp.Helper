@@ -60,21 +60,42 @@
             转换器帮助类
             </summary>
         </member>
-        <member name="M:Wp.Helpers.ConverterHelper.Convert``1(System.String)">
-             <summary>
-            
-             </summary>
-             <typeparam name="T"></typeparam>
-             <param name="value"></param>
-             <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.ConverterHelper.ConvertNormal``1(System.String)">
+        <member name="M:Wp.Helpers.ConverterHelper.Convert``1(System.String,Wp.Helpers.Enums.EImgType)">
             <summary>
-            将枚举值转换为图片
-            注意：图片格式必须为png
+            将枚举描述转换为对应的资源图片路径
+            </summary>
+            <typeparam name="T">枚举类型</typeparam>
+            <param name="value">枚举描述</param>
+            <param name="imgType">图片文件类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ConverterHelper.Convert``1(``0,Wp.Helpers.Enums.EImgType)">
+            <summary>
+            将枚举值转换为对应的资源图片路径
+            </summary>
+            <typeparam name="T">枚举类型</typeparam>
+            <param name="value">枚举值</param>
+            <param name="imgType">图片文件类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ConverterHelper.Convert``1(System.String,System.String,Wp.Helpers.Enums.EImgType)">
+            <summary>
+            将枚举描述转换为对应的默认资源图片路径
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="value"></param>
+            <param name="value">枚举描述</param>
+            <param name="suffix">图片文件名后缀</param>
+            <param name="imgType">图片文件类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ConverterHelper.Convert``1(``0,System.String,Wp.Helpers.Enums.EImgType)">
+            <summary>
+            将枚举值转换为对应的默认资源图片路径
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value">枚举值</param>
+            <param name="suffix">图片文件名后缀</param>
+            <param name="imgType">图片文件类型</param>
             <returns></returns>
         </member>
         <member name="T:Wp.Helpers.EncryptionHelper">
@@ -366,7 +387,7 @@
             获取图片图案几何路径样式
             </summary>
             <param name="fileInfo">图片文件路径</param>
-            <param name="brush">图案其他状态时的颜色，{StaticResource MainSolidColorBurshStyle} or #e0620d</param>
+            <param name="brush">图案其他状态时的颜色，{StaticResource SecondarySolidColorBurshStyle} or #FF8000</param>
             <param name="normalBrush">图案默认颜色，{StaticResource TertiaryTextSolidColorBurshStyle} or #707070</param>
             <returns></returns>
         </member>

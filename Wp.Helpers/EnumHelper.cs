@@ -30,7 +30,7 @@ namespace Wp.Helpers
         /// </summary>
         /// <typeparam name="T">枚举</typeparam>
         /// <returns></returns>}
-        public static ObservableCollection<string> GetAllDescriptions<T>() where T : class
+        public static ObservableCollection<string> GetAllDescriptions<T>()
         {
             var collection = new ObservableCollection<string>();
             FieldInfo[] fields = typeof(T).GetFields();
@@ -103,7 +103,7 @@ namespace Wp.Helpers
         /// </summary>
         /// <typeparam name="T">枚举</typeparam>
         /// <returns></returns>
-        public static Dictionary<string, string> GetEnumDescriptionKeyIsName<T>() where T : class
+        public static Dictionary<string, string> GetEnumDescriptionKeyIsName<T>()
         {
             var dic = new Dictionary<string, string>();
             FieldInfo[] fields = typeof(T).GetFields();
@@ -145,7 +145,7 @@ namespace Wp.Helpers
         /// </summary>
         /// <typeparam name="T">枚举</typeparam>
         /// <returns></returns>
-        public static Dictionary<byte, string> GetEnumDescriptionKeyIsValue<T>() where T : class
+        public static Dictionary<byte, string> GetEnumDescriptionKeyIsValue<T>()
         {
             Dictionary<byte, string> dic = new Dictionary<byte, string>();
             FieldInfo[] fields = typeof(T).GetFields();

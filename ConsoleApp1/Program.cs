@@ -34,14 +34,14 @@ namespace ConsoleApp1
                 //{
                 //    Console.WriteLine(item);
                 //}
-                var dic = FileHelper.GetFilesName(extensions: new List<EImgType>() { EImgType.SVG });
+                //var dic = FileHelper.GetFilesName(extensions: new List<EImgType>() { EImgType.SVG });
                 //foreach (var item in dic.Keys)
                 //{
                 //    Console.WriteLine(item);
                 //    Console.WriteLine(dic[item]);
                 //    Console.WriteLine(File.ReadAllText(dic[item]));
                 //}
-                SvgHelper.SaveGeometryStyle(dic);
+                //SvgHelper.SaveGeometryStyle(dic);
                 #endregion 文件帮助类测试
 
                 #region math帮助类测试
@@ -52,7 +52,7 @@ namespace ConsoleApp1
 
                 #region
 
-                //
+                Console.WriteLine(ConverterHelper.Convert(EImgType.JPEG, EImgType.SVG));
 
                 #endregion
             }
