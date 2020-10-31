@@ -62,27 +62,40 @@
         </member>
         <member name="M:Wp.Helpers.ConverterHelper.Convert``1(System.String,Wp.Helpers.Enums.EImgType)">
             <summary>
-            将枚举描述转换为对应的图片路径
+            将枚举描述转换为对应的资源图片路径
             </summary>
-            <typeparam name="T"></typeparam>
-            <param name="value"></param>
+            <typeparam name="T">枚举类型</typeparam>
+            <param name="value">枚举描述</param>
+            <param name="imgType">图片文件类型</param>
             <returns></returns>
         </member>
         <member name="M:Wp.Helpers.ConverterHelper.Convert``1(``0,Wp.Helpers.Enums.EImgType)">
             <summary>
-            将枚举值转换为对应的图片路径
+            将枚举值转换为对应的资源图片路径
             </summary>
-            <typeparam name="T"></typeparam>
-            <param name="value"></param>
+            <typeparam name="T">枚举类型</typeparam>
+            <param name="value">枚举值</param>
+            <param name="imgType">图片文件类型</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.ConverterHelper.ConvertNormal``1(System.String)">
+        <member name="M:Wp.Helpers.ConverterHelper.Convert``1(System.String,System.String,Wp.Helpers.Enums.EImgType)">
             <summary>
-            将枚举值转换为图片默认样式
-            注意：图片格式必须为png
+            将枚举描述转换为对应的默认资源图片路径
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="value"></param>
+            <param name="value">枚举描述</param>
+            <param name="suffix">图片文件名后缀</param>
+            <param name="imgType">图片文件类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ConverterHelper.Convert``1(``0,System.String,Wp.Helpers.Enums.EImgType)">
+            <summary>
+            将枚举值转换为对应的默认资源图片路径
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value">枚举值</param>
+            <param name="suffix">图片文件名后缀</param>
+            <param name="imgType">图片文件类型</param>
             <returns></returns>
         </member>
         <member name="T:Wp.Helpers.EncryptionHelper">
@@ -228,14 +241,25 @@
             <param name="defaultExt">文件默认扩展名</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.FileHelper.GetFilesName(System.Environment.SpecialFolder,System.String,System.Collections.Generic.List{Wp.Helpers.Enums.EImgType})">
+        <member name="M:Wp.Helpers.FileHelper.GetFilesName(System.Environment.SpecialFolder,System.String,System.Collections.Generic.List{Wp.Helpers.Enums.EImgType},System.Boolean)">
             <summary>
-             获取文件夹下所有文件的文件名和全名
+            获取文件夹下所有文件的文件名和全名
             返回的字典中的key为文件名，value为文件全名
             </summary>
             <param name="rootFolder">根目录</param>
             <param name="description">描述</param>
-            <param name="extensions">文件扩展名几何，其中文件扩展名形式如.exe</param>
+            <param name="extensions">文件扩展名集合，其中文件扩展名形式如.exe</param>
+            <param name="isReturnExtension">标识返回字典中的key是否包含文件扩展名 如.exe</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.FileHelper.GetFilesName(System.String,System.Collections.Generic.List{Wp.Helpers.Enums.EImgType},System.Boolean)">
+            <summary>
+            获取文件夹下所有文件的文件名和全名
+            返回的字典中的key为文件名，value为文件全名
+            </summary>
+            <param name="path">文件夹路径</param>
+            <param name="extensions">文件扩展名集合，其中文件扩展名形式如.exe</param>
+            <param name="isReturnExtension">标识返回字典中的key是否包含文件扩展名 如.exe</param>
             <returns></returns>
         </member>
         <member name="M:Wp.Helpers.FileHelper.GetDirectoriesFullName(System.Boolean,System.Environment.SpecialFolder,System.String)">
@@ -247,12 +271,26 @@
             <param name="description">描述</param>
             <returns></returns>
         </member>
+        <member name="M:Wp.Helpers.FileHelper.GetDirectoriesFullName(System.String)">
+            <summary>
+            获取文件夹下所有子文件全路径
+            </summary>
+            <param name="path">文件夹路径</param>
+            <returns></returns>
+        </member>
         <member name="M:Wp.Helpers.FileHelper.GetFileSystemInfo(System.Environment.SpecialFolder,System.String)">
             <summary>
             获取文件夹下文件和子文件夹全名
             </summary>
             <param name="rootFolder">根目录</param>
             <param name="description">描述</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.FileHelper.GetFileSystemInfo(System.String)">
+            <summary>
+            获取文件夹下文件和子文件夹全名
+            </summary>
+            <param name="path">文件夹路径</param>
             <returns></returns>
         </member>
         <member name="M:Wp.Helpers.FileHelper.GetDirectory(System.Environment.SpecialFolder,System.String)">
@@ -262,6 +300,57 @@
             <param name="rootFolder">根目录</param>
             <param name="description">描述</param>
             <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.FileHelper.RenameFiles(System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            重命名文件
+            将文件重命名后复制到根目录下以当前时间命名的文件夹下
+            文件重命名规则：将原文件名拆分后第nameIndex+1个元素作为新文件名；若多个文件原文件名拆分后第nameIndex+1个元素相同，则在第nameIndex+1个元素的基础上追加数字作为新文件名称
+            </summary>
+            <param name="spilt">文件名拆分字符串数组 若isTotalRename为true，该值为null即可  示例：如原文件名为“Test(1).svg”,则split为new string[] { "(" }即可</param>
+            <param name="appendString">若isTotalRename为true，则将在该值作为新文件名的基础；若为false，在原文件名拆分后第nameIndex+1个元素后追加该字符串作为新文件名的基础</param>
+            <param name="nameIndex">新文件名在原文件名拆分后的元素索引号，private 默认为第1个元素 若以在原文件名拆分后的i个元素重新命名文件，则nameIndex为i-1</param>
+            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
+            <param name="isTotalRename">是否完全重命名文件</param>
+            <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
+        </member>
+        <member name="M:Wp.Helpers.FileHelper.RenameFiles(System.String,System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            重命名文件
+            将文件重命名后复制到根目录下以当前时间命名的文件夹下
+            文件重命名规则：将原文件名拆分后第nameIndex+1个元素作为新文件名；若多个文件原文件名拆分后第nameIndex+1个元素相同，则在第nameIndex+1个元素的基础上追加数字作为新文件名称
+            </summary>
+            <param name="path">文件所在文件夹路径</param>
+            <param name="spilt">文件名拆分字符串数组 若isTotalRename为true，该值为null即可  示例：如原文件名为“Test(1).svg”,则split为new string[] { "(" }即可</param>
+            <param name="appendString">若isTotalRename为true，则将在该值作为新文件名的基础；若为false，在原文件名拆分后第nameIndex+1个元素后追加该字符串作为新文件名的基础</param>
+            <param name="nameIndex">新文件名在原文件名拆分后的元素索引号，private 默认为第1个元素 若以在原文件名拆分后的i个元素重新命名文件，则nameIndex为i-1</param>
+            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
+            <param name="isTotalRename">是否完全重命名文件</param>
+            <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
+        </member>
+        <member name="M:Wp.Helpers.FileHelper.RenameFiles(System.Collections.Generic.Dictionary{System.String,System.String},System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            重命名文件
+            </summary>
+            <param name="dic">文件夹下文件名和文件全名</param>
+            <param name="spilt">文件名拆分字符串数组 若isTotalRename为true，该值为null即可  示例：如原文件名为“Test(1).svg”,则split为new string[] { "(" }即可</param>
+            <param name="appendString">若isTotalRename为true，则将在该值作为新文件名的基础；若为false，在原文件名拆分后第nameIndex+1个元素后追加该字符串作为新文件名的基础</param>
+            <param name="nameIndex">新文件名在原文件名拆分后的元素索引号，private 默认为第1个元素 若以在原文件名拆分后的i个元素重新命名文件，则nameIndex为i-1</param>
+            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
+            <param name="isTotalRename">是否完全重命名文件</param>
+            <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
+        </member>
+        <member name="M:Wp.Helpers.FileHelper.ClassificationFiles(System.Collections.Generic.Dictionary{System.String,System.String},System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            整理文件
+            </summary>
+            <param name="dic">文件夹下文件名和文件全名</param>
+            <param name="spilt"></param>
+            <param name="appendString"></param>
+            <param name="nameIndex"></param>
+            <param name="isOpenFolder"></param>
+            <param name="isTotalRename"></param>
+            <param name="isBackward"></param>
         </member>
         <member name="T:Wp.Helpers.LocalMachineHelper">
             <summary>
@@ -369,20 +458,25 @@
             <param name="splits">拆分字符串集合，默认为null后，集合为 new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" }</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.SvgHelper.GetGeometryStyle(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.String)">
+        <member name="M:Wp.Helpers.SvgHelper.GetGeometryStyle(System.Collections.Generic.Dictionary{System.String,System.String},System.String[],System.String,System.String)">
             <summary>
             获取图片图案几何路径样式
             </summary>
             <param name="fileInfo">图片文件路径</param>
+            <param name="splits">拆分字符串集合，默认为null后，集合为 new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" }</param>
             <param name="brush">图案其他状态时的颜色，{StaticResource SecondarySolidColorBurshStyle} or #FF8000</param>
             <param name="normalBrush">图案默认颜色，{StaticResource TertiaryTextSolidColorBurshStyle} or #707070</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.SvgHelper.SaveGeometryStyle(System.Collections.Generic.Dictionary{System.String,System.String})">
+        <member name="M:Wp.Helpers.SvgHelper.SaveGeometryStyle(System.Collections.Generic.Dictionary{System.String,System.String},System.String[],System.String,System.String,System.Boolean)">
             <summary>
             保存图片几何图案路径样式到文件
             </summary>
             <param name="fileInfo">图片文件路径</param>
+            <param name="splits">拆分字符串集合，默认为null后，集合为 new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" }</param>
+            <param name="brush">图案其他状态时的颜色，{StaticResource SecondarySolidColorBurshStyle} or #FF8000</param>
+            <param name="normalBrush">图案默认颜色，{StaticResource TertiaryTextSolidColorBurshStyle} or #707070</param>
+            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
         </member>
     </members>
 </doc>

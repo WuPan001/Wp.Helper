@@ -21,23 +21,31 @@ namespace Wp.Helpers
         public static string GetGeometryPath(string filePath, string[] splits = null)
         {
             var res = new StringBuilder();
-            if (File.Exists(filePath))
+            try
             {
-                var text = File.ReadAllText(filePath);
-                var temp = text.Split(splits ?? (new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" }), 1024, StringSplitOptions.RemoveEmptyEntries);
-                for (byte i = 0; i < temp.Length; i++)
+                if (File.Exists(filePath))
                 {
-                    if (temp[i][0] == 'M' && temp[i][temp[i].Length - 1] == 'z')
+                    var text = File.ReadAllText(filePath);
+                    var temp = text.Split(splits ?? (new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" }), 1024, StringSplitOptions.RemoveEmptyEntries);
+                    for (byte i = 0; i < temp.Length; i++)
                     {
-                        res.Append($"{temp[i]} ");
+                        if (temp[i][0] == 'M' && temp[i][temp[i].Length - 1] == 'z')
+                        {
+                            res.Append($"{temp[i]} ");
+                        }
                     }
+                    res.Remove(res.Length - 1, 1);
                 }
-                res.Remove(res.Length - 1, 1);
+                else
+                {
+                    res = null;
+                }
             }
-            else
+            catch (Exception)
             {
-                res = null;
+                Console.WriteLine($"FilePath:{filePath}");
             }
+
             return res.ToString();
         }
 
