@@ -36,16 +36,16 @@ namespace ConsoleApp1
                     //{
                     //    Console.WriteLine(item);
                     //}
-                    //var dic = FileHelper.GetFilesName(extensions: new List<EImgType>() { EImgType.SVG });
+                    var dic = FileHelper.GetFilesName(extensions: new List<EImgType>() { EImgType.SVG });
                     //foreach (var item in dic.Keys)
                     //{
                     //    Console.WriteLine(item);
                     //    Console.WriteLine(dic[item]);
                     //    Console.WriteLine(File.ReadAllText(dic[item]));
                     //}
-                    //SvgHelper.SaveGeometryStyle(dic);
-                    //FileHelper.RenameFiles(appendString: "TestRename", isTotalRename: true);
-                    FileHelper.ClassificationFiles(new string[] { " (" });
+                    SvgHelper.SaveGeometryStyle(dic);
+                    //FileHelper.RenameFiles(new string[] { " (" });
+                    //FileHelper.ClassificationFiles(new string[] { " (" });
                     #endregion 文件帮助类测试
 
                     #region math帮助类测试

@@ -12,4 +12,3 @@ D:\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.pdb
 D:\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.Properties.Resources.resources
 D:\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.csproj.GenerateResource.cache
 D:\Git\Wp.Helper\Wp.Helpers\bin\Debug\Wp.Helpers.xml
-D:\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.csprojAssemblyReference.cache
