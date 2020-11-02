@@ -35,5 +35,8 @@ D:\Git\Wp.Helper\Wp.Helpers\bin\Release\System.Numerics.Vectors.xml
 D:\Git\Wp.Helper\Wp.Helpers\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
 D:\Git\Wp.Helper\Wp.Helpers\bin\Release\System.Threading.Channels.xml
 D:\Git\Wp.Helper\Wp.Helpers\bin\Release\System.Threading.Tasks.Extensions.xml
-D:\Git\Wp.Helper\Wp.Helpers\obj\Release\Wp.Helpers.csprojAssemblyReference.cache
 D:\Git\Wp.Helper\Wp.Helpers\obj\Release\Wp.Helpers.csproj.CopyComplete
+D:\Git\Wp.Helper\Wp.Helpers\bin\Release\Newtonsoft.Json.dll
+D:\Git\Wp.Helper\Wp.Helpers\bin\Release\Newtonsoft.Json.xml
+D:\Git\Wp.Helper\Wp.Helpers\bin\Release\NLog.dll
+D:\Git\Wp.Helper\Wp.Helpers\bin\Release\NLog.xml

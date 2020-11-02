@@ -1,4 +1,5 @@
-﻿using StackExchange.Redis;
+﻿using NLog;
+using StackExchange.Redis;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -14,6 +15,11 @@ namespace Wp.Helpers.Redis
     /// </summary>
     public class RedisCnnHelper
     {
+        /// <summary>
+        /// 日志实例
+        /// </summary>
+        private static Logger _logger = NLog.LogManager.GetCurrentClassLogger();
+
         /// <summary>
         /// 系统自定义Key前缀
         /// </summary>
@@ -85,7 +91,7 @@ namespace Wp.Helpers.Redis
         /// <param name="e"></param>
         private static void MuxerConfigurationChanged(object sender, EndPointEventArgs e)
         {
-            Console.WriteLine("Configuration changed: " + e.EndPoint);
+            _logger.Log(LogLevel.Info, $"Configuration changed:{e.EndPoint}");
         }
 
         /// <summary>
@@ -95,7 +101,7 @@ namespace Wp.Helpers.Redis
         /// <param name="e"></param>
         private static void MuxerErrorMessage(object sender, RedisErrorEventArgs e)
         {
-            Console.WriteLine("ErrorMessage: " + e.Message);
+            _logger.Log(LogLevel.Error, $"<br>ErrorMessage: {e.Message}<br>EndPoint:{e.EndPoint}");
         }
 
         /// <summary>
@@ -105,7 +111,7 @@ namespace Wp.Helpers.Redis
         /// <param name="e"></param>
         private static void MuxerConnectionRestored(object sender, ConnectionFailedEventArgs e)
         {
-            Console.WriteLine("ConnectionRestored: " + e.EndPoint);
+            _logger.Log(LogLevel.Error, $"<br>ConnectionRestored:{e.EndPoint}<br>ExceptionDetail:{ExceptionHelper.GetExceptionDetailByWeb(e.Exception)}");
         }
 
         /// <summary>
@@ -115,7 +121,7 @@ namespace Wp.Helpers.Redis
         /// <param name="e"></param>
         private static void MuxerConnectionFailed(object sender, ConnectionFailedEventArgs e)
         {
-            Console.WriteLine("重新连接：Endpoint failed: " + e.EndPoint + ", " + e.FailureType + (e.Exception == null ? "" : (", " + e.Exception.Message)));
+            _logger.Log(LogLevel.Info, $"<br>重新连接：Endpoint failed:{e.EndPoint},{e.FailureType }<br>ExceptionDetail:{ExceptionHelper.GetExceptionDetailByWeb(e.Exception)}");
         }
 
         /// <summary>
@@ -125,7 +131,7 @@ namespace Wp.Helpers.Redis
         /// <param name="e"></param>
         private static void MuxerHashSlotMoved(object sender, HashSlotMovedEventArgs e)
         {
-            Console.WriteLine("HashSlotMoved:NewEndPoint" + e.NewEndPoint + ", OldEndPoint" + e.OldEndPoint);
+            _logger.Log(LogLevel.Info, $"<br>HashSlotMoved:NewEndPoint {e.NewEndPoint}, OldEndPoint {e.OldEndPoint}");
         }
 
         /// <summary>
@@ -135,7 +141,7 @@ namespace Wp.Helpers.Redis
         /// <param name="e"></param>
         private static void MuxerInternalError(object sender, InternalErrorEventArgs e)
         {
-            Console.WriteLine("InternalError:Message" + e.Exception.Message);
+            _logger.Log(LogLevel.Error, $"<br>InternalError:{ExceptionHelper.GetExceptionDetailByWeb(e.Exception)}");
         }
 
         #endregion 事件
