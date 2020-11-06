@@ -39,3 +39,6 @@ D:\Git\Wp.Helper\Wp.Helpers\bin\Debug\System.Threading.Channels.xml
 D:\Git\Wp.Helper\Wp.Helpers\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.csproj.CopyComplete
 D:\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.csprojAssemblyReference.cache
+D:\Git\Wp.Helper\Wp.Helpers\bin\Debug\NLog.dll
+D:\Git\Wp.Helper\Wp.Helpers\bin\Debug\NLog.xml
+D:\Git\Wp.Helper\Wp.Helpers\bin\Debug\System.ComponentModel.Annotations.dll

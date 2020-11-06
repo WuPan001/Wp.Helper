@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Wp.Helpers</id>
+    <version>1.0.7-alpha</version>
+    <authors>WuPan</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <projectUrl>https://github.com/WuPan001/Wp.Helper.git</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/WuPan001/Wp.Icon/main/NugetLogo.png</iconUrl>
+    <description>帮助类
+		0.0 文件帮助类
+		0.1 math帮助类
+		0.2 enum帮助类
+		0.3 异常帮助类
+		0.4 字节数组帮助类
+		0.5 加密解密帮助类
+		0.7 SVG文件帮助类
+		0.8 Redis帮助类</description>
+    <releaseNotes>增加了Redis帮助类</releaseNotes>
+    <copyright>copyright© 2020 WuPan</copyright>
+    <tags>wp wp.helper wp.helpers svg enum file redis</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.7.2">
+        <dependency id="StackExchange.Redis" version="2.1.58" />
+		<dependency id="Newtonsoft.Json" version="12.0.3"  />
+		<dependency id="NLog" version="4.7.5"  />
+		<dependency id="NLog.Schema" version="4.7.5"  />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

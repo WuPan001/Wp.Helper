@@ -294,7 +294,7 @@ namespace Wp.Helpers
             if (dic.Count > 0)
             {
                 var dateTime = DateTime.Now.ToString("yyyyMMddHHmmss");
-                var directoryPath = $"{dic[dic.Keys.FirstOrDefault()].Replace(dic.Keys.FirstOrDefault(), string.Empty)}//{dateTime}";
+                var directoryPath = Path.Combine(dic[dic.Keys.FirstOrDefault()].Replace(dic.Keys.FirstOrDefault(), string.Empty), dateTime);
                 if (!Directory.Exists(directoryPath))
                 {
                     Directory.CreateDirectory(directoryPath);
@@ -383,12 +383,12 @@ namespace Wp.Helpers
                     {
                         var tempName = item.Split(spilt, StringSplitOptions.RemoveEmptyEntries)[nameIndex];
                         string directoryName = isTotalRename ? appendString : isBackward ? tempName + appendString : appendString + tempName;
-                        if (!Directory.Exists($"{directoryPath}\\{directoryName }"))
+                        if (!Directory.Exists(Path.Combine(directoryPath, directoryName)))
                         {
-                            Directory.CreateDirectory($"{directoryPath}\\{directoryName }");
+                            Directory.CreateDirectory(Path.Combine(directoryPath, directoryName));
                         }
                         FileInfo fileInfo = new FileInfo(dic[item]);
-                        fileInfo.CopyTo($"{directoryPath}\\{directoryName}\\{item}");
+                        fileInfo.CopyTo(Path.Combine(directoryPath, directoryName, item));
                     }
                     catch (Exception ex)
                     {

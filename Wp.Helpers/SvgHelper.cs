@@ -70,7 +70,7 @@ namespace Wp.Helpers
                 content.AppendLine("<DrawingImage.Drawing>");
                 content.AppendLine("<DrawingGroup>");
                 content.Append("<GeometryDrawing Brush=\"");
-                content.Append($"{brush}");
+                content.Append(brush);
                 content.Append("\" Geometry=\"{StaticResource ");
                 content.Append($"{item}Geometry");
                 content.AppendLine("}\"/>");
@@ -81,7 +81,7 @@ namespace Wp.Helpers
                 content.AppendLine("<DrawingImage.Drawing>");
                 content.AppendLine("<DrawingGroup>");
                 content.Append("<GeometryDrawing Brush=\"");
-                content.Append($"{normalBrush}");
+                content.Append(normalBrush);
                 content.Append("\" Geometry=\"{StaticResource ");
                 content.Append($"{item}Geometry");
                 content.AppendLine("}\"/>");

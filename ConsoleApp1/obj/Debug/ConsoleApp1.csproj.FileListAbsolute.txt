@@ -41,3 +41,5 @@ D:\Git\Wp.Helper\ConsoleApp1\bin\Debug\System.Numerics.Vectors.xml
 D:\Git\Wp.Helper\ConsoleApp1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Git\Wp.Helper\ConsoleApp1\bin\Debug\System.Diagnostics.PerformanceCounter.dll
 D:\Git\Wp.Helper\ConsoleApp1\bin\Debug\System.Diagnostics.PerformanceCounter.xml
+D:\Git\Wp.Helper\ConsoleApp1\bin\Debug\NLog.dll
+D:\Git\Wp.Helper\ConsoleApp1\bin\Debug\NLog.xml

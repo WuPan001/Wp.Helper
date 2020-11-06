@@ -54,6 +54,10 @@
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Diagnostics.PerformanceCounter, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -100,9 +104,17 @@
     <Compile Include="ByteArrayHelper.cs" />
     <Compile Include="ConverterHelper.cs" />
     <Compile Include="EncryptionHelper.cs" />
+    <Compile Include="Entities\ALiIconFont\Content.cs" />
+    <Compile Include="Entities\ALiIconFont\IconFont.cs" />
+    <Compile Include="Entities\ALiIconFont\Li.cs" />
+    <Compile Include="Entities\WpfStyle\StyleBase.cs" />
     <Compile Include="EnumHelper.cs" />
     <Compile Include="Enums\EImgType.cs" />
     <Compile Include="ExceptionHelper.cs" />
+    <Compile Include="ExtensionMethod\ALiIconFontExtensionMethod.cs" />
+    <Compile Include="ExtensionMethod\EnumerableObjectExtensionMethod.cs" />
+    <Compile Include="ExtensionMethod\ObjectExtensionMethod.cs" />
+    <Compile Include="ExtensionMethod\StringExentionMethod.cs" />
     <Compile Include="FileHelper.cs" />
     <Compile Include="LocalMachineHelper.cs" />
     <Compile Include="MathHelper.cs" />
@@ -113,9 +125,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="PropertyHepler.cs" />
+    <Compile Include="QueryHelper.cs" />
     <Compile Include="Redis\RedisCnnHelper.cs" />
     <Compile Include="Redis\RedisHelper.cs" />
     <Compile Include="SvgHelper.cs" />
+    <Compile Include="TextBlockStyleHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

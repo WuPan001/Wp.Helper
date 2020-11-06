@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Wp.Helpers;
+using Wp.Helpers.Entities.WpfStyle;
 using Wp.Helpers.Enums;
 using Wp.Helpers.Redis;
 
@@ -61,12 +62,19 @@ namespace ConsoleApp1
                     //Console.WriteLine(ConverterHelper.Convert(EImgType.JPEG, EImgType.SVG));
 
                     #endregion
+
                     #region RedisHelper测试
-                    var redis = new RedisHelper();
-                    redis.PushListRight("Test1", "2344");
-                    redis.PushListRight("Test1", "2344");
-                    redis.PushListRight("Test1", "2344");
-                    Console.WriteLine(redis.GetString("Test"));
+                    //var redis = new RedisHelper();
+                    //redis.PushListRight("Test1", "2344");
+                    //redis.PushListRight("Test1", "2344");
+                    //redis.PushListRight("Test1", "2344");
+                    //Console.WriteLine(redis.GetString("Test"));
+                    #endregion
+
+                    #region TextBlockStyleHelper测试
+                    Console.WriteLine("请输入样式名：");
+                    var name = Console.ReadLine();
+                    TextBlockStyleHelper.GetStyleFromXML(name, new StyleBase() { BaseName = "SecondaryTextStyle", BasePath = "/Styles/TextStyles.xaml" });
                     #endregion
                 }
                 catch (Exception ex)
@@ -74,7 +82,11 @@ namespace ConsoleApp1
                     Console.WriteLine(ex.Message); ;
                 }
                 Console.WriteLine("Done");
-                Console.ReadLine();
+                Console.WriteLine("输入“Exit”退出程序");
+                if (Console.ReadLine() == "Exit")
+                {
+                    return;
+                }
             }
         }
     }
