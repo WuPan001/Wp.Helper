@@ -26,7 +26,7 @@ namespace Wp.Helpers
                 if (File.Exists(filePath))
                 {
                     var text = File.ReadAllText(filePath);
-                    var temp = text.Split(splits ?? (new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" }), 1024, StringSplitOptions.RemoveEmptyEntries);
+                    var temp = text.Split(splits ?? (new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" }), StringSplitOptions.RemoveEmptyEntries);
                     for (byte i = 0; i < temp.Length; i++)
                     {
                         if (temp[i][0] == 'M' && temp[i][temp[i].Length - 1] == 'z')
@@ -102,7 +102,7 @@ namespace Wp.Helpers
         /// <param name="normalBrush">图案默认颜色，{StaticResource TertiaryTextSolidColorBurshStyle} or #707070</param>
         /// <param name="isOpenFolder">保存完成后是否打开文件夹</param>
         public static void SaveGeometryStyle(Dictionary<string, string> fileInfo, string[] splits = null,
-            string brush = "{StaticResource SecondarySolidColorBurshStyle}", string normalBrush = "{StaticResource TertiaryTextSolidColorBurshStyle}", bool isOpenFolder = true)
+            string brush = "{StaticResource PrimaryTertiarySolidColorBrushStyle}", string normalBrush = "{StaticResource AssistFourthColorStyle}", bool isOpenFolder = true)
         {
             var saveDirectory = $"{FileHelper.GetDirectory()}//{DateTime.Now:yyyyMMddHHmmss}";
             var savePath = $"{saveDirectory}//GeometryStyles.xaml";

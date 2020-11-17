@@ -21,16 +21,15 @@ namespace ConsoleApp1
             {
                 try
                 {
-                    #region 文件帮助类测试
+                    Console.WriteLine("输入“e”退出程序");
 
+                    #region 文件帮助类测试
                     //foreach (var item in FileHelper.GetFilesFullName(true))
                     //{
                     //    Console.WriteLine(item);
                     //}
-                    //foreach (var item in FileHelper.GetFilesFullName())
-                    //{
-                    //    Console.WriteLine(item);
-                    //}
+                    //break;
+
                     //foreach (var item in FileHelper.GetDirectoriesFullName())
                     //{
                     //    Console.WriteLine(item);
@@ -50,6 +49,12 @@ namespace ConsoleApp1
                     //FileHelper.RenameFiles(new string[] { " (" });
                     //FileHelper.ClassificationFiles(new string[] { " (" });
                     #endregion 文件帮助类测试
+
+                    #region SVG帮助类
+                    //var dic = FileHelper.GetFilesName(extensions: new List<EImgType>() { EImgType.SVG });
+                    //SvgHelper.SaveGeometryStyle(dic);
+
+                    #endregion SVG帮助类
 
                     #region math帮助类测试
 
@@ -72,9 +77,22 @@ namespace ConsoleApp1
                     #endregion
 
                     #region TextBlockStyleHelper测试
-                    Console.WriteLine("请输入样式名：");
-                    var name = Console.ReadLine();
-                    TextBlockStyleHelper.GetStyleFromXML(name, new StyleBase() { BaseName = "SecondaryTextStyle", BasePath = "/Styles/TextStyles.xaml" });
+
+                    //Console.WriteLine("请输入样式名：");
+                    //var name = Console.ReadLine();
+                    //if (name == "e")
+                    //{
+                    //    return;
+                    //}
+                    //else
+                    //{
+                    //    TextBlockStyleHelper.GetStyleFromXML(name, new StyleBase() { BaseName = "SecondaryTextStyle", BasePath = "/Styles/TextBlockStyles.xaml" });
+                    //}
+
+                    #endregion
+
+                    #region Enum帮助类测试
+                    var test = EnumHelper.GetEnumItems<EImgType>();
                     #endregion
                 }
                 catch (Exception ex)
@@ -82,11 +100,7 @@ namespace ConsoleApp1
                     Console.WriteLine(ex.Message); ;
                 }
                 Console.WriteLine("Done");
-                Console.WriteLine("输入“Exit”退出程序");
-                if (Console.ReadLine() == "Exit")
-                {
-                    return;
-                }
+                Console.ReadLine();
             }
         }
     }

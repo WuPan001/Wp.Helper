@@ -25,6 +25,22 @@ namespace Wp.Helpers
         }
 
         /// <summary>
+        /// 获取所有枚举元素枚举
+        /// </summary>
+        /// <typeparam name="T">枚举</typeparam>
+        /// <returns></returns>
+        public static ObservableCollection<T> GetEnumItems<T>()
+        {
+            var res = new ObservableCollection<T>();
+            var arr = Enum.GetValues(typeof(T));
+            foreach (var item in arr)
+            {
+                res.Add((T)item);
+            }
+            return res;
+        }
+
+        /// <summary>
         /// 获取所有枚举项描述
         /// 可用做填充Combobox
         /// </summary>
@@ -54,14 +70,21 @@ namespace Wp.Helpers
         {
             string value = enumValue.ToString();
             FieldInfo field = enumValue.GetType().GetField(value);
-            object[] objs = field.GetCustomAttributes(typeof(DescriptionAttribute), false);    //获取描述属性
-            if (objs.Length == 0)
+            if (field == null)
             {
                 return value;
             }
             else
             {
-                return ((DescriptionAttribute)objs[0]).Description;
+                object[] objs = field.GetCustomAttributes(typeof(DescriptionAttribute), false);    //获取描述属性
+                if (objs.Length == 0)
+                {
+                    return value;
+                }
+                else
+                {
+                    return ((DescriptionAttribute)objs[0]).Description;
+                }
             }
         }
 
