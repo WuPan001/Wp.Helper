@@ -270,6 +270,20 @@
             </summary>
             <param name="param">参数</param>
         </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.ObjectExtensionMethod.ToDictionary(System.Object)">
+            <summary>
+            对象转字典方法
+            </summary>
+            <param name="json">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.ObjectExtensionMethod.ToDictionary(System.String)">
+            <summary>
+            json格式字符串转字典方法
+            </summary>
+            <param name="json">json格式字符串</param>
+            <returns></returns>
+        </member>
         <member name="T:Wp.Helpers.ExtensionMethod.StringExentionMethod">
             <summary>
             string对象扩展方法

@@ -86,13 +86,13 @@ namespace ConsoleApp1
                     //}
                     //else
                     //{
-                    //    TextBlockStyleHelper.GetStyleFromXML(name, new StyleBase() { BaseName = "SecondaryTextStyle", BasePath = "/Styles/TextBlockStyles.xaml" });
+                    //    TextBlockStyleHelper.GetStyleFromXML(name, new StyleBase() { BaseName = "PrimaryIconFontTextBlockStyle", BasePath = "/Styles/TextBlockStyles.xaml" });
                     //}
 
                     #endregion
 
                     #region Enum帮助类测试
-                    var test = EnumHelper.GetEnumItems<EImgType>();
+                    //var test = EnumHelper.GetEnumItems<EImgType>();
                     #endregion
                 }
                 catch (Exception ex)

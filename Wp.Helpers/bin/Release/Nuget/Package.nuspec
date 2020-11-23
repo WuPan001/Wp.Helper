@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>Wp.Helpers</id>
-    <version>1.0.7-alpha</version>
+    <version>1.0.7</version>
     <authors>WuPan</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
@@ -18,7 +18,7 @@
 		0.5 加密解密帮助类
 		0.7 SVG文件帮助类
 		0.8 Redis帮助类</description>
-    <releaseNotes>增加了Redis帮助类</releaseNotes>
+    <releaseNotes>完善了Enum帮助类</releaseNotes>
     <copyright>copyright© 2020 WuPan</copyright>
     <tags>wp wp.helper wp.helpers svg enum file redis</tags>
     <dependencies>

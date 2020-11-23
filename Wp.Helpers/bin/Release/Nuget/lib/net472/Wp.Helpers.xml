@@ -110,6 +110,21 @@
             <param name="code">待加密字符串</param>
             <returns></returns>
         </member>
+        <member name="T:Wp.Helpers.Entities.WpfStyle.StyleBase">
+            <summary>
+            样式文件基类信息
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.WpfStyle.StyleBase.BaseName">
+            <summary>
+            样式基类名
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.WpfStyle.StyleBase.BasePath">
+            <summary>
+            样式基类文件路径
+            </summary>
+        </member>
         <member name="T:Wp.Helpers.EnumHelper">
             <summary>
             枚举帮助类
@@ -120,6 +135,13 @@
             获取枚举值数量
             </summary>
             <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.EnumHelper.GetEnumItems``1">
+            <summary>
+            获取所有枚举元素枚举
+            </summary>
+            <typeparam name="T">枚举</typeparam>
             <returns></returns>
         </member>
         <member name="M:Wp.Helpers.EnumHelper.GetAllDescriptions``1">
@@ -224,6 +246,47 @@
             </summary>
             <param name="ex">异常实例</param>
             <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.ExtensionMethod.EnumerableObjectExtensionMethod">
+            <summary>
+            EnumerableObject扩展方法
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.EnumerableObjectExtensionMethod.NotNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            非空或null检查
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="param">参数</param>
+        </member>
+        <member name="T:Wp.Helpers.ExtensionMethod.ObjectExtensionMethod">
+            <summary>
+            object扩展方法
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.ObjectExtensionMethod.NotNull(System.Object)">
+            <summary>
+            非null检查
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="T:Wp.Helpers.ExtensionMethod.StringExentionMethod">
+            <summary>
+            string对象扩展方法
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.StringExentionMethod.ToALiIconFont(System.String)">
+            <summary>
+            json格式的字符串转为阿里巴巴IconFont
+            </summary>
+            <param name="json">json格式的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.StringExentionMethod.NotNullOrEmpty(System.String)">
+            <summary>
+            非空或null检查
+            </summary>
+            <param name="param">参数</param>
         </member>
         <member name="T:Wp.Helpers.FileHelper">
             <summary>
@@ -466,6 +529,21 @@
             </summary>
             <typeparam name="T">类类型</typeparam>
             <param name="propertyName">属性名</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.QueryHelper">
+            <summary>
+            查询帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.QueryHelper.GetPage``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32)">
+            <summary>
+            获取分页
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="collection">数据源</param>
+            <param name="pageNumber">页码</param>
+            <param name="pageSize">页内容量</param>
             <returns></returns>
         </member>
         <member name="T:Wp.Helpers.Redis.RedisCnnHelper">
@@ -1186,6 +1264,19 @@
             <param name="brush">图案其他状态时的颜色，{StaticResource SecondarySolidColorBurshStyle} or #FF8000</param>
             <param name="normalBrush">图案默认颜色，{StaticResource TertiaryTextSolidColorBurshStyle} or #707070</param>
             <param name="isOpenFolder">保存完成后是否打开文件夹</param>
+        </member>
+        <member name="T:Wp.Helpers.TextBlockStyleHelper">
+            <summary>
+            WPF TextBlock样式帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.TextBlockStyleHelper.GetStyleFromXML(System.String,Wp.Helpers.Entities.WpfStyle.StyleBase,System.Boolean)">
+            <summary>
+            xml文件转style
+            </summary>
+            <param name="name">style名称</param>
+            <param name="styleBase">style基类信息</param>
+            <param name="isOpenFolder">是否打开文件夹</param>
         </member>
     </members>
 </doc>

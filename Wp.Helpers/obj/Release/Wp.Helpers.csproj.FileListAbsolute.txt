@@ -40,4 +40,5 @@ D:\Git\Wp.Helper\Wp.Helpers\bin\Release\Newtonsoft.Json.dll
 D:\Git\Wp.Helper\Wp.Helpers\bin\Release\Newtonsoft.Json.xml
 D:\Git\Wp.Helper\Wp.Helpers\bin\Release\NLog.dll
 D:\Git\Wp.Helper\Wp.Helpers\bin\Release\NLog.xml
+D:\Git\Wp.Helper\Wp.Helpers\bin\Release\System.ComponentModel.Annotations.dll
 D:\Git\Wp.Helper\Wp.Helpers\obj\Release\Wp.Helpers.csprojAssemblyReference.cache
