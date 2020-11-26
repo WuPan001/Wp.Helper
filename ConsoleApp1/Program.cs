@@ -78,16 +78,16 @@ namespace ConsoleApp1
 
                     #region TextBlockStyleHelper测试
 
-                    //Console.WriteLine("请输入样式名：");
-                    //var name = Console.ReadLine();
-                    //if (name == "e")
-                    //{
-                    //    return;
-                    //}
-                    //else
-                    //{
-                    //    TextBlockStyleHelper.GetStyleFromXML(name, new StyleBase() { BaseName = "PrimaryIconFontTextBlockStyle", BasePath = "/Styles/TextBlockStyles.xaml" });
-                    //}
+                    Console.WriteLine("请输入样式名：");
+                    var name = Console.ReadLine();
+                    if (name == "e")
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        TextBlockStyleHelper.GetStyleFromXML(name, new StyleBase() { BaseName = "PrimaryIconFontTextBlockStyle", BasePath = "/Styles/TextBlockStyles.xaml" });
+                    }
 
                     #endregion
 
