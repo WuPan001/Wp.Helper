@@ -129,6 +129,7 @@
     </Compile>
     <Compile Include="PropertyHepler.cs" />
     <Compile Include="QueryHelper.cs" />
+    <Compile Include="RandomHelper.cs" />
     <Compile Include="Redis\RedisCnnHelper.cs" />
     <Compile Include="Redis\RedisHelper.cs" />
     <Compile Include="SvgHelper.cs" />
