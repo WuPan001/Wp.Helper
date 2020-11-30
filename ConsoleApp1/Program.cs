@@ -18,6 +18,7 @@ namespace ConsoleApp1
         private static void Main(string[] args)
         {
             var cmd = string.Empty;
+            var cmdCache = string.Empty;
             while (true)
             {
                 try
@@ -30,21 +31,27 @@ namespace ConsoleApp1
                     Console.WriteLine("输入\"保存IconFont转TextBlock样式\" ，以根据阿里IconFont生成IconFontStyle样式文件");
                     Console.WriteLine("输入\"数字转中文大写\" ，以将数字转为中文大写");
                     cmd = Console.ReadLine();
+                    Do(cmd, ref cmdCache);
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message); ;
                 }
                 Console.WriteLine("Done");
+                Console.WriteLine(Environment.NewLine);
             }
         }
 
-        private static void Do(string cmd)
+        private static void Do(string cmd, ref string cmdCache)
         {
             switch (cmd)
             {
                 case "e":
                     return;
+
+                case "r":
+                    Do(cmdCache, ref cmdCache);
+                    break;
 
                 case "t":
 
@@ -97,6 +104,7 @@ namespace ConsoleApp1
                     break;
 
                 case "保存IconFont转TextBlock样式":
+                    cmdCache = cmd;
                     Console.WriteLine("请输入样式名：");
                     var name = Console.ReadLine().Trim();
                     Console.WriteLine("请输入样式BaseName，默认为\"PrimaryIconFontTextBlockStyle\"，可回车使用默认BaseName");
@@ -111,15 +119,19 @@ namespace ConsoleApp1
                     break;
 
                 case "数字转中文大写":
-                    Console.WriteLine(MathHelper.ToChinese(Convert.ToDecimal(123.45)));
+                    cmdCache = cmd;
+                    Console.WriteLine("请输入数字：");
+                    Console.WriteLine(MathHelper.ToChinese(Convert.ToDecimal(Console.ReadLine())));
                     break;
 
                 case "保存几何样式":
+                    cmdCache = cmd;
                     var dic = FileHelper.GetFilesName(extensions: new List<EImgType>() { EImgType.SVG });
                     SvgHelper.SaveGeometryStyle(dic);
                     break;
 
                 case "生成2个小数之间的随机数":
+                    cmdCache = cmd;
                     Console.WriteLine("请输入第一个小数值：");
                     var first = Convert.ToDouble(Console.ReadLine().Trim());
                     Console.WriteLine("请输入第二个小数值：");
