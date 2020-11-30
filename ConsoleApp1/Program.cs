@@ -100,7 +100,8 @@ namespace ConsoleApp1
 
                     #endregion Enum帮助类测试
 
-                    Console.WriteLine(Console.ReadLine().IndexOf('.'));
+                    //var random = new Random();
+                    //Console.WriteLine(random.Next (-1,1));
                     break;
 
                 case "保存IconFont转TextBlock样式":

@@ -31,7 +31,7 @@ namespace Wp.Helpers
         public static int GetPointCount(decimal num)
         {
             var str = num.ToString();
-            return str.Length - 1 - str.IndexOf(".") > 0 ? str.IndexOf('.') : 0;
+            return str.IndexOf(".") > 0 ? str.Length - 1 - str.IndexOf('.') : 0;
         }
 
         /// <summary>

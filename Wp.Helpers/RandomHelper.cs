@@ -19,13 +19,20 @@ namespace Wp.Helpers
         /// <returns></returns>
         public static double NextDouble(double first, double second)
         {
-            var firstCount = MathHelper.GetPointCount(first);
-            var secondCount = MathHelper.GetPointCount(second);
-            var max = Math.Max(firstCount, secondCount);
-            var firstInt = (int)(first * Math.Pow(10, max));
-            var secondInt = (int)(second * Math.Pow(10, max));
-            var random = new Random();
-            return random.Next(firstInt, secondInt) / Math.Pow(10, max);
+            if (first == second)
+            {
+                return first;
+            }
+            else
+            {
+                var firstCount = MathHelper.GetPointCount(first);
+                var secondCount = MathHelper.GetPointCount(second);
+                var max = Math.Max(firstCount, secondCount);
+                var firstInt = (int)(first * Math.Pow(10, max));
+                var secondInt = (int)(second * Math.Pow(10, max));
+                var random = new Random();
+                return firstInt > secondInt ? random.Next(secondInt, firstInt) / Math.Pow(10, max) : random.Next(firstInt, secondInt) / Math.Pow(10, max);
+            }
         }
     }
 }

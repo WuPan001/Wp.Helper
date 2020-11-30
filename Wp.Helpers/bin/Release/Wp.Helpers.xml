@@ -270,6 +270,20 @@
             </summary>
             <param name="param">参数</param>
         </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.ObjectExtensionMethod.ToDictionary(System.Object)">
+            <summary>
+            对象转字典方法
+            </summary>
+            <param name="json">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.ObjectExtensionMethod.ToDictionary(System.String)">
+            <summary>
+            json格式字符串转字典方法
+            </summary>
+            <param name="json">json格式字符串</param>
+            <returns></returns>
+        </member>
         <member name="T:Wp.Helpers.ExtensionMethod.StringExentionMethod">
             <summary>
             string对象扩展方法
@@ -502,6 +516,27 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Wp.Helpers.MathHelper.GetPointCount(System.Decimal)">
+            <summary>
+            计算小数位数
+            </summary>
+            <param name="num">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.MathHelper.GetPointCount(System.Double)">
+            <summary>
+            计算小数位数
+            </summary>
+            <param name="num">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.MathHelper.GetPointCount(System.Single)">
+            <summary>
+            计算小数位数
+            </summary>
+            <param name="num">值</param>
+            <returns></returns>
+        </member>
         <member name="T:Wp.Helpers.Properties.Resources">
             <summary>
               一个强类型的资源类，用于查找本地化的字符串等。
@@ -544,6 +579,19 @@
             <param name="collection">数据源</param>
             <param name="pageNumber">页码</param>
             <param name="pageSize">页内容量</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.RandomHelper">
+            <summary>
+            随机数帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.RandomHelper.NextDouble(System.Double,System.Double)">
+            <summary>
+            计算任意2个小数之间的随机数
+            </summary>
+            <param name="first">第一个小数</param>
+            <param name="second">第二个小数</param>
             <returns></returns>
         </member>
         <member name="T:Wp.Helpers.Redis.RedisCnnHelper">

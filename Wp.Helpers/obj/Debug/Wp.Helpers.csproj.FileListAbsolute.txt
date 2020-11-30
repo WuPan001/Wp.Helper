@@ -73,10 +73,10 @@ D:\Files\Git\Wp.Helper\Wp.Helpers\bin\Debug\System.Numerics.Vectors.xml
 D:\Files\Git\Wp.Helper\Wp.Helpers\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Files\Git\Wp.Helper\Wp.Helpers\bin\Debug\System.Threading.Channels.xml
 D:\Files\Git\Wp.Helper\Wp.Helpers\bin\Debug\System.Threading.Tasks.Extensions.xml
-D:\Files\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.csprojAssemblyReference.cache
 D:\Files\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.Properties.Resources.resources
 D:\Files\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.csproj.GenerateResource.cache
 D:\Files\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.csproj.CoreCompileInputs.cache
 D:\Files\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.csproj.CopyComplete
 D:\Files\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.dll
 D:\Files\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.pdb
+D:\Files\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.csprojAssemblyReference.cache
