@@ -145,18 +145,19 @@ namespace Wp.Helpers
         /// 获取枚举值和枚举描述
         /// 返回值为字典类型，key为枚举描述，value为枚举值
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">枚举</typeparam>
         /// <returns></returns>
-        public static Dictionary<string, byte> GetEnumValueKeyIsDescription<T>()
+
+        public static Dictionary<string, T> GetEnumValueKeyIsDescription<T>()
         {
-            var dic = new Dictionary<string, byte>();
+            var dic = new Dictionary<string, T>();
             FieldInfo[] fields = typeof(T).GetFields();
             foreach (FieldInfo field in fields)
             {
                 if (field.FieldType.IsEnum)
                 {
                     object[] attr = field.GetCustomAttributes(typeof(DescriptionAttribute), false);
-                    dic.Add(attr.Length == 0 ? field.Name : ((DescriptionAttribute)attr[0]).Description, Convert.ToByte(field.GetValue(fields)));
+                    dic.Add(attr.Length == 0 ? field.Name : ((DescriptionAttribute)attr[0]).Description, (T)field.GetValue(fields));
                 }
             }
             return dic;

@@ -100,8 +100,7 @@ namespace ConsoleApp1
 
                     #endregion Enum帮助类测试
 
-                    //var random = new Random();
-                    //Console.WriteLine(random.Next (-1,1));
+                    var dic1 = EnumHelper.GetEnumValueKeyIsDescription<EImgType>();
                     break;
 
                 case "保存IconFont转TextBlock样式":
