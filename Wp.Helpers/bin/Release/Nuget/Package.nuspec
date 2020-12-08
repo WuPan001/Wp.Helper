@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>Wp.Helpers</id>
-    <version>1.0.7.3</version>
+    <version>1.0.7.4-beta</version>
     <authors>WuPan</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
@@ -20,8 +20,7 @@
 		0.8 Redis帮助类
 		0.9 Random帮助类
 		</description>
-    <releaseNotes>0.修改了math帮助类获取小数位数方法bug
-	1.完善了获取任意2个值之间随机数的方法</releaseNotes>
+    <releaseNotes>完善了enum帮助类</releaseNotes>
     <copyright>copyright© 2020 WuPan</copyright>
     <tags>wp wp.helper wp.helpers svg enum file redis</tags>
     <dependencies>

@@ -79,3 +79,4 @@ D:\Files\Git\Wp.Helper\Wp.Helpers\obj\Release\Wp.Helpers.csproj.CoreCompileInput
 D:\Files\Git\Wp.Helper\Wp.Helpers\obj\Release\Wp.Helpers.csproj.CopyComplete
 D:\Files\Git\Wp.Helper\Wp.Helpers\obj\Release\Wp.Helpers.dll
 D:\Files\Git\Wp.Helper\Wp.Helpers\obj\Release\Wp.Helpers.pdb
+D:\Files\Git\Wp.Helper\Wp.Helpers\obj\Release\Wp.Helpers.csprojAssemblyReference.cache

@@ -188,7 +188,7 @@
             获取枚举值和枚举描述
             返回值为字典类型，key为枚举描述，value为枚举值
             </summary>
-            <typeparam name="T"></typeparam>
+            <typeparam name="T">枚举</typeparam>
             <returns></returns>
         </member>
         <member name="M:Wp.Helpers.EnumHelper.GetEnumDescriptionKeyIsValue``1">

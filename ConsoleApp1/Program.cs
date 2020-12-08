@@ -30,6 +30,7 @@ namespace ConsoleApp1
                     Console.WriteLine("输入\"保存几何样式\" ，以根据SVG文件生成并保存几何样式");
                     Console.WriteLine("输入\"保存IconFont转TextBlock样式\" ，以根据阿里IconFont生成IconFontStyle样式文件");
                     Console.WriteLine("输入\"数字转中文大写\" ，以将数字转为中文大写");
+                    Console.WriteLine("输入\"保存svg转TextBlock样式\" ，以根据svg文件生成TextBlockStyle样式文件");
                     cmd = Console.ReadLine();
                     Do(cmd, ref cmdCache);
                 }
@@ -46,6 +47,10 @@ namespace ConsoleApp1
         {
             switch (cmd)
             {
+                case "保存svg转TextBlock样式":
+                    SvgHelper.SaveGeometryStyle(FileHelper.GetFilesName());
+                    break;
+
                 case "e":
                     return;
 
