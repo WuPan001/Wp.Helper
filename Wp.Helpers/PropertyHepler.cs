@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,6 +29,49 @@ namespace Wp.Helpers
             else
             {
                 return string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// 获取类属性描述
+        /// </summary>
+        /// <typeparam name="T">类类型</typeparam>
+        /// <param name="obj">类实例</param>
+        /// <param name="ExceptType">不需返回的属性类型</param>
+        /// <returns></returns>
+        public static Dictionary<string, string> GetPropertyDescriptionKeyIsDescription<T>(T obj, List<Type> ExceptType = null) where T : class
+        {
+            try
+            {
+                var res = new Dictionary<string, string>();
+
+                if (ExceptType != null)
+                {
+                    foreach (PropertyInfo p in typeof(T).GetProperties())
+                    {
+                        if (ExceptType.Contains(p.PropertyType))
+                        {
+                            //
+                        }
+                        else
+                        {
+                            res.Add(((DescriptionAttribute)p.GetCustomAttributes(typeof(DescriptionAttribute), true).FirstOrDefault()).Description, p.GetValue(obj).ToString());
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (PropertyInfo p in typeof(T).GetProperties())
+                    {
+                        res.Add(((DescriptionAttribute)p.GetCustomAttributes(typeof(DescriptionAttribute), true).FirstOrDefault()).Description, p.GetValue(obj).ToString());
+                    }
+                }
+
+                return res;
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }

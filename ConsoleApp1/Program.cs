@@ -3,9 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using Wp.Helpers;
+using Wp.Helpers.Entities.ALiIconFont;
 using Wp.Helpers.Entities.WpfStyle;
 using Wp.Helpers.Enums;
 using Wp.Helpers.Redis;
@@ -105,7 +107,26 @@ namespace ConsoleApp1
 
                     #endregion Enum帮助类测试
 
-                    var dic1 = EnumHelper.GetEnumValueKeyIsDescription<EImgType>();
+                    //var dic1 = EnumHelper.GetEnumValueKeyIsDescription<EImgType>();
+
+                    #region 属性帮助类测试
+
+                    var temp = new Content() { Class = "123", Text = "qwe" };
+                    var dicPropertyHepler = PropertyHepler.GetPropertyDescriptionKeyIsDescription(temp, new List<Type>() { typeof(bool) });
+                    if (dicPropertyHepler.Keys.Count > 0)
+                    {
+                        foreach (var item in dicPropertyHepler.Keys)
+                        {
+                            Console.WriteLine($"{item}    {dicPropertyHepler[item]}");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("字典为空");
+                    }
+
+                    #endregion 属性帮助类测试
+
                     break;
 
                 case "保存IconFont转TextBlock样式":
