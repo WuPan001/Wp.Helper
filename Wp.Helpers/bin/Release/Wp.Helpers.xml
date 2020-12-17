@@ -98,6 +98,19 @@
             <param name="imgType">图片文件类型</param>
             <returns></returns>
         </member>
+        <member name="M:Wp.Helpers.DateTimeHelper.GetTimeStamp">
+            <summary>
+            返回一个时间戳
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.DateTimeHelper.TimeStampToDateTime(System.Int64)">
+            <summary>
+            将时间戳转为对应时间
+            </summary>
+            <param name="timeStamp">时间戳</param>
+            <returns></returns>
+        </member>
         <member name="T:Wp.Helpers.EncryptionHelper">
             <summary>
             加密解密帮助类
@@ -259,6 +272,14 @@
             <typeparam name="T">集合元素类型</typeparam>
             <param name="param">参数</param>
         </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.EnumerableObjectExtensionMethod.ToObserableCollection``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            转成ObserableCollection对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj">原对象</param>
+            <returns></returns>
+        </member>
         <member name="T:Wp.Helpers.ExtensionMethod.ObjectExtensionMethod">
             <summary>
             object扩展方法
@@ -275,6 +296,15 @@
             对象转字典方法
             </summary>
             <param name="json">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.ObjectExtensionMethod.PropertyToDictionary(System.Object,System.Collections.Generic.List{System.Type})">
+            <summary>
+            获取类属性描述和属性值
+            属性描述为key
+            </summary>
+            <param name="obj">类实例</param>
+            <param name="ExceptType">不需返回的属性类型</param>
             <returns></returns>
         </member>
         <member name="T:Wp.Helpers.ExtensionMethod.StringExentionMethod">
@@ -569,6 +599,16 @@
             </summary>
             <typeparam name="T">类类型</typeparam>
             <param name="propertyName">属性名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.PropertyHepler.GetPropertyDescriptionKeyIsDescription``1(``0,System.Collections.Generic.List{System.Type})">
+            <summary>
+            获取类属性描述和属性值
+            属性描述为key
+            </summary>
+            <typeparam name="T">类类型</typeparam>
+            <param name="obj">类实例</param>
+            <param name="ExceptType">不需返回的属性类型</param>
             <returns></returns>
         </member>
         <member name="T:Wp.Helpers.QueryHelper">

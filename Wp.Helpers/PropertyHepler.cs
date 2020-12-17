@@ -33,7 +33,8 @@ namespace Wp.Helpers
         }
 
         /// <summary>
-        /// 获取类属性描述
+        /// 获取类属性描述和属性值
+        /// 属性描述为key
         /// </summary>
         /// <typeparam name="T">类类型</typeparam>
         /// <param name="obj">类实例</param>

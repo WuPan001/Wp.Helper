@@ -592,6 +592,16 @@
             <param name="propertyName">属性名</param>
             <returns></returns>
         </member>
+        <member name="M:Wp.Helpers.PropertyHepler.GetPropertyDescriptionKeyIsDescription``1(``0,System.Collections.Generic.List{System.Type})">
+            <summary>
+            获取类属性描述和属性值
+            属性描述为key
+            </summary>
+            <typeparam name="T">类类型</typeparam>
+            <param name="obj">类实例</param>
+            <param name="ExceptType">不需返回的属性类型</param>
+            <returns></returns>
+        </member>
         <member name="T:Wp.Helpers.QueryHelper">
             <summary>
             查询帮助类

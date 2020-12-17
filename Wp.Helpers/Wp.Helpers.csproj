@@ -122,6 +122,7 @@
     <Compile Include="FileHelper.cs" />
     <Compile Include="LocalMachineHelper.cs" />
     <Compile Include="MathHelper.cs" />
+    <Compile Include="SolidColorBrushStyleHelper.cs" />
     <Compile Include="WpfHelpers\ExpanderHelper.cs" />
     <Compile Include="WpfHelpers\PasswordBoxHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

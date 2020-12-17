@@ -10,6 +10,7 @@ using Wp.Helpers;
 using Wp.Helpers.Entities.ALiIconFont;
 using Wp.Helpers.Entities.WpfStyle;
 using Wp.Helpers.Enums;
+using Wp.Helpers.ExtensionMethod;
 using Wp.Helpers.Redis;
 
 namespace ConsoleApp1
@@ -111,21 +112,15 @@ namespace ConsoleApp1
 
                     #region 属性帮助类测试
 
-                    var temp = new Content() { Class = "123", Text = "qwe" };
-                    var dicPropertyHepler = PropertyHepler.GetPropertyDescriptionKeyIsDescription(temp, new List<Type>() { typeof(bool) });
-                    if (dicPropertyHepler.Keys.Count > 0)
-                    {
-                        foreach (var item in dicPropertyHepler.Keys)
-                        {
-                            Console.WriteLine($"{item}    {dicPropertyHepler[item]}");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("字典为空");
-                    }
+                    //
 
                     #endregion 属性帮助类测试
+
+                    #region SolidColorBrushStyleHelper测试
+
+                    SolidColorBrushStyleHelper.SaveSolidColorBrushStyle();
+
+                    #endregion SolidColorBrushStyleHelper测试
 
                     break;
 
