@@ -137,7 +137,7 @@ namespace ConsoleApp1
                     //var temp1 = Convert.ToBoolean(temp);
                     //Console.WriteLine(temp1);
                     //Console.WriteLine(DateTime.Now);
-                    var test = IniHelper.ReadAsyncT<StyleBase>("TestSection", Path.Combine(FileHelper.GetDirectory(), "TestIni.ini")).Result;
+                    var test = InitializationFileHelper.ReadAsyncT<StyleBase>("TestSection", Path.Combine(FileHelper.GetDirectory(), "TestIni.ini")).Result;
                     Console.WriteLine(DateTime.Now);
 
                     #endregion ini文件帮助类测试

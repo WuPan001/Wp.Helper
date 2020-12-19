@@ -37,7 +37,8 @@ namespace Wp.Helpers.Helpers
                 Filter = filter,
                 InitialDirectory = initialDirectory,
                 Title = title,
-                DefaultExt = defaultExt
+                DefaultExt = defaultExt,
+                RestoreDirectory = true
             };
             if (open.ShowDialog() == DialogResult.OK)
             {
@@ -110,7 +111,7 @@ namespace Wp.Helpers.Helpers
                         }
                         else
                         {
-                            if (extensions.Contains((EImgType)dic[extension]))
+                            if (extensions.Contains(dic[extension]))
                             {
                                 res.Add(item.Name.Replace(extension, ""), item.FullName);
                             }

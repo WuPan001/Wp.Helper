@@ -375,12 +375,12 @@
             <param name="isTotalRename">是否完全重命名文件</param>
             <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
         </member>
-        <member name="T:Wp.Helpers.Helpers.IniHelper">
+        <member name="T:Wp.Helpers.Helpers.InitializationFileHelper">
             <summary>
             配置文件帮助类
             </summary>
         </member>
-        <member name="M:Wp.Helpers.Helpers.IniHelper.WriteAsync(System.String,System.String,System.String,System.String)">
+        <member name="M:Wp.Helpers.Helpers.InitializationFileHelper.WriteAsync(System.String,System.String,System.String,System.String)">
             <summary>
             异步写ini文件
             </summary>
@@ -390,7 +390,7 @@
             <param name="path">文件路径</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.Helpers.IniHelper.WriteAsyncPropertyNameAsKey``1(System.String,``0,System.String)">
+        <member name="M:Wp.Helpers.Helpers.InitializationFileHelper.WriteAsyncPropertyNameAsKey``1(System.String,``0,System.String)">
             <summary>
             异步写ini文件
             键为属性名，值为属性值
@@ -401,25 +401,34 @@
             <param name="path">文件路径</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.Helpers.IniHelper.WriteAsyncPropertyDescriptionAsKey``1(System.String,``0,System.String)">
+        <member name="M:Wp.Helpers.Helpers.InitializationFileHelper.WriteAsyncPropertyDescriptionAsKey``1(System.String,``0,System.String)">
             <summary>
             异步写ini文件
             键为属性描述，值为属性值
             </summary>
-            <typeparam name="T"></typeparam>
+            <typeparam name="T">写入对象类型</typeparam>
             <param name="section">ini文件中区块名</param>
             <param name="value">写入对象</param>
             <param name="path">文件路径</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.Helpers.IniHelper.ReadAsync(System.String,System.String,System.String)">
-             <summary>
-            
-             </summary>
-             <param name="Section"></param>
-             <param name="Key"></param>
-             <param name="path"></param>
-             <returns></returns>
+        <member name="M:Wp.Helpers.Helpers.InitializationFileHelper.ReadAsync(System.String,System.String,System.String)">
+            <summary>
+            异步读取配置文件1个键值
+            </summary>
+            <param name="section">ini文件中区块名</param>
+            <param name="key">键名</param>
+            <param name="path">文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.InitializationFileHelper.ReadAsyncT``1(System.String,System.String)">
+            <summary>
+            异步读取ini文件参数
+            </summary>
+            <typeparam name="T">返回类型</typeparam>
+            <param name="section">ini文件中区块名</param>
+            <param name="path">文件路径</param>
+            <returns></returns>
         </member>
         <member name="T:Wp.Helpers.Helpers.LocalMachineHelper">
             <summary>

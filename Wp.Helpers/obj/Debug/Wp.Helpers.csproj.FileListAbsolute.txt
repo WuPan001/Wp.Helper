@@ -80,4 +80,3 @@ D:\Files\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.csproj.CopyComplete
 D:\Files\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.dll
 D:\Files\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.pdb
 D:\Files\Git\Wp.Helper\Wp.Helpers\bin\Debug\CommonServiceLocator.dll
-D:\Files\Git\Wp.Helper\Wp.Helpers\obj\Debug\Wp.Helpers.csprojAssemblyReference.cache

@@ -127,7 +127,7 @@
     <Compile Include="ExtensionMethod\ObjectExtensionMethod.cs" />
     <Compile Include="ExtensionMethod\StringExentionMethod.cs" />
     <Compile Include="Helpers\FileHelper.cs" />
-    <Compile Include="Helpers\IniHelper.cs" />
+    <Compile Include="Helpers\InitializationFileHelper.cs" />
     <Compile Include="Helpers\LocalMachineHelper.cs" />
     <Compile Include="Helpers\MathHelper.cs" />
     <Compile Include="Helpers\SolidColorBrushStyleHelper.cs" />

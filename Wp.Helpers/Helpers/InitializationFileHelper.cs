@@ -13,7 +13,7 @@ namespace Wp.Helpers.Helpers
     /// <summary>
     /// 配置文件帮助类
     /// </summary>
-    public class IniHelper
+    public class InitializationFileHelper
     {
         #region 声明API函数
 
@@ -112,9 +112,16 @@ namespace Wp.Helpers.Helpers
         /// <returns></returns>
         public static async Task<string> ReadAsync(string section, string key, string path)
         {
-            var buffer = new StringBuilder(1024);
-            await Task.Run(() => GetPrivateProfileString(section, key, "", buffer, 1024, path));
-            return buffer.ToString().Trim();
+            try
+            {
+                var buffer = new StringBuilder(1024);
+                await Task.Run(() => GetPrivateProfileString(section, key, "", buffer, 1024, path));
+                return buffer.ToString().Trim();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>
@@ -126,71 +133,78 @@ namespace Wp.Helpers.Helpers
         /// <returns></returns>
         public static async Task<T> ReadAsyncT<T>(string section, string path) where T : class, new()
         {
-            var res = new T();
-            foreach (PropertyInfo p in typeof(T).GetProperties())
+            try
             {
-                var value = await ReadAsync(section, p.Name, path);
-                if (value != null)
+                var res = new T();
+                foreach (PropertyInfo p in typeof(T).GetProperties())
                 {
-                    if (p.PropertyType == typeof(bool))
+                    var value = await ReadAsync(section, p.Name, path);
+                    if (!string.IsNullOrEmpty(value))
                     {
-                        p.SetValue(res, Convert.ToBoolean(value));
-                    }
-                    else if (p.PropertyType == typeof(sbyte))
-                    {
-                        p.SetValue(res, Convert.ToSByte(value));
-                    }
-                    else if (p.PropertyType == typeof(short))
-                    {
-                        p.SetValue(res, Convert.ToInt16(value));
-                    }
-                    else if (p.PropertyType == typeof(int))
-                    {
-                        p.SetValue(res, Convert.ToInt32(value));
-                    }
-                    else if (p.PropertyType == typeof(long))
-                    {
-                        p.SetValue(res, Convert.ToInt32(value));
-                    }
-                    else if (p.PropertyType == typeof(byte))
-                    {
-                        p.SetValue(res, Convert.ToByte(value));
-                    }
-                    else if (p.PropertyType == typeof(ushort))
-                    {
-                        p.SetValue(res, Convert.ToUInt16(value));
-                    }
-                    else if (p.PropertyType == typeof(uint))
-                    {
-                        p.SetValue(res, Convert.ToUInt32(value));
-                    }
-                    else if (p.PropertyType == typeof(ulong))
-                    {
-                        p.SetValue(res, Convert.ToUInt64(value));
-                    }
-                    else if (p.PropertyType == typeof(float))
-                    {
-                        p.SetValue(res, Convert.ToSingle(value));
-                    }
-                    else if (p.PropertyType == typeof(double))
-                    {
-                        p.SetValue(res, Convert.ToDouble(value));
-                    }
-                    else if (p.PropertyType == typeof(decimal))
-                    {
-                        p.SetValue(res, Convert.ToDecimal(value));
-                    }
-                    else if (p.PropertyType == typeof(DateTime))
-                    {
-                        p.SetValue(res, Convert.ToDateTime(value));
-                    }
-                    else if (p.PropertyType == typeof(string))
-                    {
-                        p.SetValue(res, value);
+                        if (p.PropertyType == typeof(bool))
+                        {
+                            p.SetValue(res, Convert.ToBoolean(value));
+                        }
+                        else if (p.PropertyType == typeof(sbyte))
+                        {
+                            p.SetValue(res, Convert.ToSByte(value));
+                        }
+                        else if (p.PropertyType == typeof(short))
+                        {
+                            p.SetValue(res, Convert.ToInt16(value));
+                        }
+                        else if (p.PropertyType == typeof(int))
+                        {
+                            p.SetValue(res, Convert.ToInt32(value));
+                        }
+                        else if (p.PropertyType == typeof(long))
+                        {
+                            p.SetValue(res, Convert.ToInt32(value));
+                        }
+                        else if (p.PropertyType == typeof(byte))
+                        {
+                            p.SetValue(res, Convert.ToByte(value));
+                        }
+                        else if (p.PropertyType == typeof(ushort))
+                        {
+                            p.SetValue(res, Convert.ToUInt16(value));
+                        }
+                        else if (p.PropertyType == typeof(uint))
+                        {
+                            p.SetValue(res, Convert.ToUInt32(value));
+                        }
+                        else if (p.PropertyType == typeof(ulong))
+                        {
+                            p.SetValue(res, Convert.ToUInt64(value));
+                        }
+                        else if (p.PropertyType == typeof(float))
+                        {
+                            p.SetValue(res, Convert.ToSingle(value));
+                        }
+                        else if (p.PropertyType == typeof(double))
+                        {
+                            p.SetValue(res, Convert.ToDouble(value));
+                        }
+                        else if (p.PropertyType == typeof(decimal))
+                        {
+                            p.SetValue(res, Convert.ToDecimal(value));
+                        }
+                        else if (p.PropertyType == typeof(DateTime))
+                        {
+                            p.SetValue(res, Convert.ToDateTime(value));
+                        }
+                        else if (p.PropertyType == typeof(string))
+                        {
+                            p.SetValue(res, value);
+                        }
                     }
                 }
+                return res;
             }
-            return res;
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

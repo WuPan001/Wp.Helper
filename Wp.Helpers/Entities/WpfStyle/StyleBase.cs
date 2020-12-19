@@ -25,5 +25,6 @@ namespace Wp.Helpers.Entities.WpfStyle
         public string BasePath { get; set; }
 
         public bool TestBool { get; set; }
+        public decimal TestDecimal { get; set; }
     }
 }
