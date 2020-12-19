@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Wp.Helpers.Entities.ALiIconFont;
-using Wp.Helpers.Entities.WpfStyle;
 
 namespace Wp.Helpers.ExtensionMethod
 {

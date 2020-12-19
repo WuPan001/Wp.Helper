@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Wp.Helpers.WpfHelpers
+﻿namespace Wp.Helpers.WpfHelpers
 {
-    class ExpanderHelper
+    internal class ExpanderHelper
     {
     }
 }
