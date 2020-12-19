@@ -11,6 +11,7 @@ using Wp.Helpers.Entities.ALiIconFont;
 using Wp.Helpers.Entities.WpfStyle;
 using Wp.Helpers.Enums;
 using Wp.Helpers.ExtensionMethod;
+using Wp.Helpers.Helpers;
 using Wp.Helpers.Redis;
 
 namespace ConsoleApp1
@@ -112,15 +113,34 @@ namespace ConsoleApp1
 
                     #region 属性帮助类测试
 
-                    //
+                    //var styleBase = new StyleBase() { BaseName = "Name", BasePath = "Path" };
+                    //var propertyDic = PropertyHepler.GetPropertyValueKeyIsName(styleBase);
+                    //foreach (var item in propertyDic.Keys)
+                    //{
+                    //    Console.WriteLine($"{item}    {propertyDic[item]}");
+                    //}
 
                     #endregion 属性帮助类测试
 
                     #region SolidColorBrushStyleHelper测试
 
-                    SolidColorBrushStyleHelper.SaveSolidColorBrushStyle();
+                    //SolidColorBrushStyleHelper.SaveSolidColorBrushStyle();
 
                     #endregion SolidColorBrushStyleHelper测试
+
+                    #region ini文件帮助类测试
+
+                    //var styleBase = new StyleBase() { BaseName = "Name", BasePath = "Path", TestBool = true };
+                    //var path = FileHelper.GetDirectory();
+                    //IniHelper.WriteAsyncPropertyNameAsKey("TestSection", styleBase, Path.Combine(path, "TestIni.ini")).Wait();
+                    //var temp = IniHelper.ReadAsync("TestSection", "TestBool", Path.Combine(FileHelper.GetDirectory(), "TestIni.ini")).Result;
+                    //var temp1 = Convert.ToBoolean(temp);
+                    //Console.WriteLine(temp1);
+                    //Console.WriteLine(DateTime.Now);
+                    var test = IniHelper.ReadAsyncT<StyleBase>("TestSection", Path.Combine(FileHelper.GetDirectory(), "TestIni.ini")).Result;
+                    Console.WriteLine(DateTime.Now);
+
+                    #endregion ini文件帮助类测试
 
                     break;
 

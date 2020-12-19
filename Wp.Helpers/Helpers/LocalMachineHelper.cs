@@ -5,7 +5,7 @@ using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Wp.Helpers
+namespace Wp.Helpers.Helpers
 {
     /// <summary>
     /// 本地设备帮助类

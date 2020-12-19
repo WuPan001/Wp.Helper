@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 using Wp.Helpers.Enums;
+using Wp.Helpers.Helpers;
 
 namespace Wp.Helpers.Converters.Msg
 {

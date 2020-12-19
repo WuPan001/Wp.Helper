@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Wp.Helpers.Enums;
 
-namespace Wp.Helpers
+namespace Wp.Helpers.Helpers
 {
     /// <summary>
     /// 转换器帮助类

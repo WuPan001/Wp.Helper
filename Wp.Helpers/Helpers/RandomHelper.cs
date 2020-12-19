@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Wp.Helpers
+namespace Wp.Helpers.Helpers
 {
     /// <summary>
     /// 随机数帮助类

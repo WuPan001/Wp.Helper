@@ -35,6 +35,9 @@
     <DocumentationFile>bin\Release\Wp.Helpers.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.2\lib\net47\CommonServiceLocator.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -104,29 +107,30 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ByteArrayHelper.cs" />
-    <Compile Include="ConverterHelper.cs" />
+    <Compile Include="Helpers\ByteArrayHelper.cs" />
+    <Compile Include="Helpers\ConverterHelper.cs" />
     <Compile Include="Converters\ControlVisibility\ToTopperVisibilityConverter.cs" />
     <Compile Include="Converters\Msg\IconConverter.cs" />
     <Compile Include="Converters\Msg\TitleConverter.cs" />
-    <Compile Include="DateTimeHelper.cs" />
-    <Compile Include="EncryptionHelper.cs" />
+    <Compile Include="Helpers\DateTimeHelper.cs" />
+    <Compile Include="Helpers\EncryptionHelper.cs" />
     <Compile Include="Entities\ALiIconFont\Content.cs" />
     <Compile Include="Entities\ALiIconFont\IconFont.cs" />
     <Compile Include="Entities\ALiIconFont\Li.cs" />
     <Compile Include="Entities\WpfStyle\StyleBase.cs" />
-    <Compile Include="EnumHelper.cs" />
+    <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="Enums\EImgType.cs" />
     <Compile Include="Enums\MsgType.cs" />
-    <Compile Include="ExceptionHelper.cs" />
+    <Compile Include="Helpers\ExceptionHelper.cs" />
     <Compile Include="ExtensionMethod\ALiIconFontExtensionMethod.cs" />
     <Compile Include="ExtensionMethod\EnumerableObjectExtensionMethod.cs" />
     <Compile Include="ExtensionMethod\ObjectExtensionMethod.cs" />
     <Compile Include="ExtensionMethod\StringExentionMethod.cs" />
-    <Compile Include="FileHelper.cs" />
-    <Compile Include="LocalMachineHelper.cs" />
-    <Compile Include="MathHelper.cs" />
-    <Compile Include="SolidColorBrushStyleHelper.cs" />
+    <Compile Include="Helpers\FileHelper.cs" />
+    <Compile Include="Helpers\IniHelper.cs" />
+    <Compile Include="Helpers\LocalMachineHelper.cs" />
+    <Compile Include="Helpers\MathHelper.cs" />
+    <Compile Include="Helpers\SolidColorBrushStyleHelper.cs" />
     <Compile Include="WpfHelpers\ExpanderHelper.cs" />
     <Compile Include="WpfHelpers\PasswordBoxHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -135,13 +139,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="PropertyHepler.cs" />
-    <Compile Include="QueryHelper.cs" />
-    <Compile Include="RandomHelper.cs" />
+    <Compile Include="Helpers\PropertyHepler.cs" />
+    <Compile Include="Helpers\QueryHelper.cs" />
+    <Compile Include="Helpers\RandomHelper.cs" />
     <Compile Include="Redis\RedisCnnHelper.cs" />
     <Compile Include="Redis\RedisHelper.cs" />
-    <Compile Include="SvgHelper.cs" />
-    <Compile Include="TextBlockStyleHelper.cs" />
+    <Compile Include="Helpers\SvgHelper.cs" />
+    <Compile Include="Helpers\TextBlockStyleHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

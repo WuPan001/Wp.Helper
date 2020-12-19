@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Wp.Helpers
+namespace Wp.Helpers.Helpers
 {
     /// <summary>
     /// Svg格式图片帮助类

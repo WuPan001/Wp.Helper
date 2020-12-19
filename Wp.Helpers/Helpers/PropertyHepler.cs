@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Wp.Helpers
+namespace Wp.Helpers.Helpers.Helpers
 {
     /// <summary>
     /// 属性帮助类
@@ -68,6 +68,48 @@ namespace Wp.Helpers
                     }
                 }
 
+                return res;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 获取类属性描述和属性值
+        /// 属性名为key
+        /// </summary>
+        /// <typeparam name="T">类类型</typeparam>
+        /// <param name="obj">类实例</param>
+        /// <param name="ExceptType">不需返回的属性类型</param>
+        /// <returns></returns>
+        public static Dictionary<string, string> GetPropertyValueKeyIsName<T>(T obj, List<Type> ExceptType = null) where T : class
+        {
+            try
+            {
+                var res = new Dictionary<string, string>();
+                if (ExceptType != null)
+                {
+                    foreach (PropertyInfo p in typeof(T).GetProperties())
+                    {
+                        if (ExceptType.Contains(p.PropertyType))
+                        {
+                            //
+                        }
+                        else
+                        {
+                            res.Add(p.Name, p.GetValue(obj).ToString());
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (PropertyInfo p in typeof(T).GetProperties())
+                    {
+                        res.Add(p.Name, p.GetValue(obj).ToString());
+                    }
+                }
                 return res;
             }
             catch (Exception)

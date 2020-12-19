@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Wp.Helpers
+namespace Wp.Helpers.Helpers
 {
     /// <summary>
     /// math帮助类

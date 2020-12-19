@@ -23,5 +23,7 @@ namespace Wp.Helpers.Entities.WpfStyle
         /// 样式基类文件路径
         /// </summary>
         public string BasePath { get; set; }
+
+        public bool TestBool { get; set; }
     }
 }

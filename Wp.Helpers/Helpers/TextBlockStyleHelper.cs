@@ -12,7 +12,7 @@ using Wp.Helpers.Entities.ALiIconFont;
 using Wp.Helpers.Entities.WpfStyle;
 using Wp.Helpers.ExtensionMethod;
 
-namespace Wp.Helpers
+namespace Wp.Helpers.Helpers
 {
     /// <summary>
     /// WPF TextBlock样式帮助类

@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using Wp.Helpers.Enums;
 
-namespace Wp.Helpers
+namespace Wp.Helpers.Helpers
 {
     /// <summary>
     /// 文件帮助类
