@@ -4,34 +4,34 @@
         <name>Wp.Helpers</name>
     </assembly>
     <members>
-        <member name="T:Wp.Helpers.ByteArrayHelper">
+        <member name="T:Wp.Helpers.Helpers.ByteArrayHelper">
             <summary>
             字节数组帮助类
             </summary>
         </member>
-        <member name="T:Wp.Helpers.ByteArrayHelper.EEndType">
+        <member name="T:Wp.Helpers.Helpers.ByteArrayHelper.EEndType">
             <summary>
             大端小端枚举
             </summary>
         </member>
-        <member name="F:Wp.Helpers.ByteArrayHelper.EEndType.BigEnd">
+        <member name="F:Wp.Helpers.Helpers.ByteArrayHelper.EEndType.BigEnd">
             <summary>
             大端：是指数据的低位保存在内存的高地址中，而数据的高位，保存在内存的低地址中
             </summary>
         </member>
-        <member name="F:Wp.Helpers.ByteArrayHelper.EEndType.LittleEnd">
+        <member name="F:Wp.Helpers.Helpers.ByteArrayHelper.EEndType.LittleEnd">
             <summary>
             小端：是指数据的低位保存在内存的低地址中，而数据的高位，保存在内存的高地址中
             </summary>
         </member>
-        <member name="M:Wp.Helpers.ByteArrayHelper.ByteArrayToUshort(System.Byte[])">
+        <member name="M:Wp.Helpers.Helpers.ByteArrayHelper.ByteArrayToUshort(System.Byte[])">
             <summary>
             用于字节数组转ushort
             </summary>
             <param name="data">字节数组</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.ByteArrayHelper.ByteArrayToUshort(System.Byte[],System.Byte,System.Byte)">
+        <member name="M:Wp.Helpers.Helpers.ByteArrayHelper.ByteArrayToUshort(System.Byte[],System.Byte,System.Byte)">
             <summary>
             用于字节数组转ushort
             数组长度默认为2
@@ -41,7 +41,7 @@
             <param name="len"></param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.ByteArrayHelper.UshortToByteArray(System.UInt16,Wp.Helpers.ByteArrayHelper.EEndType)">
+        <member name="M:Wp.Helpers.Helpers.ByteArrayHelper.UshortToByteArray(System.UInt16,Wp.Helpers.Helpers.ByteArrayHelper.EEndType)">
             <summary>
             ushort转字节数组
             </summary>
@@ -49,18 +49,18 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.ByteArrayHelper.LocalMacToByteArray">
+        <member name="M:Wp.Helpers.Helpers.ByteArrayHelper.LocalMacToByteArray">
             <summary>
             本地MAC转Byte数组
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Wp.Helpers.ConverterHelper">
+        <member name="T:Wp.Helpers.Helpers.ConverterHelper">
             <summary>
             转换器帮助类
             </summary>
         </member>
-        <member name="M:Wp.Helpers.ConverterHelper.Convert(System.Type,System.String,Wp.Helpers.Enums.EImgType)">
+        <member name="M:Wp.Helpers.Helpers.ConverterHelper.Convert(System.Type,System.String,Wp.Helpers.Enums.EImgType)">
             <summary>
             将枚举描述转换为对应的资源图片路径
             </summary>
@@ -69,7 +69,7 @@
             <param name="imgType">图片文件类型</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.ConverterHelper.Convert``1(``0,Wp.Helpers.Enums.EImgType)">
+        <member name="M:Wp.Helpers.Helpers.ConverterHelper.Convert``1(``0,Wp.Helpers.Enums.EImgType)">
             <summary>
             将枚举值转换为对应的资源图片路径
             </summary>
@@ -78,7 +78,7 @@
             <param name="imgType">图片文件类型</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.ConverterHelper.Convert(System.Type,System.String,System.String,Wp.Helpers.Enums.EImgType)">
+        <member name="M:Wp.Helpers.Helpers.ConverterHelper.Convert(System.Type,System.String,System.String,Wp.Helpers.Enums.EImgType)">
             <summary>
             将枚举描述转换为对应的默认资源图片路径
             </summary>
@@ -88,7 +88,7 @@
             <param name="imgType">图片文件类型</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.ConverterHelper.Convert``1(``0,System.String,Wp.Helpers.Enums.EImgType)">
+        <member name="M:Wp.Helpers.Helpers.ConverterHelper.Convert``1(``0,System.String,Wp.Helpers.Enums.EImgType)">
             <summary>
             将枚举值转换为对应的默认资源图片路径
             </summary>
@@ -98,30 +98,554 @@
             <param name="imgType">图片文件类型</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.DateTimeHelper.GetTimeStamp">
+        <member name="M:Wp.Helpers.Helpers.DateTimeHelper.GetTimeStamp">
             <summary>
             返回一个时间戳
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.DateTimeHelper.TimeStampToDateTime(System.Int64)">
+        <member name="M:Wp.Helpers.Helpers.DateTimeHelper.TimeStampToDateTime(System.Int64)">
             <summary>
             将时间戳转为对应时间
             </summary>
             <param name="timeStamp">时间戳</param>
             <returns></returns>
         </member>
-        <member name="T:Wp.Helpers.EncryptionHelper">
+        <member name="T:Wp.Helpers.Helpers.EncryptionHelper">
             <summary>
             加密解密帮助类
             </summary>
         </member>
-        <member name="M:Wp.Helpers.EncryptionHelper.GetMD5EncryptionCode(System.String)">
+        <member name="M:Wp.Helpers.Helpers.EncryptionHelper.GetMD5EncryptionCode(System.String)">
             <summary>
             MD5加密
             </summary>
             <param name="code">待加密字符串</param>
             <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.EnumHelper">
+            <summary>
+            枚举帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.EnumHelper.GetEnumCount``1">
+            <summary>
+            获取枚举值数量
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.EnumHelper.GetEnumItems``1">
+            <summary>
+            获取所有枚举元素枚举
+            </summary>
+            <typeparam name="T">枚举</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.EnumHelper.GetAllDescriptions``1">
+            <summary>
+            获取所有枚举项描述
+            可用做填充Combobox
+            </summary>
+            <typeparam name="T">枚举</typeparam>
+            <returns></returns>}
+        </member>
+        <member name="M:Wp.Helpers.Helpers.EnumHelper.GetEnumDescription(System.Enum)">
+            <summary>
+            获取枚举描述
+            </summary>
+            <param name="enumValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.EnumHelper.GetEnumNameByDescription``1(System.String)">
+            <summary>
+            根据枚举描述获取枚举名
+            </summary>
+            <typeparam name="T">枚举</typeparam>
+            <param name="description">枚举描述</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.EnumHelper.GetEnumNameByDescription(System.String,System.Type)">
+            <summary>
+            根据枚举描述获取枚举名
+            </summary>
+            <param name="description">枚举描述</param>
+            <param name="type">枚举类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.EnumHelper.GetEnumDescriptionKeyIsName``1">
+            <summary>
+            获取枚举描述和枚举值名
+            返回值为字典类型，key为枚举名，value为枚举描述
+            </summary>
+            <typeparam name="T">枚举</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.EnumHelper.GetEnumValueKeyIsDescription``1">
+            <summary>
+            获取枚举值和枚举描述
+            返回值为字典类型，key为枚举描述，value为枚举值
+            </summary>
+            <typeparam name="T">枚举</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.EnumHelper.GetEnumDescriptionKeyIsValue``1">
+            <summary>
+            获取枚举描述和枚举值
+            返回值为字典类型，key为枚举值，value为枚举描述
+            </summary>
+            <typeparam name="T">枚举</typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.ExceptionHelper">
+            <summary>
+            异常帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ExceptionHelper.PrintException``1(``0,System.Exception)">
+            <summary>
+            在控制台打印出异常信息
+            </summary>
+            <typeparam name="T">消息头类型，为string或stringbuilder</typeparam>
+            <param name="msg"></param>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ExceptionHelper.GetExceptionDetailByWeb(System.Exception)">
+            <summary>
+            获取异常详情
+            </summary>
+            <param name="ex">异常实例</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ExceptionHelper.GetExceptionDetailByApp(System.Exception)">
+            <summary>
+            获取异常详情
+            </summary>
+            <param name="ex">异常实例</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.FileHelper">
+            <summary>
+            文件帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.GetFilesFullName(System.Boolean,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取文件全名
+            </summary>
+            <param name="multiselect">是否可多选</param>
+            <param name="filter">过滤器</param>
+            <param name="initialDirectory">根目录</param>
+            <param name="title">标题</param>
+            <param name="defaultExt">文件默认扩展名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.GetFilesName(System.Environment.SpecialFolder,System.String,System.Collections.Generic.List{Wp.Helpers.Enums.EImgType},System.Boolean)">
+            <summary>
+            获取文件夹下所有文件的文件名和全名
+            返回的字典中的key为文件名，value为文件全名
+            </summary>
+            <param name="rootFolder">根目录</param>
+            <param name="description">描述</param>
+            <param name="extensions">文件扩展名集合，其中文件扩展名形式如.exe</param>
+            <param name="isReturnExtension">标识返回字典中的key是否包含文件扩展名 如.exe</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.GetFilesName(System.String,System.Collections.Generic.List{Wp.Helpers.Enums.EImgType},System.Boolean)">
+            <summary>
+            获取文件夹下所有文件的文件名和全名
+            返回的字典中的key为文件名，value为文件全名
+            </summary>
+            <param name="path">文件夹路径</param>
+            <param name="extensions">文件扩展名集合，其中文件扩展名形式如.exe</param>
+            <param name="isReturnExtension">标识返回字典中的key是否包含文件扩展名 如.exe</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.GetDirectoriesFullName(System.Boolean,System.Environment.SpecialFolder,System.String)">
+            <summary>
+            获取文件夹下所有子文件全路径
+            </summary>
+            <param name="showNewFolderButton">是否显示新建文件夹按钮</param>
+            <param name="rootFolder">根目录</param>
+            <param name="description">描述</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.GetDirectoriesFullName(System.String)">
+            <summary>
+            获取文件夹下所有子文件全路径
+            </summary>
+            <param name="path">文件夹路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.GetFileSystemInfo(System.Environment.SpecialFolder,System.String)">
+            <summary>
+            获取文件夹下文件和子文件夹全名
+            </summary>
+            <param name="rootFolder">根目录</param>
+            <param name="description">描述</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.GetFileSystemInfo(System.String)">
+            <summary>
+            获取文件夹下文件和子文件夹全名
+            </summary>
+            <param name="path">文件夹路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.GetDirectory(System.Environment.SpecialFolder,System.String)">
+            <summary>
+            获取文件夹完整路径
+            </summary>
+            <param name="rootFolder">根目录</param>
+            <param name="description">描述</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.RenameFiles(System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            重命名文件
+            将文件重命名后复制到根目录下以当前时间命名的文件夹下
+            文件重命名规则：将原文件名拆分后第nameIndex+1个元素作为新文件名；若多个文件原文件名拆分后第nameIndex+1个元素相同，则在第nameIndex+1个元素的基础上追加数字作为新文件名称
+            </summary>
+            <param name="spilt">文件名拆分字符串数组 若isTotalRename为true，该值为null即可  示例：如原文件名为“Test(1).svg”,则split为new string[] { "(" }即可</param>
+            <param name="appendString">若isTotalRename为true，则将在该值作为新文件名的基础；若为false，在原文件名拆分后第nameIndex+1个元素后追加该字符串作为新文件名的基础</param>
+            <param name="nameIndex">新文件名在原文件名拆分后的元素索引号，private 默认为第1个元素 若以在原文件名拆分后的i个元素重新命名文件，则nameIndex为i-1</param>
+            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
+            <param name="isTotalRename">是否完全重命名文件</param>
+            <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.RenameFiles(System.String,System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            重命名文件
+            将文件重命名后复制到根目录下以当前时间命名的文件夹下
+            文件重命名规则：将原文件名拆分后第nameIndex+1个元素作为新文件名；若多个文件原文件名拆分后第nameIndex+1个元素相同，则在第nameIndex+1个元素的基础上追加数字作为新文件名称
+            </summary>
+            <param name="path">文件所在文件夹路径</param>
+            <param name="spilt">文件名拆分字符串数组 若isTotalRename为true，该值为null即可  示例：如原文件名为“Test(1).svg”,则split为new string[] { "(" }即可</param>
+            <param name="appendString">若isTotalRename为true，则将在该值作为新文件名的基础；若为false，在原文件名拆分后第nameIndex+1个元素后追加该字符串作为新文件名的基础</param>
+            <param name="nameIndex">新文件名在原文件名拆分后的元素索引号，private 默认为第1个元素 若以在原文件名拆分后的i个元素重新命名文件，则nameIndex为i-1</param>
+            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
+            <param name="isTotalRename">是否完全重命名文件</param>
+            <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.RenameFiles(System.Collections.Generic.Dictionary{System.String,System.String},System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            重命名文件
+            </summary>
+            <param name="dic">文件夹下文件名和文件全名</param>
+            <param name="spilt">文件名拆分字符串数组 若isTotalRename为true，该值为null即可  示例：如原文件名为“Test(1).svg”,则split为new string[] { "(" }即可</param>
+            <param name="appendString">若isTotalRename为true，则将在该值作为新文件名的基础；若为false，在原文件名拆分后第nameIndex+1个元素后追加该字符串作为新文件名的基础</param>
+            <param name="nameIndex">新文件名在原文件名拆分后的元素索引号，private 默认为第1个元素 若以在原文件名拆分后的i个元素重新命名文件，则nameIndex为i-1</param>
+            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
+            <param name="isTotalRename">是否完全重命名文件</param>
+            <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.ClassificationFiles(System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            整理文件
+            </summary>
+            <param name="spilt">文件名拆分字符串数组 若isTotalRename为true，该值为null即可  示例：如原文件名为“Test(1).svg”,则split为new string[] { "(" }即可</param>
+            <param name="appendString">若isTotalRename为true，则将在该值作为新文件名的基础；若为false，在原文件名拆分后第nameIndex+1个元素后追加该字符串作为新文件名的基础</param>
+            <param name="nameIndex">新文件名在原文件名拆分后的元素索引号，private 默认为第1个元素 若以在原文件名拆分后的i个元素重新命名文件，则nameIndex为i-1</param>
+            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
+            <param name="isTotalRename">是否完全重命名文件</param>
+            <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.ClassificationFiles(System.String,System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            整理文件
+            </summary>
+            <param name="path">文件路径</param>
+            <param name="spilt">文件名拆分字符串数组 若isTotalRename为true，该值为null即可  示例：如原文件名为“Test(1).svg”,则split为new string[] { "(" }即可</param>
+            <param name="appendString">若isTotalRename为true，则将在该值作为新文件名的基础；若为false，在原文件名拆分后第nameIndex+1个元素后追加该字符串作为新文件名的基础</param>
+            <param name="nameIndex">新文件名在原文件名拆分后的元素索引号，private 默认为第1个元素 若以在原文件名拆分后的i个元素重新命名文件，则nameIndex为i-1</param>
+            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
+            <param name="isTotalRename">是否完全重命名文件</param>
+            <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.ClassificationFiles(System.Collections.Generic.Dictionary{System.String,System.String},System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            整理文件
+            </summary>
+            <param name="dic">文件夹下文件名和文件全名</param>
+            <param name="spilt">文件名拆分字符串数组 若isTotalRename为true，该值为null即可  示例：如原文件名为“Test(1).svg”,则split为new string[] { "(" }即可</param>
+            <param name="appendString">若isTotalRename为true，则将在该值作为新文件名的基础；若为false，在原文件名拆分后第nameIndex+1个元素后追加该字符串作为新文件名的基础</param>
+            <param name="nameIndex">新文件名在原文件名拆分后的元素索引号，private 默认为第1个元素 若以在原文件名拆分后的i个元素重新命名文件，则nameIndex为i-1</param>
+            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
+            <param name="isTotalRename">是否完全重命名文件</param>
+            <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.InitializationFileHelper">
+            <summary>
+            配置文件帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.InitializationFileHelper.WriteAsync(System.String,System.String,System.String,System.String)">
+            <summary>
+            异步写ini文件
+            </summary>
+            <param name="section">ini文件中区块名</param>
+            <param name="key">键</param>
+            <param name="value">值</param>
+            <param name="path">文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.InitializationFileHelper.WriteAsyncPropertyNameAsKey``1(System.String,``0,System.String)">
+            <summary>
+            异步写ini文件
+            键为属性名，值为属性值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="section">ini文件中区块名</param>
+            <param name="value">写入对象</param>
+            <param name="path">文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.InitializationFileHelper.WriteAsyncPropertyDescriptionAsKey``1(System.String,``0,System.String)">
+            <summary>
+            异步写ini文件
+            键为属性描述，值为属性值
+            </summary>
+            <typeparam name="T">写入对象类型</typeparam>
+            <param name="section">ini文件中区块名</param>
+            <param name="value">写入对象</param>
+            <param name="path">文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.InitializationFileHelper.ReadAsync(System.String,System.String,System.String)">
+            <summary>
+            异步读取配置文件1个键值
+            </summary>
+            <param name="section">ini文件中区块名</param>
+            <param name="key">键名</param>
+            <param name="path">文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.InitializationFileHelper.ReadAsyncT``1(System.String,System.String)">
+            <summary>
+            异步读取ini文件参数
+            </summary>
+            <typeparam name="T">返回类型</typeparam>
+            <param name="section">ini文件中区块名</param>
+            <param name="path">文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.LocalMachineHelper">
+            <summary>
+            本地设备帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.LocalMachineHelper.GetCpuID">
+            <summary>
+            获取CPU序列号代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.LocalMachineHelper.GetMacAddress">
+            <summary>
+            获取网卡硬件地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.LocalMachineHelper.GetDiskID">
+            <summary>
+            获取硬盘ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.LocalMachineHelper.GetIPAddress">
+            <summary>
+            获取IP地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.LocalMachineHelper.GetUserName">
+            <summary>
+            操作系统的登录用户名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.LocalMachineHelper.GetComputerName">
+            <summary>
+            获取计算机名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.LocalMachineHelper.GetSystemType">
+            <summary>
+            系统类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.LocalMachineHelper.GetTotalPhysicalMemory">
+            <summary>
+            物理内存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.MathHelper">
+            <summary>
+            math帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.MathHelper.ToChinese(System.Decimal)">
+            <summary>
+            将金额转成中文大写
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.MathHelper.GetPointCount(System.Decimal)">
+            <summary>
+            计算小数位数
+            </summary>
+            <param name="num">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.MathHelper.GetPointCount(System.Double)">
+            <summary>
+            计算小数位数
+            </summary>
+            <param name="num">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.MathHelper.GetPointCount(System.Single)">
+            <summary>
+            计算小数位数
+            </summary>
+            <param name="num">值</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.SolidColorBrushStyleHelper">
+            <summary>
+            SolidColorBrushStyle样式文件生成帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.SolidColorBrushStyleHelper.SaveSolidColorBrushStyle">
+            <summary>
+            保存SolidColorBrushStyle样式文件
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.Helpers.PropertyHepler">
+            <summary>
+            属性帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.Helpers.PropertyHepler.GetPropertyDescription``1(System.String)">
+            <summary>
+            获取属性描述
+            </summary>
+            <typeparam name="T">类类型</typeparam>
+            <param name="propertyName">属性名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.Helpers.PropertyHepler.GetPropertyDescriptionKeyIsDescription``1(``0,System.Collections.Generic.List{System.Type})">
+            <summary>
+            获取类属性描述和属性值
+            属性描述为key
+            </summary>
+            <typeparam name="T">类类型</typeparam>
+            <param name="obj">类实例</param>
+            <param name="ExceptType">不需返回的属性类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.Helpers.PropertyHepler.GetPropertyValueKeyIsName``1(``0,System.Collections.Generic.List{System.Type})">
+            <summary>
+            获取类属性描述和属性值
+            属性名为key
+            </summary>
+            <typeparam name="T">类类型</typeparam>
+            <param name="obj">类实例</param>
+            <param name="ExceptType">不需返回的属性类型</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.QueryHelper">
+            <summary>
+            查询帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.QueryHelper.GetPage``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32)">
+            <summary>
+            获取分页
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="collection">数据源</param>
+            <param name="pageNumber">页码</param>
+            <param name="pageSize">页内容量</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.RandomHelper">
+            <summary>
+            随机数帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.RandomHelper.NextDouble(System.Double,System.Double)">
+            <summary>
+            计算任意2个小数之间的随机数
+            </summary>
+            <param name="first">第一个小数</param>
+            <param name="second">第二个小数</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.SvgHelper">
+            <summary>
+            Svg格式图片帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.SvgHelper.GetGeometryPath(System.String,System.String[])">
+            <summary>
+            获取图片图案几何路径
+            </summary>
+            <param name="filePath">图片文件路径</param>
+            <param name="splits">拆分字符串集合，默认为null后，集合为 new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" }</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.SvgHelper.GetGeometryStyle(System.Collections.Generic.Dictionary{System.String,System.String},System.String[],System.String,System.String)">
+            <summary>
+            获取图片图案几何路径样式
+            </summary>
+            <param name="fileInfo">图片文件路径</param>
+            <param name="splits">拆分字符串集合，默认为null后，集合为 new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" }</param>
+            <param name="brush">图案其他状态时的颜色，{StaticResource SecondarySolidColorBurshStyle} or #FF8000</param>
+            <param name="normalBrush">图案默认颜色，{StaticResource TertiaryTextSolidColorBurshStyle} or #707070</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.SvgHelper.SaveGeometryStyle(System.Collections.Generic.Dictionary{System.String,System.String},System.String[],System.String,System.String,System.Boolean)">
+            <summary>
+            保存图片几何图案路径样式到文件
+            </summary>
+            <param name="fileInfo">图片文件路径</param>
+            <param name="splits">拆分字符串集合，默认为null后，集合为 new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" }</param>
+            <param name="brush">图案其他状态时的颜色，{StaticResource SecondarySolidColorBurshStyle} or #FF8000</param>
+            <param name="normalBrush">图案默认颜色，{StaticResource TertiaryTextSolidColorBurshStyle} or #707070</param>
+            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TextBlockStyleHelper">
+            <summary>
+            WPF TextBlock样式帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TextBlockStyleHelper.GetStyleFromXML(System.String,Wp.Helpers.Entities.WpfStyle.StyleBase,System.Boolean)">
+            <summary>
+            xml文件转style
+            </summary>
+            <param name="name">style名称</param>
+            <param name="styleBase">style基类信息</param>
+            <param name="isOpenFolder">是否打开文件夹</param>
+        </member>
+        <member name="T:Wp.Helpers.Converters.ControlVisibility.ToTopperVisibilityConverter">
+            <summary>
+            返回顶端按钮显示状态转换器
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Converters.Msg.IconConverter">
+            <summary>
+            消息弹窗Icon转换器
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Converters.Msg.TitleConverter">
+            <summary>
+            消息弹窗标题转换器
+            </summary>
         </member>
         <member name="T:Wp.Helpers.Entities.WpfStyle.StyleBase">
             <summary>
@@ -137,80 +661,6 @@
             <summary>
             样式基类文件路径
             </summary>
-        </member>
-        <member name="T:Wp.Helpers.EnumHelper">
-            <summary>
-            枚举帮助类
-            </summary>
-        </member>
-        <member name="M:Wp.Helpers.EnumHelper.GetEnumCount``1">
-            <summary>
-            获取枚举值数量
-            </summary>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.EnumHelper.GetEnumItems``1">
-            <summary>
-            获取所有枚举元素枚举
-            </summary>
-            <typeparam name="T">枚举</typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.EnumHelper.GetAllDescriptions``1">
-            <summary>
-            获取所有枚举项描述
-            可用做填充Combobox
-            </summary>
-            <typeparam name="T">枚举</typeparam>
-            <returns></returns>}
-        </member>
-        <member name="M:Wp.Helpers.EnumHelper.GetEnumDescription(System.Enum)">
-            <summary>
-            获取枚举描述
-            </summary>
-            <param name="enumValue"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.EnumHelper.GetEnumNameByDescription``1(System.String)">
-            <summary>
-            根据枚举描述获取枚举名
-            </summary>
-            <typeparam name="T">枚举</typeparam>
-            <param name="description">枚举描述</param>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.EnumHelper.GetEnumNameByDescription(System.String,System.Type)">
-            <summary>
-            根据枚举描述获取枚举名
-            </summary>
-            <param name="description">枚举描述</param>
-            <param name="type">枚举类型</param>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.EnumHelper.GetEnumDescriptionKeyIsName``1">
-            <summary>
-            获取枚举描述和枚举值名
-            返回值为字典类型，key为枚举名，value为枚举描述
-            </summary>
-            <typeparam name="T">枚举</typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.EnumHelper.GetEnumValueKeyIsDescription``1">
-            <summary>
-            获取枚举值和枚举描述
-            返回值为字典类型，key为枚举描述，value为枚举值
-            </summary>
-            <typeparam name="T">枚举</typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.EnumHelper.GetEnumDescriptionKeyIsValue``1">
-            <summary>
-            获取枚举描述和枚举值
-            返回值为字典类型，key为枚举值，value为枚举描述
-            </summary>
-            <typeparam name="T">枚举</typeparam>
-            <returns></returns>
         </member>
         <member name="T:Wp.Helpers.Enums.EImgType">
             <summary>
@@ -232,33 +682,60 @@
             svg格式的图片
             </summary>
         </member>
-        <member name="T:Wp.Helpers.ExceptionHelper">
+        <member name="T:Wp.Helpers.Enums.EMsgType">
             <summary>
-            异常帮助类
+            消息类型枚举
             </summary>
         </member>
-        <member name="M:Wp.Helpers.ExceptionHelper.PrintException``1(``0,System.Exception)">
+        <member name="F:Wp.Helpers.Enums.EMsgType.Trace">
             <summary>
-            在控制台打印出异常信息
+            跟踪消息
             </summary>
-            <typeparam name="T">消息头类型，为string或stringbuilder</typeparam>
-            <param name="msg"></param>
-            <param name="ex"></param>
-            <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.ExceptionHelper.GetExceptionDetailByWeb(System.Exception)">
+        <member name="F:Wp.Helpers.Enums.EMsgType.Alarm">
             <summary>
-            获取异常详情
+            警告提示
             </summary>
-            <param name="ex">异常实例</param>
-            <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.ExceptionHelper.GetExceptionDetailByApp(System.Exception)">
+        <member name="F:Wp.Helpers.Enums.EMsgType.Forbid">
             <summary>
-            获取异常详情
+            禁止提示
             </summary>
-            <param name="ex">异常实例</param>
-            <returns></returns>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Info">
+            <summary>
+            提示消息
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Warn">
+            <summary>
+            警告消息
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Error">
+            <summary>
+            错误提示
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Question">
+            <summary>
+            确认消息
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Success">
+            <summary>
+            成功提示
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Disconnection">
+            <summary>
+            未连接到设备
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.OffLine">
+            <summary>
+            未连接到网络
+            </summary>
         </member>
         <member name="T:Wp.Helpers.ExtensionMethod.EnumerableObjectExtensionMethod">
             <summary>
@@ -298,15 +775,6 @@
             <param name="json">对象</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.ExtensionMethod.ObjectExtensionMethod.PropertyToDictionary(System.Object,System.Collections.Generic.List{System.Type})">
-            <summary>
-            获取类属性描述和属性值
-            属性描述为key
-            </summary>
-            <param name="obj">类实例</param>
-            <param name="ExceptType">不需返回的属性类型</param>
-            <returns></returns>
-        </member>
         <member name="T:Wp.Helpers.ExtensionMethod.StringExentionMethod">
             <summary>
             string对象扩展方法
@@ -332,241 +800,6 @@
             <param name="json">json格式字符串</param>
             <returns></returns>
         </member>
-        <member name="T:Wp.Helpers.FileHelper">
-            <summary>
-            文件帮助类
-            </summary>
-        </member>
-        <member name="M:Wp.Helpers.FileHelper.GetFilesFullName(System.Boolean,System.String,System.String,System.String,System.String)">
-            <summary>
-            获取文件全名
-            </summary>
-            <param name="multiselect">是否可多选</param>
-            <param name="filter">过滤器</param>
-            <param name="initialDirectory">根目录</param>
-            <param name="title">标题</param>
-            <param name="defaultExt">文件默认扩展名</param>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.FileHelper.GetFilesName(System.Environment.SpecialFolder,System.String,System.Collections.Generic.List{Wp.Helpers.Enums.EImgType},System.Boolean)">
-            <summary>
-            获取文件夹下所有文件的文件名和全名
-            返回的字典中的key为文件名，value为文件全名
-            </summary>
-            <param name="rootFolder">根目录</param>
-            <param name="description">描述</param>
-            <param name="extensions">文件扩展名集合，其中文件扩展名形式如.exe</param>
-            <param name="isReturnExtension">标识返回字典中的key是否包含文件扩展名 如.exe</param>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.FileHelper.GetFilesName(System.String,System.Collections.Generic.List{Wp.Helpers.Enums.EImgType},System.Boolean)">
-            <summary>
-            获取文件夹下所有文件的文件名和全名
-            返回的字典中的key为文件名，value为文件全名
-            </summary>
-            <param name="path">文件夹路径</param>
-            <param name="extensions">文件扩展名集合，其中文件扩展名形式如.exe</param>
-            <param name="isReturnExtension">标识返回字典中的key是否包含文件扩展名 如.exe</param>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.FileHelper.GetDirectoriesFullName(System.Boolean,System.Environment.SpecialFolder,System.String)">
-            <summary>
-            获取文件夹下所有子文件全路径
-            </summary>
-            <param name="showNewFolderButton">是否显示新建文件夹按钮</param>
-            <param name="rootFolder">根目录</param>
-            <param name="description">描述</param>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.FileHelper.GetDirectoriesFullName(System.String)">
-            <summary>
-            获取文件夹下所有子文件全路径
-            </summary>
-            <param name="path">文件夹路径</param>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.FileHelper.GetFileSystemInfo(System.Environment.SpecialFolder,System.String)">
-            <summary>
-            获取文件夹下文件和子文件夹全名
-            </summary>
-            <param name="rootFolder">根目录</param>
-            <param name="description">描述</param>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.FileHelper.GetFileSystemInfo(System.String)">
-            <summary>
-            获取文件夹下文件和子文件夹全名
-            </summary>
-            <param name="path">文件夹路径</param>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.FileHelper.GetDirectory(System.Environment.SpecialFolder,System.String)">
-            <summary>
-            获取文件夹完整路径
-            </summary>
-            <param name="rootFolder">根目录</param>
-            <param name="description">描述</param>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.FileHelper.RenameFiles(System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
-            <summary>
-            重命名文件
-            将文件重命名后复制到根目录下以当前时间命名的文件夹下
-            文件重命名规则：将原文件名拆分后第nameIndex+1个元素作为新文件名；若多个文件原文件名拆分后第nameIndex+1个元素相同，则在第nameIndex+1个元素的基础上追加数字作为新文件名称
-            </summary>
-            <param name="spilt">文件名拆分字符串数组 若isTotalRename为true，该值为null即可  示例：如原文件名为“Test(1).svg”,则split为new string[] { "(" }即可</param>
-            <param name="appendString">若isTotalRename为true，则将在该值作为新文件名的基础；若为false，在原文件名拆分后第nameIndex+1个元素后追加该字符串作为新文件名的基础</param>
-            <param name="nameIndex">新文件名在原文件名拆分后的元素索引号，private 默认为第1个元素 若以在原文件名拆分后的i个元素重新命名文件，则nameIndex为i-1</param>
-            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
-            <param name="isTotalRename">是否完全重命名文件</param>
-            <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
-        </member>
-        <member name="M:Wp.Helpers.FileHelper.RenameFiles(System.String,System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
-            <summary>
-            重命名文件
-            将文件重命名后复制到根目录下以当前时间命名的文件夹下
-            文件重命名规则：将原文件名拆分后第nameIndex+1个元素作为新文件名；若多个文件原文件名拆分后第nameIndex+1个元素相同，则在第nameIndex+1个元素的基础上追加数字作为新文件名称
-            </summary>
-            <param name="path">文件所在文件夹路径</param>
-            <param name="spilt">文件名拆分字符串数组 若isTotalRename为true，该值为null即可  示例：如原文件名为“Test(1).svg”,则split为new string[] { "(" }即可</param>
-            <param name="appendString">若isTotalRename为true，则将在该值作为新文件名的基础；若为false，在原文件名拆分后第nameIndex+1个元素后追加该字符串作为新文件名的基础</param>
-            <param name="nameIndex">新文件名在原文件名拆分后的元素索引号，private 默认为第1个元素 若以在原文件名拆分后的i个元素重新命名文件，则nameIndex为i-1</param>
-            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
-            <param name="isTotalRename">是否完全重命名文件</param>
-            <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
-        </member>
-        <member name="M:Wp.Helpers.FileHelper.RenameFiles(System.Collections.Generic.Dictionary{System.String,System.String},System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
-            <summary>
-            重命名文件
-            </summary>
-            <param name="dic">文件夹下文件名和文件全名</param>
-            <param name="spilt">文件名拆分字符串数组 若isTotalRename为true，该值为null即可  示例：如原文件名为“Test(1).svg”,则split为new string[] { "(" }即可</param>
-            <param name="appendString">若isTotalRename为true，则将在该值作为新文件名的基础；若为false，在原文件名拆分后第nameIndex+1个元素后追加该字符串作为新文件名的基础</param>
-            <param name="nameIndex">新文件名在原文件名拆分后的元素索引号，private 默认为第1个元素 若以在原文件名拆分后的i个元素重新命名文件，则nameIndex为i-1</param>
-            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
-            <param name="isTotalRename">是否完全重命名文件</param>
-            <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
-        </member>
-        <member name="M:Wp.Helpers.FileHelper.ClassificationFiles(System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
-            <summary>
-            整理文件
-            </summary>
-            <param name="spilt">文件名拆分字符串数组 若isTotalRename为true，该值为null即可  示例：如原文件名为“Test(1).svg”,则split为new string[] { "(" }即可</param>
-            <param name="appendString">若isTotalRename为true，则将在该值作为新文件名的基础；若为false，在原文件名拆分后第nameIndex+1个元素后追加该字符串作为新文件名的基础</param>
-            <param name="nameIndex">新文件名在原文件名拆分后的元素索引号，private 默认为第1个元素 若以在原文件名拆分后的i个元素重新命名文件，则nameIndex为i-1</param>
-            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
-            <param name="isTotalRename">是否完全重命名文件</param>
-            <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
-        </member>
-        <member name="M:Wp.Helpers.FileHelper.ClassificationFiles(System.String,System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
-            <summary>
-            整理文件
-            </summary>
-            <param name="path">文件路径</param>
-            <param name="spilt">文件名拆分字符串数组 若isTotalRename为true，该值为null即可  示例：如原文件名为“Test(1).svg”,则split为new string[] { "(" }即可</param>
-            <param name="appendString">若isTotalRename为true，则将在该值作为新文件名的基础；若为false，在原文件名拆分后第nameIndex+1个元素后追加该字符串作为新文件名的基础</param>
-            <param name="nameIndex">新文件名在原文件名拆分后的元素索引号，private 默认为第1个元素 若以在原文件名拆分后的i个元素重新命名文件，则nameIndex为i-1</param>
-            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
-            <param name="isTotalRename">是否完全重命名文件</param>
-            <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
-        </member>
-        <member name="M:Wp.Helpers.FileHelper.ClassificationFiles(System.Collections.Generic.Dictionary{System.String,System.String},System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
-            <summary>
-            整理文件
-            </summary>
-            <param name="dic">文件夹下文件名和文件全名</param>
-            <param name="spilt">文件名拆分字符串数组 若isTotalRename为true，该值为null即可  示例：如原文件名为“Test(1).svg”,则split为new string[] { "(" }即可</param>
-            <param name="appendString">若isTotalRename为true，则将在该值作为新文件名的基础；若为false，在原文件名拆分后第nameIndex+1个元素后追加该字符串作为新文件名的基础</param>
-            <param name="nameIndex">新文件名在原文件名拆分后的元素索引号，private 默认为第1个元素 若以在原文件名拆分后的i个元素重新命名文件，则nameIndex为i-1</param>
-            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
-            <param name="isTotalRename">是否完全重命名文件</param>
-            <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
-        </member>
-        <member name="T:Wp.Helpers.LocalMachineHelper">
-            <summary>
-            本地设备帮助类
-            </summary>
-        </member>
-        <member name="M:Wp.Helpers.LocalMachineHelper.GetCpuID">
-            <summary>
-            获取CPU序列号代码
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.LocalMachineHelper.GetMacAddress">
-            <summary>
-            获取网卡硬件地址
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.LocalMachineHelper.GetDiskID">
-            <summary>
-            获取硬盘ID
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.LocalMachineHelper.GetIPAddress">
-            <summary>
-            获取IP地址
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.LocalMachineHelper.GetUserName">
-            <summary>
-            操作系统的登录用户名
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.LocalMachineHelper.GetComputerName">
-            <summary>
-            获取计算机名
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.LocalMachineHelper.GetSystemType">
-            <summary>
-            系统类型
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.LocalMachineHelper.GetTotalPhysicalMemory">
-            <summary>
-            物理内存
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Wp.Helpers.MathHelper">
-            <summary>
-            math帮助类
-            </summary>
-        </member>
-        <member name="M:Wp.Helpers.MathHelper.ToChinese(System.Decimal)">
-            <summary>
-            将金额转成中文大写
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.MathHelper.GetPointCount(System.Decimal)">
-            <summary>
-            计算小数位数
-            </summary>
-            <param name="num">值</param>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.MathHelper.GetPointCount(System.Double)">
-            <summary>
-            计算小数位数
-            </summary>
-            <param name="num">值</param>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.MathHelper.GetPointCount(System.Single)">
-            <summary>
-            计算小数位数
-            </summary>
-            <param name="num">值</param>
-            <returns></returns>
-        </member>
         <member name="T:Wp.Helpers.WpfHelpers.PasswordBoxHelper">
             <summary>
             PasswordBox控件帮助类
@@ -584,60 +817,9 @@
         </member>
         <member name="P:Wp.Helpers.Properties.Resources.Culture">
             <summary>
-              重写当前线程的 CurrentUICulture 属性
-              重写当前线程的 CurrentUICulture 属性。
+              重写当前线程的 CurrentUICulture 属性，对
+              使用此强类型资源类的所有资源查找执行重写。
             </summary>
-        </member>
-        <member name="T:Wp.Helpers.PropertyHepler">
-            <summary>
-            属性帮助类
-            </summary>
-        </member>
-        <member name="M:Wp.Helpers.PropertyHepler.GetPropertyDescription``1(System.String)">
-            <summary>
-            获取属性描述
-            </summary>
-            <typeparam name="T">类类型</typeparam>
-            <param name="propertyName">属性名</param>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.PropertyHepler.GetPropertyDescriptionKeyIsDescription``1(``0,System.Collections.Generic.List{System.Type})">
-            <summary>
-            获取类属性描述和属性值
-            属性描述为key
-            </summary>
-            <typeparam name="T">类类型</typeparam>
-            <param name="obj">类实例</param>
-            <param name="ExceptType">不需返回的属性类型</param>
-            <returns></returns>
-        </member>
-        <member name="T:Wp.Helpers.QueryHelper">
-            <summary>
-            查询帮助类
-            </summary>
-        </member>
-        <member name="M:Wp.Helpers.QueryHelper.GetPage``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32)">
-            <summary>
-            获取分页
-            </summary>
-            <typeparam name="T">数据类型</typeparam>
-            <param name="collection">数据源</param>
-            <param name="pageNumber">页码</param>
-            <param name="pageSize">页内容量</param>
-            <returns></returns>
-        </member>
-        <member name="T:Wp.Helpers.RandomHelper">
-            <summary>
-            随机数帮助类
-            </summary>
-        </member>
-        <member name="M:Wp.Helpers.RandomHelper.NextDouble(System.Double,System.Double)">
-            <summary>
-            计算任意2个小数之间的随机数
-            </summary>
-            <param name="first">第一个小数</param>
-            <param name="second">第二个小数</param>
-            <returns></returns>
         </member>
         <member name="T:Wp.Helpers.Redis.RedisCnnHelper">
             <summary>
@@ -1324,52 +1506,6 @@
             </summary>
             <param name="redisKeys">list集合</param>
             <returns></returns>
-        </member>
-        <member name="T:Wp.Helpers.SvgHelper">
-            <summary>
-            Svg格式图片帮助类
-            </summary>
-        </member>
-        <member name="M:Wp.Helpers.SvgHelper.GetGeometryPath(System.String,System.String[])">
-            <summary>
-            获取图片图案几何路径
-            </summary>
-            <param name="filePath">图片文件路径</param>
-            <param name="splits">拆分字符串集合，默认为null后，集合为 new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" }</param>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.SvgHelper.GetGeometryStyle(System.Collections.Generic.Dictionary{System.String,System.String},System.String[],System.String,System.String)">
-            <summary>
-            获取图片图案几何路径样式
-            </summary>
-            <param name="fileInfo">图片文件路径</param>
-            <param name="splits">拆分字符串集合，默认为null后，集合为 new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" }</param>
-            <param name="brush">图案其他状态时的颜色，{StaticResource SecondarySolidColorBurshStyle} or #FF8000</param>
-            <param name="normalBrush">图案默认颜色，{StaticResource TertiaryTextSolidColorBurshStyle} or #707070</param>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.SvgHelper.SaveGeometryStyle(System.Collections.Generic.Dictionary{System.String,System.String},System.String[],System.String,System.String,System.Boolean)">
-            <summary>
-            保存图片几何图案路径样式到文件
-            </summary>
-            <param name="fileInfo">图片文件路径</param>
-            <param name="splits">拆分字符串集合，默认为null后，集合为 new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" }</param>
-            <param name="brush">图案其他状态时的颜色，{StaticResource SecondarySolidColorBurshStyle} or #FF8000</param>
-            <param name="normalBrush">图案默认颜色，{StaticResource TertiaryTextSolidColorBurshStyle} or #707070</param>
-            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
-        </member>
-        <member name="T:Wp.Helpers.TextBlockStyleHelper">
-            <summary>
-            WPF TextBlock样式帮助类
-            </summary>
-        </member>
-        <member name="M:Wp.Helpers.TextBlockStyleHelper.GetStyleFromXML(System.String,Wp.Helpers.Entities.WpfStyle.StyleBase,System.Boolean)">
-            <summary>
-            xml文件转style
-            </summary>
-            <param name="name">style名称</param>
-            <param name="styleBase">style基类信息</param>
-            <param name="isOpenFolder">是否打开文件夹</param>
         </member>
     </members>
 </doc>
