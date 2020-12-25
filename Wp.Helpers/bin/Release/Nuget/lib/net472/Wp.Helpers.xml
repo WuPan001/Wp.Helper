@@ -421,13 +421,14 @@
             <param name="path">文件路径</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.Helpers.InitializationFileHelper.ReadAsyncT``1(System.String,System.String)">
+        <member name="M:Wp.Helpers.Helpers.InitializationFileHelper.ReadAsyncT``1(System.String,System.String,System.Reflection.BindingFlags)">
             <summary>
             异步读取ini文件参数
             </summary>
             <typeparam name="T">返回类型</typeparam>
             <param name="section">ini文件中区块名</param>
             <param name="path">文件路径</param>
+            <param name="bindingFlags">属性类型</param>
             <returns></returns>
         </member>
         <member name="T:Wp.Helpers.Helpers.LocalMachineHelper">
@@ -538,7 +539,7 @@
             <param name="propertyName">属性名</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.Helpers.Helpers.PropertyHepler.GetPropertyDescriptionKeyIsDescription``1(``0,System.Collections.Generic.List{System.Type})">
+        <member name="M:Wp.Helpers.Helpers.Helpers.PropertyHepler.GetPropertyDescriptionKeyIsDescription``1(``0,System.Collections.Generic.List{System.Type},System.Reflection.BindingFlags)">
             <summary>
             获取类属性描述和属性值
             属性描述为key
@@ -546,9 +547,10 @@
             <typeparam name="T">类类型</typeparam>
             <param name="obj">类实例</param>
             <param name="ExceptType">不需返回的属性类型</param>
+            <param name="bindingFlags">属性类型</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.Helpers.Helpers.PropertyHepler.GetPropertyValueKeyIsName``1(``0,System.Collections.Generic.List{System.Type})">
+        <member name="M:Wp.Helpers.Helpers.Helpers.PropertyHepler.GetPropertyValueKeyIsName``1(``0,System.Collections.Generic.List{System.Type},System.Reflection.BindingFlags)">
             <summary>
             获取类属性描述和属性值
             属性名为key
@@ -556,6 +558,7 @@
             <typeparam name="T">类类型</typeparam>
             <param name="obj">类实例</param>
             <param name="ExceptType">不需返回的属性类型</param>
+            <param name="bindingFlags">属性类型</param>
             <returns></returns>
         </member>
         <member name="T:Wp.Helpers.Helpers.QueryHelper">

@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 
-namespace Wp.Helpers.Helpers.Helpers
+namespace Wp.Helpers.Helpers
 {
     /// <summary>
     /// 属性帮助类

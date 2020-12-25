@@ -8,49 +8,93 @@ namespace Wp.Helpers.WpfHelpers
     /// </summary>
     public static class PasswordBoxHelper
     {
+        /// <summary>
+        ///
+        /// </summary>
         public static readonly DependencyProperty PasswordProperty =
             DependencyProperty.RegisterAttached("Password",
             typeof(string), typeof(PasswordBoxHelper),
             new FrameworkPropertyMetadata(string.Empty, OnPasswordPropertyChanged));
 
+        /// <summary>
+        ///
+        /// </summary>
         public static readonly DependencyProperty AttachProperty =
             DependencyProperty.RegisterAttached("Attach",
             typeof(bool), typeof(PasswordBoxHelper), new PropertyMetadata(false, Attach));
 
+        /// <summary>
+        ///
+        /// </summary>
         private static readonly DependencyProperty IsUpdatingProperty =
            DependencyProperty.RegisterAttached("IsUpdating", typeof(bool),
            typeof(PasswordBoxHelper));
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="dp"></param>
+        /// <param name="value"></param>
         public static void SetAttach(DependencyObject dp, bool value)
         {
             dp.SetValue(AttachProperty, value);
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="dp"></param>
+        /// <returns></returns>
         public static bool GetAttach(DependencyObject dp)
         {
             return (bool)dp.GetValue(AttachProperty);
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="dp"></param>
+        /// <returns></returns>
         public static string GetPassword(DependencyObject dp)
         {
             return (string)dp.GetValue(PasswordProperty);
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="dp"></param>
+        /// <param name="value"></param>
         public static void SetPassword(DependencyObject dp, string value)
         {
             dp.SetValue(PasswordProperty, value);
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="dp"></param>
+        /// <returns></returns>
         private static bool GetIsUpdating(DependencyObject dp)
         {
             return (bool)dp.GetValue(IsUpdatingProperty);
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="dp"></param>
+        /// <param name="value"></param>
         private static void SetIsUpdating(DependencyObject dp, bool value)
         {
             dp.SetValue(IsUpdatingProperty, value);
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private static void OnPasswordPropertyChanged(DependencyObject sender,
             DependencyPropertyChangedEventArgs e)
         {
@@ -63,11 +107,15 @@ namespace Wp.Helpers.WpfHelpers
             passwordBox.PasswordChanged += PasswordChanged;
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private static void Attach(DependencyObject sender,
             DependencyPropertyChangedEventArgs e)
         {
-            var passwordBox = sender as PasswordBox;
-            if (passwordBox == null)
+            if (!(sender is PasswordBox passwordBox))
                 return;
             if ((bool)e.OldValue)
             {
@@ -79,6 +127,11 @@ namespace Wp.Helpers.WpfHelpers
             }
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private static void PasswordChanged(object sender, RoutedEventArgs e)
         {
             var passwordBox = sender as PasswordBox;

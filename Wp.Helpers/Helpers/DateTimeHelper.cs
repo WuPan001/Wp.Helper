@@ -2,6 +2,9 @@
 
 namespace Wp.Helpers.Helpers
 {
+    /// <summary>
+    /// DateTimeHelper
+    /// </summary>
     public class DateTimeHelper
     {
         /// <summary>
