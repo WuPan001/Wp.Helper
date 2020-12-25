@@ -128,13 +128,14 @@ namespace Wp.Helpers.Helpers
         /// <typeparam name="T">返回类型</typeparam>
         /// <param name="section">ini文件中区块名</param>
         /// <param name="path">文件路径</param>
+        /// <param name="bindingFlags">属性类型</param>
         /// <returns></returns>
-        public static async Task<T> ReadAsyncT<T>(string section, string path) where T : class, new()
+        public static async Task<T> ReadAsyncT<T>(string section, string path, BindingFlags bindingFlags = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance) where T : class, new()
         {
             try
             {
                 var res = new T();
-                foreach (PropertyInfo p in typeof(T).GetProperties())
+                foreach (PropertyInfo p in typeof(T).GetProperties(bindingFlags))
                 {
                     var value = await ReadAsync(section, p.Name, path);
                     if (!string.IsNullOrEmpty(value))

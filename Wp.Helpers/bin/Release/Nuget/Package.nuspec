@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>Wp.Helpers</id>
-    <version>1.0.7.4</version>
+    <version>1.0.7.5-alpha</version>
     <authors>WuPan</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
@@ -20,10 +20,11 @@
 		0.8 Redis帮助类
 		0.9 Random帮助类
 		0.10 对象属性帮助类
+		0.11 ini文件帮助类
 		</description>
-    <releaseNotes>新增获取对象属性描述和属性值的方法</releaseNotes>
+    <releaseNotes>新增ini文件帮助类</releaseNotes>
     <copyright>copyright© 2020 WuPan</copyright>
-    <tags>wp wp.helper wp.helpers svg enum file redis</tags>
+    <tags>wp wp.helper wp.helpers svg enum file redis ini</tags>
     <dependencies>
       <group targetFramework=".NETFramework4.7.2">
         <dependency id="StackExchange.Redis" version="2.1.58" />

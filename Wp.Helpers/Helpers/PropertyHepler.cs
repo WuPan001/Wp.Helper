@@ -37,8 +37,12 @@ namespace Wp.Helpers.Helpers.Helpers
         /// <typeparam name="T">类类型</typeparam>
         /// <param name="obj">类实例</param>
         /// <param name="ExceptType">不需返回的属性类型</param>
+        /// <param name="bindingFlags">属性类型</param>
         /// <returns></returns>
-        public static Dictionary<string, string> GetPropertyDescriptionKeyIsDescription<T>(T obj, List<Type> ExceptType = null) where T : class
+        public static Dictionary<string, string> GetPropertyDescriptionKeyIsDescription<T>(
+            T obj,
+            List<Type> ExceptType = null,
+            BindingFlags bindingFlags = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance) where T : class
         {
             try
             {
@@ -46,7 +50,7 @@ namespace Wp.Helpers.Helpers.Helpers
 
                 if (ExceptType != null)
                 {
-                    foreach (PropertyInfo p in typeof(T).GetProperties())
+                    foreach (PropertyInfo p in typeof(T).GetProperties(bindingFlags))
                     {
                         if (ExceptType.Contains(p.PropertyType))
                         {
@@ -60,7 +64,7 @@ namespace Wp.Helpers.Helpers.Helpers
                 }
                 else
                 {
-                    foreach (PropertyInfo p in typeof(T).GetProperties())
+                    foreach (PropertyInfo p in typeof(T).GetProperties(bindingFlags))
                     {
                         res.Add(((DescriptionAttribute)p.GetCustomAttributes(typeof(DescriptionAttribute), true).FirstOrDefault()).Description, p.GetValue(obj).ToString());
                     }
@@ -81,15 +85,19 @@ namespace Wp.Helpers.Helpers.Helpers
         /// <typeparam name="T">类类型</typeparam>
         /// <param name="obj">类实例</param>
         /// <param name="ExceptType">不需返回的属性类型</param>
+        /// <param name="bindingFlags">属性类型</param>
         /// <returns></returns>
-        public static Dictionary<string, string> GetPropertyValueKeyIsName<T>(T obj, List<Type> ExceptType = null) where T : class
+        public static Dictionary<string, string> GetPropertyValueKeyIsName<T>(
+            T obj,
+            List<Type> ExceptType = null,
+            BindingFlags bindingFlags = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance) where T : class
         {
             try
             {
                 var res = new Dictionary<string, string>();
                 if (ExceptType != null)
                 {
-                    foreach (PropertyInfo p in typeof(T).GetProperties())
+                    foreach (PropertyInfo p in typeof(T).GetProperties(bindingFlags))
                     {
                         if (ExceptType.Contains(p.PropertyType))
                         {
@@ -103,7 +111,7 @@ namespace Wp.Helpers.Helpers.Helpers
                 }
                 else
                 {
-                    foreach (PropertyInfo p in typeof(T).GetProperties())
+                    foreach (PropertyInfo p in typeof(T).GetProperties(bindingFlags))
                     {
                         res.Add(p.Name, p.GetValue(obj).ToString());
                     }
