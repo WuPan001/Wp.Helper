@@ -98,6 +98,11 @@
             <param name="imgType">图片文件类型</param>
             <returns></returns>
         </member>
+        <member name="T:Wp.Helpers.Helpers.DateTimeHelper">
+            <summary>
+            DateTimeHelper
+            </summary>
+        </member>
         <member name="M:Wp.Helpers.Helpers.DateTimeHelper.GetTimeStamp">
             <summary>
             返回一个时间戳
@@ -526,12 +531,12 @@
             保存SolidColorBrushStyle样式文件
             </summary>
         </member>
-        <member name="T:Wp.Helpers.Helpers.Helpers.PropertyHepler">
+        <member name="T:Wp.Helpers.Helpers.PropertyHepler">
             <summary>
             属性帮助类
             </summary>
         </member>
-        <member name="M:Wp.Helpers.Helpers.Helpers.PropertyHepler.GetPropertyDescription``1(System.String)">
+        <member name="M:Wp.Helpers.Helpers.PropertyHepler.GetPropertyDescription``1(System.String)">
             <summary>
             获取属性描述
             </summary>
@@ -539,7 +544,7 @@
             <param name="propertyName">属性名</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.Helpers.Helpers.PropertyHepler.GetPropertyDescriptionKeyIsDescription``1(``0,System.Collections.Generic.List{System.Type},System.Reflection.BindingFlags)">
+        <member name="M:Wp.Helpers.Helpers.PropertyHepler.GetPropertyDescriptionKeyIsDescription``1(``0,System.Collections.Generic.List{System.Type},System.Reflection.BindingFlags)">
             <summary>
             获取类属性描述和属性值
             属性描述为key
@@ -550,7 +555,7 @@
             <param name="bindingFlags">属性类型</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.Helpers.Helpers.PropertyHepler.GetPropertyValueKeyIsName``1(``0,System.Collections.Generic.List{System.Type},System.Reflection.BindingFlags)">
+        <member name="M:Wp.Helpers.Helpers.PropertyHepler.GetPropertyValueKeyIsName``1(``0,System.Collections.Generic.List{System.Type},System.Reflection.BindingFlags)">
             <summary>
             获取类属性描述和属性值
             属性名为key
@@ -640,15 +645,160 @@
             返回顶端按钮显示状态转换器
             </summary>
         </member>
+        <member name="M:Wp.Helpers.Converters.ControlVisibility.ToTopperVisibilityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converter
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Converters.ControlVisibility.ToTopperVisibilityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            ConverterBack
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
         <member name="T:Wp.Helpers.Converters.Msg.IconConverter">
             <summary>
             消息弹窗Icon转换器
             </summary>
         </member>
+        <member name="P:Wp.Helpers.Converters.Msg.IconConverter.OffLine">
+            <summary>
+            离线
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Converters.Msg.IconConverter.Disconnection">
+            <summary>
+            链接断开
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Converters.Msg.IconConverter.Trace">
+            <summary>
+            跟踪
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Converters.Msg.IconConverter.Alarm">
+            <summary>
+            警告
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Converters.Msg.IconConverter.Forbid">
+            <summary>
+            禁止
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Converters.Msg.IconConverter.Question">
+            <summary>
+            提问
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Converters.Msg.IconConverter.Error">
+            <summary>
+            异常
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Converters.Msg.IconConverter.Info">
+            <summary>
+            信息
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Converters.Msg.IconConverter.Warn">
+            <summary>
+            警告
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Converters.Msg.IconConverter.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Converters.Msg.IconConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converter
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Converters.Msg.IconConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            ConverterBack
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
         <member name="T:Wp.Helpers.Converters.Msg.TitleConverter">
             <summary>
             消息弹窗标题转换器
             </summary>
+        </member>
+        <member name="M:Wp.Helpers.Converters.Msg.TitleConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converter
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Converters.Msg.TitleConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            ConverterBack
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Entities.ALiIconFont.Content">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.ALiIconFont.Content.Class">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.ALiIconFont.Content.Text">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.ALiIconFont.Content.Test">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Wp.Helpers.Entities.ALiIconFont.IconFont">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.ALiIconFont.IconFont.Class">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.ALiIconFont.IconFont.Li">
+             <summary>
+            
+             </summary>
         </member>
         <member name="T:Wp.Helpers.Entities.WpfStyle.StyleBase">
             <summary>
@@ -807,6 +957,84 @@
             <summary>
             PasswordBox控件帮助类
             </summary>
+        </member>
+        <member name="F:Wp.Helpers.WpfHelpers.PasswordBoxHelper.PasswordProperty">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:Wp.Helpers.WpfHelpers.PasswordBoxHelper.AttachProperty">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:Wp.Helpers.WpfHelpers.PasswordBoxHelper.IsUpdatingProperty">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Wp.Helpers.WpfHelpers.PasswordBoxHelper.SetAttach(System.Windows.DependencyObject,System.Boolean)">
+             <summary>
+            
+             </summary>
+             <param name="dp"></param>
+             <param name="value"></param>
+        </member>
+        <member name="M:Wp.Helpers.WpfHelpers.PasswordBoxHelper.GetAttach(System.Windows.DependencyObject)">
+             <summary>
+            
+             </summary>
+             <param name="dp"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.WpfHelpers.PasswordBoxHelper.GetPassword(System.Windows.DependencyObject)">
+             <summary>
+            
+             </summary>
+             <param name="dp"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.WpfHelpers.PasswordBoxHelper.SetPassword(System.Windows.DependencyObject,System.String)">
+             <summary>
+            
+             </summary>
+             <param name="dp"></param>
+             <param name="value"></param>
+        </member>
+        <member name="M:Wp.Helpers.WpfHelpers.PasswordBoxHelper.GetIsUpdating(System.Windows.DependencyObject)">
+             <summary>
+            
+             </summary>
+             <param name="dp"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.WpfHelpers.PasswordBoxHelper.SetIsUpdating(System.Windows.DependencyObject,System.Boolean)">
+             <summary>
+            
+             </summary>
+             <param name="dp"></param>
+             <param name="value"></param>
+        </member>
+        <member name="M:Wp.Helpers.WpfHelpers.PasswordBoxHelper.OnPasswordPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+             <summary>
+            
+             </summary>
+             <param name="sender"></param>
+             <param name="e"></param>
+        </member>
+        <member name="M:Wp.Helpers.WpfHelpers.PasswordBoxHelper.Attach(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+             <summary>
+            
+             </summary>
+             <param name="sender"></param>
+             <param name="e"></param>
+        </member>
+        <member name="M:Wp.Helpers.WpfHelpers.PasswordBoxHelper.PasswordChanged(System.Object,System.Windows.RoutedEventArgs)">
+             <summary>
+            
+             </summary>
+             <param name="sender"></param>
+             <param name="e"></param>
         </member>
         <member name="T:Wp.Helpers.Properties.Resources">
             <summary>

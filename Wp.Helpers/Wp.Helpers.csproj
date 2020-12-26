@@ -108,6 +108,13 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Protocols\ModbusTcp\AddressDomain.cs" />
+    <Compile Include="Entities\Protocols\ModbusTcp\DataDomain.cs" />
+    <Compile Include="Entities\Protocols\ModbusTcp\ModbusTcpFlagDomain.cs" />
+    <Compile Include="Entities\Protocols\ModbusTcp\MsgIdDomain.cs" />
+    <Compile Include="Entities\Protocols\ModbusTcp\StationIdDomain.cs" />
+    <Compile Include="Entities\Protocols\ModbusTcp\SubsequenByteLengthDomain.cs" />
+    <Compile Include="Enums\Protocols\ModbusTcp\FunctionCode.cs" />
     <Compile Include="Helpers\ByteArrayHelper.cs" />
     <Compile Include="Helpers\ConverterHelper.cs" />
     <Compile Include="Converters\ControlVisibility\ToTopperVisibilityConverter.cs" />
@@ -131,6 +138,7 @@
     <Compile Include="Helpers\InitializationFileHelper.cs" />
     <Compile Include="Helpers\LocalMachineHelper.cs" />
     <Compile Include="Helpers\MathHelper.cs" />
+    <Compile Include="Helpers\ProtocolsHelper\ModbusTcpHelper.cs" />
     <Compile Include="Helpers\SolidColorBrushStyleHelper.cs" />
     <Compile Include="WpfHelpers\ExpanderHelper.cs" />
     <Compile Include="WpfHelpers\PasswordBoxHelper.cs" />

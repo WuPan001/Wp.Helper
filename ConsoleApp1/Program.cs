@@ -121,14 +121,13 @@ namespace ConsoleApp1
 
                     #region ini文件帮助类测试
 
-                    //var styleBase = new StyleBase() { BaseName = "Name", BasePath = "Path", TestBool = true };
-                    //var path = FileHelper.GetDirectory();
-                    //IniHelper.WriteAsyncPropertyNameAsKey("TestSection", styleBase, Path.Combine(path, "TestIni.ini")).Wait();
+                    var styleBase = new StyleBase() { BaseName = "Name", BasePath = "Path" };
+                    InitializationFileHelper.WriteAsyncPropertyNameAsKey("TestSection", styleBase, Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TestIni.ini")).Wait();
                     //var temp = IniHelper.ReadAsync("TestSection", "TestBool", Path.Combine(FileHelper.GetDirectory(), "TestIni.ini")).Result;
                     //var temp1 = Convert.ToBoolean(temp);
                     //Console.WriteLine(temp1);
                     //Console.WriteLine(DateTime.Now);
-                    var test = InitializationFileHelper.ReadAsyncT<StyleBase>("TestSection", Path.Combine(FileHelper.GetDirectory(), "TestIni.ini")).Result;
+                    var test = InitializationFileHelper.ReadAsyncT<StyleBase>("TestSection", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TestIni.ini")).Result;
                     Console.WriteLine(DateTime.Now);
 
                     #endregion ini文件帮助类测试
