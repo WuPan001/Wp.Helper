@@ -1,14 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Sockets;
+using System.Threading;
 using Wp.Helpers.Entities.WpfStyle;
 using Wp.Helpers.Enums;
 using Wp.Helpers.Helpers;
+using Wp.Helpers.Helpers.ProtocolsHelper;
 
 namespace ConsoleApp1
 {
     internal class Program
     {
+        /// <summary>
+        /// 标识ModbusTcpTCP链接 是否链接
+        /// </summary>
+        private static bool _isModbusTcpConnected;
+
         [STAThread]
         private static void Main(string[] args)
         {
@@ -26,6 +36,7 @@ namespace ConsoleApp1
                     Console.WriteLine("输入\"保存IconFont转TextBlock样式\" ，以根据阿里IconFont生成IconFontStyle样式文件");
                     Console.WriteLine("输入\"数字转中文大写\" ，以将数字转为中文大写");
                     Console.WriteLine("输入\"保存svg转TextBlock样式\" ，以根据svg文件生成TextBlockStyle样式文件");
+                    Console.WriteLine("输入\"ModbusTcp\" ，以进行ModbusTcp测试");
                     cmd = Console.ReadLine();
                     Do(cmd, ref cmdCache);
                 }
@@ -134,6 +145,125 @@ namespace ConsoleApp1
 
                     break;
 
+                case "ModbusTcp":
+                    Console.WriteLine("请输入PLC IP地址，格式为***.***.***.***，默认IP为127.0.0.1");
+                    var ip = Console.ReadLine();
+                    ip = string.IsNullOrEmpty(ip) ? "127.0.0.1" : ip;
+                    IPEndPoint ie = new IPEndPoint(IPAddress.Parse(ip), 502);
+                    Socket soc = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                    if (soc.Connected)
+                    {
+                        //
+                    }
+                    else
+                    {
+                        soc.Connect(ie);
+                    }
+                    Console.WriteLine("请输入\"读线圈\"，以进行读线圈测试");
+                    Console.WriteLine("请输入\"读离散量输入\"，以进行读离散量输入测试");
+                    Console.WriteLine("请输入\"读保持寄存器\"，以进行读保持寄存器测试");
+                    Console.WriteLine("请输入\"读输入寄存器\"，以进行读输入寄存器测试");
+                    Console.WriteLine("请输入\"写单个线圈\"，以进行写单个线圈测试");
+                    Console.WriteLine("请输入\"写单个寄存器\"，以进行写单个寄存器测试");
+                    Console.WriteLine("请输入\"写多个线圈\"，以进行写多个线圈测试");
+                    Console.WriteLine("请输入\"写多个寄存器\"，以进行写多个寄存器测试");
+                    Console.WriteLine("请输入\"读文件记录\"，以进行读文件记录测试");
+                    Console.WriteLine("请输入\"写文件记录\"，以进行写文件记录测试");
+                    Console.WriteLine("请输入\"屏蔽写寄存器\"，以进行屏蔽写寄存器测试");
+                    Console.WriteLine("请输入\"读写多个寄存器\"，以进行读写多个寄存器测试");
+                    Console.WriteLine("请输入\"读设备标识码\"，以进行读设备标识码测试");
+                    var func = Console.ReadLine();
+                    try
+                    {
+                        var buffer = new byte[1024];
+                        switch (func)
+                        {
+                            case "读线圈":
+                                break;
+
+                            case "读离散量输入":
+                                break;
+
+                            case "读保持寄存器":
+                                break;
+
+                            case "读输入寄存器":
+                                break;
+
+                            case "写单个线圈":
+                                break;
+
+                            case "写单个寄存器":
+                                Console.WriteLine("请输入寄存器地址：");
+                                var singleRegisterAddress = Convert.ToUInt16(Console.ReadLine().Trim());
+                                Console.WriteLine("请输入要写入的值：");
+                                var singleRegisterValue = Convert.ToUInt16(Console.ReadLine());
+                                var singleRegisterByteArray = ModbusTcpHelper.WriteSingleRegister(singleRegisterAddress, singleRegisterValue);
+                                Console.WriteLine("Send:");
+                                PrintByteArray(singleRegisterByteArray);
+                                soc.Send(singleRegisterByteArray);
+                                //Thread.Sleep(100);
+                                //var singleRegisterCount = soc.Receive(buffer);
+                                //PrintByteArray(buffer);
+                                //var singleRegisterRec = new byte[6 + buffer[5]];
+                                //Buffer.BlockCopy(buffer, 0, singleRegisterRec, 0, 6 + buffer[5]);
+                                //Console.WriteLine("Rec:");
+                                //PrintByteArray(singleRegisterRec);
+                                break;
+
+                            case "写多个线圈":
+                                break;
+
+                            case "写多个寄存器":
+                                Console.WriteLine("请输入起始寄存器地址：");
+                                var multiplyRegisterAddress = Convert.ToUInt16(Console.ReadLine().Trim());
+                                Console.WriteLine("请输入要写入的值，以空格分割：");
+                                var multiplyRegisterValuesTemp = Console.ReadLine().Split(' ').Where(s => !string.IsNullOrEmpty(s)).ToArray();
+                                var multiplyRegisterValues = new ushort[multiplyRegisterValuesTemp.Length];
+                                for (int i = 0; i < multiplyRegisterValuesTemp.Length; i++)
+                                {
+                                    multiplyRegisterValues[i] = Convert.ToUInt16(multiplyRegisterValuesTemp[i]);
+                                }
+                                var multiplyRegisterByteArray = ModbusTcpHelper.WriteMultipleRegisters(multiplyRegisterAddress, (ushort)multiplyRegisterValues.Length, multiplyRegisterValues);
+                                Console.WriteLine("Send:");
+                                PrintByteArray(multiplyRegisterByteArray);
+                                soc.Send(multiplyRegisterByteArray);
+                                //Thread.Sleep(100);
+                                //var multiplyRegisterCount = soc.Receive(buffer);
+                                //PrintByteArray(buffer);
+                                //var multiplyRegisterRec = new byte[6 + buffer[5]];
+                                //Buffer.BlockCopy(buffer, 0, multiplyRegisterRec, 0, 6 + buffer[5]);
+                                //Console.WriteLine("Rec:");
+                                //PrintByteArray(multiplyRegisterRec);
+                                break;
+
+                            case "读文件记录":
+                                break;
+
+                            case "写文件记录":
+                                break;
+
+                            case "屏蔽写寄存器":
+                                break;
+
+                            case "读写多个寄存器":
+                                break;
+
+                            case "读设备标识码":
+                                break;
+
+                            default:
+                                break;
+                        }
+                        //soc.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
+
+                    break;
+
                 case "保存IconFont转TextBlock样式":
                     cmdCache = cmd;
                     Console.WriteLine("请输入样式名：");
@@ -173,51 +303,15 @@ namespace ConsoleApp1
                 default:
                     break;
             }
+        }
 
-            #region 文件帮助类测试
-
-            //foreach (var item in FileHelper.GetFilesFullName(true))
-            //{
-            //    Console.WriteLine(item);
-            //}
-            //break;
-
-            //foreach (var item in FileHelper.GetDirectoriesFullName())
-            //{
-            //    Console.WriteLine(item);
-            //}
-            //foreach (var item in FileHelper.GetFileSystemInfo())
-            //{
-            //    Console.WriteLine(item);
-            //}
-            //var dic = FileHelper.GetFilesName(extensions: new List<EImgType>() { EImgType.SVG });
-            //foreach (var item in dic.Keys)
-            //{
-            //    Console.WriteLine(item);
-            //    Console.WriteLine(dic[item]);
-            //    Console.WriteLine(File.ReadAllText(dic[item]));
-            //}
-            //SvgHelper.SaveGeometryStyle(dic);
-            //FileHelper.RenameFiles(new string[] { " (" });
-            //FileHelper.ClassificationFiles(new string[] { " (" });
-
-            #endregion 文件帮助类测试
-
-            #region RedisHelper测试
-
-            //var redis = new RedisHelper();
-            //redis.PushListRight("Test1", "2344");
-            //redis.PushListRight("Test1", "2344");
-            //redis.PushListRight("Test1", "2344");
-            //Console.WriteLine(redis.GetString("Test"));
-
-            #endregion RedisHelper测试
-
-            #region Enum帮助类测试
-
-            //var test = EnumHelper.GetEnumItems<EImgType>();
-
-            #endregion Enum帮助类测试
+        public static void PrintByteArray(byte[] data)
+        {
+            foreach (var item in data)
+            {
+                Console.Write($"{item.ToString("X2")} ");
+            }
+            Console.WriteLine();
         }
     }
 }

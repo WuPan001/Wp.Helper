@@ -4,6 +4,267 @@
         <name>Wp.Helpers</name>
     </assembly>
     <members>
+        <member name="T:Wp.Helpers.Entities.Protocols.ModbusTcp.AddressDomain">
+            <summary>
+            地址域
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Entities.Protocols.ModbusTcp.ModbusTcpFlagDomain">
+            <summary>
+            Modbus标识域
+            强制为0
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.Protocols.ModbusTcp.ModbusTcpFlagDomain.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Entities.Protocols.ModbusTcp.MsgIdDomain">
+            <summary>
+            消息号域
+            报文消息号，从站返回值域主站询问报文消息号相同
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.Protocols.ModbusTcp.MsgIdDomain.Values">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Entities.Protocols.ModbusTcp.MsgIdDomain.#ctor(System.UInt16)">
+            <summary>
+            构造器
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="T:Wp.Helpers.Entities.Protocols.ModbusTcp.StationIdDomain">
+            <summary>
+            站号域
+            按需指定
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.Protocols.ModbusTcp.StationIdDomain.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Entities.Protocols.ModbusTcp.StationIdDomain.#ctor(System.Byte)">
+            <summary>
+            构造器
+            </summary>
+            <param name="stationId"></param>
+        </member>
+        <member name="T:Wp.Helpers.Entities.Protocols.ModbusTcp.SubsequenByteLengthDomain">
+            <summary>
+            报文后续字节长度域
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.Protocols.ModbusTcp.SubsequenByteLengthDomain.Values">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Entities.Protocols.ModbusTcp.SubsequenByteLengthDomain.#ctor(System.UInt16)">
+            <summary>
+            构造器
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="T:Wp.Helpers.Entities.ALiIconFont.Content">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.ALiIconFont.Content.Class">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.ALiIconFont.Content.Text">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.ALiIconFont.Content.Test">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Wp.Helpers.Entities.ALiIconFont.IconFont">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.ALiIconFont.IconFont.Class">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.ALiIconFont.IconFont.Li">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Wp.Helpers.Entities.WpfStyle.StyleBase">
+            <summary>
+            样式文件基类信息
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.WpfStyle.StyleBase.BaseName">
+            <summary>
+            样式基类名
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.WpfStyle.StyleBase.BasePath">
+            <summary>
+            样式基类文件路径
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode">
+            <summary>
+            ModbusTcp协议功能码
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.ReadCoil">
+            <summary>
+            读线圈
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.ReadDiscreteInput">
+            <summary>
+            读离散量输入
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.ReadHoldingRegister">
+            <summary>
+            读保持寄存器
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.ReadInputRegister">
+            <summary>
+            读输入寄存器
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.WriteSingleCoil">
+            <summary>
+            写单个线圈
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.WriteSingleRegister">
+            <summary>
+            写单个寄存器
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.WriteMultipleCoils">
+            <summary>
+            写多个线圈
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.WriteMultipleRegisters">
+            <summary>
+            写多个寄存器
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.ReadFileLog">
+            <summary>
+            读文件记录
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.WriteFileLog">
+            <summary>
+            写文件记录
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.MaskWriteRegister">
+            <summary>
+            屏蔽写寄存器
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.ReadAndWriteMultipleRegisters">
+            <summary>
+            读写多个寄存器
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.ReadDeviceIdentificationCode">
+            <summary>
+            读设备标识码
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Enums.EImgType">
+            <summary>
+            图片类型
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EImgType.PNG">
+            <summary>
+            png格式的图片
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EImgType.JPEG">
+            <summary>
+            jpg格式的图片
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EImgType.SVG">
+            <summary>
+            svg格式的图片
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Enums.EMsgType">
+            <summary>
+            消息类型枚举
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Trace">
+            <summary>
+            跟踪消息
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Alarm">
+            <summary>
+            警告提示
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Forbid">
+            <summary>
+            禁止提示
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Info">
+            <summary>
+            提示消息
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Warn">
+            <summary>
+            警告消息
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Error">
+            <summary>
+            错误提示
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Question">
+            <summary>
+            确认消息
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Success">
+            <summary>
+            成功提示
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Disconnection">
+            <summary>
+            未连接到设备
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.OffLine">
+            <summary>
+            未连接到网络
+            </summary>
+        </member>
         <member name="T:Wp.Helpers.Helpers.ByteArrayHelper">
             <summary>
             字节数组帮助类
@@ -521,6 +782,72 @@
             <param name="num">值</param>
             <returns></returns>
         </member>
+        <member name="T:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper">
+            <summary>
+            ModbusTcp帮助类
+            注意：寄存器中高低字节与计算机中的高低字节相反
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.ReadCoil(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
+            <summary>
+            读线圈
+            </summary>
+            <param name="address">起始地址</param>
+            <param name="count">数量</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.ReadHoldingRegister(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
+            <summary>
+            读保持寄存器
+            </summary>
+            <param name="address">寄存器地址</param>
+            <param name="count">寄存器数量</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.ReadInputRegister(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
+            <summary>
+            读输入寄存器
+            </summary>
+            <param name="address">寄存器地址</param>
+            <param name="count">寄存器数量</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteSingleCoil(System.UInt16,System.Boolean,System.UInt16,System.Byte)">
+            <summary>
+            写单个线圈
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值，值为true，表示请求输出为 ON；值为false，表示请求输出为 OFF</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteSingleRegister(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
+            <summary>
+            写单个寄存器
+            </summary>
+            <param name="address">寄存器地址</param>
+            <param name="value">寄存器值</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteMultipleCoils(System.UInt16,System.UInt16,System.Boolean,System.UInt16,System.Byte)">
+            <summary>
+            写多个线圈
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteMultipleRegisters(System.UInt16,System.UInt16,System.UInt16[],System.UInt16,System.Byte)">
+            <summary>
+            写多个寄存器
+            </summary>
+        </member>
         <member name="T:Wp.Helpers.Helpers.SolidColorBrushStyleHelper">
             <summary>
             SolidColorBrushStyle样式文件生成帮助类
@@ -764,131 +1091,6 @@
             <param name="parameter"></param>
             <param name="culture"></param>
             <returns></returns>
-        </member>
-        <member name="T:Wp.Helpers.Entities.ALiIconFont.Content">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="P:Wp.Helpers.Entities.ALiIconFont.Content.Class">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="P:Wp.Helpers.Entities.ALiIconFont.Content.Text">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="P:Wp.Helpers.Entities.ALiIconFont.Content.Test">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="T:Wp.Helpers.Entities.ALiIconFont.IconFont">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="P:Wp.Helpers.Entities.ALiIconFont.IconFont.Class">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="P:Wp.Helpers.Entities.ALiIconFont.IconFont.Li">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="T:Wp.Helpers.Entities.WpfStyle.StyleBase">
-            <summary>
-            样式文件基类信息
-            </summary>
-        </member>
-        <member name="P:Wp.Helpers.Entities.WpfStyle.StyleBase.BaseName">
-            <summary>
-            样式基类名
-            </summary>
-        </member>
-        <member name="P:Wp.Helpers.Entities.WpfStyle.StyleBase.BasePath">
-            <summary>
-            样式基类文件路径
-            </summary>
-        </member>
-        <member name="T:Wp.Helpers.Enums.EImgType">
-            <summary>
-            图片类型
-            </summary>
-        </member>
-        <member name="F:Wp.Helpers.Enums.EImgType.PNG">
-            <summary>
-            png格式的图片
-            </summary>
-        </member>
-        <member name="F:Wp.Helpers.Enums.EImgType.JPEG">
-            <summary>
-            jpg格式的图片
-            </summary>
-        </member>
-        <member name="F:Wp.Helpers.Enums.EImgType.SVG">
-            <summary>
-            svg格式的图片
-            </summary>
-        </member>
-        <member name="T:Wp.Helpers.Enums.EMsgType">
-            <summary>
-            消息类型枚举
-            </summary>
-        </member>
-        <member name="F:Wp.Helpers.Enums.EMsgType.Trace">
-            <summary>
-            跟踪消息
-            </summary>
-        </member>
-        <member name="F:Wp.Helpers.Enums.EMsgType.Alarm">
-            <summary>
-            警告提示
-            </summary>
-        </member>
-        <member name="F:Wp.Helpers.Enums.EMsgType.Forbid">
-            <summary>
-            禁止提示
-            </summary>
-        </member>
-        <member name="F:Wp.Helpers.Enums.EMsgType.Info">
-            <summary>
-            提示消息
-            </summary>
-        </member>
-        <member name="F:Wp.Helpers.Enums.EMsgType.Warn">
-            <summary>
-            警告消息
-            </summary>
-        </member>
-        <member name="F:Wp.Helpers.Enums.EMsgType.Error">
-            <summary>
-            错误提示
-            </summary>
-        </member>
-        <member name="F:Wp.Helpers.Enums.EMsgType.Question">
-            <summary>
-            确认消息
-            </summary>
-        </member>
-        <member name="F:Wp.Helpers.Enums.EMsgType.Success">
-            <summary>
-            成功提示
-            </summary>
-        </member>
-        <member name="F:Wp.Helpers.Enums.EMsgType.Disconnection">
-            <summary>
-            未连接到设备
-            </summary>
-        </member>
-        <member name="F:Wp.Helpers.Enums.EMsgType.OffLine">
-            <summary>
-            未连接到网络
-            </summary>
         </member>
         <member name="T:Wp.Helpers.ExtensionMethod.EnumerableObjectExtensionMethod">
             <summary>
