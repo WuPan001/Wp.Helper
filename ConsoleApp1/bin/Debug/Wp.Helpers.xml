@@ -120,6 +120,23 @@
             样式基类文件路径
             </summary>
         </member>
+        <member name="T:Wp.Helpers.Enums.EEndian">
+            <summary>
+            大端小端
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EEndian.BigEndian">
+            <summary>
+            大端
+            低地址存放高位
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EEndian.LittleEndian">
+            <summary>
+            小端
+            高地址存放低位
+            </summary>
+        </member>
         <member name="T:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode">
             <summary>
             ModbusTcp协议功能码
@@ -264,6 +281,106 @@
             <summary>
             未连接到网络
             </summary>
+        </member>
+        <member name="T:Wp.Helpers.ExtensionMethod.IntegerExtensionMethod">
+            <summary>
+            整形对象扩展方法
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.IntegerExtensionMethod.ToBooleanArray(System.Byte,Wp.Helpers.Enums.EEndian)">
+            <summary>
+            Byte转Boolean数组
+            </summary>
+            <param name="data">数据</param>
+            <param name="endian">大端小端</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.IntegerExtensionMethod.ToBooleanArray(System.UInt16,Wp.Helpers.Enums.EEndian)">
+            <summary>
+            Ushort转Boolean数组
+            </summary>
+            <param name="data">数据</param>
+            <param name="endian">大端小端</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.IntegerExtensionMethod.ToBooleanArray(System.UInt32,Wp.Helpers.Enums.EEndian)">
+            <summary>
+            Uint转Boolean数组
+            </summary>
+            <param name="data">数据</param>
+            <param name="endian">大端小端</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.IntegerExtensionMethod.ToBooleanArray(System.UInt64,Wp.Helpers.Enums.EEndian)">
+            <summary>
+            Ulong转Boolean数组
+            </summary>
+            <param name="data">数据</param>
+            <param name="endian">大端小端</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.ExtensionMethod.EnumerableObjectExtensionMethod">
+            <summary>
+            EnumerableObject扩展方法
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.EnumerableObjectExtensionMethod.NotNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            非空或null检查
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="param">参数</param>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.EnumerableObjectExtensionMethod.ToObserableCollection``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            转成ObserableCollection对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj">原对象</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.ExtensionMethod.ObjectExtensionMethod">
+            <summary>
+            object扩展方法
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.ObjectExtensionMethod.NotNull(System.Object)">
+            <summary>
+            非null检查
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.ObjectExtensionMethod.ToDictionary(System.Object)">
+            <summary>
+            对象转字典方法
+            </summary>
+            <param name="json">对象</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.ExtensionMethod.StringExentionMethod">
+            <summary>
+            string对象扩展方法
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.StringExentionMethod.ToALiIconFont(System.String)">
+            <summary>
+            json格式的字符串转为阿里巴巴IconFont
+            </summary>
+            <param name="json">json格式的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.StringExentionMethod.NotNullOrEmpty(System.String)">
+            <summary>
+            非空或null检查
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.StringExentionMethod.ToDictionary(System.String)">
+            <summary>
+            json格式字符串转字典扩展方法
+            </summary>
+            <param name="json">json格式字符串</param>
+            <returns></returns>
         </member>
         <member name="T:Wp.Helpers.Helpers.ByteArrayHelper">
             <summary>
@@ -785,7 +902,7 @@
         <member name="T:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper">
             <summary>
             ModbusTcp帮助类
-            注意：寄存器中高低字节与计算机中的高低字节相反
+            注意：寄存器中高低字节与计算机内存中的高低字节相反
             </summary>
         </member>
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.ReadCoil(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
@@ -801,6 +918,7 @@
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.ReadHoldingRegister(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
             <summary>
             读保持寄存器
+            ok
             </summary>
             <param name="address">寄存器地址</param>
             <param name="count">寄存器数量</param>
@@ -811,6 +929,7 @@
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.ReadInputRegister(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
             <summary>
             读输入寄存器
+            ok
             </summary>
             <param name="address">寄存器地址</param>
             <param name="count">寄存器数量</param>
@@ -831,6 +950,7 @@
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteSingleRegister(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
             <summary>
             写单个寄存器
+            ok
             </summary>
             <param name="address">寄存器地址</param>
             <param name="value">寄存器值</param>
@@ -846,6 +966,7 @@
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteMultipleRegisters(System.UInt16,System.UInt16,System.UInt16[],System.UInt16,System.Byte)">
             <summary>
             写多个寄存器
+            ok
             </summary>
         </member>
         <member name="T:Wp.Helpers.Helpers.SolidColorBrushStyleHelper">
@@ -1090,69 +1211,6 @@
             <param name="targetType"></param>
             <param name="parameter"></param>
             <param name="culture"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Wp.Helpers.ExtensionMethod.EnumerableObjectExtensionMethod">
-            <summary>
-            EnumerableObject扩展方法
-            </summary>
-        </member>
-        <member name="M:Wp.Helpers.ExtensionMethod.EnumerableObjectExtensionMethod.NotNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            非空或null检查
-            </summary>
-            <typeparam name="T">集合元素类型</typeparam>
-            <param name="param">参数</param>
-        </member>
-        <member name="M:Wp.Helpers.ExtensionMethod.EnumerableObjectExtensionMethod.ToObserableCollection``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            转成ObserableCollection对象
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="obj">原对象</param>
-            <returns></returns>
-        </member>
-        <member name="T:Wp.Helpers.ExtensionMethod.ObjectExtensionMethod">
-            <summary>
-            object扩展方法
-            </summary>
-        </member>
-        <member name="M:Wp.Helpers.ExtensionMethod.ObjectExtensionMethod.NotNull(System.Object)">
-            <summary>
-            非null检查
-            </summary>
-            <param name="param">参数</param>
-        </member>
-        <member name="M:Wp.Helpers.ExtensionMethod.ObjectExtensionMethod.ToDictionary(System.Object)">
-            <summary>
-            对象转字典方法
-            </summary>
-            <param name="json">对象</param>
-            <returns></returns>
-        </member>
-        <member name="T:Wp.Helpers.ExtensionMethod.StringExentionMethod">
-            <summary>
-            string对象扩展方法
-            </summary>
-        </member>
-        <member name="M:Wp.Helpers.ExtensionMethod.StringExentionMethod.ToALiIconFont(System.String)">
-            <summary>
-            json格式的字符串转为阿里巴巴IconFont
-            </summary>
-            <param name="json">json格式的字符串</param>
-            <returns></returns>
-        </member>
-        <member name="M:Wp.Helpers.ExtensionMethod.StringExentionMethod.NotNullOrEmpty(System.String)">
-            <summary>
-            非空或null检查
-            </summary>
-            <param name="param">参数</param>
-        </member>
-        <member name="M:Wp.Helpers.ExtensionMethod.StringExentionMethod.ToDictionary(System.String)">
-            <summary>
-            json格式字符串转字典扩展方法
-            </summary>
-            <param name="json">json格式字符串</param>
             <returns></returns>
         </member>
         <member name="T:Wp.Helpers.WpfHelpers.PasswordBoxHelper">

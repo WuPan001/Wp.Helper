@@ -114,7 +114,9 @@
     <Compile Include="Entities\Protocols\ModbusTcp\MsgIdDomain.cs" />
     <Compile Include="Entities\Protocols\ModbusTcp\StationIdDomain.cs" />
     <Compile Include="Entities\Protocols\ModbusTcp\SubsequenByteLengthDomain.cs" />
+    <Compile Include="Enums\EEndian.cs" />
     <Compile Include="Enums\Protocols\ModbusTcp\FunctionCode.cs" />
+    <Compile Include="ExtensionMethod\IntegerExtensionMethod.cs" />
     <Compile Include="Helpers\ByteArrayHelper.cs" />
     <Compile Include="Helpers\ConverterHelper.cs" />
     <Compile Include="Converters\ControlVisibility\ToTopperVisibilityConverter.cs" />
