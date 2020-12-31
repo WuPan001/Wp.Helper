@@ -116,6 +116,7 @@
     <Compile Include="Entities\Protocols\ModbusTcp\SubsequenByteLengthDomain.cs" />
     <Compile Include="Enums\EEndian.cs" />
     <Compile Include="Enums\Protocols\ModbusTcp\FunctionCode.cs" />
+    <Compile Include="ExtensionMethod\BooleanExtensionMethod.cs" />
     <Compile Include="ExtensionMethod\IntegerExtensionMethod.cs" />
     <Compile Include="Helpers\ByteArrayHelper.cs" />
     <Compile Include="Helpers\ConverterHelper.cs" />

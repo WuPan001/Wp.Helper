@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Wp.Helpers.Enums.Protocols.ModbusTcp;
+using Wp.Helpers.ExtensionMethod;
 
 namespace Wp.Helpers.Helpers.ProtocolsHelper
 {
@@ -29,6 +30,7 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
 
         /// <summary>
         /// 读线圈
+        /// ok
         /// </summary>
         /// <param name="address">起始地址</param>
         /// <param name="count">数量</param>
@@ -109,6 +111,7 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
 
         /// <summary>
         /// 写单个线圈
+        /// ok
         /// </summary>
         /// <param name="address">地址</param>
         /// <param name="value">值，值为true，表示请求输出为 ON；值为false，表示请求输出为 OFF</param>
@@ -156,25 +159,22 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
         }
 
         /// <summary>
-        /// 写多个线圈
+        /// 写多个线圈 ok
         /// </summary>
-        public static byte[] WriteMultipleCoils(ushort address, ushort count, bool value, ushort msgId = 0, byte stationId = 0)
+        public static byte[] WriteMultipleCoils(ushort address, bool[] values, ushort msgId = 0, byte stationId = 0)
         {
-            byte[] res = new byte[14];
+            var temp = values.ToByteArray();
+            byte[] res = new byte[13 + temp.Length];
             Buffer.BlockCopy(BitConverter.GetBytes(msgId).Reverse().ToArray(), 0, res, 0, 2);
             res[2] = 0x00;//2,3 ModbusTcp标识，强制为0
             res[3] = 0x00;
-            res[4] = 0x00;
-            res[5] = 0x08;//4,5后续字节长度,高字节在前,低字节在后
+            Buffer.BlockCopy(BitConverter.GetBytes((ushort)(7 + temp.Length)).Reverse().ToArray(), 0, res, 4, 2);//4,5后续字节长度
             res[6] = stationId;//站号
             res[7] = (byte)EFunctionCode.WriteMultipleCoils;
-            Buffer.BlockCopy(BitConverter.GetBytes(address).Reverse().ToArray(), 0, res, 8, 2);//8,9数据起始地址,高字节在前,低字节在后
-            Buffer.BlockCopy(BitConverter.GetBytes(address).Reverse().ToArray(), 0, res, 8, 2);//8,9数据起始地址,高字节在前,低字节在后
-
-            res[10] = 0x00;
-            res[11] = 0x04;//10,11数据长度,高字节在前,低字节在后
-            res[12] = 0x01;
-            res[13] = 0x0A;//8,9数据起始地址,高字节在前,低字节在后
+            Buffer.BlockCopy(BitConverter.GetBytes(address).Reverse().ToArray(), 0, res, 8, 2);//8,9起始地址
+            Buffer.BlockCopy(BitConverter.GetBytes((ushort)values.Length).Reverse().ToArray(), 0, res, 10, 2);//10,11输出数量
+            res[12] = (byte)temp.Length;//后续字节数
+            Buffer.BlockCopy(temp, 0, res, 13, temp.Length);//输出值
             return res;
         }
 
@@ -182,19 +182,19 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
         /// 写多个寄存器
         /// ok
         /// </summary>
-        public static byte[] WriteMultipleRegisters(ushort address, ushort count, ushort[] values, ushort msgId = 0, byte stationId = 0)
+        public static byte[] WriteMultipleRegisters(ushort address, ushort[] values, ushort msgId = 0, byte stationId = 0)
         {
-            byte[] res = new byte[13 + 2 * count];
+            byte[] res = new byte[13 + 2 * values.Length];
             Buffer.BlockCopy(BitConverter.GetBytes(msgId).Reverse().ToArray(), 0, res, 0, 2);
             res[2] = 0x00;//2,3 ModbusTcp标识，强制为0
             res[3] = 0x00;
-            Buffer.BlockCopy(BitConverter.GetBytes((ushort)(7 + 2 * count)).Reverse().ToArray(), 0, res, 4, 2);//4,5后续字节长度
+            Buffer.BlockCopy(BitConverter.GetBytes((ushort)(7 + 2 * values.Length)).Reverse().ToArray(), 0, res, 4, 2);//4,5后续字节长度
             res[6] = stationId;//站号
             res[7] = (byte)EFunctionCode.WriteMultipleRegisters;
             Buffer.BlockCopy(BitConverter.GetBytes(address).Reverse().ToArray(), 0, res, 8, 2);//8,9寄存器起始地址
-            Buffer.BlockCopy(BitConverter.GetBytes(count).Reverse().ToArray(), 0, res, 10, 2);//10,11寄存器数量
-            res[12] = (byte)(2 * count);
-            for (int i = 0; i < count; i++)
+            Buffer.BlockCopy(BitConverter.GetBytes((ushort)values.Length).Reverse().ToArray(), 0, res, 10, 2);//10,11寄存器数量
+            res[12] = (byte)(2 * values.Length);
+            for (int i = 0; i < values.Length; i++)
             {
                 Buffer.BlockCopy(BitConverter.GetBytes(values[i]).Reverse().ToArray(), 0, res, 13 + 2 * i, 2);//寄存器值
             }
@@ -225,9 +225,25 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
         /// <summary>
         /// 读写多个寄存器
         /// </summary>
-        //public static byte[] ReadAndWriteMultipleRegisters()
-        //{
-        //}
+        public static byte[] ReadAndWriteMultipleRegisters(ushort readAddress, ushort readCount, ushort writeAddress, ushort[] values, ushort msgId = 0, byte stationId = 0)
+        {
+            byte[] res = new byte[17 + 2 * values.Length];
+            Buffer.BlockCopy(BitConverter.GetBytes(msgId).Reverse().ToArray(), 0, res, 0, 2);
+            Buffer.BlockCopy(BitConverter.GetBytes((ushort)0).Reverse().ToArray(), 0, res, 2, 2);//2,3 ModbusTcp标识，强制为0
+            Buffer.BlockCopy(BitConverter.GetBytes((ushort)(11 + 2 * values.Length)).Reverse().ToArray(), 0, res, 4, 2);//4,5后续字节长度
+            res[6] = stationId;//站号
+            res[7] = (byte)EFunctionCode.ReadAndWriteMultipleRegisters;//功能码
+            Buffer.BlockCopy(BitConverter.GetBytes(readAddress).Reverse().ToArray(), 0, res, 8, 2);//8,9读寄存器起始地址
+            Buffer.BlockCopy(BitConverter.GetBytes(readCount).Reverse().ToArray(), 0, res, 10, 2);//10,11读寄存器数量
+            Buffer.BlockCopy(BitConverter.GetBytes(writeAddress).Reverse().ToArray(), 0, res, 12, 2);//12,13写寄存器起始地址
+            Buffer.BlockCopy(BitConverter.GetBytes((ushort)values.Length).Reverse().ToArray(), 0, res, 14, 2);//14,15写寄存器数量
+            res[16] = (byte)(2 * values.Length);
+            for (int i = 0; i < values.Length; i++)
+            {
+                Buffer.BlockCopy(BitConverter.GetBytes(values[i]).Reverse().ToArray(), 0, res, 17 + 2 * i, 2);//寄存器值
+            }
+            return res;
+        }
 
         /// <summary>
         /// 读设备标识码

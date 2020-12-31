@@ -282,6 +282,20 @@
             未连接到网络
             </summary>
         </member>
+        <member name="T:Wp.Helpers.ExtensionMethod.BooleanExtensionMethod">
+            <summary>
+            Bool对象扩展方法
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.BooleanExtensionMethod.ToByteArray(System.Boolean[],Wp.Helpers.Enums.EEndian)">
+            <summary>
+            Bool数组转Byte数组
+            示例：bool[] test=new bool[15];test[0]=true;test[3]=true;test[4]=true;test[14]=true; 选择 endian = EEndian.BigEndian，则转换后的结果为byte[] res=new byte[2]{25,64}
+            </summary>
+            <param name="data">Bool数组</param>
+            <param name="endian">大端小端</param>
+            <returns></returns>
+        </member>
         <member name="T:Wp.Helpers.ExtensionMethod.IntegerExtensionMethod">
             <summary>
             整形对象扩展方法
@@ -908,6 +922,7 @@
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.ReadCoil(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
             <summary>
             读线圈
+            ok
             </summary>
             <param name="address">起始地址</param>
             <param name="count">数量</param>
@@ -940,6 +955,7 @@
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteSingleCoil(System.UInt16,System.Boolean,System.UInt16,System.Byte)">
             <summary>
             写单个线圈
+            ok
             </summary>
             <param name="address">地址</param>
             <param name="value">值，值为true，表示请求输出为 ON；值为false，表示请求输出为 OFF</param>
@@ -958,15 +974,20 @@
             <param name="stationId">站号</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteMultipleCoils(System.UInt16,System.UInt16,System.Boolean,System.UInt16,System.Byte)">
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteMultipleCoils(System.UInt16,System.Boolean[],System.UInt16,System.Byte)">
             <summary>
-            写多个线圈
+            写多个线圈 ok
             </summary>
         </member>
-        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteMultipleRegisters(System.UInt16,System.UInt16,System.UInt16[],System.UInt16,System.Byte)">
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteMultipleRegisters(System.UInt16,System.UInt16[],System.UInt16,System.Byte)">
             <summary>
             写多个寄存器
             ok
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.ReadAndWriteMultipleRegisters(System.UInt16,System.UInt16,System.UInt16,System.UInt16[],System.UInt16,System.Byte)">
+            <summary>
+            读写多个寄存器
             </summary>
         </member>
         <member name="T:Wp.Helpers.Helpers.SolidColorBrushStyleHelper">

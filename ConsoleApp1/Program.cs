@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Threading;
 using Wp.Helpers.Entities.WpfStyle;
@@ -142,33 +143,60 @@ namespace ConsoleApp1
                     //var test = InitializationFileHelper.ReadAsyncT<StyleBase>("TestSection", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TestIni.ini")).Result;
                     //Console.WriteLine(DateTime.Now);
 
+                    #endregion ini文件帮助类测试
+
                     #region 整形扩展方法测试
 
-                    byte data = 4;
-                    var temp = data.ToBooleanArray();
-                    foreach (var item in temp)
-                    {
-                        Console.WriteLine(item);
-                    }
-                    Console.WriteLine("___________________________________");
-                    ushort data1 = 4;
-                    var temp1 = data1.ToBooleanArray();
-                    foreach (var item in temp1)
-                    {
-                        Console.WriteLine(item);
-                    }
-                    Console.WriteLine("___________________________________");
-                    uint data2 = 4;
-                    var temp2 = data2.ToBooleanArray();
-                    foreach (var item in temp2)
-                    {
-                        Console.WriteLine(item);
-                    }
+                    //byte data = 4;
+                    //var temp = data.ToBooleanArray();
+                    //foreach (var item in temp)
+                    //{
+                    //    Console.WriteLine(item);
+                    //}
+                    //Console.WriteLine("___________________________________");
+                    //ushort data1 = 4;
+                    //var temp1 = data1.ToBooleanArray();
+                    //foreach (var item in temp1)
+                    //{
+                    //    Console.WriteLine(item);
+                    //}
+                    //Console.WriteLine("___________________________________");
+                    //uint data2 = 4;
+                    //var temp2 = data2.ToBooleanArray();
+                    //foreach (var item in temp2)
+                    //{
+                    //    Console.WriteLine(item);
+                    //}
 
                     #endregion 整形扩展方法测试
 
-                    #endregion ini文件帮助类测试
+                    #region TestPing
 
+                    //using (var p = new Ping())
+                    //{
+                    //    Console.WriteLine(p.Send("192.168.1.115").Status);
+                    //}
+
+                    #endregion TestPing
+
+                    #region Bool扩展方法测试
+
+                    //bool[] test = new bool[15];
+                    //test[0] = true;
+                    //test[3] = true;
+                    //test[4] = true;
+                    //test[14] = true;
+                    //var res = test.ToByteArray(EEndian.LittleEndian);
+
+                    //foreach (var item in res)
+                    //{
+                    //    Console.WriteLine(item);
+                    //}
+
+                    #endregion Bool扩展方法测试
+
+                    var ss = Console.ReadLine().Trim();
+                    var tt = Convert.ToBoolean(ss);
                     break;
 
                 case "ModbusTcp":
@@ -223,7 +251,6 @@ namespace ConsoleApp1
                                 Buffer.BlockCopy(readCoilRec, 9, readCoilRes, 0, readCoilRes.Length);
                                 Console.WriteLine("Rec:");
                                 PrintByteArray(readCoilRec);
-
                                 PrintByteArray(readCoilRes);
                                 var tempress = new bool[8 * readCoilRes.Length];
                                 for (int i = 0; i < readCoilRes.Length; i++)
@@ -274,6 +301,14 @@ namespace ConsoleApp1
                                 break;
 
                             case "写单个线圈":
+                                Console.WriteLine("请输入线圈地址：");
+                                var writeSingleCoilAddress = Convert.ToUInt16(Console.ReadLine().Trim());
+                                Console.WriteLine("请输入要写入的值。值为1表示将该线圈置为true；值为0表示将该线圈置为false：");
+                                var writeSingleCoilValue = Console.ReadLine() == "1";
+                                var writeSingleCoilByteArray = ModbusTcpHelper.WriteSingleCoil(writeSingleCoilAddress, writeSingleCoilValue);
+                                Console.WriteLine("Send:");
+                                PrintByteArray(writeSingleCoilByteArray);
+                                soc.Send(writeSingleCoilByteArray);
                                 break;
 
                             case "写单个寄存器":
@@ -295,9 +330,23 @@ namespace ConsoleApp1
                                 break;
 
                             case "写多个线圈":
+                                Console.WriteLine("请输入起始线圈地址：");
+                                var writeMultiplyColisAddress = Convert.ToUInt16(Console.ReadLine().Trim());
+                                Console.WriteLine("请输入要写入的值，以空格分割：");
+                                var writeMultiplyColisValuesTemp = Console.ReadLine().Split(' ').Where(s => !string.IsNullOrEmpty(s)).ToArray();
+                                var writeMultiplyColisValues = new bool[writeMultiplyColisValuesTemp.Length];
+                                for (int i = 0; i < writeMultiplyColisValuesTemp.Length; i++)
+                                {
+                                    writeMultiplyColisValues[i] = Convert.ToBoolean(writeMultiplyColisValuesTemp[i]);
+                                }
+                                var writeMultiplyColisByteArray = ModbusTcpHelper.WriteMultipleCoils(writeMultiplyColisAddress, writeMultiplyColisValues);
+                                Console.WriteLine("Send:");
+                                PrintByteArray(writeMultiplyColisByteArray);
+                                soc.Send(writeMultiplyColisByteArray);
                                 break;
 
                             case "写多个寄存器":
+
                                 Console.WriteLine("请输入起始寄存器地址：");
                                 var writeMultiplyRegisterAddress = Convert.ToUInt16(Console.ReadLine().Trim());
                                 Console.WriteLine("请输入要写入的值，以空格分割：");
@@ -307,7 +356,7 @@ namespace ConsoleApp1
                                 {
                                     writeMultiplyRegisterValues[i] = Convert.ToUInt16(writeMultiplyRegisterValuesTemp[i]);
                                 }
-                                var writeMultiplyRegisterByteArray = ModbusTcpHelper.WriteMultipleRegisters(writeMultiplyRegisterAddress, (ushort)writeMultiplyRegisterValues.Length, writeMultiplyRegisterValues);
+                                var writeMultiplyRegisterByteArray = ModbusTcpHelper.WriteMultipleRegisters(writeMultiplyRegisterAddress, writeMultiplyRegisterValues);
                                 Console.WriteLine("Send:");
                                 PrintByteArray(writeMultiplyRegisterByteArray);
                                 soc.Send(writeMultiplyRegisterByteArray);
@@ -330,6 +379,26 @@ namespace ConsoleApp1
                                 break;
 
                             case "读写多个寄存器":
+
+                                Console.WriteLine("请输读寄存器起始地址：");
+                                var readAndWriteMultiplyRegisterAddressR = Convert.ToUInt16(Console.ReadLine().Trim());
+                                Console.WriteLine("请输读寄存器数量：");
+                                var readAndWriteMultiplyRegisterCountR = Convert.ToUInt16(Console.ReadLine().Trim());
+                                Console.WriteLine("请输写寄存器起始地址：");
+                                var readAndWriteMultiplyRegisterAddressW = Convert.ToUInt16(Console.ReadLine().Trim());
+                                Console.WriteLine("请输入要写入的值，以空格分割：");
+                                var readAndWriteMultiplyRegisterValuesTemp = Console.ReadLine().Split(' ').Where(s => !string.IsNullOrEmpty(s)).ToArray();
+                                var readAndWriteMultiplyRegisterValues = new ushort[readAndWriteMultiplyRegisterValuesTemp.Length];
+                                for (int i = 0; i < readAndWriteMultiplyRegisterValuesTemp.Length; i++)
+                                {
+                                    readAndWriteMultiplyRegisterValues[i] = Convert.ToUInt16(readAndWriteMultiplyRegisterValuesTemp[i]);
+                                }
+                                var readAndWriteMultiplyRegisterByteArray = ModbusTcpHelper.ReadAndWriteMultipleRegisters(
+                                    readAndWriteMultiplyRegisterAddressR, readAndWriteMultiplyRegisterCountR,
+                                    readAndWriteMultiplyRegisterAddressW, readAndWriteMultiplyRegisterValues);
+                                Console.WriteLine("Send:");
+                                PrintByteArray(readAndWriteMultiplyRegisterByteArray);
+                                soc.Send(readAndWriteMultiplyRegisterByteArray);
                                 break;
 
                             case "读设备标识码":
