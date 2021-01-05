@@ -195,8 +195,9 @@ namespace ConsoleApp1
 
                     #endregion Bool扩展方法测试
 
-                    var ss = Console.ReadLine().Trim();
-                    var tt = Convert.ToBoolean(ss);
+                    var bb = new byte[] { 1, 2 };
+                    var tt = new byte[] { 0, 0, 1, 2 };
+                    Console.WriteLine(Equals(bb, bb));
                     break;
 
                 case "ModbusTcp":

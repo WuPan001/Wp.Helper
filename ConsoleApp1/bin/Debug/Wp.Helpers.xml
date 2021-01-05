@@ -4,6 +4,46 @@
         <name>Wp.Helpers</name>
     </assembly>
     <members>
+        <member name="T:Wp.Helpers.Entities.Msg">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.Msg.Success">
+            <summary>
+            结果
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.Msg.Message">
+            <summary>
+            消息内容
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Entities.Msg.#ctor(System.Boolean,System.String)">
+            <summary>
+            构造器
+            </summary>
+            <param name="success">结果</param>
+            <param name="message">消息内容</param>
+        </member>
+        <member name="M:Wp.Helpers.Entities.Msg.#ctor(System.Boolean,System.Text.StringBuilder)">
+            <summary>
+            构造器
+            </summary>
+            <param name="success">结果</param>
+            <param name="message">消息内容</param>
+        </member>
+        <member name="M:Wp.Helpers.Entities.Msg.#ctor">
+            <summary>
+            构造器
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Entities.Msg.ToString">
+            <summary>
+            ToString方法
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Wp.Helpers.Entities.Protocols.ModbusTcp.AddressDomain">
             <summary>
             地址域
@@ -135,6 +175,32 @@
             <summary>
             小端
             高地址存放低位
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Enums.Protocols.ModbusTcp.EErrorCode">
+            <summary>
+            ModbusTcp异常码
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EErrorCode.E1">
+            <summary>
+            不支持的功能码
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EErrorCode.E2">
+            <summary>
+            输入数量不在许可范围
+            0x0001≤输出数量≤0x07D0
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EErrorCode.E3">
+            <summary>
+            起始地址或起始地址+输出数量错误
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EErrorCode.E4">
+            <summary>
+            读取离散输出错误
             </summary>
         </member>
         <member name="T:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode">
@@ -919,10 +985,15 @@
             注意：寄存器中高低字节与计算机内存中的高低字节相反
             </summary>
         </member>
+        <member name="F:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.baseCode">
+            <summary>
+            异常报文返回功能码基码
+            异常功能码=功能码＋0x80
+            </summary>
+        </member>
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.ReadCoil(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
             <summary>
             读线圈
-            ok
             </summary>
             <param name="address">起始地址</param>
             <param name="count">数量</param>
@@ -933,7 +1004,6 @@
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.ReadHoldingRegister(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
             <summary>
             读保持寄存器
-            ok
             </summary>
             <param name="address">寄存器地址</param>
             <param name="count">寄存器数量</param>
@@ -944,7 +1014,6 @@
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.ReadInputRegister(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
             <summary>
             读输入寄存器
-            ok
             </summary>
             <param name="address">寄存器地址</param>
             <param name="count">寄存器数量</param>
@@ -955,7 +1024,6 @@
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteSingleCoil(System.UInt16,System.Boolean,System.UInt16,System.Byte)">
             <summary>
             写单个线圈
-            ok
             </summary>
             <param name="address">地址</param>
             <param name="value">值，值为true，表示请求输出为 ON；值为false，表示请求输出为 OFF</param>
@@ -966,7 +1034,6 @@
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteSingleRegister(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
             <summary>
             写单个寄存器
-            ok
             </summary>
             <param name="address">寄存器地址</param>
             <param name="value">寄存器值</param>
@@ -976,16 +1043,80 @@
         </member>
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteMultipleCoils(System.UInt16,System.Boolean[],System.UInt16,System.Byte)">
             <summary>
-            写多个线圈 ok
+            写多个线圈
             </summary>
         </member>
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteMultipleRegisters(System.UInt16,System.UInt16[],System.UInt16,System.Byte)">
             <summary>
             写多个寄存器
-            ok
             </summary>
         </member>
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.ReadAndWriteMultipleRegisters(System.UInt16,System.UInt16,System.UInt16,System.UInt16[],System.UInt16,System.Byte)">
+            <summary>
+            读写多个寄存器
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadCoil(System.Byte[],System.UInt16,System.Byte)">
+            <summary>
+            读线圈
+            </summary>
+            <param name="address">起始地址</param>
+            <param name="count">数量</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadHoldingRegister(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
+            <summary>
+            读保持寄存器
+            </summary>
+            <param name="address">寄存器地址</param>
+            <param name="count">寄存器数量</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadInputRegister(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
+            <summary>
+            读输入寄存器
+            </summary>
+            <param name="address">寄存器地址</param>
+            <param name="count">寄存器数量</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteSingleCoil(System.UInt16,System.Boolean,System.UInt16,System.Byte)">
+            <summary>
+            写单个线圈
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值，值为true，表示请求输出为 ON；值为false，表示请求输出为 OFF</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteSingleRegister(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
+            <summary>
+            写单个寄存器
+            </summary>
+            <param name="address">寄存器地址</param>
+            <param name="value">寄存器值</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteMultipleCoils(System.UInt16,System.Boolean[],System.UInt16,System.Byte)">
+            <summary>
+            写多个线圈
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteMultipleRegisters(System.UInt16,System.UInt16[],System.UInt16,System.Byte)">
+            <summary>
+            写多个寄存器
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadAndWriteMultipleRegisters(System.UInt16,System.UInt16,System.UInt16,System.UInt16[],System.UInt16,System.Byte)">
             <summary>
             读写多个寄存器
             </summary>
