@@ -24,11 +24,7 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
 
         #region 属性、字段
 
-        /// <summary>
-        /// 异常报文返回功能码基码
-        /// 异常功能码=功能码＋0x80
-        /// </summary>
-        private const byte baseCode = 0x80;
+        //
 
         #endregion 属性、字段
 
@@ -314,6 +310,19 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
         }
 
         /// <summary>
+        /// 读保持寄存器返回报文校验及解析
+        /// </summary>
+        /// <param name="res">返回结果</param>
+        /// <param name="data">报文</param>
+        /// <param name="msgId">消息号</param>
+        /// <param name="stationId">站号</param>
+        /// <returns></returns>
+        public static Msg AnalysisReadHoldingRegister(ref byte[] res, byte[] data, ushort msgId = 0, byte stationId = 0)
+        {
+            return AnalysisReadRegister(ref res, data, EFunctionCode.ReadHoldingRegister, msgId, stationId);
+        }
+
+        /// <summary>
         /// 读输入寄存器返回报文校验及解析
         /// </summary>
         /// <param name="res">返回结果</param>
@@ -322,6 +331,19 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
         /// <param name="stationId">站号</param>
         /// <returns></returns>
         public static Msg AnalysisReadInputRegister(ref ushort[] res, byte[] data, ushort msgId = 0, byte stationId = 0)
+        {
+            return AnalysisReadRegister(ref res, data, EFunctionCode.ReadInputRegister, msgId, stationId);
+        }
+
+        /// <summary>
+        /// 读输入寄存器返回报文校验及解析
+        /// </summary>
+        /// <param name="res">返回结果</param>
+        /// <param name="data">报文</param>
+        /// <param name="msgId">消息号</param>
+        /// <param name="stationId">站号</param>
+        /// <returns></returns>
+        public static Msg AnalysisReadInputRegister(ref byte[] res, byte[] data, ushort msgId = 0, byte stationId = 0)
         {
             return AnalysisReadRegister(ref res, data, EFunctionCode.ReadInputRegister, msgId, stationId);
         }
@@ -347,6 +369,36 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
                     {
                         res[(i - 9) / 2] = BitConverter.ToUInt16(data, i);
                     }
+                    msg.Message = "报文校验成功！";
+                    msg.Success = true;
+                }
+                else
+                {
+                    msg.Message = "数据域.后续字节长度校验失败！";
+                    msg.Success = false;
+                }
+            }
+            return msg;
+        }
+
+        /// <summary>
+        /// 读寄存器返回报文校验及解析
+        /// </summary>
+        /// <param name="res">返回结果</param>
+        /// <param name="data">报文</param>
+        /// <param name="functionCode">功能码</param>
+        /// <param name="msgId">消息号</param>
+        /// <param name="stationId">站号</param>
+        /// <returns></returns>
+        private static Msg AnalysisReadRegister(ref byte[] res, byte[] data, EFunctionCode functionCode, ushort msgId = 0, byte stationId = 0)
+        {
+            var msg = CheckMsgHead(data, functionCode, msgId, stationId);
+            if (msg.Success)
+            {
+                if (data[8] == data.Length - 9)
+                {
+                    res = new byte[data[8]];
+                    Buffer.BlockCopy(data, 9, res, 0, res.Length);
                     msg.Message = "报文校验成功！";
                     msg.Success = true;
                 }
@@ -422,45 +474,54 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
         }
 
         /// <summary>
-        /// 写多个线圈
+        /// 写多个线圈报文校验及解析
         /// </summary>
-        public static byte[] AnalysisWriteMultipleCoils(ushort address, bool[] values, ushort msgId = 0, byte stationId = 0)
-        {
-            var temp = values.ToByteArray();
-            byte[] res = new byte[13 + temp.Length];
-            Buffer.BlockCopy(BitConverter.GetBytes(msgId).Reverse().ToArray(), 0, res, 0, 2);
-            res[2] = 0x00;//2,3 ModbusTcp标识，强制为0
-            res[3] = 0x00;
-            Buffer.BlockCopy(BitConverter.GetBytes((ushort)(7 + temp.Length)).Reverse().ToArray(), 0, res, 4, 2);//4,5后续字节长度
-            res[6] = stationId;//站号
-            res[7] = (byte)EFunctionCode.WriteMultipleCoils;
-            Buffer.BlockCopy(BitConverter.GetBytes(address).Reverse().ToArray(), 0, res, 8, 2);//8,9起始地址
-            Buffer.BlockCopy(BitConverter.GetBytes((ushort)values.Length).Reverse().ToArray(), 0, res, 10, 2);//10,11输出数量
-            res[12] = (byte)temp.Length;//后续字节数
-            Buffer.BlockCopy(temp, 0, res, 13, temp.Length);//输出值
-            return res;
-        }
+        /// <param name="data">收到的报文</param>
+        /// <param name="sendData">发送的报文</param>
+        /// <param name="msgId">消息号</param>
+        /// <param name="stationId">站号</param>
+        /// <returns></returns>
+        public static Msg AnalysisWriteMultipleCoils(byte[] data, byte[] sendData, ushort msgId = 0, byte stationId = 0) => AnalysisWriteMultiple(data, sendData, EFunctionCode.WriteMultipleCoils, msgId, stationId);
 
         /// <summary>
         /// 写多个寄存器
         /// </summary>
-        public static byte[] AnalysisWriteMultipleRegisters(ushort address, ushort[] values, ushort msgId = 0, byte stationId = 0)
+        public static Msg AnalysisWriteMultipleRegisters(byte[] data, byte[] sendData, ushort msgId = 0, byte stationId = 0) => AnalysisWriteMultiple(data, sendData, EFunctionCode.WriteMultipleRegisters, msgId, stationId);
+
+        /// <summary>
+        /// 写多个线圈或寄存器报文校验及解析
+        /// </summary>
+        /// <param name="data">收到的报文</param>
+        /// <param name="sendData">发送的报文</param>
+        /// <param name="functionCode">功能码</param>
+        /// <param name="msgId">消息号</param>
+        /// <param name="stationId">站号</param>
+        /// <returns></returns>
+        private static Msg AnalysisWriteMultiple(byte[] data, byte[] sendData, EFunctionCode functionCode, ushort msgId = 0, byte stationId = 0)
         {
-            byte[] res = new byte[13 + 2 * values.Length];
-            Buffer.BlockCopy(BitConverter.GetBytes(msgId).Reverse().ToArray(), 0, res, 0, 2);
-            res[2] = 0x00;//2,3 ModbusTcp标识，强制为0
-            res[3] = 0x00;
-            Buffer.BlockCopy(BitConverter.GetBytes((ushort)(7 + 2 * values.Length)).Reverse().ToArray(), 0, res, 4, 2);//4,5后续字节长度
-            res[6] = stationId;//站号
-            res[7] = (byte)EFunctionCode.WriteMultipleRegisters;
-            Buffer.BlockCopy(BitConverter.GetBytes(address).Reverse().ToArray(), 0, res, 8, 2);//8,9寄存器起始地址
-            Buffer.BlockCopy(BitConverter.GetBytes((ushort)values.Length).Reverse().ToArray(), 0, res, 10, 2);//10,11寄存器数量
-            res[12] = (byte)(2 * values.Length);
-            for (int i = 0; i < values.Length; i++)
+            var msg = CheckMsgHead(data, functionCode, msgId, stationId);
+            if (msg.Success)
             {
-                Buffer.BlockCopy(BitConverter.GetBytes(values[i]).Reverse().ToArray(), 0, res, 13 + 2 * i, 2);//寄存器值
+                if (data.Equals(8, sendData, 8, 2))
+                {
+                    if (data.Equals(10, sendData, 10, 2))
+                    {
+                        msg.Message = "报文校验成功！";
+                        msg.Success = true;
+                    }
+                    else
+                    {
+                        msg.Message = "输出数量校验失败！";
+                        msg.Success = false;
+                    }
+                }
+                else
+                {
+                    msg.Message = "起始地址校验失败！";
+                    msg.Success = false;
+                }
             }
-            return res;
+            return msg;
         }
 
         /// <summary>
@@ -485,34 +546,72 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
         //}
 
         /// <summary>
-        /// 读写多个寄存器
+        /// 读写多个寄存器报文校验及解析
         /// </summary>
-        public static byte[] AnalysisReadAndWriteMultipleRegisters(ushort readAddress, ushort readCount, ushort writeAddress, ushort[] values, ushort msgId = 0, byte stationId = 0)
+        /// <param name="res">返回结果</param>
+        /// <param name="data">报文</param>
+        /// <param name="msgId">消息号</param>
+        /// <param name="stationId">站号</param>
+        /// <returns></returns>
+        public static Msg AnalysisReadAndWriteMultipleRegisters(ref ushort[] res, byte[] data, ushort msgId = 0, byte stationId = 0)
         {
-            byte[] res = new byte[17 + 2 * values.Length];
-            Buffer.BlockCopy(BitConverter.GetBytes(msgId).Reverse().ToArray(), 0, res, 0, 2);
-            Buffer.BlockCopy(BitConverter.GetBytes((ushort)0).Reverse().ToArray(), 0, res, 2, 2);//2,3 ModbusTcp标识，强制为0
-            Buffer.BlockCopy(BitConverter.GetBytes((ushort)(11 + 2 * values.Length)).Reverse().ToArray(), 0, res, 4, 2);//4,5后续字节长度
-            res[6] = stationId;//站号
-            res[7] = (byte)EFunctionCode.ReadAndWriteMultipleRegisters;//功能码
-            Buffer.BlockCopy(BitConverter.GetBytes(readAddress).Reverse().ToArray(), 0, res, 8, 2);//8,9读寄存器起始地址
-            Buffer.BlockCopy(BitConverter.GetBytes(readCount).Reverse().ToArray(), 0, res, 10, 2);//10,11读寄存器数量
-            Buffer.BlockCopy(BitConverter.GetBytes(writeAddress).Reverse().ToArray(), 0, res, 12, 2);//12,13写寄存器起始地址
-            Buffer.BlockCopy(BitConverter.GetBytes((ushort)values.Length).Reverse().ToArray(), 0, res, 14, 2);//14,15写寄存器数量
-            res[16] = (byte)(2 * values.Length);
-            for (int i = 0; i < values.Length; i++)
+            var msg = CheckMsgHead(data, EFunctionCode.ReadAndWriteMultipleRegisters, msgId, stationId);
+            if (msg.Success)
             {
-                Buffer.BlockCopy(BitConverter.GetBytes(values[i]).Reverse().ToArray(), 0, res, 17 + 2 * i, 2);//寄存器值
+                if (data[8] == data.Length - 9)
+                {
+                    res = new ushort[data[8] / 2];
+                    for (int i = 9; i < data.Length; i += 2)
+                    {
+                        res[(i - 9) / 2] = BitConverter.ToUInt16(data, i);
+                    }
+                    msg.Message = "报文校验成功！";
+                    msg.Success = true;
+                }
+                else
+                {
+                    msg.Message = "数据域.后续字节长度校验失败！";
+                    msg.Success = false;
+                }
             }
-            return res;
+            return msg;
+        }
+
+        /// <summary>
+        /// 读写多个寄存器报文校验及解析
+        /// </summary>
+        /// <param name="res">返回结果</param>
+        /// <param name="data">报文</param>
+        /// <param name="msgId">消息号</param>
+        /// <param name="stationId">站号</param>
+        /// <returns></returns>
+        public static Msg AnalysisReadAndWriteMultipleRegisters(ref byte[] res, byte[] data, ushort msgId = 0, byte stationId = 0)
+        {
+            var msg = CheckMsgHead(data, EFunctionCode.ReadAndWriteMultipleRegisters, msgId, stationId);
+            if (msg.Success)
+            {
+                if (data[8] == data.Length - 9)
+                {
+                    res = new byte[data[8]];
+                    Buffer.BlockCopy(data, 9, res, 0, res.Length);
+                    msg.Message = "报文校验成功！";
+                    msg.Success = true;
+                }
+                else
+                {
+                    msg.Message = "数据域.后续字节长度校验失败！";
+                    msg.Success = false;
+                }
+            }
+            return msg;
         }
 
         /// <summary>
         /// 读设备标识码
         /// </summary>
-        public static void ReadDeviceIdentificationCode()
-        {
-        }
+        //public static Msg ReadDeviceIdentificationCode()
+        //{
+        //}
 
         /// <summary>
         /// 校验报文头
