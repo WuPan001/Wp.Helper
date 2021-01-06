@@ -385,16 +385,10 @@ namespace ConsoleApp1
                                     writeMultiplyRegisterValues[i] = Convert.ToUInt16(writeMultiplyRegisterValuesTemp[i]);
                                 }
                                 var writeMultiplyRegisterByteArray = ModbusTcpHelper.WriteMultipleRegisters(writeMultiplyRegisterAddress, writeMultiplyRegisterValues);
+                                //var writeMultiplyRegisterByteArray = ModbusTcpHelper.WriteMultipleRegisters(writeMultiplyRegisterAddress, new byte[] { 0, 12 });
                                 Console.WriteLine("Send:");
                                 PrintByteArray(writeMultiplyRegisterByteArray);
                                 soc.Send(writeMultiplyRegisterByteArray);
-                                //Thread.Sleep(100);
-                                //var writeMultiplyRegisterCount = soc.Receive(buffer);
-                                //PrintByteArray(buffer);
-                                //var writeMultiplyRegisterRec = new byte[6 + buffer[5]];
-                                //Buffer.BlockCopy(buffer, 0, writeMultiplyRegisterRec, 0, 6 + buffer[5]);
-                                //Console.WriteLine("Rec:");
-                                //PrintByteArray(writeMultiplyRegisterRec);
                                 break;
 
                             case "读文件记录":

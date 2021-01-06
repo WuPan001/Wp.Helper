@@ -160,6 +160,11 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
         /// <summary>
         /// 写多个线圈
         /// </summary>
+        /// <param name="address">起始线圈地址</param>
+        /// <param name="values">要写入的值</param>
+        /// <param name="msgId">消息号</param>
+        /// <param name="stationId">站号</param>
+        /// <returns></returns>
         public static byte[] WriteMultipleCoils(ushort address, bool[] values, ushort msgId = 0, byte stationId = 0)
         {
             var temp = values.ToByteArray();
@@ -180,6 +185,11 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
         /// <summary>
         /// 写多个寄存器
         /// </summary>
+        /// <param name="address">寄存器起始地址</param>
+        /// <param name="values">要写入的值</param>
+        /// <param name="msgId">消息号</param>
+        /// <param name="stationId">站号</param>
+        /// <returns></returns>
         public static byte[] WriteMultipleRegisters(ushort address, ushort[] values, ushort msgId = 0, byte stationId = 0)
         {
             byte[] res = new byte[13 + 2 * values.Length];
@@ -196,6 +206,30 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
             {
                 Buffer.BlockCopy(BitConverter.GetBytes(values[i]).Reverse().ToArray(), 0, res, 13 + 2 * i, 2);//寄存器值
             }
+            return res;
+        }
+
+        /// <summary>
+        /// 写多个寄存器
+        /// </summary>
+        /// <param name="address">寄存器起始地址</param>
+        /// <param name="values">要写入的值param>
+        /// <param name="msgId">消息号</param>
+        /// <param name="stationId">站号</param>
+        /// <returns></returns>
+        public static byte[] WriteMultipleRegisters(ushort address, byte[] values, ushort msgId = 0, byte stationId = 0)
+        {
+            byte[] res = new byte[13 + values.Length];
+            Buffer.BlockCopy(BitConverter.GetBytes(msgId).Reverse().ToArray(), 0, res, 0, 2);
+            res[2] = 0x00;//2,3 ModbusTcp标识，强制为0
+            res[3] = 0x00;
+            Buffer.BlockCopy(BitConverter.GetBytes((ushort)(7 + values.Length)).Reverse().ToArray(), 0, res, 4, 2);//4,5后续字节长度
+            res[6] = stationId;//站号
+            res[7] = (byte)EFunctionCode.WriteMultipleRegisters;
+            Buffer.BlockCopy(BitConverter.GetBytes(address).Reverse().ToArray(), 0, res, 8, 2);//8,9寄存器起始地址
+            Buffer.BlockCopy(BitConverter.GetBytes((ushort)values.Length).Reverse().ToArray(), 0, res, 10, 2);//10,11寄存器数量
+            res[12] = (byte)(2 * values.Length);
+            Buffer.BlockCopy(values, 0, res, 13, values.Length);//寄存器值
             return res;
         }
 
@@ -223,6 +257,13 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
         /// <summary>
         /// 读写多个寄存器
         /// </summary>
+        /// <param name="readAddress">读寄存器起始地址</param>
+        /// <param name="readCount">读寄存器数量</param>
+        /// <param name="writeAddress">写寄存器起始地址</param>
+        /// <param name="values">要写入寄存器的值</param>
+        /// <param name="msgId">消息号</param>
+        /// <param name="stationId">站号</param>
+        /// <returns></returns>
         public static byte[] ReadAndWriteMultipleRegisters(ushort readAddress, ushort readCount, ushort writeAddress, ushort[] values, ushort msgId = 0, byte stationId = 0)
         {
             byte[] res = new byte[17 + 2 * values.Length];
@@ -468,8 +509,13 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
         public static Msg AnalysisWriteMultipleCoils(byte[] data, byte[] sendData, ushort msgId = 0, byte stationId = 0) => AnalysisWriteMultiple(data, sendData, EFunctionCode.WriteMultipleCoils, msgId, stationId);
 
         /// <summary>
-        /// 写多个寄存器
+        /// 写多个寄存器报文校验及解析
         /// </summary>
+        /// <param name="data">报文</param>
+        /// <param name="sendData">发送的报文</param>
+        /// <param name="msgId">消息号</param>
+        /// <param name="stationId">站号</param>
+        /// <returns></returns>
         public static Msg AnalysisWriteMultipleRegisters(byte[] data, byte[] sendData, ushort msgId = 0, byte stationId = 0) => AnalysisWriteMultiple(data, sendData, EFunctionCode.WriteMultipleRegisters, msgId, stationId);
 
         /// <summary>

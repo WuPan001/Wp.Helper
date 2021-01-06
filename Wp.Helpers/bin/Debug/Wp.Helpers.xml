@@ -994,7 +994,13 @@
             <summary>
             写多个寄存器
             </summary>
+            <param name="address">寄存器起始地址</param>
+            <param name="values">要写入的值</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteMultipleRegisters(System.UInt16,System.Byte[],System.UInt16,System.Byte)" -->
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.ReadAndWriteMultipleRegisters(System.UInt16,System.UInt16,System.UInt16,System.UInt16[],System.UInt16,System.Byte)">
             <summary>
             读写多个寄存器
