@@ -304,10 +304,7 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
         /// <param name="msgId">消息号</param>
         /// <param name="stationId">站号</param>
         /// <returns></returns>
-        public static Msg AnalysisReadHoldingRegister(ref ushort[] res, byte[] data, ushort msgId = 0, byte stationId = 0)
-        {
-            return AnalysisReadRegister(ref res, data, EFunctionCode.ReadHoldingRegister, msgId, stationId);
-        }
+        public static Msg AnalysisReadHoldingRegister(ref ushort[] res, byte[] data, ushort msgId = 0, byte stationId = 0) => AnalysisReadRegister(ref res, data, EFunctionCode.ReadHoldingRegister, msgId, stationId);
 
         /// <summary>
         /// 读保持寄存器返回报文校验及解析
@@ -317,10 +314,7 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
         /// <param name="msgId">消息号</param>
         /// <param name="stationId">站号</param>
         /// <returns></returns>
-        public static Msg AnalysisReadHoldingRegister(ref byte[] res, byte[] data, ushort msgId = 0, byte stationId = 0)
-        {
-            return AnalysisReadRegister(ref res, data, EFunctionCode.ReadHoldingRegister, msgId, stationId);
-        }
+        public static Msg AnalysisReadHoldingRegister(ref byte[] res, byte[] data, ushort msgId = 0, byte stationId = 0) => AnalysisReadRegister(ref res, data, EFunctionCode.ReadHoldingRegister, msgId, stationId);
 
         /// <summary>
         /// 读输入寄存器返回报文校验及解析
@@ -330,10 +324,7 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
         /// <param name="msgId">消息号</param>
         /// <param name="stationId">站号</param>
         /// <returns></returns>
-        public static Msg AnalysisReadInputRegister(ref ushort[] res, byte[] data, ushort msgId = 0, byte stationId = 0)
-        {
-            return AnalysisReadRegister(ref res, data, EFunctionCode.ReadInputRegister, msgId, stationId);
-        }
+        public static Msg AnalysisReadInputRegister(ref ushort[] res, byte[] data, ushort msgId = 0, byte stationId = 0) => AnalysisReadRegister(ref res, data, EFunctionCode.ReadInputRegister, msgId, stationId);
 
         /// <summary>
         /// 读输入寄存器返回报文校验及解析
@@ -343,10 +334,7 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
         /// <param name="msgId">消息号</param>
         /// <param name="stationId">站号</param>
         /// <returns></returns>
-        public static Msg AnalysisReadInputRegister(ref byte[] res, byte[] data, ushort msgId = 0, byte stationId = 0)
-        {
-            return AnalysisReadRegister(ref res, data, EFunctionCode.ReadInputRegister, msgId, stationId);
-        }
+        public static Msg AnalysisReadInputRegister(ref byte[] res, byte[] data, ushort msgId = 0, byte stationId = 0) => AnalysisReadRegister(ref res, data, EFunctionCode.ReadInputRegister, msgId, stationId);
 
         /// <summary>
         /// 读寄存器返回报文校验及解析
@@ -367,7 +355,9 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
                     res = new ushort[data[8] / 2];
                     for (int i = 9; i < data.Length; i += 2)
                     {
-                        res[(i - 9) / 2] = BitConverter.ToUInt16(data, i);
+                        var temp = new byte[2];
+                        Buffer.BlockCopy(data, i, temp, 0, 2);
+                        res[(i - 9) / 2] = BitConverter.ToUInt16(temp.Reverse().ToArray(), 0);
                     }
                     msg.Message = "报文校验成功！";
                     msg.Success = true;
@@ -419,10 +409,7 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
         /// <param name="msgId">消息号</param>
         /// <param name="stationId">站号</param>
         /// <returns></returns>
-        public static Msg AnalysisWriteSingleCoil(byte[] data, byte[] sendData, ushort msgId = 0, byte stationId = 0)
-        {
-            return AnalysisWriteSingle(data, sendData, EFunctionCode.WriteSingleCoil, msgId, stationId);
-        }
+        public static Msg AnalysisWriteSingleCoil(byte[] data, byte[] sendData, ushort msgId = 0, byte stationId = 0) => AnalysisWriteSingle(data, sendData, EFunctionCode.WriteSingleCoil, msgId, stationId);
 
         /// <summary>
         /// 写单个寄存器报文校验及解析
@@ -432,10 +419,7 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
         /// <param name="msgId">消息号</param>
         /// <param name="stationId">站号</param>
         /// <returns></returns>
-        public static Msg AnalysisWriteSingleRegister(byte[] data, byte[] sendData, ushort msgId = 0, byte stationId = 0)
-        {
-            return AnalysisWriteSingle(data, sendData, EFunctionCode.WriteSingleRegister, msgId, stationId);
-        }
+        public static Msg AnalysisWriteSingleRegister(byte[] data, byte[] sendData, ushort msgId = 0, byte stationId = 0) => AnalysisWriteSingle(data, sendData, EFunctionCode.WriteSingleRegister, msgId, stationId);
 
         /// <summary>
         /// 写单个线圈或寄存器报文校验及解析
@@ -553,29 +537,7 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
         /// <param name="msgId">消息号</param>
         /// <param name="stationId">站号</param>
         /// <returns></returns>
-        public static Msg AnalysisReadAndWriteMultipleRegisters(ref ushort[] res, byte[] data, ushort msgId = 0, byte stationId = 0)
-        {
-            var msg = CheckMsgHead(data, EFunctionCode.ReadAndWriteMultipleRegisters, msgId, stationId);
-            if (msg.Success)
-            {
-                if (data[8] == data.Length - 9)
-                {
-                    res = new ushort[data[8] / 2];
-                    for (int i = 9; i < data.Length; i += 2)
-                    {
-                        res[(i - 9) / 2] = BitConverter.ToUInt16(data, i);
-                    }
-                    msg.Message = "报文校验成功！";
-                    msg.Success = true;
-                }
-                else
-                {
-                    msg.Message = "数据域.后续字节长度校验失败！";
-                    msg.Success = false;
-                }
-            }
-            return msg;
-        }
+        public static Msg AnalysisReadAndWriteMultipleRegisters(ref ushort[] res, byte[] data, ushort msgId = 0, byte stationId = 0) => AnalysisReadRegister(ref res, data, EFunctionCode.ReadAndWriteMultipleRegisters, msgId, stationId);
 
         /// <summary>
         /// 读写多个寄存器报文校验及解析
@@ -626,7 +588,9 @@ namespace Wp.Helpers.Helpers.ProtocolsHelper
             var msg = new Msg();
             if (BitConverter.GetBytes(msgId).Reverse().ToArray().Equals(0, data, 0, 2))
             {
-                if (BitConverter.ToInt16(data, 4) == data.Length - 6)
+                var temp = new byte[2];
+                Buffer.BlockCopy(data, 4, temp, 0, 2);
+                if (BitConverter.ToUInt16(temp.Reverse().ToArray(), 0) == data.Length - 6)
                 {
                     if (data[6] == stationId)
                     {

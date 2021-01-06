@@ -348,6 +348,22 @@
             未连接到网络
             </summary>
         </member>
+        <member name="T:Wp.Helpers.ExtensionMethod.ArrayExtensionMethod">
+            <summary>
+            数组扩展方法
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.ArrayExtensionMethod.Equals(System.Array,System.Int32,System.Array,System.Int32,System.Int32)">
+            <summary>
+            确定指定对象是否相等
+            </summary>
+            <param name="source">源数组</param>
+            <param name="sourceOffset">源偏移量</param>
+            <param name="target">目标数组</param>
+            <param name="targetOffset">目标偏移量</param>
+            <param name="count">数量</param>
+            <returns></returns>
+        </member>
         <member name="T:Wp.Helpers.ExtensionMethod.BooleanExtensionMethod">
             <summary>
             Bool对象扩展方法
@@ -985,12 +1001,6 @@
             注意：寄存器中高低字节与计算机内存中的高低字节相反
             </summary>
         </member>
-        <member name="F:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.baseCode">
-            <summary>
-            异常报文返回功能码基码
-            异常功能码=功能码＋0x80
-            </summary>
-        </member>
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.ReadCoil(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
             <summary>
             读线圈
@@ -1056,70 +1066,171 @@
             读写多个寄存器
             </summary>
         </member>
-        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadCoil(System.Byte[],System.UInt16,System.Byte)">
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadCoil(System.Boolean[]@,System.Byte[],System.UInt16,System.Byte)">
             <summary>
-            读线圈
+            读线圈返回报文校验及解析
             </summary>
-            <param name="address">起始地址</param>
-            <param name="count">数量</param>
+            <param name="res">返回结果</param>
+            <param name="data">报文</param>
             <param name="msgId">消息号</param>
             <param name="stationId">站号</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadHoldingRegister(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadHoldingRegister(System.UInt16[]@,System.Byte[],System.UInt16,System.Byte)">
             <summary>
-            读保持寄存器
+            读保持寄存器返回报文校验及解析
             </summary>
-            <param name="address">寄存器地址</param>
-            <param name="count">寄存器数量</param>
+            <param name="res">返回结果</param>
+            <param name="data">报文</param>
             <param name="msgId">消息号</param>
             <param name="stationId">站号</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadInputRegister(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadHoldingRegister(System.Byte[]@,System.Byte[],System.UInt16,System.Byte)">
             <summary>
-            读输入寄存器
+            读保持寄存器返回报文校验及解析
             </summary>
-            <param name="address">寄存器地址</param>
-            <param name="count">寄存器数量</param>
+            <param name="res">返回结果</param>
+            <param name="data">报文</param>
             <param name="msgId">消息号</param>
             <param name="stationId">站号</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteSingleCoil(System.UInt16,System.Boolean,System.UInt16,System.Byte)">
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadInputRegister(System.UInt16[]@,System.Byte[],System.UInt16,System.Byte)">
             <summary>
-            写单个线圈
+            读输入寄存器返回报文校验及解析
             </summary>
-            <param name="address">地址</param>
-            <param name="value">值，值为true，表示请求输出为 ON；值为false，表示请求输出为 OFF</param>
+            <param name="res">返回结果</param>
+            <param name="data">报文</param>
             <param name="msgId">消息号</param>
             <param name="stationId">站号</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteSingleRegister(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadInputRegister(System.Byte[]@,System.Byte[],System.UInt16,System.Byte)">
             <summary>
-            写单个寄存器
+            读输入寄存器返回报文校验及解析
             </summary>
-            <param name="address">寄存器地址</param>
-            <param name="value">寄存器值</param>
+            <param name="res">返回结果</param>
+            <param name="data">报文</param>
             <param name="msgId">消息号</param>
             <param name="stationId">站号</param>
             <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteMultipleCoils(System.UInt16,System.Boolean[],System.UInt16,System.Byte)">
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadRegister(System.UInt16[]@,System.Byte[],Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode,System.UInt16,System.Byte)">
             <summary>
-            写多个线圈
+            读寄存器返回报文校验及解析
             </summary>
+            <param name="res">返回结果</param>
+            <param name="data">报文</param>
+            <param name="functionCode">功能码</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
         </member>
-        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteMultipleRegisters(System.UInt16,System.UInt16[],System.UInt16,System.Byte)">
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadRegister(System.Byte[]@,System.Byte[],Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode,System.UInt16,System.Byte)">
+            <summary>
+            读寄存器返回报文校验及解析
+            </summary>
+            <param name="res">返回结果</param>
+            <param name="data">报文</param>
+            <param name="functionCode">功能码</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteSingleCoil(System.Byte[],System.Byte[],System.UInt16,System.Byte)">
+            <summary>
+            写单个线圈报文校验及解析
+            </summary>
+            <param name="data">收到的报文</param>
+            <param name="sendData">发送的报文</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteSingleRegister(System.Byte[],System.Byte[],System.UInt16,System.Byte)">
+            <summary>
+            写单个寄存器报文校验及解析
+            </summary>
+            <param name="data">收到的报文</param>
+            <param name="sendData">发送的报文</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteSingle(System.Byte[],System.Byte[],Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode,System.UInt16,System.Byte)">
+            <summary>
+            写单个线圈或寄存器报文校验及解析
+            </summary>
+            <param name="data">收到的报文</param>
+            <param name="sendData">发送的报文</param>
+            <param name="functionCode">功能码</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteMultipleCoils(System.Byte[],System.Byte[],System.UInt16,System.Byte)">
+            <summary>
+            写多个线圈报文校验及解析
+            </summary>
+            <param name="data">收到的报文</param>
+            <param name="sendData">发送的报文</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteMultipleRegisters(System.Byte[],System.Byte[],System.UInt16,System.Byte)">
             <summary>
             写多个寄存器
             </summary>
         </member>
-        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadAndWriteMultipleRegisters(System.UInt16,System.UInt16,System.UInt16,System.UInt16[],System.UInt16,System.Byte)">
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteMultiple(System.Byte[],System.Byte[],Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode,System.UInt16,System.Byte)">
             <summary>
-            读写多个寄存器
+            写多个线圈或寄存器报文校验及解析
             </summary>
+            <param name="data">收到的报文</param>
+            <param name="sendData">发送的报文</param>
+            <param name="functionCode">功能码</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadAndWriteMultipleRegisters(System.UInt16[]@,System.Byte[],System.UInt16,System.Byte)">
+            <summary>
+            读写多个寄存器报文校验及解析
+            </summary>
+            <param name="res">返回结果</param>
+            <param name="data">报文</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadAndWriteMultipleRegisters(System.Byte[]@,System.Byte[],System.UInt16,System.Byte)">
+            <summary>
+            读写多个寄存器报文校验及解析
+            </summary>
+            <param name="res">返回结果</param>
+            <param name="data">报文</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.CheckMsgHead(System.Byte[],Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode,System.UInt16,System.Byte)">
+            <summary>
+            校验报文头
+            </summary>
+            <param name="data">报文</param>
+            <param name="functionCode">功能码</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.GetErrorMsg(System.Byte)">
+            <summary>
+            获取异常码信息
+            </summary>
+            <param name="errorCode">异常码</param>
+            <returns></returns>
         </member>
         <member name="T:Wp.Helpers.Helpers.SolidColorBrushStyleHelper">
             <summary>

@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Threading;
+using Wp.Helpers.Entities;
 using Wp.Helpers.Entities.WpfStyle;
 using Wp.Helpers.Enums;
 using Wp.Helpers.ExtensionMethod;
@@ -231,6 +232,8 @@ namespace ConsoleApp1
                     try
                     {
                         var buffer = new byte[1024];
+                        var msg = new Msg();
+                        var res = new ushort[1];
                         switch (func)
                         {
                             case "读线圈":
@@ -246,7 +249,6 @@ namespace ConsoleApp1
 
                                 var readCoilCountTemp = soc.Receive(buffer);
                                 var readCoilRec = new byte[6 + buffer[5]];
-
                                 Buffer.BlockCopy(buffer, 0, readCoilRec, 0, readCoilRec.Length);
                                 var readCoilRes = new byte[readCoilRec[8]];
                                 Buffer.BlockCopy(readCoilRec, 9, readCoilRes, 0, readCoilRes.Length);
@@ -261,6 +263,17 @@ namespace ConsoleApp1
                                 foreach (var item in tempress)
                                 {
                                     Console.Write($"{item} ");
+                                }
+                                Console.WriteLine();
+                                var tempReadCoilRec = new bool[1];
+                                msg = ModbusTcpHelper.AnalysisReadCoil(ref tempReadCoilRec, readCoilRec);
+                                Console.WriteLine(msg);
+                                if (msg.Success)
+                                {
+                                    foreach (var item in tempReadCoilRec)
+                                    {
+                                        Console.WriteLine(item);
+                                    }
                                 }
                                 break;
 
@@ -282,6 +295,13 @@ namespace ConsoleApp1
                                 Buffer.BlockCopy(buffer, 0, readHoldingRegisterRec, 0, 6 + buffer[5]);
                                 Console.WriteLine("Rec:");
                                 PrintByteArray(readHoldingRegisterRec);
+
+                                msg = ModbusTcpHelper.AnalysisReadHoldingRegister(ref res, readHoldingRegisterRec);
+                                Console.WriteLine(msg);
+                                foreach (var item in res)
+                                {
+                                    Console.WriteLine(item);
+                                }
                                 break;
 
                             case "读输入寄存器":
@@ -299,6 +319,13 @@ namespace ConsoleApp1
                                 Buffer.BlockCopy(buffer, 0, readInputRegisterRec, 0, 6 + buffer[5]);
                                 Console.WriteLine("Rec:");
                                 PrintByteArray(readInputRegisterRec);
+
+                                msg = ModbusTcpHelper.AnalysisReadInputRegister(ref res, readInputRegisterRec);
+                                Console.WriteLine(msg);
+                                foreach (var item in res)
+                                {
+                                    Console.WriteLine(item);
+                                }
                                 break;
 
                             case "写单个线圈":
@@ -400,6 +427,19 @@ namespace ConsoleApp1
                                 Console.WriteLine("Send:");
                                 PrintByteArray(readAndWriteMultiplyRegisterByteArray);
                                 soc.Send(readAndWriteMultiplyRegisterByteArray);
+                                Thread.Sleep(100);
+                                var readAndWriteMultiplyRegisterCountTemp = soc.Receive(buffer);
+                                var readAndWriteMultiplyRegisterRec = new byte[6 + buffer[5]];
+                                Buffer.BlockCopy(buffer, 0, readAndWriteMultiplyRegisterRec, 0, 6 + buffer[5]);
+                                Console.WriteLine("Rec:");
+                                PrintByteArray(readAndWriteMultiplyRegisterRec);
+
+                                msg = ModbusTcpHelper.AnalysisReadAndWriteMultipleRegisters(ref res, readAndWriteMultiplyRegisterRec);
+                                Console.WriteLine(msg);
+                                foreach (var item in res)
+                                {
+                                    Console.WriteLine(item);
+                                }
                                 break;
 
                             case "读设备标识码":

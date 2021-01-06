@@ -22,15 +22,20 @@ namespace Wp.Helpers.ExtensionMethod
         /// <returns></returns>
         public static bool Equals(this Array source, int sourceOffset, Array target, int targetOffset, int count)
         {
-            if (source.Length < sourceOffset + count)
+            if (source.Length >= sourceOffset + count)
             {
-                if (target.Length < targetOffset + count)
+                if (target.Length >= targetOffset + count)
                 {
+                    var res = true;
                     var sor = new byte[count];
                     var tar = new byte[count];
                     Buffer.BlockCopy(source, sourceOffset, sor, 0, count);
                     Buffer.BlockCopy(target, targetOffset, tar, 0, count);
-                    return Equals(sor, tar);
+                    for (int i = 0; i < count; i++)
+                    {
+                        res = sor[i] == tar[i] && res;
+                    }
+                    return res;
                 }
                 else
                 {
