@@ -109,12 +109,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Msg.cs" />
-    <Compile Include="Entities\Protocols\ModbusTcp\AddressDomain.cs" />
-    <Compile Include="Entities\Protocols\ModbusTcp\DataDomain.cs" />
-    <Compile Include="Entities\Protocols\ModbusTcp\ModbusTcpFlagDomain.cs" />
-    <Compile Include="Entities\Protocols\ModbusTcp\MsgIdDomain.cs" />
-    <Compile Include="Entities\Protocols\ModbusTcp\StationIdDomain.cs" />
-    <Compile Include="Entities\Protocols\ModbusTcp\SubsequenByteLengthDomain.cs" />
     <Compile Include="Enums\EEndian.cs" />
     <Compile Include="Enums\Protocols\ModbusTcp\ErrorCode.cs" />
     <Compile Include="Enums\Protocols\ModbusTcp\FunctionCode.cs" />
@@ -176,6 +170,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Entities\Protocols\" />
     <Folder Include="Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
