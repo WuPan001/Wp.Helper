@@ -207,6 +207,40 @@
             读设备标识码
             </summary>
         </member>
+        <member name="T:Wp.Helpers.Enums.EScale">
+            <summary>
+            进制枚举
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EScale.Decimal">
+            <summary>
+            转为10进制
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EScale.Hex">
+            <summary>
+            转为16进制
+            如10转为a
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EScale.HexWithToken">
+            <summary>
+            转为带标记的16进制
+            如10转为0x0a
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EScale.HexToUp">
+            <summary>
+            转为16进制
+            如10转为A
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EScale.HexWithTokenToUp">
+            <summary>
+            转为带标记的16进制
+            如10转为0x0A
+            </summary>
+        </member>
         <member name="T:Wp.Helpers.Enums.EImgType">
             <summary>
             图片类型
@@ -296,6 +330,15 @@
             <param name="target">目标数组</param>
             <param name="targetOffset">目标偏移量</param>
             <param name="count">数量</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.ArrayExtensionMethod.ToFormatString(System.Byte[],Wp.Helpers.Enums.EScale,System.String)">
+            <summary>
+            格式化输出数组
+            </summary>
+            <param name="data">数组</param>
+            <param name="scale">输出进制</param>
+            <param name="spliter">分隔符</param>
             <returns></returns>
         </member>
         <member name="T:Wp.Helpers.ExtensionMethod.BooleanExtensionMethod">
@@ -989,6 +1032,11 @@
             <summary>
             写多个线圈
             </summary>
+            <param name="address">起始线圈地址</param>
+            <param name="values">要写入的值</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
         </member>
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteMultipleRegisters(System.UInt16,System.UInt16[],System.UInt16,System.Byte)">
             <summary>
@@ -1005,6 +1053,13 @@
             <summary>
             读写多个寄存器
             </summary>
+            <param name="readAddress">读寄存器起始地址</param>
+            <param name="readCount">读寄存器数量</param>
+            <param name="writeAddress">写寄存器起始地址</param>
+            <param name="values">要写入寄存器的值</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
         </member>
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadCoil(System.Boolean[]@,System.Byte[],System.UInt16,System.Byte)">
             <summary>
@@ -1121,8 +1176,13 @@
         </member>
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteMultipleRegisters(System.Byte[],System.Byte[],System.UInt16,System.Byte)">
             <summary>
-            写多个寄存器
+            写多个寄存器报文校验及解析
             </summary>
+            <param name="data">报文</param>
+            <param name="sendData">发送的报文</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
         </member>
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteMultiple(System.Byte[],System.Byte[],Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode,System.UInt16,System.Byte)">
             <summary>

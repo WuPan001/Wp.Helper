@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Wp.Helpers.Enums;
 
 namespace Wp.Helpers.ExtensionMethod
 {
@@ -46,6 +47,47 @@ namespace Wp.Helpers.ExtensionMethod
             {
                 throw new Exception("源数组长度超出！");
             }
+        }
+
+        /// <summary>
+        /// 格式化输出Byte数组
+        /// </summary>
+        /// <param name="data">数组</param>
+        /// <param name="scale">输出进制</param>
+        /// <param name="spliter">分隔符</param>
+        /// <returns></returns>
+        public static string ToFormatString(this byte[] data, EScale scale = EScale.HexWithTokenToUp, string spliter = " ")
+        {
+            var res = new StringBuilder();
+            foreach (var item in data)
+            {
+                switch (scale)
+                {
+                    case EScale.Decimal:
+                        res.Append($"{item}{spliter}");
+                        break;
+
+                    case EScale.Hex:
+                        res.Append($"{item:x2}{spliter}");
+                        break;
+
+                    case EScale.HexWithToken:
+                        res.Append($"0x{item:x2}{spliter}");
+                        break;
+
+                    case EScale.HexToUp:
+                        res.Append($"{item:X2}{spliter}");
+                        break;
+
+                    case EScale.HexWithTokenToUp:
+                        res.Append($"0x{item:X2}{spliter}");
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            return res.Remove(res.Length - 1, 1).ToString();
         }
     }
 }

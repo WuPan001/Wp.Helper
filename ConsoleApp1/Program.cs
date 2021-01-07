@@ -196,9 +196,21 @@ namespace ConsoleApp1
 
                     #endregion Bool扩展方法测试
 
-                    var bb = new byte[] { 1, 2 };
-                    var tt = new byte[] { 0, 0, 1, 2 };
-                    Console.WriteLine(Equals(bb, bb));
+                    #region 数组扩展方法测试
+
+                    //var bb = new byte[] { 1, 2 };
+
+                    //var tt = new byte[] { 0, 0, 1, 2 };
+                    //Console.WriteLine(Equals(bb, bb));
+                    var tt = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
+                    Console.WriteLine(tt.ToFormatString(EScale.Decimal));
+                    Console.WriteLine(tt.ToFormatString(EScale.Hex));
+                    Console.WriteLine(tt.ToFormatString(EScale.HexToUp));
+                    Console.WriteLine(tt.ToFormatString(EScale.HexWithToken));
+                    Console.WriteLine(tt.ToFormatString(EScale.HexWithTokenToUp, ","));
+
+                    #endregion 数组扩展方法测试
+
                     break;
 
                 case "ModbusTcp":

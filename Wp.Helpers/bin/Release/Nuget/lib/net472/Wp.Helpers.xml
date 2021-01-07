@@ -44,72 +44,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Wp.Helpers.Entities.Protocols.ModbusTcp.AddressDomain">
-            <summary>
-            地址域
-            </summary>
-        </member>
-        <member name="T:Wp.Helpers.Entities.Protocols.ModbusTcp.ModbusTcpFlagDomain">
-            <summary>
-            Modbus标识域
-            强制为0
-            </summary>
-        </member>
-        <member name="P:Wp.Helpers.Entities.Protocols.ModbusTcp.ModbusTcpFlagDomain.Value">
-            <summary>
-            值
-            </summary>
-        </member>
-        <member name="T:Wp.Helpers.Entities.Protocols.ModbusTcp.MsgIdDomain">
-            <summary>
-            消息号域
-            报文消息号，从站返回值域主站询问报文消息号相同
-            </summary>
-        </member>
-        <member name="P:Wp.Helpers.Entities.Protocols.ModbusTcp.MsgIdDomain.Values">
-            <summary>
-            值
-            </summary>
-        </member>
-        <member name="M:Wp.Helpers.Entities.Protocols.ModbusTcp.MsgIdDomain.#ctor(System.UInt16)">
-            <summary>
-            构造器
-            </summary>
-            <param name="value"></param>
-        </member>
-        <member name="T:Wp.Helpers.Entities.Protocols.ModbusTcp.StationIdDomain">
-            <summary>
-            站号域
-            按需指定
-            </summary>
-        </member>
-        <member name="P:Wp.Helpers.Entities.Protocols.ModbusTcp.StationIdDomain.Value">
-            <summary>
-            值
-            </summary>
-        </member>
-        <member name="M:Wp.Helpers.Entities.Protocols.ModbusTcp.StationIdDomain.#ctor(System.Byte)">
-            <summary>
-            构造器
-            </summary>
-            <param name="stationId"></param>
-        </member>
-        <member name="T:Wp.Helpers.Entities.Protocols.ModbusTcp.SubsequenByteLengthDomain">
-            <summary>
-            报文后续字节长度域
-            </summary>
-        </member>
-        <member name="P:Wp.Helpers.Entities.Protocols.ModbusTcp.SubsequenByteLengthDomain.Values">
-            <summary>
-            值
-            </summary>
-        </member>
-        <member name="M:Wp.Helpers.Entities.Protocols.ModbusTcp.SubsequenByteLengthDomain.#ctor(System.UInt16)">
-            <summary>
-            构造器
-            </summary>
-            <param name="value"></param>
-        </member>
         <member name="T:Wp.Helpers.Entities.ALiIconFont.Content">
              <summary>
             
@@ -1055,16 +989,34 @@
             <summary>
             写多个线圈
             </summary>
+            <param name="address">起始线圈地址</param>
+            <param name="values">要写入的值</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
         </member>
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteMultipleRegisters(System.UInt16,System.UInt16[],System.UInt16,System.Byte)">
             <summary>
             写多个寄存器
             </summary>
+            <param name="address">寄存器起始地址</param>
+            <param name="values">要写入的值</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteMultipleRegisters(System.UInt16,System.Byte[],System.UInt16,System.Byte)" -->
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.ReadAndWriteMultipleRegisters(System.UInt16,System.UInt16,System.UInt16,System.UInt16[],System.UInt16,System.Byte)">
             <summary>
             读写多个寄存器
             </summary>
+            <param name="readAddress">读寄存器起始地址</param>
+            <param name="readCount">读寄存器数量</param>
+            <param name="writeAddress">写寄存器起始地址</param>
+            <param name="values">要写入寄存器的值</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
         </member>
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadCoil(System.Boolean[]@,System.Byte[],System.UInt16,System.Byte)">
             <summary>
@@ -1181,8 +1133,13 @@
         </member>
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteMultipleRegisters(System.Byte[],System.Byte[],System.UInt16,System.Byte)">
             <summary>
-            写多个寄存器
+            写多个寄存器报文校验及解析
             </summary>
+            <param name="data">报文</param>
+            <param name="sendData">发送的报文</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
         </member>
         <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteMultiple(System.Byte[],System.Byte[],Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode,System.UInt16,System.Byte)">
             <summary>

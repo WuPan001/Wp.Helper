@@ -109,9 +109,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Msg.cs" />
-    <Compile Include="Enums\EEndian.cs" />
+    <Compile Include="Enums\Endian.cs" />
     <Compile Include="Enums\Protocols\ModbusTcp\ErrorCode.cs" />
     <Compile Include="Enums\Protocols\ModbusTcp\FunctionCode.cs" />
+    <Compile Include="Enums\Scale.cs" />
     <Compile Include="ExtensionMethod\ArrayExtensionMethod.cs" />
     <Compile Include="ExtensionMethod\BooleanExtensionMethod.cs" />
     <Compile Include="ExtensionMethod\IntegerExtensionMethod.cs" />
@@ -127,7 +128,7 @@
     <Compile Include="Entities\ALiIconFont\Li.cs" />
     <Compile Include="Entities\WpfStyle\StyleBase.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
-    <Compile Include="Enums\EImgType.cs" />
+    <Compile Include="Enums\ImgType.cs" />
     <Compile Include="Enums\MsgType.cs" />
     <Compile Include="Helpers\ExceptionHelper.cs" />
     <Compile Include="ExtensionMethod\ALiIconFontExtensionMethod.cs" />
