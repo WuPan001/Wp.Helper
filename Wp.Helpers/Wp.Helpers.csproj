@@ -141,6 +141,15 @@
     <Compile Include="Helpers\MathHelper.cs" />
     <Compile Include="Helpers\ProtocolsHelper\ModbusTcpHelper.cs" />
     <Compile Include="Helpers\SolidColorBrushStyleHelper.cs" />
+    <Compile Include="Helpers\TcpHelpers\ClientHelper\MyEventArgs\MyEventArgsBase.cs" />
+    <Compile Include="Helpers\TcpHelpers\ClientHelper\MyEventArgs\TcpCnnExceptionEventArgs.cs" />
+    <Compile Include="Helpers\TcpHelpers\ClientHelper\MyEventArgs\TcpConnectedEventArgs.cs" />
+    <Compile Include="Helpers\TcpHelpers\ClientHelper\MyEventArgs\TcpDisconnectedEventArgs.cs" />
+    <Compile Include="Helpers\TcpHelpers\ClientHelper\MyEventArgs\TcpMsgReceivedEventArgs.cs" />
+    <Compile Include="Helpers\TcpHelpers\ServerHelper\MyEventArgs\MyEventArgsBase.cs" />
+    <Compile Include="Helpers\TcpHelpers\ServerHelper\MyEventArgs\TcpConnectedEventArgs.cs" />
+    <Compile Include="Helpers\TcpHelpers\ServerHelper\MyEventArgs\TcpDisconnectedEventArgs.cs" />
+    <Compile Include="Helpers\TcpHelpers\ServerHelper\MyEventArgs\TcpMsgReceivedEventArgs.cs" />
     <Compile Include="WpfHelpers\ExpanderHelper.cs" />
     <Compile Include="WpfHelpers\PasswordBoxHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
