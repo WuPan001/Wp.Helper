@@ -146,10 +146,13 @@
     <Compile Include="Helpers\TcpHelpers\ClientHelper\MyEventArgs\TcpConnectedEventArgs.cs" />
     <Compile Include="Helpers\TcpHelpers\ClientHelper\MyEventArgs\TcpDisconnectedEventArgs.cs" />
     <Compile Include="Helpers\TcpHelpers\ClientHelper\MyEventArgs\TcpMsgReceivedEventArgs.cs" />
+    <Compile Include="Helpers\TcpHelpers\ClientHelper\TcpClientHelper.cs" />
     <Compile Include="Helpers\TcpHelpers\ServerHelper\MyEventArgs\MyEventArgsBase.cs" />
     <Compile Include="Helpers\TcpHelpers\ServerHelper\MyEventArgs\TcpConnectedEventArgs.cs" />
     <Compile Include="Helpers\TcpHelpers\ServerHelper\MyEventArgs\TcpDisconnectedEventArgs.cs" />
     <Compile Include="Helpers\TcpHelpers\ServerHelper\MyEventArgs\TcpMsgReceivedEventArgs.cs" />
+    <Compile Include="Helpers\TcpHelpers\ServerHelper\TcpClientState.cs" />
+    <Compile Include="Helpers\TcpHelpers\ServerHelper\TcpServerHelper.cs" />
     <Compile Include="WpfHelpers\ExpanderHelper.cs" />
     <Compile Include="WpfHelpers\PasswordBoxHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

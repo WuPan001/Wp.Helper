@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs
 {
+    /// <summary>
+    /// TCP服务器端事件基类
+    /// </summary>
     public class MyEventArgsBase : EventArgs
     {
         /// <summary>

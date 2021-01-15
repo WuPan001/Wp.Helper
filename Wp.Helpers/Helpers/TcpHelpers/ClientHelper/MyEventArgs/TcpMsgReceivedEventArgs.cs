@@ -10,14 +10,14 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs
     /// <summary>
     /// TCP客户端接收到来自服务器端的报文事件参数
     /// </summary>
-    public class TcpMsgReceivedEventArgs : EventArgs
+    public class TcpMsgReceivedEventArgs<T> : EventArgs
     {
         /// <summary>
         /// 接收到报文事件参数
         /// </summary>
         /// <param name="tcpClient">客户端</param>
         /// <param name="msg">报文</param>
-        public TcpMsgReceivedEventArgs(TcpClient tcpClient, byte[] msg)
+        public TcpMsgReceivedEventArgs(TcpClient tcpClient, T msg)
         {
             TcpClient = tcpClient;
             Msg = msg;
@@ -26,20 +26,21 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs
         /// <summary>
         /// 接收到报文事件参数
         /// </summary>
-        /// <param name="msg"></param>
+        /// <param name="msg">报文</param>
         public TcpMsgReceivedEventArgs(T msg)
         {
+            TcpClient = null;
             Msg = msg;
         }
 
         /// <summary>
         /// 客户端
         /// </summary>
-        public TcpClient TcpClient { get; private set; } = new TcpClient();
+        public TcpClient TcpClient { get; private set; }
 
         /// <summary>
         /// 报文
         /// </summary>
-        public byte[] Msg { get; private set; }
+        public T Msg { get; private set; }
     }
 }

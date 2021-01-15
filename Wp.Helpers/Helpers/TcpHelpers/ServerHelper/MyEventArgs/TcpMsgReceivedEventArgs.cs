@@ -10,14 +10,14 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs
     /// <summary>
     /// TCP服务器端接收到报文事件
     /// </summary>
-    public class TcpMsgReceivedEventArgs : MyEventArgsBase
+    public class TcpMsgReceivedEventArgs<T> : MyEventArgsBase
     {
         /// <summary>
         /// 接收到数据报文事件参数
         /// </summary>
         /// <param name="tcpClient">客户端</param>
         /// <param name="msg">报文</param>
-        public TcpMsgReceivedEventArgs(TcpClient tcpClient, byte[] msg)
+        public TcpMsgReceivedEventArgs(TcpClient tcpClient, T msg)
         {
             TcpClient = tcpClient;
             Msg = msg;
@@ -26,15 +26,6 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs
         /// <summary>
         /// 报文
         /// </summary>
-        public byte[] Msg { get; private set; }
-
-        /// <summary>
-        /// ToString方法
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return $"{base.ToString()} Msg:{Msg}";
-        }
+        public T Msg { get; private set; }
     }
 }
