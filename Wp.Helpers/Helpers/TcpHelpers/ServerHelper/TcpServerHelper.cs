@@ -19,7 +19,7 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ServerHelper
         /// <summary>
         /// 接收到数据报文明文事件
         /// </summary>
-        public event EventHandler<TcpMsgReceivedEventArgs<string>> OnMsgReceived;
+        public event EventHandler<TcpMsgReceivedEventArgs<byte[]>> OnMsgReceived;
 
         /// <summary>
         /// 与客户端的连接已建立事件
@@ -54,10 +54,12 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ServerHelper
         /// </summary>
         public int Port { get; private set; }
 
+        private Encoding _encoding;
+
         /// <summary>
         /// 通信使用的编码
         /// </summary>
-        public Encoding Encoding { get; set; }
+        public Encoding Encoding { get { return _encoding; } set { _encoding = value; } }
 
         #endregion 属性、字段
 
@@ -197,10 +199,8 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ServerHelper
 
                 // received byte and trigger event notification
                 byte[] receivedBytes = new byte[numberOfReadBytes];
-                Buffer.BlockCopy(
-                  internalClient.Buffer, 0,
-                  receivedBytes, 0, numberOfReadBytes);
-                RaiseMsgReceived(internalClient.TcpClient, receivedBytes);
+                Buffer.BlockCopy(internalClient.Buffer, 0, receivedBytes, 0, numberOfReadBytes);
+                OnMsgReceived?.BeginInvoke(internalClient.TcpClient, new TcpMsgReceivedEventArgs<byte[]>(receivedBytes, _encoding), null, null);
 
                 // continue listening for tcp datagram packets
                 networkStream.BeginRead(
@@ -209,22 +209,6 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ServerHelper
                   internalClient.Buffer.Length,
                   HandleDatagramReceived,
                   internalClient);
-            }
-        }
-
-        private void RaiseMsgReceived(TcpClient sender, byte[] datagram)
-        {
-            if (OnMsgReceived != null)
-            {
-                string tmpString = Encoding.UTF8.GetString(datagram);
-                if (tmpString.Contains("kernel"))
-                {
-                    OnMsgReceived(this, new TcpMsgReceivedEventArgs<string>(sender, Encoding.GetEncoding("GB2312").GetString(datagram, 0, datagram.Length)));
-                }
-                else
-                {
-                    OnMsgReceived(this, new TcpMsgReceivedEventArgs<string>(sender, Encoding.UTF8.GetString(datagram, 0, datagram.Length)));
-                }
             }
         }
 

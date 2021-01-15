@@ -18,24 +18,24 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
         #region 事件
 
         /// <summary>
-        /// 接收报文事件
+        /// 接收到报文事件
         /// </summary>
-        public event EventHandler<TcpMsgReceivedEventArgs<string>> OnMsgReceived;
+        public event EventHandler<TcpMsgReceivedEventArgs<byte[]>> ReceiveMsg;
 
         /// <summary>
         /// 与服务器的连接已建立事件
         /// </summary>
-        public event EventHandler<TcpConnectedEventArgs> OnConnected;
+        public event EventHandler<TcpConnectedEventArgs> ConnectServer;
 
         /// <summary>
         /// 与服务器的连接已断开事件
         /// </summary>
-        public event EventHandler<TcpDisconnectedEventArgs> OnDisconnected;
+        public event EventHandler<TcpDisconnectedEventArgs> DisconnectServer;
 
         /// <summary>
         /// 与服务器的连接发生异常事件
         /// </summary>
-        public event EventHandler<TcpCnnExceptionEventArgs> OnCnnExceptionOccurred;
+        public event EventHandler<TcpCnnExceptionEventArgs> CnnExceptionOccurred;
 
         #endregion 事件
 
@@ -80,7 +80,7 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
         /// <summary>
         /// 远端服务器终结点
         /// </summary>
-        public IPEndPoint RemoteIPEndPoint
+        public IPEndPoint ServerIPEndPoint
         {
             get { return new IPEndPoint(Addresses[0], Port); }
         }
@@ -90,10 +90,12 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
         /// </summary>
         protected IPEndPoint LocalIPEndPoint { get; private set; }
 
+        private Encoding _encoding;
+
         /// <summary>
         /// 通信所使用的编码
         /// </summary>
-        public Encoding Encoding { get; set; }
+        public Encoding Encoding { get { return _encoding; } set { _encoding = value; } }
 
         #endregion 属性、字段
 
@@ -102,41 +104,58 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
         /// <summary>
         /// 异步TCP客户端
         /// </summary>
-        /// <param name="remoteEP">远端服务器终结点</param>
-        public TcpClientHelper(IPEndPoint remoteEP) : this(new[] { remoteEP.Address }, remoteEP.Port)
-        {
-        }
-
-        /// <summary>
-        /// 异步TCP客户端
-        /// </summary>
-        /// <param name="remoteIPAddress">远端服务器IP地址</param>
-        /// <param name="remotePort">远端服务器端口</param>
-        public TcpClientHelper(IPAddress remoteIPAddress, int remotePort) : this(new[] { remoteIPAddress }, remotePort)
-        {
-        }
-
-        /// <summary>
-        /// 异步TCP客户端
-        /// </summary>
-        /// <param name="remoteIPAddresses">远端服务器IP地址列表</param>
-        /// <param name="remotePort">远端服务器端口</param>
-        public TcpClientHelper(IPAddress[] remoteIPAddresses, int remotePort) : this(remoteIPAddresses, remotePort, null)
-        {
-        }
-
-        /// <summary>
-        /// 异步TCP客户端
-        /// </summary>
-        /// <param name="remoteIPAddresses">远端服务器IP地址列表</param>
-        /// <param name="remotePort">远端服务器端口</param>
+        /// <param name="serverEP">远端服务器终结点</param>
         /// <param name="localEP">本地客户端终结点</param>
-        public TcpClientHelper(IPAddress[] remoteIPAddresses, int remotePort, IPEndPoint localEP)
+        /// <param name="retries">重试次数</param>
+        /// <param name="retryInterval">重试间隔，单位为秒</param>
+        /// <param name="encoding">报文编码方式</param>
+        public TcpClientHelper(IPEndPoint serverEP, IPEndPoint localEP = null, byte retries = 3, int retryInterval = 2, Encoding encoding = null)
+            : this(new[] { serverEP.Address }, serverEP.Port, localEP, retries, retryInterval, encoding)
         {
-            Addresses = remoteIPAddresses;
-            Port = remotePort;
+        }
+
+        /// <summary>
+        /// 异步TCP客户端
+        /// </summary>
+        /// <param name="serverIPAddress">远端服务器IP地址</param>
+        /// <param name="serverPort">远端服务器端口</param>
+        /// <param name="localEP">本地客户端终结点</param>
+        /// <param name="retries">重试次数</param>
+        /// <param name="retryInterval">重试间隔，单位为秒</param>
+        /// <param name="encoding">报文编码方式</param>
+        public TcpClientHelper(IPAddress serverIPAddress, int serverPort, IPEndPoint localEP = null, byte retries = 3, int retryInterval = 2, Encoding encoding = null)
+            : this(new[] { serverIPAddress }, serverPort, localEP, retries, retryInterval, encoding)
+        {
+        }
+
+        /// <summary>
+        /// 异步TCP客户端
+        /// </summary>
+        /// <param name="serverIPAddresses">远端服务器IP地址列表</param>
+        /// <param name="serverPort">远端服务器端口</param>
+        /// <param name="retries">重试次数</param>
+        /// <param name="retryInterval">重试间隔，单位为秒</param>
+        /// <param name="encoding">报文编码方式</param>
+        public TcpClientHelper(IPAddress[] serverIPAddresses, int serverPort, byte retries = 3, int retryInterval = 2, Encoding encoding = null)
+            : this(serverIPAddresses, serverPort, null, retries, retryInterval, encoding)
+        {
+        }
+
+        /// <summary>
+        /// 异步TCP客户端
+        /// </summary>
+        /// <param name="serverIPAddresses">远端服务器IP地址列表</param>
+        /// <param name="serverPort">远端服务器端口</param>
+        /// <param name="localEP">本地客户端终结点</param>
+        /// <param name="retries">重试次数</param>
+        /// <param name="retryInterval">重试间隔，单位为秒</param>
+        /// <param name="encoding">报文编码方式</param>
+        public TcpClientHelper(IPAddress[] serverIPAddresses, int serverPort, IPEndPoint localEP, byte retries = 3, int retryInterval = 2, Encoding encoding = null)
+        {
+            Addresses = serverIPAddresses;
+            Port = serverPort;
             LocalIPEndPoint = localEP;
-            Encoding = Encoding.UTF8;//.Default;
+            Encoding = encoding is null ? Encoding.UTF8 : encoding;
             if (LocalIPEndPoint != null)
             {
                 tcpClient = new TcpClient(LocalIPEndPoint);
@@ -146,8 +165,8 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
                 tcpClient = new TcpClient();
             }
 
-            Retries = 3;
-            RetryInterval = 5;
+            Retries = retries;
+            RetryInterval = retryInterval;
         }
 
         /// <summary>
@@ -160,7 +179,6 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
             {
                 tcpClient.BeginConnect(Addresses, Port, HandleTcpServerConnected, tcpClient);
             }
-
             return this;
         }
 
@@ -174,7 +192,7 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
             {
                 _retries = 0;
                 tcpClient.Close();
-                RaiseServerDisconnected(Addresses, Port);
+                DisconnectServer?.BeginInvoke(this, new TcpDisconnectedEventArgs(Addresses, Port), null, null);
             }
             return this;
         }
@@ -184,7 +202,7 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
             try
             {
                 tcpClient.EndConnect(ar);
-                RaiseServerConnected(Addresses, Port);
+                ConnectServer?.BeginInvoke(this, new TcpConnectedEventArgs(Addresses, Port), null, null);
                 _retries = 0;
             }
             catch (Exception ex)
@@ -201,7 +219,7 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
                 {
                     // we have failed to connect to all the IP Addresses,
                     // connection has failed overall.
-                    RaiseServerExceptionOccurred(Addresses, Port, ex);
+                    CnnExceptionOccurred?.BeginInvoke(this, new TcpCnnExceptionEventArgs(Addresses, Port, ex), null, null);
                     return;
                 }
                 else
@@ -243,40 +261,11 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
             byte[] buffer = (byte[])ar.AsyncState;
             byte[] receivedBytes = new byte[numberOfReadBytes];
             Buffer.BlockCopy(buffer, 0, receivedBytes, 0, numberOfReadBytes);
-            RaiseMsgReceived(tcpClient, receivedBytes);
-            // then start reading from the network again
-            stream.BeginRead(buffer, 0, buffer.Length, HandleMsgReceived, buffer);
-        }
-
-        private void RaiseMsgReceived(TcpClient sender, byte[] datagram)
-        {
-            if (OnMsgReceived != null)
+            if (receivedBytes != null)
             {
-                string tmpString = Encoding.UTF8.GetString(datagram);
-                if (tmpString.Contains("receipt"))
-                {
-                    OnMsgReceived(this, new TcpMsgReceivedEventArgs<string>(sender, tmpString));
-                }
-                else
-                {
-                    OnMsgReceived(this, new TcpMsgReceivedEventArgs<string>(sender, Encoding.GetString(datagram, 0, datagram.Length)));
-                }
+                ReceiveMsg?.BeginInvoke(this, new TcpMsgReceivedEventArgs<byte[]>(tcpClient, receivedBytes, _encoding), null, null);
             }
-        }
-
-        private void RaiseServerConnected(IPAddress[] ipAddresses, int port)
-        {
-            OnConnected?.Invoke(this, new TcpConnectedEventArgs(ipAddresses, port));
-        }
-
-        private void RaiseServerDisconnected(IPAddress[] ipAddresses, int port)
-        {
-            OnDisconnected?.Invoke(this, new TcpDisconnectedEventArgs(ipAddresses, port));
-        }
-
-        private void RaiseServerExceptionOccurred(IPAddress[] ipAddresses, int port, Exception ex)
-        {
-            OnCnnExceptionOccurred?.Invoke(this, new TcpCnnExceptionEventArgs(ipAddresses, port, ex));
+            stream.BeginRead(buffer, 0, buffer.Length, HandleMsgReceived, buffer); // then start reading from the network again
         }
 
         /// <summary>
@@ -294,7 +283,13 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
         /// <param name="msg">报文</param>
         public void Send(byte[] msg)
         {
-            tcpClient.GetStream().BeginWrite(msg, 0, msg.Length, (IAsyncResult ar) => ((TcpClient)ar.AsyncState).GetStream().EndWrite(ar), tcpClient);
+            var stream = tcpClient.GetStream();
+            var res = stream.BeginWrite(msg, 0, msg.Length, (IAsyncResult ar) => ((TcpClient)ar.AsyncState).GetStream().EndWrite(ar), tcpClient);
+            while (!res.IsCompleted)
+            {
+                Thread.Sleep(1);
+            }
+            stream.Close();
         }
 
         #endregion 方法
