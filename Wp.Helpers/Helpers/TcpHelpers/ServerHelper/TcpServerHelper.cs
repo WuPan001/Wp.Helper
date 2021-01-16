@@ -17,19 +17,19 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ServerHelper
         #region 事件
 
         /// <summary>
-        /// 接收到数据报文明文事件
+        /// 接收到报文事件
         /// </summary>
-        public event EventHandler<TcpMsgReceivedEventArgs<byte[]>> OnMsgReceived;
+        public event EventHandler<TcpMsgReceivedEventArgs<byte[]>> ReceiveMsg;
 
         /// <summary>
         /// 与客户端的连接已建立事件
         /// </summary>
-        public event EventHandler<TcpConnectedEventArgs> OnConnected;
+        public event EventHandler<TcpConnectedEventArgs> ClientConnected;
 
         /// <summary>
         /// 与客户端的连接已断开事件
         /// </summary>
-        public event EventHandler<TcpDisconnectedEventArgs> OnDisconnected;
+        public event EventHandler<TcpDisconnectedEventArgs> ClientDisconnected;
 
         #endregion 事件
 
@@ -162,7 +162,7 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ServerHelper
                 lock (clients)
                 {
                     clients.Add(internalClient);
-                    RaiseClientConnected(tcpClient);
+                    ClientConnected?.Invoke(this, new TcpConnectedEventArgs(tcpClient));
                 }
                 NetworkStream networkStream = internalClient.NetworkStream;
                 networkStream.BeginRead(internalClient.Buffer, 0, internalClient.Buffer.Length, HandleDatagramReceived, internalClient);
@@ -192,7 +192,7 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ServerHelper
                     lock (clients)
                     {
                         clients.Remove(internalClient);
-                        RaiseClientDisconnected(internalClient.TcpClient);
+                        ClientDisconnected?.Invoke(this, new TcpDisconnectedEventArgs(internalClient.TcpClient));
                         return;
                     }
                 }
@@ -200,26 +200,11 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ServerHelper
                 // received byte and trigger event notification
                 byte[] receivedBytes = new byte[numberOfReadBytes];
                 Buffer.BlockCopy(internalClient.Buffer, 0, receivedBytes, 0, numberOfReadBytes);
-                OnMsgReceived?.BeginInvoke(internalClient.TcpClient, new TcpMsgReceivedEventArgs<byte[]>(receivedBytes, _encoding), null, null);
+                ReceiveMsg?.BeginInvoke(internalClient.TcpClient, new TcpMsgReceivedEventArgs<byte[]>(receivedBytes, _encoding), null, null);
 
                 // continue listening for tcp datagram packets
-                networkStream.BeginRead(
-                  internalClient.Buffer,
-                  0,
-                  internalClient.Buffer.Length,
-                  HandleDatagramReceived,
-                  internalClient);
+                networkStream.BeginRead(internalClient.Buffer, 0, internalClient.Buffer.Length, HandleDatagramReceived, internalClient);
             }
-        }
-
-        private void RaiseClientConnected(TcpClient tcpClient)
-        {
-            OnConnected?.Invoke(this, new TcpConnectedEventArgs(tcpClient));
-        }
-
-        private void RaiseClientDisconnected(TcpClient tcpClient)
-        {
-            OnDisconnected?.Invoke(this, new TcpDisconnectedEventArgs(tcpClient));
         }
 
         /// <summary>
@@ -251,23 +236,42 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ServerHelper
             Send(tcpClient, Encoding.GetBytes(msg));
         }
 
+        /// <summary>
+        /// 发送报文至所有客户端
+        /// </summary>
+        /// <param name="msg"></param>
         public void SendAll(string msg)
         {
             if (!IsRunning)
                 throw new InvalidProgramException("This TCP server has not been started.");
 
-            for (int i = 0; i < this.clients.Count; i++)
+            for (int i = 0; i < clients.Count; i++)
             {
-                Send(this.clients[i].TcpClient, msg);
+                Send(clients[i].TcpClient, msg);
             }
         }
 
+        /// <summary>
+        /// Dispose方法
+        /// </summary>
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
 
+        /// <summary>
+        /// 析构函数
+        /// </summary>
+        ~TcpServerHelper()
+        {
+            Dispose(false);
+        }
+
+        /// <summary>
+        /// Dispose方法
+        /// </summary>
+        /// <param name="disposing"></param>
         protected virtual void Dispose(bool disposing)
         {
             if (!disposed)

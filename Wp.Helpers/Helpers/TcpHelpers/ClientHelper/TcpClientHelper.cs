@@ -13,7 +13,7 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
     /// <summary>
     /// TCP客户端帮助类
     /// </summary>
-    public class TcpClientHelper
+    public class TcpClientHelper : IDisposable
     {
         #region 事件
 
@@ -42,7 +42,7 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
         #region 属性、字段
 
         private TcpClient tcpClient;
-        private bool disposed = false;
+        private bool _disposed = false;
 
         /// <summary>
         /// 标识是否建立连接
@@ -290,6 +290,42 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
                 Thread.Sleep(1);
             }
             stream.Close();
+        }
+
+        /// <summary>
+        /// Dispose方法
+        /// </summary>
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this); //标记gc不在调用析构函数
+        }
+
+        /// <summary>
+        /// 析构函数
+        /// </summary>
+        ~TcpClientHelper()
+        {
+            Dispose(false);
+        }
+
+        /// <summary>
+        /// Dispose方法
+        /// </summary>
+        /// <param name="disposing"></param>
+        private void Dispose(bool disposing)
+        {
+            if (_disposed) return; //如果已经被回收，就中断执行
+            if (disposing)
+            {
+                if (tcpClient.Connected)
+                {
+                    tcpClient.Close();
+                }
+                tcpClient.Dispose();
+            }
+            //TODO:释放非托管资源
+            _disposed = true;
         }
 
         #endregion 方法
