@@ -334,7 +334,7 @@
         </member>
         <member name="M:Wp.Helpers.ExtensionMethod.ArrayExtensionMethod.ToFormatString(System.Byte[],Wp.Helpers.Enums.EScale,System.String)">
             <summary>
-            格式化输出数组
+            格式化输出Byte数组
             </summary>
             <param name="data">数组</param>
             <param name="scale">输出进制</param>
@@ -1241,6 +1241,427 @@
             <summary>
             保存SolidColorBrushStyle样式文件
             </summary>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.MyEventArgsBase">
+            <summary>
+            TCP客户端事件参数基类
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.MyEventArgsBase.Addresses">
+            <summary>
+            服务器IP地址列表
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.MyEventArgsBase.Port">
+            <summary>
+            服务器端口
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.MyEventArgsBase.ToString">
+            <summary>
+            ToString方法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpCnnExceptionEventArgs">
+            <summary>
+            TCP客户端连接异常事件参数
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpCnnExceptionEventArgs.#ctor(System.Net.IPAddress[],System.Int32,System.Exception)">
+            <summary>
+            与服务器的连接发生异常事件参数
+            </summary>
+            <param name="ipAddresses">服务器IP地址列表</param>
+            <param name="port">服务器端口</param>
+            <param name="ex">内部异常</param>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpCnnExceptionEventArgs.Ex">
+            <summary>
+            内部异常
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpCnnExceptionEventArgs.ToString">
+            <summary>
+            ToString方法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpConnectedEventArgs">
+            <summary>
+            TCP客户端与服务器的连接已建立事件参数
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpConnectedEventArgs.#ctor(System.Net.IPAddress[],System.Int32)">
+            <summary>
+            与服务器的连接已建立事件参数
+            </summary>
+            <param name="ipAddresses">服务器IP地址列表</param>
+            <param name="port">服务器端口</param>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpDisconnectedEventArgs">
+            <summary>
+            TCP客户端与服务器的连接已断开事件参数
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpDisconnectedEventArgs.#ctor(System.Net.IPAddress[],System.Int32)">
+            <summary>
+            与服务器的连接已断开事件参数
+            </summary>
+            <param name="ipAddresses">服务器IP地址列表</param>
+            <param name="port">服务器端口</param>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpMsgReceivedEventArgs`1">
+            <summary>
+            TCP客户端接收到来自服务器端的报文事件参数
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpMsgReceivedEventArgs`1.#ctor(System.Net.Sockets.TcpClient,`0,System.Text.Encoding)">
+            <summary>
+            接收到报文事件参数
+            </summary>
+            <param name="tcpClient">客户端</param>
+            <param name="msg">报文</param>
+            <param name="encoding">报文编码方式</param>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpMsgReceivedEventArgs`1.TcpClient">
+            <summary>
+            客户端
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpMsgReceivedEventArgs`1.Msg">
+            <summary>
+            报文
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpMsgReceivedEventArgs`1.Encoding">
+            <summary>
+            报文编码方式
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper">
+            <summary>
+            TCP客户端帮助类
+            </summary>
+        </member>
+        <member name="E:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.ReceiveMsg">
+            <summary>
+            接收到报文事件
+            </summary>
+        </member>
+        <member name="E:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.ConnectServer">
+            <summary>
+            与服务器的连接已建立事件
+            </summary>
+        </member>
+        <member name="E:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.DisconnectServer">
+            <summary>
+            与服务器的连接已断开事件
+            </summary>
+        </member>
+        <member name="E:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.CnnExceptionOccurred">
+            <summary>
+            与服务器的连接发生异常事件
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Connected">
+            <summary>
+            标识是否建立连接
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Addresses">
+            <summary>
+            远端服务器的IP地址列表
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Port">
+            <summary>
+            远端服务器的端口
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Retries">
+            <summary>
+            连接重试次数
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.RetryInterval">
+            <summary>
+            连接重试间隔
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.ServerIPEndPoint">
+            <summary>
+            远端服务器终结点
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.LocalIPEndPoint">
+            <summary>
+            本地客户端终结点
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Encoding">
+            <summary>
+            通信所使用的编码
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.#ctor(System.Net.IPEndPoint,System.Net.IPEndPoint,System.Byte,System.Int32,System.Text.Encoding)">
+            <summary>
+            异步TCP客户端
+            </summary>
+            <param name="serverEP">远端服务器终结点</param>
+            <param name="localEP">本地客户端终结点</param>
+            <param name="retries">重试次数</param>
+            <param name="retryInterval">重试间隔，单位为秒</param>
+            <param name="encoding">报文编码方式</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.#ctor(System.Net.IPAddress,System.Int32,System.Net.IPEndPoint,System.Byte,System.Int32,System.Text.Encoding)">
+            <summary>
+            异步TCP客户端
+            </summary>
+            <param name="serverIPAddress">远端服务器IP地址</param>
+            <param name="serverPort">远端服务器端口</param>
+            <param name="localEP">本地客户端终结点</param>
+            <param name="retries">重试次数</param>
+            <param name="retryInterval">重试间隔，单位为秒</param>
+            <param name="encoding">报文编码方式</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.#ctor(System.Net.IPAddress[],System.Int32,System.Byte,System.Int32,System.Text.Encoding)">
+            <summary>
+            异步TCP客户端
+            </summary>
+            <param name="serverIPAddresses">远端服务器IP地址列表</param>
+            <param name="serverPort">远端服务器端口</param>
+            <param name="retries">重试次数</param>
+            <param name="retryInterval">重试间隔，单位为秒</param>
+            <param name="encoding">报文编码方式</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.#ctor(System.Net.IPAddress[],System.Int32,System.Net.IPEndPoint,System.Byte,System.Int32,System.Text.Encoding)">
+            <summary>
+            异步TCP客户端
+            </summary>
+            <param name="serverIPAddresses">远端服务器IP地址列表</param>
+            <param name="serverPort">远端服务器端口</param>
+            <param name="localEP">本地客户端终结点</param>
+            <param name="retries">重试次数</param>
+            <param name="retryInterval">重试间隔，单位为秒</param>
+            <param name="encoding">报文编码方式</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Connect">
+            <summary>
+            连接到服务器
+            </summary>
+            <returns>异步TCP客户端</returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Close">
+            <summary>
+            关闭与服务器的连接
+            </summary>
+            <returns>异步TCP客户端</returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Send(System.String)">
+            <summary>
+            发送报文
+            </summary>
+            <param name="msg">报文</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Send(System.Byte[])">
+            <summary>
+            发送报文
+            </summary>
+            <param name="msg">报文</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Dispose">
+            <summary>
+            Dispose方法
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Finalize">
+            <summary>
+            析构函数
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Dispose(System.Boolean)">
+            <summary>
+            Dispose方法
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.MyEventArgsBase">
+            <summary>
+            TCP服务器端事件基类
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.MyEventArgsBase.TcpClient">
+            <summary>
+            客户端
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.MyEventArgsBase.ToString">
+            <summary>
+            ToString方法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.TcpConnectedEventArgs">
+            <summary>
+            TCP服务器端与客户端的连接已建立事件参数
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.TcpConnectedEventArgs.#ctor(System.Net.Sockets.TcpClient)">
+            <summary>
+            与客户端的连接已建立事件参数
+            </summary>
+            <param name="tcpClient">客户端</param>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.TcpDisconnectedEventArgs">
+            <summary>
+            与客户端的连接已断开事件参数
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.TcpDisconnectedEventArgs.#ctor(System.Net.Sockets.TcpClient)">
+            <summary>
+            与客户端的连接已断开事件参数
+            </summary>
+            <param name="tcpClient">客户端</param>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.TcpMsgReceivedEventArgs`1">
+            <summary>
+            TCP服务器端接收到报文事件
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.TcpMsgReceivedEventArgs`1.#ctor(System.Net.Sockets.TcpClient,`0,System.Text.Encoding)">
+            <summary>
+            接收到数据报文事件参数
+            </summary>
+            <param name="tcpClient">客户端</param>
+            <param name="msg">报文</param>
+            <param name="encoding">报文编码方式</param>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.TcpMsgReceivedEventArgs`1.Msg">
+            <summary>
+            报文
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.TcpMsgReceivedEventArgs`1.Encoding">
+            <summary>
+            报文编码方式
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper">
+            <summary>
+            TCP服务器端帮助类
+            </summary>
+        </member>
+        <member name="E:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.ReceiveMsg">
+            <summary>
+            接收到报文事件
+            </summary>
+        </member>
+        <member name="E:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.ClientConnected">
+            <summary>
+            与客户端的连接已建立事件
+            </summary>
+        </member>
+        <member name="E:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.ClientDisconnected">
+            <summary>
+            与客户端的连接已断开事件
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.IsRunning">
+            <summary>
+            服务器是否正在运行
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Address">
+            <summary>
+            监听的IP地址
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Port">
+            <summary>
+            监听的端口
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Encoding">
+            <summary>
+            通信使用的编码
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.#ctor(System.Int32)">
+            <summary>
+            异步TCP服务器
+            </summary>
+            <param name="listenPort">监听的端口</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.#ctor(System.Net.IPEndPoint)">
+            <summary>
+            异步TCP服务器
+            </summary>
+            <param name="localEP">监听的终结点</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.#ctor(System.Net.IPAddress,System.Int32)">
+            <summary>
+            异步TCP服务器
+            </summary>
+            <param name="localIPAddress">监听的IP地址</param>
+            <param name="listenPort">监听的端口</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Start">
+            <summary>
+            启动服务器
+            </summary>
+            <returns>异步TCP服务器</returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Start(System.Int32)">
+            <summary>
+            启动服务器
+            </summary>
+            <param name="backlog">
+            服务器所允许的挂起连接序列的最大长度
+            </param>
+            <returns>异步TCP服务器</returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Stop">
+            <summary>
+            停止服务器
+            </summary>
+            <returns>异步TCP服务器</returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Send(System.Net.Sockets.TcpClient,System.Byte[])">
+            <summary>
+            发送报文至指定的客户端
+            </summary>
+            <param name="tcpClient">客户端</param>
+            <param name="msg">报文</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Send(System.Net.Sockets.TcpClient,System.String)">
+            <summary>
+            发送报文至指定的客户端
+            </summary>
+            <param name="tcpClient">客户端</param>
+            <param name="msg">报文</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.SendAll(System.String)">
+            <summary>
+            发送报文至所有客户端
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Dispose">
+            <summary>
+            Dispose方法
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Finalize">
+            <summary>
+            析构函数
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Dispose(System.Boolean)">
+            <summary>
+            Dispose方法
+            </summary>
+            <param name="disposing"></param>
         </member>
         <member name="T:Wp.Helpers.Helpers.PropertyHepler">
             <summary>

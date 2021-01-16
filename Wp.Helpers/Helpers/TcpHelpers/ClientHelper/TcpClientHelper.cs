@@ -41,7 +41,7 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
 
         #region 属性、字段
 
-        private TcpClient _tcpClient;
+        private readonly TcpClient _tcpClient;
         private bool _disposed = false;
 
         /// <summary>
