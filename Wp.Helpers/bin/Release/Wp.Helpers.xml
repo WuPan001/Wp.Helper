@@ -1537,13 +1537,6 @@
             <param name="msg">报文</param>
             <param name="encoding">报文编码方式</param>
         </member>
-        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.TcpMsgReceivedEventArgs`1.#ctor(`0,System.Text.Encoding)">
-            <summary>
-            接收到数据报文事件参数
-            </summary>
-            <param name="msg">报文</param>
-            <param name="encoding">报文编码方式</param>
-        </member>
         <member name="P:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.TcpMsgReceivedEventArgs`1.Msg">
             <summary>
             报文

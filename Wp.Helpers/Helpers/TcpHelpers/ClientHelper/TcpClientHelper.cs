@@ -41,13 +41,13 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
 
         #region 属性、字段
 
-        private TcpClient tcpClient;
+        private TcpClient _tcpClient;
         private bool _disposed = false;
 
         /// <summary>
         /// 标识是否建立连接
         /// </summary>
-        public bool Connected { get { return tcpClient.Client.Connected; } }
+        public bool Connected { get { return _tcpClient.Client.Connected; } }
 
         /// <summary>
         /// 远端服务器的IP地址列表
@@ -158,11 +158,11 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
             Encoding = encoding is null ? Encoding.UTF8 : encoding;
             if (LocalIPEndPoint != null)
             {
-                tcpClient = new TcpClient(LocalIPEndPoint);
+                _tcpClient = new TcpClient(LocalIPEndPoint);
             }
             else
             {
-                tcpClient = new TcpClient();
+                _tcpClient = new TcpClient();
             }
 
             Retries = retries;
@@ -177,7 +177,7 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
         {
             if (!Connected)
             {
-                tcpClient.BeginConnect(Addresses, Port, HandleTcpServerConnected, tcpClient);
+                _tcpClient.BeginConnect(Addresses, Port, HandleTcpServerConnected, _tcpClient);
             }
             return this;
         }
@@ -191,7 +191,7 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
             if (Connected)
             {
                 _retries = 0;
-                tcpClient.Close();
+                _tcpClient.Close();
                 DisconnectServer?.BeginInvoke(this, new TcpDisconnectedEventArgs(Addresses, Port), null, null);
             }
             return this;
@@ -201,7 +201,7 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
         {
             try
             {
-                tcpClient.EndConnect(ar);
+                _tcpClient.EndConnect(ar);
                 ConnectServer?.BeginInvoke(this, new TcpConnectedEventArgs(Addresses, Port), null, null);
                 _retries = 0;
             }
@@ -234,13 +234,13 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
             }
 
             // we are connected successfully and start asyn read operation.
-            byte[] buffer = new byte[tcpClient.ReceiveBufferSize];
-            tcpClient.GetStream().BeginRead(buffer, 0, buffer.Length, HandleMsgReceived, buffer);
+            byte[] buffer = new byte[_tcpClient.ReceiveBufferSize];
+            _tcpClient.GetStream().BeginRead(buffer, 0, buffer.Length, HandleMsgReceived, buffer);
         }
 
         private void HandleMsgReceived(IAsyncResult ar)
         {
-            NetworkStream stream = tcpClient.GetStream();
+            NetworkStream stream = _tcpClient.GetStream();
             int numberOfReadBytes = 0;
             try
             {
@@ -263,7 +263,7 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
             Buffer.BlockCopy(buffer, 0, receivedBytes, 0, numberOfReadBytes);
             if (receivedBytes != null)
             {
-                ReceiveMsg?.BeginInvoke(this, new TcpMsgReceivedEventArgs<byte[]>(tcpClient, receivedBytes, _encoding), null, null);
+                ReceiveMsg?.BeginInvoke(this, new TcpMsgReceivedEventArgs<byte[]>(_tcpClient, receivedBytes, _encoding), null, null);
             }
             stream.BeginRead(buffer, 0, buffer.Length, HandleMsgReceived, buffer); // then start reading from the network again
         }
@@ -283,7 +283,7 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
         /// <param name="msg">报文</param>
         public void Send(byte[] msg)
         {
-            tcpClient.GetStream().BeginWrite(msg, 0, msg.Length, (IAsyncResult ar) => ((TcpClient)ar.AsyncState).GetStream().EndWrite(ar), tcpClient);
+            _tcpClient.GetStream().BeginWrite(msg, 0, msg.Length, (IAsyncResult ar) => ((TcpClient)ar.AsyncState).GetStream().EndWrite(ar), _tcpClient);
         }
 
         /// <summary>
@@ -312,11 +312,11 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
             if (_disposed) return; //如果已经被回收，就中断执行
             if (disposing)
             {
-                if (tcpClient.Connected)
+                if (_tcpClient.Connected)
                 {
-                    tcpClient.Close();
+                    _tcpClient.Close();
                 }
-                tcpClient.Dispose();
+                _tcpClient.Dispose();
             }
             //TODO:释放非托管资源
             _disposed = true;

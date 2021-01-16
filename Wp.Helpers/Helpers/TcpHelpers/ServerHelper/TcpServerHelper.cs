@@ -192,7 +192,7 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ServerHelper
                     lock (clients)
                     {
                         clients.Remove(internalClient);
-                        ClientDisconnected?.Invoke(this, new TcpDisconnectedEventArgs(internalClient.TcpClient));
+                        ClientDisconnected?.BeginInvoke(this, new TcpDisconnectedEventArgs(internalClient.TcpClient), null, null);
                         return;
                     }
                 }
@@ -200,8 +200,7 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ServerHelper
                 // received byte and trigger event notification
                 byte[] receivedBytes = new byte[numberOfReadBytes];
                 Buffer.BlockCopy(internalClient.Buffer, 0, receivedBytes, 0, numberOfReadBytes);
-                ReceiveMsg?.BeginInvoke(internalClient.TcpClient, new TcpMsgReceivedEventArgs<byte[]>(receivedBytes, _encoding), null, null);
-
+                ReceiveMsg?.BeginInvoke(this, new TcpMsgReceivedEventArgs<byte[]>(internalClient.TcpClient, receivedBytes, _encoding), null, null);
                 networkStream.BeginRead(internalClient.Buffer, 0, internalClient.Buffer.Length, HandleDatagramReceived, internalClient);// continue listening for tcp datagram packets
             }
         }
