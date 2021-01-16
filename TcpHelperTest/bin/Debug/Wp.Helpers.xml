@@ -1,0 +1,2686 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wp.Helpers</name>
+    </assembly>
+    <members>
+        <member name="T:Wp.Helpers.Entities.Msg">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.Msg.Success">
+            <summary>
+            结果
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.Msg.Message">
+            <summary>
+            消息内容
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Entities.Msg.#ctor(System.Boolean,System.String)">
+            <summary>
+            构造器
+            </summary>
+            <param name="success">结果</param>
+            <param name="message">消息内容</param>
+        </member>
+        <member name="M:Wp.Helpers.Entities.Msg.#ctor(System.Boolean,System.Text.StringBuilder)">
+            <summary>
+            构造器
+            </summary>
+            <param name="success">结果</param>
+            <param name="message">消息内容</param>
+        </member>
+        <member name="M:Wp.Helpers.Entities.Msg.#ctor">
+            <summary>
+            构造器
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Entities.Msg.ToString">
+            <summary>
+            ToString方法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Entities.ALiIconFont.Content">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.ALiIconFont.Content.Class">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.ALiIconFont.Content.Text">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.ALiIconFont.Content.Test">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Wp.Helpers.Entities.ALiIconFont.IconFont">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.ALiIconFont.IconFont.Class">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.ALiIconFont.IconFont.Li">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Wp.Helpers.Entities.WpfStyle.StyleBase">
+            <summary>
+            样式文件基类信息
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.WpfStyle.StyleBase.BaseName">
+            <summary>
+            样式基类名
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Entities.WpfStyle.StyleBase.BasePath">
+            <summary>
+            样式基类文件路径
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Enums.EEndian">
+            <summary>
+            大端小端
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EEndian.BigEndian">
+            <summary>
+            大端
+            低地址存放高位
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EEndian.LittleEndian">
+            <summary>
+            小端
+            高地址存放低位
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Enums.Protocols.ModbusTcp.EErrorCode">
+            <summary>
+            ModbusTcp异常码
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EErrorCode.E1">
+            <summary>
+            不支持的功能码
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EErrorCode.E2">
+            <summary>
+            输入数量不在许可范围
+            0x0001≤输出数量≤0x07D0
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EErrorCode.E3">
+            <summary>
+            起始地址或起始地址+输出数量错误
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EErrorCode.E4">
+            <summary>
+            读取离散输出错误
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode">
+            <summary>
+            ModbusTcp协议功能码
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.ReadCoil">
+            <summary>
+            读线圈
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.ReadDiscreteInput">
+            <summary>
+            读离散量输入
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.ReadHoldingRegister">
+            <summary>
+            读保持寄存器
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.ReadInputRegister">
+            <summary>
+            读输入寄存器
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.WriteSingleCoil">
+            <summary>
+            写单个线圈
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.WriteSingleRegister">
+            <summary>
+            写单个寄存器
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.WriteMultipleCoils">
+            <summary>
+            写多个线圈
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.WriteMultipleRegisters">
+            <summary>
+            写多个寄存器
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.ReadFileLog">
+            <summary>
+            读文件记录
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.WriteFileLog">
+            <summary>
+            写文件记录
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.MaskWriteRegister">
+            <summary>
+            屏蔽写寄存器
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.ReadAndWriteMultipleRegisters">
+            <summary>
+            读写多个寄存器
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode.ReadDeviceIdentificationCode">
+            <summary>
+            读设备标识码
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Enums.EScale">
+            <summary>
+            进制枚举
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EScale.Decimal">
+            <summary>
+            转为10进制
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EScale.Hex">
+            <summary>
+            转为16进制
+            如10转为a
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EScale.HexWithToken">
+            <summary>
+            转为带标记的16进制
+            如10转为0x0a
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EScale.HexToUp">
+            <summary>
+            转为16进制
+            如10转为A
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EScale.HexWithTokenToUp">
+            <summary>
+            转为带标记的16进制
+            如10转为0x0A
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Enums.EImgType">
+            <summary>
+            图片类型
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EImgType.PNG">
+            <summary>
+            png格式的图片
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EImgType.JPEG">
+            <summary>
+            jpg格式的图片
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EImgType.SVG">
+            <summary>
+            svg格式的图片
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Enums.EMsgType">
+            <summary>
+            消息类型枚举
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Trace">
+            <summary>
+            跟踪消息
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Alarm">
+            <summary>
+            警告提示
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Forbid">
+            <summary>
+            禁止提示
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Info">
+            <summary>
+            提示消息
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Warn">
+            <summary>
+            警告消息
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Error">
+            <summary>
+            错误提示
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Question">
+            <summary>
+            确认消息
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Success">
+            <summary>
+            成功提示
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.Disconnection">
+            <summary>
+            未连接到设备
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Enums.EMsgType.OffLine">
+            <summary>
+            未连接到网络
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.ExtensionMethod.ArrayExtensionMethod">
+            <summary>
+            数组扩展方法
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.ArrayExtensionMethod.Equals(System.Array,System.Int32,System.Array,System.Int32,System.Int32)">
+            <summary>
+            确定指定对象是否相等
+            </summary>
+            <param name="source">源数组</param>
+            <param name="sourceOffset">源偏移量</param>
+            <param name="target">目标数组</param>
+            <param name="targetOffset">目标偏移量</param>
+            <param name="count">数量</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.ArrayExtensionMethod.ToFormatString(System.Byte[],Wp.Helpers.Enums.EScale,System.String)">
+            <summary>
+            格式化输出Byte数组
+            </summary>
+            <param name="data">数组</param>
+            <param name="scale">输出进制</param>
+            <param name="spliter">分隔符</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.ExtensionMethod.BooleanExtensionMethod">
+            <summary>
+            Bool对象扩展方法
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.BooleanExtensionMethod.ToByteArray(System.Boolean[],Wp.Helpers.Enums.EEndian)">
+            <summary>
+            Bool数组转Byte数组
+            示例：bool[] test=new bool[15];test[0]=true;test[3]=true;test[4]=true;test[14]=true; 选择 endian = EEndian.BigEndian，则转换后的结果为byte[] res=new byte[2]{25,64}
+            </summary>
+            <param name="data">Bool数组</param>
+            <param name="endian">大端小端</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.ExtensionMethod.IntegerExtensionMethod">
+            <summary>
+            整形对象扩展方法
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.IntegerExtensionMethod.ToBooleanArray(System.Byte,Wp.Helpers.Enums.EEndian)">
+            <summary>
+            Byte转Boolean数组
+            </summary>
+            <param name="data">数据</param>
+            <param name="endian">大端小端</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.IntegerExtensionMethod.ToBooleanArray(System.UInt16,Wp.Helpers.Enums.EEndian)">
+            <summary>
+            Ushort转Boolean数组
+            </summary>
+            <param name="data">数据</param>
+            <param name="endian">大端小端</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.IntegerExtensionMethod.ToBooleanArray(System.UInt32,Wp.Helpers.Enums.EEndian)">
+            <summary>
+            Uint转Boolean数组
+            </summary>
+            <param name="data">数据</param>
+            <param name="endian">大端小端</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.IntegerExtensionMethod.ToBooleanArray(System.UInt64,Wp.Helpers.Enums.EEndian)">
+            <summary>
+            Ulong转Boolean数组
+            </summary>
+            <param name="data">数据</param>
+            <param name="endian">大端小端</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.ExtensionMethod.EnumerableObjectExtensionMethod">
+            <summary>
+            EnumerableObject扩展方法
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.EnumerableObjectExtensionMethod.NotNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            非空或null检查
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="param">参数</param>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.EnumerableObjectExtensionMethod.ToObserableCollection``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            转成ObserableCollection对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj">原对象</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.ExtensionMethod.ObjectExtensionMethod">
+            <summary>
+            object扩展方法
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.ObjectExtensionMethod.NotNull(System.Object)">
+            <summary>
+            非null检查
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.ObjectExtensionMethod.ToDictionary(System.Object)">
+            <summary>
+            对象转字典方法
+            </summary>
+            <param name="json">对象</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.ExtensionMethod.StringExentionMethod">
+            <summary>
+            string对象扩展方法
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.StringExentionMethod.ToALiIconFont(System.String)">
+            <summary>
+            json格式的字符串转为阿里巴巴IconFont
+            </summary>
+            <param name="json">json格式的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.StringExentionMethod.NotNullOrEmpty(System.String)">
+            <summary>
+            非空或null检查
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.StringExentionMethod.ToDictionary(System.String)">
+            <summary>
+            json格式字符串转字典扩展方法
+            </summary>
+            <param name="json">json格式字符串</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.ByteArrayHelper">
+            <summary>
+            字节数组帮助类
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.ByteArrayHelper.EEndType">
+            <summary>
+            大端小端枚举
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Helpers.ByteArrayHelper.EEndType.BigEnd">
+            <summary>
+            大端：是指数据的低位保存在内存的高地址中，而数据的高位，保存在内存的低地址中
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Helpers.ByteArrayHelper.EEndType.LittleEnd">
+            <summary>
+            小端：是指数据的低位保存在内存的低地址中，而数据的高位，保存在内存的高地址中
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ByteArrayHelper.ByteArrayToUshort(System.Byte[])">
+            <summary>
+            用于字节数组转ushort
+            </summary>
+            <param name="data">字节数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ByteArrayHelper.ByteArrayToUshort(System.Byte[],System.Byte,System.Byte)">
+            <summary>
+            用于字节数组转ushort
+            数组长度默认为2
+            </summary>
+            <param name="data"></param>
+            <param name="index"></param>
+            <param name="len"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ByteArrayHelper.UshortToByteArray(System.UInt16,Wp.Helpers.Helpers.ByteArrayHelper.EEndType)">
+            <summary>
+            ushort转字节数组
+            </summary>
+            <param name="data">ushort数据</param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ByteArrayHelper.LocalMacToByteArray">
+            <summary>
+            本地MAC转Byte数组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.ConverterHelper">
+            <summary>
+            转换器帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ConverterHelper.Convert(System.Type,System.String,Wp.Helpers.Enums.EImgType)">
+            <summary>
+            将枚举描述转换为对应的资源图片路径
+            </summary>
+            <param name="type">枚举类型</param>
+            <param name="value">枚举描述</param>
+            <param name="imgType">图片文件类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ConverterHelper.Convert``1(``0,Wp.Helpers.Enums.EImgType)">
+            <summary>
+            将枚举值转换为对应的资源图片路径
+            </summary>
+            <typeparam name="T">枚举类型</typeparam>
+            <param name="value">枚举值</param>
+            <param name="imgType">图片文件类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ConverterHelper.Convert(System.Type,System.String,System.String,Wp.Helpers.Enums.EImgType)">
+            <summary>
+            将枚举描述转换为对应的默认资源图片路径
+            </summary>
+            <param name="type">枚举类型</param>
+            <param name="value">枚举描述</param>
+            <param name="suffix">图片文件名后缀</param>
+            <param name="imgType">图片文件类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ConverterHelper.Convert``1(``0,System.String,Wp.Helpers.Enums.EImgType)">
+            <summary>
+            将枚举值转换为对应的默认资源图片路径
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value">枚举值</param>
+            <param name="suffix">图片文件名后缀</param>
+            <param name="imgType">图片文件类型</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.DateTimeHelper">
+            <summary>
+            DateTimeHelper
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.DateTimeHelper.GetTimeStamp">
+            <summary>
+            返回一个时间戳
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.DateTimeHelper.TimeStampToDateTime(System.Int64)">
+            <summary>
+            将时间戳转为对应时间
+            </summary>
+            <param name="timeStamp">时间戳</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.EncryptionHelper">
+            <summary>
+            加密解密帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.EncryptionHelper.GetMD5EncryptionCode(System.String)">
+            <summary>
+            MD5加密
+            </summary>
+            <param name="code">待加密字符串</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.EnumHelper">
+            <summary>
+            枚举帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.EnumHelper.GetEnumCount``1">
+            <summary>
+            获取枚举值数量
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.EnumHelper.GetEnumItems``1">
+            <summary>
+            获取所有枚举元素枚举
+            </summary>
+            <typeparam name="T">枚举</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.EnumHelper.GetAllDescriptions``1">
+            <summary>
+            获取所有枚举项描述
+            可用做填充Combobox
+            </summary>
+            <typeparam name="T">枚举</typeparam>
+            <returns></returns>}
+        </member>
+        <member name="M:Wp.Helpers.Helpers.EnumHelper.GetEnumDescription(System.Enum)">
+            <summary>
+            获取枚举描述
+            </summary>
+            <param name="enumValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.EnumHelper.GetEnumNameByDescription``1(System.String)">
+            <summary>
+            根据枚举描述获取枚举名
+            </summary>
+            <typeparam name="T">枚举</typeparam>
+            <param name="description">枚举描述</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.EnumHelper.GetEnumNameByDescription(System.String,System.Type)">
+            <summary>
+            根据枚举描述获取枚举名
+            </summary>
+            <param name="description">枚举描述</param>
+            <param name="type">枚举类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.EnumHelper.GetEnumDescriptionKeyIsName``1">
+            <summary>
+            获取枚举描述和枚举值名
+            返回值为字典类型，key为枚举名，value为枚举描述
+            </summary>
+            <typeparam name="T">枚举</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.EnumHelper.GetEnumValueKeyIsDescription``1">
+            <summary>
+            获取枚举值和枚举描述
+            返回值为字典类型，key为枚举描述，value为枚举值
+            </summary>
+            <typeparam name="T">枚举</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.EnumHelper.GetEnumDescriptionKeyIsValue``1">
+            <summary>
+            获取枚举描述和枚举值
+            返回值为字典类型，key为枚举值，value为枚举描述
+            </summary>
+            <typeparam name="T">枚举</typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.ExceptionHelper">
+            <summary>
+            异常帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ExceptionHelper.PrintException``1(``0,System.Exception)">
+            <summary>
+            在控制台打印出异常信息
+            </summary>
+            <typeparam name="T">消息头类型，为string或stringbuilder</typeparam>
+            <param name="msg"></param>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ExceptionHelper.GetExceptionDetailByWeb(System.Exception)">
+            <summary>
+            获取异常详情
+            </summary>
+            <param name="ex">异常实例</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ExceptionHelper.GetExceptionDetailByApp(System.Exception)">
+            <summary>
+            获取异常详情
+            </summary>
+            <param name="ex">异常实例</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.FileHelper">
+            <summary>
+            文件帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.GetFilesFullName(System.Boolean,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取文件全名
+            </summary>
+            <param name="multiselect">是否可多选</param>
+            <param name="filter">过滤器</param>
+            <param name="initialDirectory">根目录</param>
+            <param name="title">标题</param>
+            <param name="defaultExt">文件默认扩展名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.GetFilesName(System.Environment.SpecialFolder,System.String,System.Collections.Generic.List{Wp.Helpers.Enums.EImgType},System.Boolean)">
+            <summary>
+            获取文件夹下所有文件的文件名和全名
+            返回的字典中的key为文件名，value为文件全名
+            </summary>
+            <param name="rootFolder">根目录</param>
+            <param name="description">描述</param>
+            <param name="extensions">文件扩展名集合，其中文件扩展名形式如.exe</param>
+            <param name="isReturnExtension">标识返回字典中的key是否包含文件扩展名 如.exe</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.GetFilesName(System.String,System.Collections.Generic.List{Wp.Helpers.Enums.EImgType},System.Boolean)">
+            <summary>
+            获取文件夹下所有文件的文件名和全名
+            返回的字典中的key为文件名，value为文件全名
+            </summary>
+            <param name="path">文件夹路径</param>
+            <param name="extensions">文件扩展名集合，其中文件扩展名形式如.exe</param>
+            <param name="isReturnExtension">标识返回字典中的key是否包含文件扩展名 如.exe</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.GetDirectoriesFullName(System.Boolean,System.Environment.SpecialFolder,System.String)">
+            <summary>
+            获取文件夹下所有子文件全路径
+            </summary>
+            <param name="showNewFolderButton">是否显示新建文件夹按钮</param>
+            <param name="rootFolder">根目录</param>
+            <param name="description">描述</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.GetDirectoriesFullName(System.String)">
+            <summary>
+            获取文件夹下所有子文件全路径
+            </summary>
+            <param name="path">文件夹路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.GetFileSystemInfo(System.Environment.SpecialFolder,System.String)">
+            <summary>
+            获取文件夹下文件和子文件夹全名
+            </summary>
+            <param name="rootFolder">根目录</param>
+            <param name="description">描述</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.GetFileSystemInfo(System.String)">
+            <summary>
+            获取文件夹下文件和子文件夹全名
+            </summary>
+            <param name="path">文件夹路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.GetDirectory(System.Environment.SpecialFolder,System.String)">
+            <summary>
+            获取文件夹完整路径
+            </summary>
+            <param name="rootFolder">根目录</param>
+            <param name="description">描述</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.RenameFiles(System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            重命名文件
+            将文件重命名后复制到根目录下以当前时间命名的文件夹下
+            文件重命名规则：将原文件名拆分后第nameIndex+1个元素作为新文件名；若多个文件原文件名拆分后第nameIndex+1个元素相同，则在第nameIndex+1个元素的基础上追加数字作为新文件名称
+            </summary>
+            <param name="spilt">文件名拆分字符串数组 若isTotalRename为true，该值为null即可  示例：如原文件名为“Test(1).svg”,则split为new string[] { "(" }即可</param>
+            <param name="appendString">若isTotalRename为true，则将在该值作为新文件名的基础；若为false，在原文件名拆分后第nameIndex+1个元素后追加该字符串作为新文件名的基础</param>
+            <param name="nameIndex">新文件名在原文件名拆分后的元素索引号，private 默认为第1个元素 若以在原文件名拆分后的i个元素重新命名文件，则nameIndex为i-1</param>
+            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
+            <param name="isTotalRename">是否完全重命名文件</param>
+            <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.RenameFiles(System.String,System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            重命名文件
+            将文件重命名后复制到根目录下以当前时间命名的文件夹下
+            文件重命名规则：将原文件名拆分后第nameIndex+1个元素作为新文件名；若多个文件原文件名拆分后第nameIndex+1个元素相同，则在第nameIndex+1个元素的基础上追加数字作为新文件名称
+            </summary>
+            <param name="path">文件所在文件夹路径</param>
+            <param name="spilt">文件名拆分字符串数组 若isTotalRename为true，该值为null即可  示例：如原文件名为“Test(1).svg”,则split为new string[] { "(" }即可</param>
+            <param name="appendString">若isTotalRename为true，则将在该值作为新文件名的基础；若为false，在原文件名拆分后第nameIndex+1个元素后追加该字符串作为新文件名的基础</param>
+            <param name="nameIndex">新文件名在原文件名拆分后的元素索引号，private 默认为第1个元素 若以在原文件名拆分后的i个元素重新命名文件，则nameIndex为i-1</param>
+            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
+            <param name="isTotalRename">是否完全重命名文件</param>
+            <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.RenameFiles(System.Collections.Generic.Dictionary{System.String,System.String},System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            重命名文件
+            </summary>
+            <param name="dic">文件夹下文件名和文件全名</param>
+            <param name="spilt">文件名拆分字符串数组 若isTotalRename为true，该值为null即可  示例：如原文件名为“Test(1).svg”,则split为new string[] { "(" }即可</param>
+            <param name="appendString">若isTotalRename为true，则将在该值作为新文件名的基础；若为false，在原文件名拆分后第nameIndex+1个元素后追加该字符串作为新文件名的基础</param>
+            <param name="nameIndex">新文件名在原文件名拆分后的元素索引号，private 默认为第1个元素 若以在原文件名拆分后的i个元素重新命名文件，则nameIndex为i-1</param>
+            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
+            <param name="isTotalRename">是否完全重命名文件</param>
+            <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.ClassificationFiles(System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            整理文件
+            </summary>
+            <param name="spilt">文件名拆分字符串数组 若isTotalRename为true，该值为null即可  示例：如原文件名为“Test(1).svg”,则split为new string[] { "(" }即可</param>
+            <param name="appendString">若isTotalRename为true，则将在该值作为新文件名的基础；若为false，在原文件名拆分后第nameIndex+1个元素后追加该字符串作为新文件名的基础</param>
+            <param name="nameIndex">新文件名在原文件名拆分后的元素索引号，private 默认为第1个元素 若以在原文件名拆分后的i个元素重新命名文件，则nameIndex为i-1</param>
+            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
+            <param name="isTotalRename">是否完全重命名文件</param>
+            <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.ClassificationFiles(System.String,System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            整理文件
+            </summary>
+            <param name="path">文件路径</param>
+            <param name="spilt">文件名拆分字符串数组 若isTotalRename为true，该值为null即可  示例：如原文件名为“Test(1).svg”,则split为new string[] { "(" }即可</param>
+            <param name="appendString">若isTotalRename为true，则将在该值作为新文件名的基础；若为false，在原文件名拆分后第nameIndex+1个元素后追加该字符串作为新文件名的基础</param>
+            <param name="nameIndex">新文件名在原文件名拆分后的元素索引号，private 默认为第1个元素 若以在原文件名拆分后的i个元素重新命名文件，则nameIndex为i-1</param>
+            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
+            <param name="isTotalRename">是否完全重命名文件</param>
+            <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.FileHelper.ClassificationFiles(System.Collections.Generic.Dictionary{System.String,System.String},System.String[],System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            整理文件
+            </summary>
+            <param name="dic">文件夹下文件名和文件全名</param>
+            <param name="spilt">文件名拆分字符串数组 若isTotalRename为true，该值为null即可  示例：如原文件名为“Test(1).svg”,则split为new string[] { "(" }即可</param>
+            <param name="appendString">若isTotalRename为true，则将在该值作为新文件名的基础；若为false，在原文件名拆分后第nameIndex+1个元素后追加该字符串作为新文件名的基础</param>
+            <param name="nameIndex">新文件名在原文件名拆分后的元素索引号，private 默认为第1个元素 若以在原文件名拆分后的i个元素重新命名文件，则nameIndex为i-1</param>
+            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
+            <param name="isTotalRename">是否完全重命名文件</param>
+            <param name="isBackward">标识重命名追加字符串追加方向 如值为true，则在文件名后追加；如值为false，则在文件名前追加</param>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.InitializationFileHelper">
+            <summary>
+            配置文件帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.InitializationFileHelper.WriteAsync(System.String,System.String,System.String,System.String)">
+            <summary>
+            异步写ini文件
+            </summary>
+            <param name="section">ini文件中区块名</param>
+            <param name="key">键</param>
+            <param name="value">值</param>
+            <param name="path">文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.InitializationFileHelper.WriteAsyncPropertyNameAsKey``1(System.String,``0,System.String)">
+            <summary>
+            异步写ini文件
+            键为属性名，值为属性值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="section">ini文件中区块名</param>
+            <param name="value">写入对象</param>
+            <param name="path">文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.InitializationFileHelper.WriteAsyncPropertyDescriptionAsKey``1(System.String,``0,System.String)">
+            <summary>
+            异步写ini文件
+            键为属性描述，值为属性值
+            </summary>
+            <typeparam name="T">写入对象类型</typeparam>
+            <param name="section">ini文件中区块名</param>
+            <param name="value">写入对象</param>
+            <param name="path">文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.InitializationFileHelper.ReadAsync(System.String,System.String,System.String)">
+            <summary>
+            异步读取配置文件1个键值
+            </summary>
+            <param name="section">ini文件中区块名</param>
+            <param name="key">键名</param>
+            <param name="path">文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.InitializationFileHelper.ReadAsyncT``1(System.String,System.String,System.Reflection.BindingFlags)">
+            <summary>
+            异步读取ini文件参数
+            </summary>
+            <typeparam name="T">返回类型</typeparam>
+            <param name="section">ini文件中区块名</param>
+            <param name="path">文件路径</param>
+            <param name="bindingFlags">属性类型</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.LocalMachineHelper">
+            <summary>
+            本地设备帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.LocalMachineHelper.GetCpuID">
+            <summary>
+            获取CPU序列号代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.LocalMachineHelper.GetMacAddress">
+            <summary>
+            获取网卡硬件地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.LocalMachineHelper.GetDiskID">
+            <summary>
+            获取硬盘ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.LocalMachineHelper.GetIPAddress">
+            <summary>
+            获取IP地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.LocalMachineHelper.GetUserName">
+            <summary>
+            操作系统的登录用户名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.LocalMachineHelper.GetComputerName">
+            <summary>
+            获取计算机名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.LocalMachineHelper.GetSystemType">
+            <summary>
+            系统类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.LocalMachineHelper.GetTotalPhysicalMemory">
+            <summary>
+            物理内存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.MathHelper">
+            <summary>
+            math帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.MathHelper.ToChinese(System.Decimal)">
+            <summary>
+            将金额转成中文大写
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.MathHelper.GetPointCount(System.Decimal)">
+            <summary>
+            计算小数位数
+            </summary>
+            <param name="num">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.MathHelper.GetPointCount(System.Double)">
+            <summary>
+            计算小数位数
+            </summary>
+            <param name="num">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.MathHelper.GetPointCount(System.Single)">
+            <summary>
+            计算小数位数
+            </summary>
+            <param name="num">值</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper">
+            <summary>
+            ModbusTcp帮助类
+            注意：寄存器中高低字节与计算机内存中的高低字节相反
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.ReadCoil(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
+            <summary>
+            读线圈
+            </summary>
+            <param name="address">起始地址</param>
+            <param name="count">数量</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.ReadHoldingRegister(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
+            <summary>
+            读保持寄存器
+            </summary>
+            <param name="address">寄存器地址</param>
+            <param name="count">寄存器数量</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.ReadInputRegister(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
+            <summary>
+            读输入寄存器
+            </summary>
+            <param name="address">寄存器地址</param>
+            <param name="count">寄存器数量</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteSingleCoil(System.UInt16,System.Boolean,System.UInt16,System.Byte)">
+            <summary>
+            写单个线圈
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值，值为true，表示请求输出为 ON；值为false，表示请求输出为 OFF</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteSingleRegister(System.UInt16,System.UInt16,System.UInt16,System.Byte)">
+            <summary>
+            写单个寄存器
+            </summary>
+            <param name="address">寄存器地址</param>
+            <param name="value">寄存器值</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteMultipleCoils(System.UInt16,System.Boolean[],System.UInt16,System.Byte)">
+            <summary>
+            写多个线圈
+            </summary>
+            <param name="address">起始线圈地址</param>
+            <param name="values">要写入的值</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteMultipleRegisters(System.UInt16,System.UInt16[],System.UInt16,System.Byte)">
+            <summary>
+            写多个寄存器
+            </summary>
+            <param name="address">寄存器起始地址</param>
+            <param name="values">要写入的值</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.WriteMultipleRegisters(System.UInt16,System.Byte[],System.UInt16,System.Byte)" -->
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.ReadAndWriteMultipleRegisters(System.UInt16,System.UInt16,System.UInt16,System.UInt16[],System.UInt16,System.Byte)">
+            <summary>
+            读写多个寄存器
+            </summary>
+            <param name="readAddress">读寄存器起始地址</param>
+            <param name="readCount">读寄存器数量</param>
+            <param name="writeAddress">写寄存器起始地址</param>
+            <param name="values">要写入寄存器的值</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadCoil(System.Boolean[]@,System.Byte[],System.UInt16,System.Byte)">
+            <summary>
+            读线圈返回报文校验及解析
+            </summary>
+            <param name="res">返回结果</param>
+            <param name="data">报文</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadHoldingRegister(System.UInt16[]@,System.Byte[],System.UInt16,System.Byte)">
+            <summary>
+            读保持寄存器返回报文校验及解析
+            </summary>
+            <param name="res">返回结果</param>
+            <param name="data">报文</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadHoldingRegister(System.Byte[]@,System.Byte[],System.UInt16,System.Byte)">
+            <summary>
+            读保持寄存器返回报文校验及解析
+            </summary>
+            <param name="res">返回结果</param>
+            <param name="data">报文</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadInputRegister(System.UInt16[]@,System.Byte[],System.UInt16,System.Byte)">
+            <summary>
+            读输入寄存器返回报文校验及解析
+            </summary>
+            <param name="res">返回结果</param>
+            <param name="data">报文</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadInputRegister(System.Byte[]@,System.Byte[],System.UInt16,System.Byte)">
+            <summary>
+            读输入寄存器返回报文校验及解析
+            </summary>
+            <param name="res">返回结果</param>
+            <param name="data">报文</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadRegister(System.UInt16[]@,System.Byte[],Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode,System.UInt16,System.Byte)">
+            <summary>
+            读寄存器返回报文校验及解析
+            </summary>
+            <param name="res">返回结果</param>
+            <param name="data">报文</param>
+            <param name="functionCode">功能码</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadRegister(System.Byte[]@,System.Byte[],Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode,System.UInt16,System.Byte)">
+            <summary>
+            读寄存器返回报文校验及解析
+            </summary>
+            <param name="res">返回结果</param>
+            <param name="data">报文</param>
+            <param name="functionCode">功能码</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteSingleCoil(System.Byte[],System.Byte[],System.UInt16,System.Byte)">
+            <summary>
+            写单个线圈报文校验及解析
+            </summary>
+            <param name="data">收到的报文</param>
+            <param name="sendData">发送的报文</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteSingleRegister(System.Byte[],System.Byte[],System.UInt16,System.Byte)">
+            <summary>
+            写单个寄存器报文校验及解析
+            </summary>
+            <param name="data">收到的报文</param>
+            <param name="sendData">发送的报文</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteSingle(System.Byte[],System.Byte[],Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode,System.UInt16,System.Byte)">
+            <summary>
+            写单个线圈或寄存器报文校验及解析
+            </summary>
+            <param name="data">收到的报文</param>
+            <param name="sendData">发送的报文</param>
+            <param name="functionCode">功能码</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteMultipleCoils(System.Byte[],System.Byte[],System.UInt16,System.Byte)">
+            <summary>
+            写多个线圈报文校验及解析
+            </summary>
+            <param name="data">收到的报文</param>
+            <param name="sendData">发送的报文</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteMultipleRegisters(System.Byte[],System.Byte[],System.UInt16,System.Byte)">
+            <summary>
+            写多个寄存器报文校验及解析
+            </summary>
+            <param name="data">报文</param>
+            <param name="sendData">发送的报文</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisWriteMultiple(System.Byte[],System.Byte[],Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode,System.UInt16,System.Byte)">
+            <summary>
+            写多个线圈或寄存器报文校验及解析
+            </summary>
+            <param name="data">收到的报文</param>
+            <param name="sendData">发送的报文</param>
+            <param name="functionCode">功能码</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadAndWriteMultipleRegisters(System.UInt16[]@,System.Byte[],System.UInt16,System.Byte)">
+            <summary>
+            读写多个寄存器报文校验及解析
+            </summary>
+            <param name="res">返回结果</param>
+            <param name="data">报文</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.AnalysisReadAndWriteMultipleRegisters(System.Byte[]@,System.Byte[],System.UInt16,System.Byte)">
+            <summary>
+            读写多个寄存器报文校验及解析
+            </summary>
+            <param name="res">返回结果</param>
+            <param name="data">报文</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.CheckMsgHead(System.Byte[],Wp.Helpers.Enums.Protocols.ModbusTcp.EFunctionCode,System.UInt16,System.Byte)">
+            <summary>
+            校验报文头
+            </summary>
+            <param name="data">报文</param>
+            <param name="functionCode">功能码</param>
+            <param name="msgId">消息号</param>
+            <param name="stationId">站号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.ProtocolsHelper.ModbusTcpHelper.GetErrorMsg(System.Byte)">
+            <summary>
+            获取异常码信息
+            </summary>
+            <param name="errorCode">异常码</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.SolidColorBrushStyleHelper">
+            <summary>
+            SolidColorBrushStyle样式文件生成帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.SolidColorBrushStyleHelper.SaveSolidColorBrushStyle">
+            <summary>
+            保存SolidColorBrushStyle样式文件
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.MyEventArgsBase">
+            <summary>
+            TCP客户端事件参数基类
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.MyEventArgsBase.Addresses">
+            <summary>
+            服务器IP地址列表
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.MyEventArgsBase.Port">
+            <summary>
+            服务器端口
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.MyEventArgsBase.ToString">
+            <summary>
+            ToString方法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpCnnExceptionEventArgs">
+            <summary>
+            TCP客户端连接异常事件参数
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpCnnExceptionEventArgs.#ctor(System.Net.IPAddress[],System.Int32,System.Exception)">
+            <summary>
+            与服务器的连接发生异常事件参数
+            </summary>
+            <param name="ipAddresses">服务器IP地址列表</param>
+            <param name="port">服务器端口</param>
+            <param name="ex">内部异常</param>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpCnnExceptionEventArgs.Ex">
+            <summary>
+            内部异常
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpCnnExceptionEventArgs.ToString">
+            <summary>
+            ToString方法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpConnectedEventArgs">
+            <summary>
+            TCP客户端与服务器的连接已建立事件参数
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpConnectedEventArgs.#ctor(System.Net.IPAddress[],System.Int32)">
+            <summary>
+            与服务器的连接已建立事件参数
+            </summary>
+            <param name="ipAddresses">服务器IP地址列表</param>
+            <param name="port">服务器端口</param>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpDisconnectedEventArgs">
+            <summary>
+            TCP客户端与服务器的连接已断开事件参数
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpDisconnectedEventArgs.#ctor(System.Net.IPAddress[],System.Int32)">
+            <summary>
+            与服务器的连接已断开事件参数
+            </summary>
+            <param name="ipAddresses">服务器IP地址列表</param>
+            <param name="port">服务器端口</param>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpMsgReceivedEventArgs`1">
+            <summary>
+            TCP客户端接收到来自服务器端的报文事件参数
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpMsgReceivedEventArgs`1.#ctor(System.Net.Sockets.TcpClient,`0,System.Text.Encoding)">
+            <summary>
+            接收到报文事件参数
+            </summary>
+            <param name="tcpClient">客户端</param>
+            <param name="msg">报文</param>
+            <param name="encoding">报文编码方式</param>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpMsgReceivedEventArgs`1.TcpClient">
+            <summary>
+            客户端
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpMsgReceivedEventArgs`1.Msg">
+            <summary>
+            报文
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs.TcpMsgReceivedEventArgs`1.Encoding">
+            <summary>
+            报文编码方式
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper">
+            <summary>
+            TCP客户端帮助类
+            </summary>
+        </member>
+        <member name="E:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.ReceiveMsg">
+            <summary>
+            接收到报文事件
+            </summary>
+        </member>
+        <member name="E:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.ConnectServer">
+            <summary>
+            与服务器的连接已建立事件
+            </summary>
+        </member>
+        <member name="E:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.DisconnectServer">
+            <summary>
+            与服务器的连接已断开事件
+            </summary>
+        </member>
+        <member name="E:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.CnnExceptionOccurred">
+            <summary>
+            与服务器的连接发生异常事件
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Connected">
+            <summary>
+            标识是否建立连接
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Addresses">
+            <summary>
+            远端服务器的IP地址列表
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Port">
+            <summary>
+            远端服务器的端口
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Retries">
+            <summary>
+            连接重试次数
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.RetryInterval">
+            <summary>
+            连接重试间隔
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.ServerIPEndPoint">
+            <summary>
+            远端服务器终结点
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.LocalIPEndPoint">
+            <summary>
+            本地客户端终结点
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Encoding">
+            <summary>
+            通信所使用的编码
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.#ctor(System.Net.IPEndPoint,System.Net.IPEndPoint,System.Byte,System.Int32,System.Text.Encoding)">
+            <summary>
+            异步TCP客户端
+            </summary>
+            <param name="serverEP">远端服务器终结点</param>
+            <param name="localEP">本地客户端终结点</param>
+            <param name="retries">重试次数</param>
+            <param name="retryInterval">重试间隔，单位为秒</param>
+            <param name="encoding">报文编码方式</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.#ctor(System.Net.IPAddress,System.Int32,System.Net.IPEndPoint,System.Byte,System.Int32,System.Text.Encoding)">
+            <summary>
+            异步TCP客户端
+            </summary>
+            <param name="serverIPAddress">远端服务器IP地址</param>
+            <param name="serverPort">远端服务器端口</param>
+            <param name="localEP">本地客户端终结点</param>
+            <param name="retries">重试次数</param>
+            <param name="retryInterval">重试间隔，单位为秒</param>
+            <param name="encoding">报文编码方式</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.#ctor(System.Net.IPAddress[],System.Int32,System.Byte,System.Int32,System.Text.Encoding)">
+            <summary>
+            异步TCP客户端
+            </summary>
+            <param name="serverIPAddresses">远端服务器IP地址列表</param>
+            <param name="serverPort">远端服务器端口</param>
+            <param name="retries">重试次数</param>
+            <param name="retryInterval">重试间隔，单位为秒</param>
+            <param name="encoding">报文编码方式</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.#ctor(System.Net.IPAddress[],System.Int32,System.Net.IPEndPoint,System.Byte,System.Int32,System.Text.Encoding)">
+            <summary>
+            异步TCP客户端
+            </summary>
+            <param name="serverIPAddresses">远端服务器IP地址列表</param>
+            <param name="serverPort">远端服务器端口</param>
+            <param name="localEP">本地客户端终结点</param>
+            <param name="retries">重试次数</param>
+            <param name="retryInterval">重试间隔，单位为秒</param>
+            <param name="encoding">报文编码方式</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Connect">
+            <summary>
+            连接到服务器
+            </summary>
+            <returns>异步TCP客户端</returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Close">
+            <summary>
+            关闭与服务器的连接
+            </summary>
+            <returns>异步TCP客户端</returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Send(System.String)">
+            <summary>
+            发送报文
+            </summary>
+            <param name="msg">报文</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Send(System.Byte[])">
+            <summary>
+            发送报文
+            </summary>
+            <param name="msg">报文</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Dispose">
+            <summary>
+            Dispose方法
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Finalize">
+            <summary>
+            析构函数
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ClientHelper.TcpClientHelper.Dispose(System.Boolean)">
+            <summary>
+            Dispose方法
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.MyEventArgsBase">
+            <summary>
+            TCP服务器端事件基类
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.MyEventArgsBase.TcpClient">
+            <summary>
+            客户端
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.MyEventArgsBase.ToString">
+            <summary>
+            ToString方法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.TcpConnectedEventArgs">
+            <summary>
+            TCP服务器端与客户端的连接已建立事件参数
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.TcpConnectedEventArgs.#ctor(System.Net.Sockets.TcpClient)">
+            <summary>
+            与客户端的连接已建立事件参数
+            </summary>
+            <param name="tcpClient">客户端</param>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.TcpDisconnectedEventArgs">
+            <summary>
+            与客户端的连接已断开事件参数
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.TcpDisconnectedEventArgs.#ctor(System.Net.Sockets.TcpClient)">
+            <summary>
+            与客户端的连接已断开事件参数
+            </summary>
+            <param name="tcpClient">客户端</param>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.TcpMsgReceivedEventArgs`1">
+            <summary>
+            TCP服务器端接收到报文事件
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.TcpMsgReceivedEventArgs`1.#ctor(System.Net.Sockets.TcpClient,`0,System.Text.Encoding)">
+            <summary>
+            接收到数据报文事件参数
+            </summary>
+            <param name="tcpClient">客户端</param>
+            <param name="msg">报文</param>
+            <param name="encoding">报文编码方式</param>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.TcpMsgReceivedEventArgs`1.Msg">
+            <summary>
+            报文
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs.TcpMsgReceivedEventArgs`1.Encoding">
+            <summary>
+            报文编码方式
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper">
+            <summary>
+            TCP服务器端帮助类
+            </summary>
+        </member>
+        <member name="E:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.ReceiveMsg">
+            <summary>
+            接收到报文事件
+            </summary>
+        </member>
+        <member name="E:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.ClientConnected">
+            <summary>
+            与客户端的连接已建立事件
+            </summary>
+        </member>
+        <member name="E:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.ClientDisconnected">
+            <summary>
+            与客户端的连接已断开事件
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.IsRunning">
+            <summary>
+            服务器是否正在运行
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Address">
+            <summary>
+            监听的IP地址
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Port">
+            <summary>
+            监听的端口
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Encoding">
+            <summary>
+            通信使用的编码
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.#ctor(System.Int32)">
+            <summary>
+            异步TCP服务器
+            </summary>
+            <param name="listenPort">监听的端口</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.#ctor(System.Net.IPEndPoint)">
+            <summary>
+            异步TCP服务器
+            </summary>
+            <param name="localEP">监听的终结点</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.#ctor(System.Net.IPAddress,System.Int32)">
+            <summary>
+            异步TCP服务器
+            </summary>
+            <param name="localIPAddress">监听的IP地址</param>
+            <param name="listenPort">监听的端口</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Start">
+            <summary>
+            启动服务器
+            </summary>
+            <returns>异步TCP服务器</returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Start(System.Int32)">
+            <summary>
+            启动服务器
+            </summary>
+            <param name="backlog">
+            服务器所允许的挂起连接序列的最大长度
+            </param>
+            <returns>异步TCP服务器</returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Stop">
+            <summary>
+            停止服务器
+            </summary>
+            <returns>异步TCP服务器</returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Send(System.Net.Sockets.TcpClient,System.Byte[])">
+            <summary>
+            发送报文至指定的客户端
+            </summary>
+            <param name="tcpClient">客户端</param>
+            <param name="msg">报文</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Send(System.Net.Sockets.TcpClient,System.String)">
+            <summary>
+            发送报文至指定的客户端
+            </summary>
+            <param name="tcpClient">客户端</param>
+            <param name="msg">报文</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.SendAll(System.String)">
+            <summary>
+            发送报文至所有客户端
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Dispose">
+            <summary>
+            Dispose方法
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Finalize">
+            <summary>
+            析构函数
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TcpHelpers.ServerHelper.TcpServerHelper.Dispose(System.Boolean)">
+            <summary>
+            Dispose方法
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.PropertyHepler">
+            <summary>
+            属性帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.PropertyHepler.GetPropertyDescription``1(System.String)">
+            <summary>
+            获取属性描述
+            </summary>
+            <typeparam name="T">类类型</typeparam>
+            <param name="propertyName">属性名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.PropertyHepler.GetPropertyDescriptionKeyIsDescription``1(``0,System.Collections.Generic.List{System.Type},System.Reflection.BindingFlags)">
+            <summary>
+            获取类属性描述和属性值
+            属性描述为key
+            </summary>
+            <typeparam name="T">类类型</typeparam>
+            <param name="obj">类实例</param>
+            <param name="ExceptType">不需返回的属性类型</param>
+            <param name="bindingFlags">属性类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.PropertyHepler.GetPropertyValueKeyIsName``1(``0,System.Collections.Generic.List{System.Type},System.Reflection.BindingFlags)">
+            <summary>
+            获取类属性描述和属性值
+            属性名为key
+            </summary>
+            <typeparam name="T">类类型</typeparam>
+            <param name="obj">类实例</param>
+            <param name="ExceptType">不需返回的属性类型</param>
+            <param name="bindingFlags">属性类型</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.QueryHelper">
+            <summary>
+            查询帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.QueryHelper.GetPage``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32)">
+            <summary>
+            获取分页
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="collection">数据源</param>
+            <param name="pageNumber">页码</param>
+            <param name="pageSize">页内容量</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.RandomHelper">
+            <summary>
+            随机数帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.RandomHelper.NextDouble(System.Double,System.Double)">
+            <summary>
+            计算任意2个小数之间的随机数
+            </summary>
+            <param name="first">第一个小数</param>
+            <param name="second">第二个小数</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.SvgHelper">
+            <summary>
+            Svg格式图片帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.SvgHelper.GetGeometryPath(System.String,System.String[])">
+            <summary>
+            获取图片图案几何路径
+            </summary>
+            <param name="filePath">图片文件路径</param>
+            <param name="splits">拆分字符串集合，默认为null后，集合为 new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" }</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.SvgHelper.GetGeometryStyle(System.Collections.Generic.Dictionary{System.String,System.String},System.String[],System.String,System.String)">
+            <summary>
+            获取图片图案几何路径样式
+            </summary>
+            <param name="fileInfo">图片文件路径</param>
+            <param name="splits">拆分字符串集合，默认为null后，集合为 new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" }</param>
+            <param name="brush">图案其他状态时的颜色，{StaticResource SecondarySolidColorBurshStyle} or #FF8000</param>
+            <param name="normalBrush">图案默认颜色，{StaticResource TertiaryTextSolidColorBurshStyle} or #707070</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.SvgHelper.SaveGeometryStyle(System.Collections.Generic.Dictionary{System.String,System.String},System.String[],System.String,System.String,System.Boolean)">
+            <summary>
+            保存图片几何图案路径样式到文件
+            </summary>
+            <param name="fileInfo">图片文件路径</param>
+            <param name="splits">拆分字符串集合，默认为null后，集合为 new string[] { "path d=\"", "\" fill=\"", "\" p-id=\"" }</param>
+            <param name="brush">图案其他状态时的颜色，{StaticResource SecondarySolidColorBurshStyle} or #FF8000</param>
+            <param name="normalBrush">图案默认颜色，{StaticResource TertiaryTextSolidColorBurshStyle} or #707070</param>
+            <param name="isOpenFolder">保存完成后是否打开文件夹</param>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TextBlockStyleHelper">
+            <summary>
+            WPF TextBlock样式帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TextBlockStyleHelper.GetStyleFromXML(System.String,Wp.Helpers.Entities.WpfStyle.StyleBase,System.Boolean)">
+            <summary>
+            xml文件转style
+            </summary>
+            <param name="name">style名称</param>
+            <param name="styleBase">style基类信息</param>
+            <param name="isOpenFolder">是否打开文件夹</param>
+        </member>
+        <member name="T:Wp.Helpers.Converters.ControlVisibility.ToTopperVisibilityConverter">
+            <summary>
+            返回顶端按钮显示状态转换器
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Converters.ControlVisibility.ToTopperVisibilityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converter
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Converters.ControlVisibility.ToTopperVisibilityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            ConverterBack
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Converters.Msg.IconConverter">
+            <summary>
+            消息弹窗Icon转换器
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Converters.Msg.IconConverter.OffLine">
+            <summary>
+            离线
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Converters.Msg.IconConverter.Disconnection">
+            <summary>
+            链接断开
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Converters.Msg.IconConverter.Trace">
+            <summary>
+            跟踪
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Converters.Msg.IconConverter.Alarm">
+            <summary>
+            警告
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Converters.Msg.IconConverter.Forbid">
+            <summary>
+            禁止
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Converters.Msg.IconConverter.Question">
+            <summary>
+            提问
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Converters.Msg.IconConverter.Error">
+            <summary>
+            异常
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Converters.Msg.IconConverter.Info">
+            <summary>
+            信息
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Converters.Msg.IconConverter.Warn">
+            <summary>
+            警告
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Converters.Msg.IconConverter.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Converters.Msg.IconConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converter
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Converters.Msg.IconConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            ConverterBack
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Converters.Msg.TitleConverter">
+            <summary>
+            消息弹窗标题转换器
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Converters.Msg.TitleConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converter
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Converters.Msg.TitleConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            ConverterBack
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.WpfHelpers.PasswordBoxHelper">
+            <summary>
+            PasswordBox控件帮助类
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.WpfHelpers.PasswordBoxHelper.PasswordProperty">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:Wp.Helpers.WpfHelpers.PasswordBoxHelper.AttachProperty">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:Wp.Helpers.WpfHelpers.PasswordBoxHelper.IsUpdatingProperty">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Wp.Helpers.WpfHelpers.PasswordBoxHelper.SetAttach(System.Windows.DependencyObject,System.Boolean)">
+             <summary>
+            
+             </summary>
+             <param name="dp"></param>
+             <param name="value"></param>
+        </member>
+        <member name="M:Wp.Helpers.WpfHelpers.PasswordBoxHelper.GetAttach(System.Windows.DependencyObject)">
+             <summary>
+            
+             </summary>
+             <param name="dp"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.WpfHelpers.PasswordBoxHelper.GetPassword(System.Windows.DependencyObject)">
+             <summary>
+            
+             </summary>
+             <param name="dp"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.WpfHelpers.PasswordBoxHelper.SetPassword(System.Windows.DependencyObject,System.String)">
+             <summary>
+            
+             </summary>
+             <param name="dp"></param>
+             <param name="value"></param>
+        </member>
+        <member name="M:Wp.Helpers.WpfHelpers.PasswordBoxHelper.GetIsUpdating(System.Windows.DependencyObject)">
+             <summary>
+            
+             </summary>
+             <param name="dp"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.WpfHelpers.PasswordBoxHelper.SetIsUpdating(System.Windows.DependencyObject,System.Boolean)">
+             <summary>
+            
+             </summary>
+             <param name="dp"></param>
+             <param name="value"></param>
+        </member>
+        <member name="M:Wp.Helpers.WpfHelpers.PasswordBoxHelper.OnPasswordPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+             <summary>
+            
+             </summary>
+             <param name="sender"></param>
+             <param name="e"></param>
+        </member>
+        <member name="M:Wp.Helpers.WpfHelpers.PasswordBoxHelper.Attach(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+             <summary>
+            
+             </summary>
+             <param name="sender"></param>
+             <param name="e"></param>
+        </member>
+        <member name="M:Wp.Helpers.WpfHelpers.PasswordBoxHelper.PasswordChanged(System.Object,System.Windows.RoutedEventArgs)">
+             <summary>
+            
+             </summary>
+             <param name="sender"></param>
+             <param name="e"></param>
+        </member>
+        <member name="T:Wp.Helpers.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Properties.Resources.Culture">
+            <summary>
+              重写当前线程的 CurrentUICulture 属性，对
+              使用此强类型资源类的所有资源查找执行重写。
+            </summary>
+        </member>
+        <member name="T:Wp.Helpers.Redis.RedisCnnHelper">
+            <summary>
+            ConnectionMultiplexer对象管理帮助类
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Redis.RedisCnnHelper._logger">
+            <summary>
+            日志实例
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Redis.RedisCnnHelper.SysCustomKey">
+            <summary>
+            系统自定义Key前缀
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Redis.RedisCnnHelper.Instance">
+            <summary>
+            单例获取
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisCnnHelper.GetConnectionMultiplexer(System.String)">
+            <summary>
+            缓存获取
+            </summary>
+            <param name="connectionString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisCnnHelper.MuxerConfigurationChanged(System.Object,StackExchange.Redis.EndPointEventArgs)">
+            <summary>
+            配置更改时
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisCnnHelper.MuxerErrorMessage(System.Object,StackExchange.Redis.RedisErrorEventArgs)">
+            <summary>
+            发生错误时
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisCnnHelper.MuxerConnectionRestored(System.Object,StackExchange.Redis.ConnectionFailedEventArgs)">
+            <summary>
+            重新建立连接之前的错误
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisCnnHelper.MuxerConnectionFailed(System.Object,StackExchange.Redis.ConnectionFailedEventArgs)">
+            <summary>
+            连接失败 ， 如果重新连接成功你将不会收到这个通知
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisCnnHelper.MuxerHashSlotMoved(System.Object,StackExchange.Redis.HashSlotMovedEventArgs)">
+            <summary>
+            更改集群
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisCnnHelper.MuxerInternalError(System.Object,StackExchange.Redis.InternalErrorEventArgs)">
+            <summary>
+            redis类库错误
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Wp.Helpers.Redis.RedisHelper">
+            <summary>
+            Redis帮助类
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Redis.RedisHelper.DbNum">
+            <summary>
+            数据库
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Redis.RedisHelper._conn">
+            <summary>
+            Redis连接
+            </summary>
+        </member>
+        <member name="F:Wp.Helpers.Redis.RedisHelper.CustomKey">
+            <summary>
+            设置自定义键
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.#ctor(System.Int32)">
+            <summary>
+            构造器
+            </summary>
+            <param name="dbNum"></param>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.#ctor(System.Int32,System.String)">
+            <summary>
+            构造器
+            </summary>
+            <param name="dbNum"></param>
+            <param name="readWriteHosts"></param>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.SetString(System.String,System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            保存单个key value
+            </summary>
+            <param name="key">Redis Key</param>
+            <param name="value">保存的值</param>
+            <param name="expiry">过期时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.SetString(System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{StackExchange.Redis.RedisKey,StackExchange.Redis.RedisValue}})">
+            <summary>
+            保存多个key value
+            </summary>
+            <param name="keyValues">键值对</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.SetString``1(System.String,``0,System.Nullable{System.TimeSpan})">
+            <summary>
+            保存一个对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="obj"></param>
+            <param name="expiry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetString(System.String)">
+            <summary>
+            获取单个key的值
+            </summary>
+            <param name="key">Redis Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetString(System.Collections.Generic.List{System.String})">
+            <summary>
+            获取多个Key
+            </summary>
+            <param name="listKey">Redis Key集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetString``1(System.String)">
+            <summary>
+            获取一个key的对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.StringIncrement(System.String,System.Double)">
+            <summary>
+            为数字增长val
+            </summary>
+            <param name="key"></param>
+            <param name="val">可以为负</param>
+            <returns>增长后的值</returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.StringDecrement(System.String,System.Double)">
+            <summary>
+            为数字减少val
+            </summary>
+            <param name="key"></param>
+            <param name="val">可以为负</param>
+            <returns>减少后的值</returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.SetStringAsync(System.String,System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            保存单个key value
+            </summary>
+            <param name="key">Redis Key</param>
+            <param name="value">保存的值</param>
+            <param name="expiry">过期时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.SetStringAsync(System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{StackExchange.Redis.RedisKey,StackExchange.Redis.RedisValue}})">
+            <summary>
+            保存多个key value
+            </summary>
+            <param name="keyValues">键值对</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.SetStringAsync``1(System.String,``0,System.Nullable{System.TimeSpan})">
+            <summary>
+            保存一个对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="obj"></param>
+            <param name="expiry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetStringAsync(System.String)">
+            <summary>
+            获取单个key的值
+            </summary>
+            <param name="key">Redis Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetStringAsync(System.Collections.Generic.List{System.String})">
+            <summary>
+            获取多个Key
+            </summary>
+            <param name="listKey">Redis Key集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetStringAsync``1(System.String)">
+            <summary>
+            获取一个key的对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.StringIncrementAsync(System.String,System.Double)">
+            <summary>
+            为数字增长val
+            </summary>
+            <param name="key"></param>
+            <param name="val">可以为负</param>
+            <returns>增长后的值</returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.StringDecrementAsync(System.String,System.Double)">
+            <summary>
+            为数字减少val
+            </summary>
+            <param name="key"></param>
+            <param name="val">可以为负</param>
+            <returns>减少后的值</returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.ExistsHash(System.String,System.String)">
+            <summary>
+            判断某个数据是否已经被缓存
+            </summary>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.SetHash``1(System.String,System.String,``0)">
+            <summary>
+            存储数据到hash表
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.DeleteHash(System.String,System.String)">
+            <summary>
+            移除hash中的某值
+            </summary>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.DeleteHash(System.String,System.Collections.Generic.List{StackExchange.Redis.RedisValue})">
+            <summary>
+            移除hash中的多个值
+            </summary>
+            <param name="key"></param>
+            <param name="dataKeys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetHash(System.String,System.String)">
+            <summary>
+            从hash表获取某个值
+            </summary>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetHash``1(System.String,System.String)">
+            <summary>
+            从hash表获取Model
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetHashList``1(System.String)">
+            <summary>
+            从hash表获取List
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.HashIncrement(System.String,System.String,System.Double)">
+            <summary>
+            为数字增长val
+            </summary>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <param name="val">可以为负</param>
+            <returns>增长后的值</returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.HashDecrement(System.String,System.String,System.Double)">
+            <summary>
+            为数字减少val
+            </summary>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <param name="val">可以为负</param>
+            <returns>减少后的值</returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetHashKeys``1(System.String)">
+            <summary>
+            获取hashkey所有Redis key
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.ExistsHashAsync(System.String,System.String)">
+            <summary>
+            判断某个数据是否已经被缓存
+            </summary>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.SetHashAsync``1(System.String,System.String,``0)">
+            <summary>
+            存储数据到hash表
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.DeleteHashAsync(System.String,System.String)">
+            <summary>
+            移除hash中的某值
+            </summary>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.DeleteHashAsync(System.String,System.Collections.Generic.List{StackExchange.Redis.RedisValue})">
+            <summary>
+            移除hash中的多个值
+            </summary>
+            <param name="key"></param>
+            <param name="dataKeys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetHashAsync``1(System.String,System.String)">
+            <summary>
+            从hash表获取数据
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.HashIncrementAsync(System.String,System.String,System.Double)">
+            <summary>
+            为数字增长val
+            </summary>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <param name="val">可以为负</param>
+            <returns>增长后的值</returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.HashDecrementAsync(System.String,System.String,System.Double)">
+            <summary>
+            为数字减少val
+            </summary>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <param name="val">可以为负</param>
+            <returns>减少后的值</returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetHashKeysAsync``1(System.String)">
+            <summary>
+            获取hashkey所有Redis key
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.RemoveList``1(System.String,``0)">
+            <summary>
+            移除指定ListId的内部List的值
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetListRange``1(System.String)">
+            <summary>
+            获取指定key的List
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.PushListRight``1(System.String,``0)">
+            <summary>
+            入队
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.PopListRight``1(System.String)">
+            <summary>
+            出队
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.PushListLeft``1(System.String,``0)">
+            <summary>
+            入栈
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.PopListLeft``1(System.String)">
+            <summary>
+            出栈
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetListLength(System.String)">
+            <summary>
+            获取集合中的数量
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.RemoveListAsync``1(System.String,``0)">
+            <summary>
+            移除指定ListId的内部List的值
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetListRangeAsync``1(System.String)">
+            <summary>
+            获取指定key的List
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.PushListRightAsync``1(System.String,``0)">
+            <summary>
+            入队
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.PopListRightAsync``1(System.String)">
+            <summary>
+            出队
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.PushListLeftAsync``1(System.String,``0)">
+            <summary>
+            入栈
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.PopListLeftAsync``1(System.String)">
+            <summary>
+            出栈
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetListLengthAsync(System.String)">
+            <summary>
+            获取集合中的数量
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.AddSortedSet``1(System.String,``0,System.Double)">
+            <summary>
+            添加
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="score"></param>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.RemoveSortedSet``1(System.String,``0)">
+            <summary>
+            删除
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetSortedSetRangeByRank``1(System.String)">
+            <summary>
+            获取全部
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetSortedSetLength(System.String)">
+            <summary>
+            获取集合中的数量
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.AddSortedSetAsync``1(System.String,``0,System.Double)">
+            <summary>
+            添加
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="score"></param>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.RemoveSortedSetAsync``1(System.String,``0)">
+            <summary>
+            删除
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetSortedSetRangeByRankAsync``1(System.String)">
+            <summary>
+            获取全部
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetSortedSetLengthAsync(System.String)">
+            <summary>
+            获取集合中的数量
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.DeleteKey(System.String)">
+            <summary>
+            删除单个key
+            </summary>
+            <param name="key">redis key</param>
+            <returns>是否删除成功</returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.DeleteKey(System.Collections.Generic.List{System.String})">
+            <summary>
+            删除多个key
+            </summary>
+            <param name="keys">rediskey</param>
+            <returns>成功删除的个数</returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.ExistsKey(System.String)">
+            <summary>
+            判断key是否存储
+            </summary>
+            <param name="key">redis key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.RenameKey(System.String,System.String)">
+            <summary>
+            重新命名key
+            </summary>
+            <param name="key">就的redis key</param>
+            <param name="newKey">新的redis key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.ExpireKey(System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            设置Key的时间
+            </summary>
+            <param name="key">redis key</param>
+            <param name="expiry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.Subscribe(System.String,System.Action{StackExchange.Redis.RedisChannel,StackExchange.Redis.RedisValue})">
+            <summary>
+            Redis发布订阅  订阅
+            </summary>
+            <param name="subChannel"></param>
+            <param name="handler"></param>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetMessage(StackExchange.Redis.RedisChannel,StackExchange.Redis.RedisValue)">
+            <summary>
+            获取订阅消息（写法三）
+            </summary>
+            <param name="channel"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.Publish``1(System.String,``0)">
+            <summary>
+            Redis发布订阅  发布
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="channel"></param>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.Unsubscribe(System.String)">
+            <summary>
+            Redis发布订阅  取消订阅
+            </summary>
+            <param name="channel"></param>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.UnsubscribeAll">
+            <summary>
+            Redis发布订阅  取消全部订阅
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.CreateTransaction">
+            <summary>
+            获取事物
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.CreateBatch">
+            <summary>
+            获取批处理（管道模式）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetDatabase">
+            <summary>
+            获取数据库操作实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.GetServer(System.String)">
+            <summary>
+            获取服务器端口和IP
+            </summary>
+            <param name="hostAndPort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.SetSysCustomKey(System.String)">
+            <summary>
+            设置前缀
+            </summary>
+            <param name="customKey">自定义键</param>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.AddSysCustomKey(System.String)">
+            <summary>
+            添加自定义键
+            </summary>
+            <param name="oldKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.ConvertJson``1(``0)">
+            <summary>
+            序列化
+            </summary>
+            <typeparam name="T">类</typeparam>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.ConvertObj``1(StackExchange.Redis.RedisValue)">
+            <summary>
+            反序列化
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.ConvetList``1(StackExchange.Redis.RedisValue[])">
+            <summary>
+            RedisValue集合转list集合
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="values">RedisValue集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Redis.RedisHelper.ConvertRedisKeys(System.Collections.Generic.List{System.String})">
+            <summary>
+            list集合转RedisKey集合
+            </summary>
+            <param name="redisKeys">list集合</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

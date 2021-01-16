@@ -31,7 +31,7 @@ namespace ConsoleApp1
             {
                 try
                 {
-                    Console.WriteLine("输入\"e\"退出程序");
+                    //Console.WriteLine("输入\"e\"退出程序");
                     Console.WriteLine("输入\"r\"重复上次操作");
                     Console.WriteLine("输入\"t\"进入测试程序");
                     Console.WriteLine("输入\"生成2个小数之间的随机数\"，以生成2个小数之间的随机数");

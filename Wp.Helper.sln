@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wp.Helpers", "Wp.Helpers\Wp.Helpers.csproj", "{5CD44F11-03F0-455C-8FF0-6D9D37785E05}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{73A6A96E-3121-4FC9-84EE-A40EB15CB6A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpHelperTest", "TcpHelperTest\TcpHelperTest.csproj", "{7CDE1417-D84E-4B0A-84A2-B075F0DF5099}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +25,17 @@ Global
 		{5CD44F11-03F0-455C-8FF0-6D9D37785E05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CD44F11-03F0-455C-8FF0-6D9D37785E05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CD44F11-03F0-455C-8FF0-6D9D37785E05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CDE1417-D84E-4B0A-84A2-B075F0DF5099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CDE1417-D84E-4B0A-84A2-B075F0DF5099}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CDE1417-D84E-4B0A-84A2-B075F0DF5099}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CDE1417-D84E-4B0A-84A2-B075F0DF5099}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4B67970B-46D9-44FD-AADE-B48347D492B7} = {73A6A96E-3121-4FC9-84EE-A40EB15CB6A5}
+		{7CDE1417-D84E-4B0A-84A2-B075F0DF5099} = {73A6A96E-3121-4FC9-84EE-A40EB15CB6A5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C7B0291A-03CA-4551-BB0C-CD0AD6391FC9}
