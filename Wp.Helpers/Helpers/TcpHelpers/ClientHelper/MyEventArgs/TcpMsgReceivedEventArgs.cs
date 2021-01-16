@@ -26,15 +26,6 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs
         }
 
         /// <summary>
-        /// 接收到报文事件参数
-        /// </summary>
-        /// <param name="msg">报文</param>
-        /// <param name="encoding">报文编码方式</param>
-        public TcpMsgReceivedEventArgs(T msg, Encoding encoding) : this(null, msg, encoding)
-        {
-        }
-
-        /// <summary>
         /// 客户端
         /// </summary>
         public TcpClient TcpClient { get; private set; }

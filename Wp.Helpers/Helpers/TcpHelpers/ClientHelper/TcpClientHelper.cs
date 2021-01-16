@@ -283,13 +283,7 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper
         /// <param name="msg">报文</param>
         public void Send(byte[] msg)
         {
-            var stream = tcpClient.GetStream();
-            var res = stream.BeginWrite(msg, 0, msg.Length, (IAsyncResult ar) => ((TcpClient)ar.AsyncState).GetStream().EndWrite(ar), tcpClient);
-            while (!res.IsCompleted)
-            {
-                Thread.Sleep(1);
-            }
-            stream.Close();
+            tcpClient.GetStream().BeginWrite(msg, 0, msg.Length, (IAsyncResult ar) => ((TcpClient)ar.AsyncState).GetStream().EndWrite(ar), tcpClient);
         }
 
         /// <summary>

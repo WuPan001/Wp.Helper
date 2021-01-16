@@ -15,12 +15,12 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ClientHelper.MyEventArgs
         /// <summary>
         /// 服务器IP地址列表
         /// </summary>
-        protected IPAddress[] Addresses { get; set; }
+        public IPAddress[] Addresses { get; set; }
 
         /// <summary>
         /// 服务器端口
         /// </summary>
-        protected int Port { get; set; }
+        public int Port { get; set; }
 
         /// <summary>
         /// ToString方法

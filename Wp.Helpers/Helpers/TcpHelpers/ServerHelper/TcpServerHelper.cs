@@ -202,8 +202,7 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ServerHelper
                 Buffer.BlockCopy(internalClient.Buffer, 0, receivedBytes, 0, numberOfReadBytes);
                 ReceiveMsg?.BeginInvoke(internalClient.TcpClient, new TcpMsgReceivedEventArgs<byte[]>(receivedBytes, _encoding), null, null);
 
-                // continue listening for tcp datagram packets
-                networkStream.BeginRead(internalClient.Buffer, 0, internalClient.Buffer.Length, HandleDatagramReceived, internalClient);
+                networkStream.BeginRead(internalClient.Buffer, 0, internalClient.Buffer.Length, HandleDatagramReceived, internalClient);// continue listening for tcp datagram packets
             }
         }
 

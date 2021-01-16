@@ -15,7 +15,7 @@ namespace Wp.Helpers.Helpers.TcpHelpers.ServerHelper.MyEventArgs
         /// <summary>
         /// 客户端
         /// </summary>
-        protected TcpClient TcpClient { get; set; }
+        public TcpClient TcpClient { get; set; }
 
         /// <summary>
         /// ToString方法
