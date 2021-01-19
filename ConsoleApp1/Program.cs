@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net;
-using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Threading;
 using Wp.Helpers.Entities;
@@ -40,6 +38,7 @@ namespace ConsoleApp1
                     Console.WriteLine("输入\"数字转中文大写\" ，以将数字转为中文大写");
                     Console.WriteLine("输入\"保存svg转TextBlock样式\" ，以根据svg文件生成TextBlockStyle样式文件");
                     Console.WriteLine("输入\"ModbusTcp\" ，以进行ModbusTcp测试");
+                    Console.WriteLine("输入\"测试AES256加密解密算法\" ，以进行AES256加密解密算法测试");
                     cmd = Console.ReadLine();
                     Do(cmd, ref cmdCache);
                 }
@@ -56,6 +55,18 @@ namespace ConsoleApp1
         {
             switch (cmd)
             {
+                case "测试AES256加密解密算法":
+                    Console.WriteLine("请输入待加密的字符串");
+                    var code = Console.ReadLine();
+                    //Console.WriteLine("请输入秘钥");
+                    //var key = Console.ReadLine();
+                    Console.WriteLine("请输入秘钥");
+                    var key = Console.ReadLine();
+                    var aes = EncryptionHelper.GetAESEncryptionCode(key, code);
+                    Console.WriteLine(aes);
+                    Console.WriteLine(EncryptionHelper.GetAESDecryptionCode(key, aes));
+                    break;
+
                 case "保存svg转TextBlock样式":
                     SvgHelper.SaveGeometryStyle(FileHelper.GetFilesName());
                     break;
@@ -198,19 +209,18 @@ namespace ConsoleApp1
 
                     #region 数组扩展方法测试
 
-                    //var bb = new byte[] { 1, 2 };
-
-                    //var tt = new byte[] { 0, 0, 1, 2 };
-                    //Console.WriteLine(Equals(bb, bb));
-                    var tt = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
-                    Console.WriteLine(tt.ToFormatString(EScale.Decimal));
-                    Console.WriteLine(tt.ToFormatString(EScale.Hex));
-                    Console.WriteLine(tt.ToFormatString(EScale.HexToUp));
-                    Console.WriteLine(tt.ToFormatString(EScale.HexWithToken));
-                    Console.WriteLine(tt.ToFormatString(EScale.HexWithTokenToUp, ","));
+                    //var tt = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
+                    //Console.WriteLine(tt.ToFormatString(EScale.Decimal));
+                    //Console.WriteLine(tt.ToFormatString(EScale.Hex));
+                    //Console.WriteLine(tt.ToFormatString(EScale.HexToUp));
+                    //Console.WriteLine(tt.ToFormatString(EScale.HexWithToken));
+                    //Console.WriteLine(tt.ToFormatString(EScale.HexWithTokenToUp, ","));
 
                     #endregion 数组扩展方法测试
 
+                    var bb = new byte[] { 1, 2, 3, 4, 56, 7, 8, 9 };
+                    Console.WriteLine(bb.Contains((byte)1));
+                    Console.WriteLine(bb.Contains((byte)10));
                     break;
 
                 case "ModbusTcp":

@@ -579,6 +579,22 @@
             <param name="code">待加密字符串</param>
             <returns></returns>
         </member>
+        <member name="M:Wp.Helpers.Helpers.EncryptionHelper.GetAESEncryptionCode(System.String,System.String)">
+             <summary>
+            
+             </summary>
+             <param name="key"></param>
+             <param name="code"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.EncryptionHelper.GetAESDecryptionCode(System.String,System.String)">
+             <summary>
+            
+             </summary>
+             <param name="key"></param>
+             <param name="code"></param>
+             <returns></returns>
+        </member>
         <member name="T:Wp.Helpers.Helpers.EnumHelper">
             <summary>
             枚举帮助类

@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Wp.Helpers.Helpers
@@ -24,6 +25,62 @@ namespace Wp.Helpers.Helpers
                 result.Append(item.ToString("X2"));
             }
             return result.ToString();
+        }
+
+        /// <summary>
+        /// AES加密算法
+        /// </summary>
+        /// <param name="key">秘钥，长度必须为8、16或32位的字符串</param>
+        /// <param name="code">待加密的字符串</param>
+        /// <returns></returns>
+        public static string GetAESEncryptionCode(string key, string code)
+        {
+            try
+            {
+                byte[] keyArray = Encoding.UTF8.GetBytes(key);
+                byte[] toEncryptArray = Encoding.UTF8.GetBytes(code);
+                RijndaelManaged rDel = new RijndaelManaged
+                {
+                    Key = keyArray,
+                    Mode = CipherMode.ECB,
+                    Padding = PaddingMode.PKCS7
+                };
+                ICryptoTransform cTransform = rDel.CreateEncryptor();
+                byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
+                return Convert.ToBase64String(resultArray, 0, resultArray.Length);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// AES解密算法
+        /// </summary>
+        /// <param name="key">秘钥，长度必须为8、16或32位的字符串</param>
+        /// <param name="code">待解密的字符串</param>
+        /// <returns></returns>
+        public static string GetAESDecryptionCode(string key, string code)
+        {
+            try
+            {
+                byte[] keyArray = Encoding.UTF8.GetBytes(key);
+                byte[] toEncryptArray = Convert.FromBase64String(code);
+                RijndaelManaged rDel = new RijndaelManaged
+                {
+                    Key = keyArray,
+                    Mode = CipherMode.ECB,
+                    Padding = PaddingMode.PKCS7
+                };
+                ICryptoTransform cTransform = rDel.CreateDecryptor();
+                byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
+                return Encoding.UTF8.GetString(resultArray);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
