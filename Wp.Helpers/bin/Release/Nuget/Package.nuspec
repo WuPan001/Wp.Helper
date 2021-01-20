@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>Wp.Helpers</id>
-    <version>1.0.9-alpha</version>
+    <version>1.0.9-beta</version>
     <authors>WuPan</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
@@ -24,7 +24,7 @@
 		0.12 ModbusTCP协议报文生成、校验及解析帮助类
 		0.13 Tcp通讯帮助类
 		</description>
-    <releaseNotes>新增加TCP通讯帮助类及demo</releaseNotes>
+    <releaseNotes>新增加AES加密解密帮助类</releaseNotes>
     <copyright>copyright© 2020 WuPan</copyright>
     <tags>wp wp.helper wp.helpers svg enum file redis ini tcp</tags>
     <dependencies>

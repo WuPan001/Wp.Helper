@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -23,7 +24,6 @@ namespace ConsoleApp1
         [STAThread]
         private static void Main(string[] args)
         {
-            var cmd = string.Empty;
             var cmdCache = string.Empty;
             while (true)
             {
@@ -39,7 +39,7 @@ namespace ConsoleApp1
                     Console.WriteLine("输入\"保存svg转TextBlock样式\" ，以根据svg文件生成TextBlockStyle样式文件");
                     Console.WriteLine("输入\"ModbusTcp\" ，以进行ModbusTcp测试");
                     Console.WriteLine("输入\"测试AES256加密解密算法\" ，以进行AES256加密解密算法测试");
-                    cmd = Console.ReadLine();
+                    string cmd = Console.ReadLine();
                     Do(cmd, ref cmdCache);
                 }
                 catch (Exception ex)
@@ -56,10 +56,9 @@ namespace ConsoleApp1
             switch (cmd)
             {
                 case "测试AES256加密解密算法":
+                    cmdCache = cmd;
                     Console.WriteLine("请输入待加密的字符串");
                     var code = Console.ReadLine();
-                    //Console.WriteLine("请输入秘钥");
-                    //var key = Console.ReadLine();
                     Console.WriteLine("请输入秘钥");
                     var key = Console.ReadLine();
                     var aes = EncryptionHelper.GetAESEncryptionCode(key, code);
@@ -68,6 +67,7 @@ namespace ConsoleApp1
                     break;
 
                 case "保存svg转TextBlock样式":
+                    cmdCache = cmd;
                     SvgHelper.SaveGeometryStyle(FileHelper.GetFilesName());
                     break;
 
@@ -79,6 +79,7 @@ namespace ConsoleApp1
                     break;
 
                 case "t":
+                    cmdCache = cmd;
 
                     #region 文件帮助类测试
 
@@ -129,8 +130,16 @@ namespace ConsoleApp1
 
                     #region 属性帮助类测试
 
-                    //var styleBase = new StyleBase() { BaseName = "Name", BasePath = "Path" };
-                    //var propertyDic = PropertyHepler.GetPropertyValueKeyIsName(styleBase);
+                    var styleBase = new StyleBase() { BaseName = "Name" };/*, BasePath = "Path"*/
+                    var propertyDic = PropertyHepler.GetPropertyValueKeyIsName(styleBase);
+                    var stop = new Stopwatch();
+                    stop.Start();
+                    for (int i = 0; i < 10000; i++)
+                    {
+                        PropertyHepler.GetPropertyValueKeyIsName(styleBase);
+                    }
+                    stop.Stop();
+                    Console.WriteLine(stop.ElapsedMilliseconds);
                     //foreach (var item in propertyDic.Keys)
                     //{
                     //    Console.WriteLine($"{item}    {propertyDic[item]}");
@@ -218,12 +227,13 @@ namespace ConsoleApp1
 
                     #endregion 数组扩展方法测试
 
-                    var bb = new byte[] { 1, 2, 3, 4, 56, 7, 8, 9 };
-                    Console.WriteLine(bb.Contains((byte)1));
-                    Console.WriteLine(bb.Contains((byte)10));
+                    //var bb = new byte[] { 1, 2, 3, 4, 56, 7, 8, 9 };
+                    //Console.WriteLine(bb.Contains((byte)1));
+                    //Console.WriteLine(bb.Contains((byte)10));
                     break;
 
                 case "ModbusTcp":
+                    cmdCache = cmd;
                     Console.WriteLine("请输入PLC IP地址，格式为***.***.***.***，默认IP为127.0.0.1");
                     var ip = Console.ReadLine();
                     ip = string.IsNullOrEmpty(ip) ? "127.0.0.1" : ip;

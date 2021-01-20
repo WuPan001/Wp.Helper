@@ -30,7 +30,7 @@ namespace Wp.Helpers.Helpers
         /// <summary>
         /// AES加密算法
         /// </summary>
-        /// <param name="key">秘钥，长度必须为8、16或32位的字符串</param>
+        /// <param name="key">秘钥，长度必须为16、24或32位的字符串</param>
         /// <param name="code">待加密的字符串</param>
         /// <returns></returns>
         public static string GetAESEncryptionCode(string key, string code)
@@ -58,7 +58,7 @@ namespace Wp.Helpers.Helpers
         /// <summary>
         /// AES解密算法
         /// </summary>
-        /// <param name="key">秘钥，长度必须为8、16或32位的字符串</param>
+        /// <param name="key">秘钥，长度必须为16、24或32位的字符串</param>
         /// <param name="code">待解密的字符串</param>
         /// <returns></returns>
         public static string GetAESDecryptionCode(string key, string code)

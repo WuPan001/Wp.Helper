@@ -580,20 +580,20 @@
             <returns></returns>
         </member>
         <member name="M:Wp.Helpers.Helpers.EncryptionHelper.GetAESEncryptionCode(System.String,System.String)">
-             <summary>
-            
-             </summary>
-             <param name="key"></param>
-             <param name="code"></param>
-             <returns></returns>
+            <summary>
+            AES加密算法
+            </summary>
+            <param name="key">秘钥，长度必须为16、24或32位的字符串</param>
+            <param name="code">待加密的字符串</param>
+            <returns></returns>
         </member>
         <member name="M:Wp.Helpers.Helpers.EncryptionHelper.GetAESDecryptionCode(System.String,System.String)">
-             <summary>
-            
-             </summary>
-             <param name="key"></param>
-             <param name="code"></param>
-             <returns></returns>
+            <summary>
+            AES解密算法
+            </summary>
+            <param name="key">秘钥，长度必须为16、24或32位的字符串</param>
+            <param name="code">待解密的字符串</param>
+            <returns></returns>
         </member>
         <member name="T:Wp.Helpers.Helpers.EnumHelper">
             <summary>
