@@ -132,7 +132,7 @@ namespace Wp.Helpers.Helpers
 
         public class PropertyValue<T>
         {
-            private static ConcurrentDictionary<string, MemberGetDelegate> _memberGetDelegate = new ConcurrentDictionary<string, MemberGetDelegate>();
+            private static readonly ConcurrentDictionary<string, MemberGetDelegate> _memberGetDelegate = new ConcurrentDictionary<string, MemberGetDelegate>();
 
             private delegate object MemberGetDelegate(T obj);
 

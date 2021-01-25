@@ -448,6 +448,13 @@
             </summary>
             <param name="param">参数</param>
         </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.StringExentionMethod.IsNumber(System.String)">
+            <summary>
+            判断一个字符串是否可以转为数字
+            </summary>
+            <param name="str">字符串实例</param>
+            <returns></returns>
+        </member>
         <member name="M:Wp.Helpers.ExtensionMethod.StringExentionMethod.ToDictionary(System.String)">
             <summary>
             json格式字符串转字典扩展方法

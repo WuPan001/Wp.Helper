@@ -2,7 +2,7 @@
 
 namespace Wp.Helpers.Entities.ALiIconFont
 {
-    internal class Li
+    public class Li
     {
         public string Class { get; set; }
         public Content Span { get; set; }

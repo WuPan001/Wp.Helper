@@ -5,7 +5,7 @@ namespace Wp.Helpers.Entities.ALiIconFont
     /// <summary>
     ///
     /// </summary>
-    internal class IconFont
+    public class IconFont
     {
         /// <summary>
         ///

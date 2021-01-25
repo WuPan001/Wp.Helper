@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using Wp.Helpers.Entities.ALiIconFont;
 
 namespace Wp.Helpers.ExtensionMethod
@@ -9,7 +10,7 @@ namespace Wp.Helpers.ExtensionMethod
     /// <summary>
     /// string对象扩展方法
     /// </summary>
-    internal static class StringExentionMethod
+    public static class StringExentionMethod
     {
         /// <summary>
         /// json格式的字符串转为阿里巴巴IconFont
@@ -32,6 +33,16 @@ namespace Wp.Helpers.ExtensionMethod
             {
                 throw new ArgumentNullException(nameof(param));
             }
+        }
+
+        /// <summary>
+        /// 判断一个字符串是否可以转为数字
+        /// </summary>
+        /// <param name="str">字符串实例</param>
+        /// <returns></returns>
+        public static bool IsNumber(this string str)
+        {
+            return Regex.IsMatch(str, @"^(-?[0-9]*[.][0-9]*)$");
         }
 
         /// <summary>

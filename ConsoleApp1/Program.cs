@@ -12,6 +12,8 @@ using Wp.Helpers.ExtensionMethod;
 using Wp.Helpers.Helpers;
 using Wp.Helpers.Helpers.ProtocolsHelper;
 
+using Wp.Helpers.ExtensionMethod;
+
 namespace ConsoleApp1
 {
     internal class Program
@@ -130,16 +132,17 @@ namespace ConsoleApp1
 
                     #region 属性帮助类测试
 
-                    var styleBase = new StyleBase() { BaseName = "Name" };/*, BasePath = "Path"*/
-                    var propertyDic = PropertyHepler.GetPropertyValueKeyIsName(styleBase);
-                    var stop = new Stopwatch();
-                    stop.Start();
-                    for (int i = 0; i < 10000; i++)
-                    {
-                        PropertyHepler.GetPropertyValueKeyIsName(styleBase);
-                    }
-                    stop.Stop();
-                    Console.WriteLine(stop.ElapsedMilliseconds);
+                    /*, BasePath = "Path"*/
+                    /*var styleBase = new StyleBase() { BaseName = "Name" };
+                        var propertyDic = PropertyHepler.GetPropertyValueKeyIsName(styleBase);
+                      var stop = new Stopwatch();
+                      stop.Start();
+                      for (int i = 0; i < 10000; i++)
+                      {
+                          PropertyHepler.GetPropertyValueKeyIsName(styleBase);
+                      }
+                      stop.Stop();
+                      Console.WriteLine(stop.ElapsedMilliseconds); */
                     //foreach (var item in propertyDic.Keys)
                     //{
                     //    Console.WriteLine($"{item}    {propertyDic[item]}");
@@ -215,6 +218,11 @@ namespace ConsoleApp1
                     //}
 
                     #endregion Bool扩展方法测试
+
+                    Console.WriteLine("12.343".IsNumber());
+                    Console.WriteLine("12.3。。43".IsNumber());
+                    Console.WriteLine("12.34.3".IsNumber());
+                    Console.WriteLine("12.3qwqw43".IsNumber());
 
                     #region 数组扩展方法测试
 
