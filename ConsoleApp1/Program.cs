@@ -219,11 +219,6 @@ namespace ConsoleApp1
 
                     #endregion Bool扩展方法测试
 
-                    Console.WriteLine("12.343".IsNumber());
-                    Console.WriteLine("12.3。。43".IsNumber());
-                    Console.WriteLine("12.34.3".IsNumber());
-                    Console.WriteLine("12.3qwqw43".IsNumber());
-
                     #region 数组扩展方法测试
 
                     //var tt = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
@@ -238,6 +233,7 @@ namespace ConsoleApp1
                     //var bb = new byte[] { 1, 2, 3, 4, 56, 7, 8, 9 };
                     //Console.WriteLine(bb.Contains((byte)1));
                     //Console.WriteLine(bb.Contains((byte)10));
+                    Console.WriteLine("asasqw121.121".IsNumber());
                     break;
 
                 case "ModbusTcp":

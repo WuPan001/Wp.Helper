@@ -448,6 +448,20 @@
             </summary>
             <param name="param">参数</param>
         </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.StringExentionMethod.IsPositiveNumber(System.String)">
+            <summary>
+            判断一个字符串是否可以转为正数或0
+            </summary>
+            <param name="str">字符串实例</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.StringExentionMethod.IsNegativeNumber(System.String)">
+            <summary>
+            判断一个字符串是否可以转为负数
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
         <member name="M:Wp.Helpers.ExtensionMethod.StringExentionMethod.IsNumber(System.String)">
             <summary>
             判断一个字符串是否可以转为数字

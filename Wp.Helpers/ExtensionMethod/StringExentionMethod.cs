@@ -36,13 +36,33 @@ namespace Wp.Helpers.ExtensionMethod
         }
 
         /// <summary>
+        /// 判断一个字符串是否可以转为正数或0
+        /// </summary>
+        /// <param name="str">字符串实例</param>
+        /// <returns></returns>
+        public static bool IsPositiveNumber(this string str)
+        {
+            return Regex.IsMatch(str, @"^(\d*[.]?\d*)$");
+        }
+
+        /// <summary>
+        /// 判断一个字符串是否可以转为负数
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool IsNegativeNumber(this string str)
+        {
+            return Regex.IsMatch(str, @"^(-\d*[.]?\d*)$");
+        }
+
+        /// <summary>
         /// 判断一个字符串是否可以转为数字
         /// </summary>
         /// <param name="str">字符串实例</param>
         /// <returns></returns>
         public static bool IsNumber(this string str)
         {
-            return Regex.IsMatch(str, @"^(-?[0-9]*[.][0-9]*)$");
+            return Regex.IsMatch(str, @"^(-?\d*[.]?\d*)$");
         }
 
         /// <summary>
