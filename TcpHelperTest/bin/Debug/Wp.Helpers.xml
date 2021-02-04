@@ -448,6 +448,20 @@
             </summary>
             <param name="param">参数</param>
         </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.StringExentionMethod.IsPositiveNumber(System.String)">
+            <summary>
+            判断一个字符串是否可以转为正数或0
+            </summary>
+            <param name="str">字符串实例</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wp.Helpers.ExtensionMethod.StringExentionMethod.IsNegativeNumber(System.String)">
+            <summary>
+            判断一个字符串是否可以转为负数
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
         <member name="M:Wp.Helpers.ExtensionMethod.StringExentionMethod.IsNumber(System.String)">
             <summary>
             判断一个字符串是否可以转为数字
@@ -1685,6 +1699,21 @@
             Dispose方法
             </summary>
             <param name="disposing"></param>
+        </member>
+        <member name="T:Wp.Helpers.Helpers.TemplateHelpers.VsCodeHelpers.UserTemplateHelper">
+            <summary>
+            用户模板生成帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TemplateHelpers.VsCodeHelpers.UserTemplateHelper.GetUserTemplate(System.String,System.String,System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            生成vscode 用户模板
+            </summary>
+            <param name="templateName">模板名</param>
+            <param name="prefix">快捷键</param>
+            <param name="body">模板内容</param>
+            <param name="description">模板描述</param>
+            <returns></returns>
         </member>
         <member name="T:Wp.Helpers.Helpers.PropertyHepler">
             <summary>

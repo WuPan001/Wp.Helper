@@ -14,6 +14,8 @@ using Wp.Helpers.Helpers.ProtocolsHelper;
 
 using Wp.Helpers.ExtensionMethod;
 
+using Wp.Helpers.Helpers.TemplateHelpers.VsCodeHelpers;
+
 namespace ConsoleApp1
 {
     internal class Program
@@ -40,7 +42,8 @@ namespace ConsoleApp1
                     Console.WriteLine("输入\"数字转中文大写\" ，以将数字转为中文大写");
                     Console.WriteLine("输入\"保存svg转TextBlock样式\" ，以根据svg文件生成TextBlockStyle样式文件");
                     Console.WriteLine("输入\"ModbusTcp\" ，以进行ModbusTcp测试");
-                    Console.WriteLine("输入\"测试AES256加密解密算法\" ，以进行AES256加密解密算法测试");
+                    Console.WriteLine("输入\"AES256加密解密算法\" ，以进行AES256加密解密算法");
+                    Console.WriteLine("输入\"VsCode UserTemplate生成\" ，以进行VsCode UserTemplate生成");
                     string cmd = Console.ReadLine();
                     Do(cmd, ref cmdCache);
                 }
@@ -57,7 +60,25 @@ namespace ConsoleApp1
         {
             switch (cmd)
             {
-                case "测试AES256加密解密算法":
+                case "VsCode UserTemplate生成":
+                    cmdCache = cmd;
+                    Console.WriteLine("请输入模板名称，按回车键结束");
+                    var userTemplateName = Console.ReadLine();
+                    Console.WriteLine("请输入快捷键，按回车键结束");
+                    var prefix = Console.ReadLine();
+                    Console.WriteLine("请输入模板内容，不要包含空行，按回车键结束");
+                    var body = new List<string>();
+                    var temp = string.Empty;
+                    while (!string.IsNullOrEmpty(temp = Console.ReadLine()))
+                    {
+                        body.Add(temp);
+                    }
+                    Console.WriteLine("请输入模板描述，按回车键结束");
+                    var description = Console.ReadLine();
+                    Console.WriteLine(UserTemplateHelper.GetUserTemplate(userTemplateName, prefix, body, description));
+                    break;
+
+                case "AES256加密解密算法":
                     cmdCache = cmd;
                     Console.WriteLine("请输入待加密的字符串");
                     var code = Console.ReadLine();

@@ -1700,6 +1700,21 @@
             </summary>
             <param name="disposing"></param>
         </member>
+        <member name="T:Wp.Helpers.Helpers.TemplateHelpers.VsCodeHelpers.UserTemplateHelper">
+            <summary>
+            用户模板生成帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.TemplateHelpers.VsCodeHelpers.UserTemplateHelper.GetUserTemplate(System.String,System.String,System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            生成vscode 用户模板
+            </summary>
+            <param name="templateName">模板名</param>
+            <param name="prefix">快捷键</param>
+            <param name="body">模板内容</param>
+            <param name="description">模板描述</param>
+            <returns></returns>
+        </member>
         <member name="T:Wp.Helpers.Helpers.PropertyHepler">
             <summary>
             属性帮助类
