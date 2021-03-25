@@ -24,17 +24,17 @@ namespace Wp.Helpers.Helpers.TemplateHelpers.VsCodeHelpers
             try
             {
                 var res = new StringBuilder();
-                res.Append($"\"{templateName}\":");
+                res.Append($"\"{templateName}-template\":");
                 res.AppendLine(" {");
                 res.AppendLine($"\"prefix\": \"{prefix}\",");
                 res.AppendLine("\"body\": [");
                 foreach (var item in body)
                 {
-                    res.AppendLine($"\"{item}\",");
+                    res.AppendLine($"\"{item.Replace("\"", "\\\"")}\",");
                 }
                 res.AppendLine("],");
                 res.AppendLine($"\"description\": \"{description}\"");
-                res.AppendLine(" }");
+                res.AppendLine(" },");
                 return res.ToString();
             }
             catch (Exception)

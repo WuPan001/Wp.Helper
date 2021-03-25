@@ -154,6 +154,7 @@
     <Compile Include="Helpers\TcpHelpers\ServerHelper\TcpClientState.cs" />
     <Compile Include="Helpers\TcpHelpers\ServerHelper\TcpServerHelper.cs" />
     <Compile Include="Helpers\TemplateHelpers\VsCodeHelpers\UserTemplateHelper.cs" />
+    <Compile Include="Helpers\WinHelper.cs" />
     <Compile Include="WpfHelpers\ExpanderHelper.cs" />
     <Compile Include="WpfHelpers\PasswordBoxHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

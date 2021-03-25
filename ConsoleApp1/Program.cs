@@ -15,6 +15,7 @@ using Wp.Helpers.Helpers.ProtocolsHelper;
 using Wp.Helpers.ExtensionMethod;
 
 using Wp.Helpers.Helpers.TemplateHelpers.VsCodeHelpers;
+using System.IO;
 
 namespace ConsoleApp1
 {
@@ -34,6 +35,7 @@ namespace ConsoleApp1
                 try
                 {
                     //Console.WriteLine("输入\"e\"退出程序");
+                    Console.WriteLine("输入\"c\"清空记录");
                     Console.WriteLine("输入\"r\"重复上次操作");
                     Console.WriteLine("输入\"t\"进入测试程序");
                     Console.WriteLine("输入\"生成2个小数之间的随机数\"，以生成2个小数之间的随机数");
@@ -51,8 +53,11 @@ namespace ConsoleApp1
                 {
                     Console.WriteLine(ex.Message); ;
                 }
-                Console.WriteLine("Done");
-                Console.WriteLine(Environment.NewLine);
+                if (cmdCache != "c")
+                {
+                    Console.WriteLine("Done");
+                    Console.WriteLine(Environment.NewLine);
+                }
             }
         }
 
@@ -92,6 +97,11 @@ namespace ConsoleApp1
                 case "保存svg转TextBlock样式":
                     cmdCache = cmd;
                     SvgHelper.SaveGeometryStyle(FileHelper.GetFilesName());
+                    break;
+
+                case "c":
+                    cmdCache = "c";
+                    Console.Clear();
                     break;
 
                 case "e":
