@@ -22,7 +22,7 @@ namespace Wp.Helpers.ExtensionMethod
             style.AppendLine("<Setter Property=\"FontFamily\"");
             style.AppendLine("Value=\"/Resources/#iconfont\"/>");
             style.AppendLine("</Style>");
-            foreach (var li in iconFont.Li)
+            foreach (var li in iconFont.Li.OrderBy(li => li.Div.FirstOrDefault().Text))
             {
                 style.AppendLine($"<Style x:Key=\"{li.Div.FirstOrDefault().Text}TextBlockStyle\"");
                 style.AppendLine("TargetType=\"TextBlock\"");

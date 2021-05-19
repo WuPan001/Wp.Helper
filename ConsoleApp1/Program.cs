@@ -545,7 +545,7 @@ namespace ConsoleApp1
                     var baseName = Console.ReadLine().Trim();
                     Console.WriteLine("请输入样式BasePath，默认为\"/Styles/TextBlockStyles.xaml\"，可回车使用默认BasePath");
                     var basePath = Console.ReadLine().Trim();
-                    TextBlockStyleHelper.GetStyleFromXML(name, new StyleBase()
+                    TextBlockStyleHelper.GetStyleFromHtml(name, new StyleBase()
                     {
                         BaseName = string.IsNullOrEmpty(baseName) ? "PrimaryIconFontTextBlockStyle" : baseName,
                         BasePath = string.IsNullOrEmpty(basePath) ? "/Styles/TextBlockStyles.xaml" : basePath
