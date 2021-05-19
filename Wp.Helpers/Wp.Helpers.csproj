@@ -39,6 +39,9 @@
     <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.2.0.2\lib\net47\CommonServiceLocator.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.33.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.33\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -109,6 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Msg.cs" />
+    <Compile Include="Entities\XmlModelBase.cs" />
     <Compile Include="Enums\Endian.cs" />
     <Compile Include="Enums\Protocols\ModbusTcp\ErrorCode.cs" />
     <Compile Include="Enums\Protocols\ModbusTcp\FunctionCode.cs" />
@@ -122,6 +126,7 @@
     <Compile Include="Converters\Msg\IconConverter.cs" />
     <Compile Include="Converters\Msg\TitleConverter.cs" />
     <Compile Include="Helpers\DateTimeHelper.cs" />
+    <Compile Include="Helpers\DocumentHelpers\XmlHelper.cs" />
     <Compile Include="Helpers\EncryptionHelper.cs" />
     <Compile Include="Entities\ALiIconFont\Content.cs" />
     <Compile Include="Entities\ALiIconFont\IconFont.cs" />
@@ -155,6 +160,7 @@
     <Compile Include="Helpers\TcpHelpers\ServerHelper\TcpServerHelper.cs" />
     <Compile Include="Helpers\TemplateHelpers\VsCodeHelpers\UserTemplateHelper.cs" />
     <Compile Include="Helpers\WinHelper.cs" />
+    <Compile Include="Interfaces\IXmlModel.cs" />
     <Compile Include="WpfHelpers\ExpanderHelper.cs" />
     <Compile Include="WpfHelpers\PasswordBoxHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -186,7 +192,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\Protocols\" />
-    <Folder Include="Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

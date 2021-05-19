@@ -1715,6 +1715,28 @@
             <param name="description">模板描述</param>
             <returns></returns>
         </member>
+        <member name="T:Wp.Helpers.Helpers.WinHelper">
+            <summary>
+            Windows系统帮助类
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.WinHelper.RunOsk">
+            <summary>
+            调用Windows屏幕键盘
+            </summary>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.WinHelper.RunImageView(System.String)">
+            <summary>
+            查看图片
+            </summary>
+            <param name="path">图片文件路径</param>
+        </member>
+        <member name="M:Wp.Helpers.Helpers.WinHelper.RunImageView(System.Drawing.Image)">
+            <summary>
+            查看图片
+            </summary>
+            <param name="img">图片对象</param>
+        </member>
         <member name="T:Wp.Helpers.Helpers.PropertyHepler">
             <summary>
             属性帮助类
@@ -1948,6 +1970,16 @@
             <param name="parameter"></param>
             <param name="culture"></param>
             <returns></returns>
+        </member>
+        <member name="T:Wp.Helpers.Interfaces.IXmlModel">
+            <summary>
+            xml帮助类对象接口
+            </summary>
+        </member>
+        <member name="P:Wp.Helpers.Interfaces.IXmlModel.Children">
+            <summary>
+            子节点
+            </summary>
         </member>
         <member name="T:Wp.Helpers.WpfHelpers.PasswordBoxHelper">
             <summary>

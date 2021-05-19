@@ -15,6 +15,6 @@ namespace Wp.Helpers.Entities.ALiIconFont
         /// <summary>
         ///
         /// </summary>
-        public List<Li> Li { get; set; }
+        public List<Li> Li { get; set; } = new List<Li>();
     }
 }

@@ -18,11 +18,5 @@ namespace Wp.Helpers.Entities.ALiIconFont
         /// </summary>
         [Description("Text")]
         public string Text { get; set; }
-
-        /// <summary>
-        ///
-        /// </summary>
-        [Description("Test")]
-        public bool Test { get; set; }
     }
 }

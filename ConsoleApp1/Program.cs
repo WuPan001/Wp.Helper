@@ -1,9 +1,26 @@
-﻿using System;
+﻿#define TestXML
+#define TestFile
+#define TestRedis
+#define TestEnum
+#define TestProperty
+#define TestStyle
+#define TestIni
+#define TestInt
+#define TestPing
+#define TestBool
+#define TestArray
+#define TestHtml
+
+using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Net.Sockets;
+using System.Text;
 using System.Threading;
 using Wp.Helpers.Entities;
 using Wp.Helpers.Entities.WpfStyle;
@@ -11,21 +28,13 @@ using Wp.Helpers.Enums;
 using Wp.Helpers.ExtensionMethod;
 using Wp.Helpers.Helpers;
 using Wp.Helpers.Helpers.ProtocolsHelper;
-
-using Wp.Helpers.ExtensionMethod;
-
 using Wp.Helpers.Helpers.TemplateHelpers.VsCodeHelpers;
-using System.IO;
+using Wp.Helpers.Redis;
 
 namespace ConsoleApp1
 {
     internal class Program
     {
-        /// <summary>
-        /// 标识ModbusTcpTCP链接 是否链接
-        /// </summary>
-        private static bool _isModbusTcpConnected;
-
         [STAThread]
         private static void Main(string[] args)
         {
@@ -113,158 +122,168 @@ namespace ConsoleApp1
 
                 case "t":
                     cmdCache = cmd;
+#if !TestFile
+                    foreach (var item in FileHelper.GetFilesFullName(true))
+                    {
+                        Console.WriteLine(item);
+                    }
 
-                    #region 文件帮助类测试
+                    foreach (var item in FileHelper.GetDirectoriesFullName())
+                    {
+                        Console.WriteLine(item);
+                    }
+                    foreach (var item in FileHelper.GetFileSystemInfo())
+                    {
+                        Console.WriteLine(item);
+                    }
+                    var dic = FileHelper.GetFilesName(extensions: new List<EImgType>() { EImgType.SVG });
+                    foreach (var item in dic.Keys)
+                    {
+                        Console.WriteLine(item);
+                        Console.WriteLine(dic[item]);
+                        Console.WriteLine(File.ReadAllText(dic[item]));
+                    }
+                    SvgHelper.SaveGeometryStyle(dic);
+                    FileHelper.RenameFiles(new string[] { " (" });
+                    FileHelper.ClassificationFiles(new string[] { " (" });
+                    FileHelper.RenameFiles(isTotalRename: true);
 
-                    //foreach (var item in FileHelper.GetFilesFullName(true))
-                    //{
-                    //    Console.WriteLine(item);
-                    //}
-                    //break;
+#elif !TestRedis
 
-                    //foreach (var item in FileHelper.GetDirectoriesFullName())
-                    //{
-                    //    Console.WriteLine(item);
-                    //}
-                    //foreach (var item in FileHelper.GetFileSystemInfo())
-                    //{
-                    //    Console.WriteLine(item);
-                    //}
-                    //var dic = FileHelper.GetFilesName(extensions: new List<EImgType>() { EImgType.SVG });
-                    //foreach (var item in dic.Keys)
-                    //{
-                    //    Console.WriteLine(item);
-                    //    Console.WriteLine(dic[item]);
-                    //    Console.WriteLine(File.ReadAllText(dic[item]));
-                    //}
-                    //SvgHelper.SaveGeometryStyle(dic);
-                    //FileHelper.RenameFiles(new string[] { " (" });
-                    //FileHelper.ClassificationFiles(new string[] { " (" });
+                    var redis = new RedisHelper();
+                    redis.PushListRight("Test1", "2344");
+                    redis.PushListRight("Test1", "2344");
+                    redis.PushListRight("Test1", "2344");
+                    Console.WriteLine(redis.GetString("Test"));
 
-                    #endregion 文件帮助类测试
+#elif !TestEnum
 
-                    #region RedisHelper测试
+                    var test = EnumHelper.GetEnumItems<EImgType>();
+                    var dic1 = EnumHelper.GetEnumValueKeyIsDescription<EImgType>();
+#elif !TestProperty
+                    var styleBase = new StyleBase() { BaseName = "Name" };
+                    var propertyDic = PropertyHepler.GetPropertyValueKeyIsName(styleBase);
+                    var stop = new Stopwatch();
+                    stop.Start();
+                    for (int i = 0; i < 10000; i++)
+                    {
+                        PropertyHepler.GetPropertyValueKeyIsName(styleBase);
+                    }
+                    stop.Stop();
+                    Console.WriteLine(stop.ElapsedMilliseconds);
+                    foreach (var item in propertyDic.Keys)
+                    {
+                        Console.WriteLine($"{item}    {propertyDic[item]}");
+                    }
 
-                    //var redis = new RedisHelper();
-                    //redis.PushListRight("Test1", "2344");
-                    //redis.PushListRight("Test1", "2344");
-                    //redis.PushListRight("Test1", "2344");
-                    //Console.WriteLine(redis.GetString("Test"));
+#elif !TestStyle
 
-                    #endregion RedisHelper测试
+                    SolidColorBrushStyleHelper.SaveSolidColorBrushStyle();
 
-                    #region Enum帮助类测试
+#elif !TestIni
 
-                    //var test = EnumHelper.GetEnumItems<EImgType>();
-
-                    #endregion Enum帮助类测试
-
-                    //var dic1 = EnumHelper.GetEnumValueKeyIsDescription<EImgType>();
-
-                    #region 属性帮助类测试
-
-                    /*, BasePath = "Path"*/
-                    /*var styleBase = new StyleBase() { BaseName = "Name" };
-                        var propertyDic = PropertyHepler.GetPropertyValueKeyIsName(styleBase);
-                      var stop = new Stopwatch();
-                      stop.Start();
-                      for (int i = 0; i < 10000; i++)
-                      {
-                          PropertyHepler.GetPropertyValueKeyIsName(styleBase);
-                      }
-                      stop.Stop();
-                      Console.WriteLine(stop.ElapsedMilliseconds); */
-                    //foreach (var item in propertyDic.Keys)
-                    //{
-                    //    Console.WriteLine($"{item}    {propertyDic[item]}");
-                    //}
-
-                    #endregion 属性帮助类测试
-
-                    #region SolidColorBrushStyleHelper测试
-
-                    //SolidColorBrushStyleHelper.SaveSolidColorBrushStyle();
-
-                    #endregion SolidColorBrushStyleHelper测试
-
-                    #region ini文件帮助类测试
-
-                    //var styleBase = new StyleBase() { BaseName = "Name", BasePath = "Path" };
-                    //InitializationFileHelper.WriteAsyncPropertyNameAsKey("TestSection", styleBase, Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TestIni.ini")).Wait();
-                    ////var temp = IniHelper.ReadAsync("TestSection", "TestBool", Path.Combine(FileHelper.GetDirectory(), "TestIni.ini")).Result;
-                    ////var temp1 = Convert.ToBoolean(temp);
-                    ////Console.WriteLine(temp1);
-                    ////Console.WriteLine(DateTime.Now);
-                    //var test = InitializationFileHelper.ReadAsyncT<StyleBase>("TestSection", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TestIni.ini")).Result;
+                    var styleBase = new StyleBase() { BaseName = "Name", BasePath = "Path" };
+                    InitializationFileHelper.WriteAsyncPropertyNameAsKey("TestSection", styleBase, Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TestIni.ini")).Wait();
+                    //var temp = IniHelper.ReadAsync("TestSection", "TestBool", Path.Combine(FileHelper.GetDirectory(), "TestIni.ini")).Result;
+                    //var temp1 = Convert.ToBoolean(temp);
+                    //Console.WriteLine(temp1);
                     //Console.WriteLine(DateTime.Now);
+                    var test = InitializationFileHelper.ReadAsyncT<StyleBase>("TestSection", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TestIni.ini")).Result;
+                    Console.WriteLine(DateTime.Now);
 
-                    #endregion ini文件帮助类测试
+#elif !TestInt
 
-                    #region 整形扩展方法测试
+                    byte data = 4;
+                    var tempInt = data.ToBooleanArray();
+                    foreach (var item in tempInt)
+                    {
+                        Console.WriteLine(item);
+                    }
+                    Console.WriteLine("___________________________________");
+                    ushort data1 = 4;
+                    var temp1 = data1.ToBooleanArray();
+                    foreach (var item in temp1)
+                    {
+                        Console.WriteLine(item);
+                    }
+                    Console.WriteLine("___________________________________");
+                    uint data2 = 4;
+                    var temp2 = data2.ToBooleanArray();
+                    foreach (var item in temp2)
+                    {
+                        Console.WriteLine(item);
+                    }
 
-                    //byte data = 4;
-                    //var temp = data.ToBooleanArray();
-                    //foreach (var item in temp)
-                    //{
-                    //    Console.WriteLine(item);
-                    //}
-                    //Console.WriteLine("___________________________________");
-                    //ushort data1 = 4;
-                    //var temp1 = data1.ToBooleanArray();
-                    //foreach (var item in temp1)
-                    //{
-                    //    Console.WriteLine(item);
-                    //}
-                    //Console.WriteLine("___________________________________");
-                    //uint data2 = 4;
-                    //var temp2 = data2.ToBooleanArray();
-                    //foreach (var item in temp2)
-                    //{
-                    //    Console.WriteLine(item);
-                    //}
+#elif !TestPing
 
-                    #endregion 整形扩展方法测试
+                    using (var p = new Ping())
+                    {
+                        Console.WriteLine(p.Send("192.168.1.115").Status);
+                    }
 
-                    #region TestPing
+#elif !TestBool
 
-                    //using (var p = new Ping())
-                    //{
-                    //    Console.WriteLine(p.Send("192.168.1.115").Status);
-                    //}
+                    bool[] test = new bool[15];
+                    test[0] = true;
+                    test[3] = true;
+                    test[4] = true;
+                    test[14] = true;
+                    var res = test.ToByteArray(EEndian.LittleEndian);
 
-                    #endregion TestPing
+                    foreach (var item in res)
+                    {
+                        Console.WriteLine(item);
+                    }
 
-                    #region Bool扩展方法测试
+#elif !TestArray
+                    var tt = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
+                    Console.WriteLine(tt.ToFormatString(EScale.Decimal));
+                    Console.WriteLine(tt.ToFormatString(EScale.Hex));
+                    Console.WriteLine(tt.ToFormatString(EScale.HexToUp));
+                    Console.WriteLine(tt.ToFormatString(EScale.HexWithToken));
+                    Console.WriteLine(tt.ToFormatString(EScale.HexWithTokenToUp, ","));
+                    var bb = new byte[] { 1, 2, 3, 4, 56, 7, 8, 9 };
+                    Console.WriteLine(bb.Contains((byte)1));
+                    Console.WriteLine(bb.Contains((byte)10));
+#elif !TestHtml
+                    var htmlPath = FileHelper.GetFilesFullName(false, filter: "HTML文件(*.html) | *.html", title: "请选择demo_index.html文件").FirstOrDefault();
+                    if (!string.IsNullOrEmpty(htmlPath))
+                    {
+                        var doc = new HtmlDocument();
+                        doc.Load(htmlPath);
+                        var htmlNodes = doc.DocumentNode.SelectNodes("//body/div/div[last()]/div[1]/ul[1]").FirstOrDefault();/*/ul[last()-1]*/
+                        var str = new StringBuilder();
+                        str.AppendLine(" <ul class=\"icon_lists dib - box\">");
+                        str.AppendLine(htmlNodes.InnerHtml);
+                        str.Append("</ul>");
+                        Console.WriteLine(str);
+                        //var children = htmlNodes.FirstOrDefault().ChildNodes.Where(li => li.Name == "li");
+                        //foreach (var item in children)
+                        //{
+                        //    var tt = item.InnerText.Replace(" ", "").Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                        //    foreach (var t in tt)
+                        //    {
+                        //        Console.WriteLine(t);
+                        //    }
+                        //    Console.WriteLine("_______________________");
+                        //}
 
-                    //bool[] test = new bool[15];
-                    //test[0] = true;
-                    //test[3] = true;
-                    //test[4] = true;
-                    //test[14] = true;
-                    //var res = test.ToByteArray(EEndian.LittleEndian);
-
-                    //foreach (var item in res)
-                    //{
-                    //    Console.WriteLine(item);
-                    //}
-
-                    #endregion Bool扩展方法测试
-
-                    #region 数组扩展方法测试
-
-                    //var tt = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
-                    //Console.WriteLine(tt.ToFormatString(EScale.Decimal));
-                    //Console.WriteLine(tt.ToFormatString(EScale.Hex));
-                    //Console.WriteLine(tt.ToFormatString(EScale.HexToUp));
-                    //Console.WriteLine(tt.ToFormatString(EScale.HexWithToken));
-                    //Console.WriteLine(tt.ToFormatString(EScale.HexWithTokenToUp, ","));
-
-                    #endregion 数组扩展方法测试
-
-                    //var bb = new byte[] { 1, 2, 3, 4, 56, 7, 8, 9 };
-                    //Console.WriteLine(bb.Contains((byte)1));
-                    //Console.WriteLine(bb.Contains((byte)10));
-                    Console.WriteLine("asasqw121.121".IsNumber());
+                        //foreach (var li in ul.ChildNodes)
+                        //{
+                        //    Console.WriteLine(li.InnerText);
+                        //    Console.WriteLine("_________________________");
+                        //}
+                        //foreach (var item in)
+                        //{
+                        //    foreach (var childern in item.ChildNodes)
+                        //    {
+                        //        Console.WriteLine(childern.InnerText);
+                        //        Console.WriteLine("_________________________");
+                        //    }
+                        //}
+                    }
+#endif
+                    TextBlockStyleHelper.GetStyleFromHtml("test");
                     break;
 
                 case "ModbusTcp":
@@ -541,8 +560,8 @@ namespace ConsoleApp1
 
                 case "保存几何样式":
                     cmdCache = cmd;
-                    var dic = FileHelper.GetFilesName(extensions: new List<EImgType>() { EImgType.SVG });
-                    SvgHelper.SaveGeometryStyle(dic);
+                    var dicp = FileHelper.GetFilesName(extensions: new List<EImgType>() { EImgType.SVG });
+                    SvgHelper.SaveGeometryStyle(dicp);
                     break;
 
                 case "生成2个小数之间的随机数":
@@ -563,7 +582,7 @@ namespace ConsoleApp1
         {
             foreach (var item in data)
             {
-                Console.Write($"{item.ToString("X2")} ");
+                Console.Write($"{item:X2} ");
             }
             Console.WriteLine();
         }
