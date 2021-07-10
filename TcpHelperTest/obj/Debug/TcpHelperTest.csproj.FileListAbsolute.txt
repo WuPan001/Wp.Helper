@@ -30,7 +30,6 @@ D:\Files\Git\Wp.Helper\TcpHelperTest\bin\Debug\System.Buffers.xml
 D:\Files\Git\Wp.Helper\TcpHelperTest\bin\Debug\System.Numerics.Vectors.xml
 D:\Files\Git\Wp.Helper\TcpHelperTest\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Files\Git\Wp.Helper\TcpHelperTest\obj\Debug\TcpHelperTest.csprojAssemblyReference.cache
-D:\Files\Git\Wp.Helper\TcpHelperTest\obj\Debug\TcpHelperTest.exe.config
 D:\Files\Git\Wp.Helper\TcpHelperTest\obj\Debug\TcpHelperTest.Form1.resources
 D:\Files\Git\Wp.Helper\TcpHelperTest\obj\Debug\TcpHelperTest.Properties.Resources.resources
 D:\Files\Git\Wp.Helper\TcpHelperTest\obj\Debug\TcpHelperTest.csproj.GenerateResource.cache
@@ -38,3 +37,6 @@ D:\Files\Git\Wp.Helper\TcpHelperTest\obj\Debug\TcpHelperTest.csproj.CoreCompileI
 D:\Files\Git\Wp.Helper\TcpHelperTest\obj\Debug\TcpHelperTest.csproj.CopyComplete
 D:\Files\Git\Wp.Helper\TcpHelperTest\obj\Debug\TcpHelperTest.exe
 D:\Files\Git\Wp.Helper\TcpHelperTest\obj\Debug\TcpHelperTest.pdb
+D:\Files\Git\Wp.Helper\TcpHelperTest\bin\Debug\HtmlAgilityPack.dll
+D:\Files\Git\Wp.Helper\TcpHelperTest\bin\Debug\HtmlAgilityPack.pdb
+D:\Files\Git\Wp.Helper\TcpHelperTest\bin\Debug\HtmlAgilityPack.xml
